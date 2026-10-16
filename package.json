@@ -32,5 +32,11 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "typescript": "^5"
+  },
+  "allowScripts": {
+    "sharp@0.34.5": true,
+    "sharp@0.35.5": true,
+    "onnxruntime-node@1.21.0": true,
+    "protobufjs@7.6.6": true
   }
 }
