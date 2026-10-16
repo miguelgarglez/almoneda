@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 const TXT = `# almoneda
 
@@ -28,6 +28,8 @@ almoneda is an image desk for agents: search a large corpus of public-domain and
 3. Sign the payment per the scheme (EIP-3009 typed data, or the Soroban auth entry the SDK builds).
 4. Retry with header PAYMENT-SIGNATURE: base64 of {x402Version:2, resource, accepted, payload}.
 5. Receive 200 + PAYMENT-RESPONSE header with {transaction, payer, network} — the tx is public on the explorer.
+
+Notes: the 402 body is empty — everything lives in the PAYMENT-REQUIRED header. If a correctly-signed payment is answered with another 402 and an empty body, wait a few seconds and retry once; facilitator verification is occasionally transient.
 
 Or use the SDK: npm i @x402/fetch @x402/evm viem (or @x402/stellar); wrapFetchWithPayment(fetch, client) handles steps 1-5.
 
