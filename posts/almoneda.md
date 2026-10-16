@@ -3,7 +3,7 @@
 platform: x
 media: /Users/miguelgarglez/Developer/almoneda/video/renders/video.mp4
 status: rendered
-draft: pending
+draft: https://typefully.com/?d=11295785
 
 ---
 
