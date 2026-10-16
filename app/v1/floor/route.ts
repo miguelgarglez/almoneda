@@ -14,7 +14,7 @@ export async function GET() {
     recentSales(20),
     currentLot(),
   ]);
-  const thumbs = await saleThumbs([...new Set(recent.map((s) => s.artwork_ids?.[0]).filter(Boolean))] as string[]);
+  const thumbs = await saleThumbs([...new Set(recent.flatMap((s) => s.artwork_ids ?? []))]);
   return NextResponse.json(
     {
       corpus: { size, sources: ["met", "cle", "aic", "nga"] },
@@ -32,6 +32,13 @@ export async function GET() {
           thumb: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.thumb ?? null) : null,
           lot_title: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.title ?? null) : null,
           lot_url: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.object_url ?? null) : null,
+          lot_img: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.image ?? null) : null,
+          lot_artist: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.artist ?? null) : null,
+          lot_museum: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.museum ?? null) : null,
+          lots: (s.artwork_ids ?? [])
+            .map((id) => thumbs.get(id))
+            .filter(Boolean)
+            .map((l) => ({ title: l!.title, object_url: l!.object_url })),
           latency_ms: s.latency_ms,
           created_at: s.created_at,
         })),

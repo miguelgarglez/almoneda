@@ -1,6 +1,5 @@
-import { corpusSize, currentLot, saleThumbs, MUSEUMS } from "@/lib/corpus";
+import { corpusSize, saleThumbs } from "@/lib/corpus";
 import { salesCount, recentSales } from "@/lib/ledger";
-import LotStage from "@/components/lot-stage";
 import BidRoom from "@/components/bid-room";
 import FloorFeed from "@/components/floor-feed";
 import { SurfaceToggle, SurfaceClose, SheetA11y } from "@/components/surface-sheet";
@@ -13,13 +12,12 @@ const TICKER = [
 ];
 
 async function floorData() {
-  const [size, total, recent, lot] = await Promise.all([
+  const [size, total, recent] = await Promise.all([
     corpusSize(),
     salesCount(),
     recentSales(20),
-    currentLot(),
   ]);
-  return { size, total, recent, lot };
+  return { size, total, recent };
 }
 
 const RECEIPT = `# GET /v1/search?q=storm%20at%20sea
@@ -37,13 +35,21 @@ PAYMENT-RESPONSE: {"success":true,
   "transaction":"c45f702a…071c75","network":"stellar:testnet"}`;
 
 export default async function Page() {
-  const { size, total, recent, lot } = await floorData();
-  const thumbs = await saleThumbs([...new Set(recent.map((s) => s.artwork_ids?.[0]).filter(Boolean))] as string[]);
+  const { size, total, recent } = await floorData();
+  // join every delivered work — receipts name all the lots a sale carried
+  const thumbs = await saleThumbs([...new Set(recent.flatMap((s) => s.artwork_ids ?? []))]);
   const recentWithThumbs = recent.map((s) => ({
     ...s,
     thumb: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.thumb ?? null) : null,
     lot_title: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.title ?? null) : null,
     lot_url: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.object_url ?? null) : null,
+    lot_img: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.image ?? null) : null,
+    lot_artist: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.artist ?? null) : null,
+    lot_museum: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.museum ?? null) : null,
+    lots: (s.artwork_ids ?? [])
+      .map((id) => thumbs.get(id))
+      .filter(Boolean)
+      .map((l) => ({ title: l!.title, object_url: l!.object_url })),
   }));
   const last = recent[0];
   const lastAmt = last
@@ -92,22 +98,6 @@ export default async function Page() {
 
       <section className="deck">
         <div className="floorgrid">
-          <LotStage
-            initial={
-              lot
-                ? {
-                    id: lot.id,
-                    title: lot.title,
-                    artist: lot.artist,
-                    date: lot.date,
-                    medium: lot.medium,
-                    image: { display: lot.image_url, thumb: lot.thumb_url || lot.image_url, width: lot.img_w ?? null, height: lot.img_h ?? null },
-                    museum: MUSEUMS[lot.source]?.name ?? lot.source,
-                    object_url: lot.object_url,
-                  }
-                : null
-            }
-          />
           <div className="console-col">
             <BidRoom />
             <p className="fineprint" style={{ marginTop: 14 }}>
@@ -116,7 +106,7 @@ export default async function Page() {
               could not be run, the lot says so.
             </p>
           </div>
-          <FloorFeed initial={recentWithThumbs as any} total={total} />
+          <FloorFeed initial={recentWithThumbs as any} total={total} corpusDown={!size} />
         </div>
       </section>
 

@@ -10,7 +10,7 @@ type Lot = {
   title: string;
   artist: string;
   image: { display: string; thumb: string };
-  provenance?: { accession: string | null; rights: string; verified: boolean };
+  provenance?: { museum?: string; accession: string | null; rights: string; verified: boolean; evidence_url?: string | null };
 };
 
 type BidResult = {
@@ -25,11 +25,13 @@ type BidResult = {
 
 const CHIPS = ["a storm at sea", "gold and grief", "a sleeping child", "winter light"];
 
-// Haptics are a bonus layer — devices without support just don't feel it.
+// Haptics are a bonus layer — devices without support just don't feel it,
+// and the visitor can switch them off for good from the console footnote.
 let haptics: WebHaptics | null = null;
+let hapticsOn = true;
 const buzz = (preset: string) => {
   try {
-    if (!WebHaptics.isSupported) return;
+    if (!hapticsOn || !WebHaptics.isSupported) return;
     (haptics ??= new WebHaptics()).trigger(preset);
   } catch {}
 };
@@ -46,23 +48,45 @@ const tapeLine = (s: Step, i: number) => {
   );
 };
 
-const LotCard = ({ l, sold }: { l: Lot; sold?: boolean }) => (
-  <div className="lot" key={l.id}>
-    {sold && <div className="stamp-sold">SOLD</div>}
-    {/* eslint-disable-next-line @next/next/no-img-element */}
-    <img src={l.image.thumb} alt={l.title} loading="lazy" />
-    <div className="d">
-      <div className="t">{l.title}</div>
-      {l.artist && <div className="a">{l.artist}</div>}
-      {l.provenance && (
-        <div className="p">
-          {l.provenance.accession ? `acc. ${l.provenance.accession} · ` : ""}
-          <span className={l.provenance.verified ? "ok" : ""}>{l.provenance.verified ? `${l.provenance.rights} ✓` : `${l.provenance.rights}`}</span>
+const LotCard = ({ l, sold }: { l: Lot; sold?: boolean }) => {
+  const [failed, setFailed] = useState(false);
+  const link = l.provenance?.evidence_url;
+  return (
+    <div className="lot" key={l.id}>
+      {sold && <div className="stamp-sold">SOLD</div>}
+      {failed ? (
+        <div className="lot-img-miss">
+          the museum's CDN held this one back
+          {link && (
+            <>
+              {" — "}
+              <a href={link} target="_blank" rel="noreferrer">see the catalogue record ↗</a>
+            </>
+          )}
         </div>
+      ) : (
+        /* eslint-disable-next-line @next/next/no-img-element */
+        <img src={l.image.thumb} alt={l.title} loading="lazy" onError={() => setFailed(true)} />
       )}
+      <div className="d">
+        <div className="t">{l.title}</div>
+        {l.artist && <div className="a">{l.artist}</div>}
+        {l.provenance && (
+          <div className="p">
+            {l.provenance.accession ? `acc. ${l.provenance.accession} · ` : ""}
+            <span className={l.provenance.verified ? "ok" : ""}>{l.provenance.verified ? `${l.provenance.rights} ✓` : `${l.provenance.rights}`}</span>
+            {link && (
+              <>
+                {" · "}
+                <a href={link} target="_blank" rel="noreferrer" style={{ color: "var(--usdc)" }}>catalogue ↗</a>
+              </>
+            )}
+          </div>
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default function BidRoom() {
   const [q, setQ] = useState("");
@@ -72,18 +96,62 @@ export default function BidRoom() {
   const [live, setLive] = useState(false);
   const [freeLots, setFreeLots] = useState<Lot[] | null>(null);
   const [freeNote, setFreeNote] = useState<{ text: string; err?: boolean } | null>(null);
+  const [haptics, setHaptics] = useState(true);
+  const [follow, setFollow] = useState(true);
   const tapeEnd = useRef<HTMLDivElement>(null);
+  const consoleCol = useRef<HTMLElement | null>(null);
 
-  // the wire grows downward — keep the newest line in view, but scroll the
-  // console's own column rather than the page (on mobile the page must not
-  // jump) — and never on the empty mount
+  // the haptics preference persists — stored once, honoured by every buzz
   useEffect(() => {
+    const saved = localStorage.getItem("almoneda:haptics");
+    if (saved === "off") {
+      hapticsOn = false;
+      setHaptics(false);
+    }
+  }, []);
+  const toggleHaptics = () => {
+    const next = !haptics;
+    setHaptics(next);
+    hapticsOn = next;
+    localStorage.setItem("almoneda:haptics", next ? "on" : "off");
+    if (next) buzz("selection");
+  };
+
+  // The wire grows downward and the console follows it — until the visitor
+  // scrolls up to inspect. Then a "follow latest" pill takes over; the tape
+  // never yanks the reader back.
+  useEffect(() => {
+    const el = tapeEnd.current;
+    consoleCol.current = (el?.closest(".console-col") as HTMLElement | null) ?? null;
+    const col = consoleCol.current;
+    const onScroll = () => {
+      if (!col) return;
+      const nearBottom = col.scrollHeight - col.scrollTop - col.clientHeight < 48;
+      setFollow(nearBottom);
+    };
+    col?.addEventListener("scroll", onScroll, { passive: true });
+    // on mobile the page itself is the scroller: if the visitor scrolls and
+    // the tape end leaves the viewport, they are inspecting — stop following
+    const onWin = () => {
+      if (col && col.scrollHeight > col.clientHeight) return;
+      const r = tapeEnd.current?.getBoundingClientRect();
+      if (r && (r.top > innerHeight || r.bottom < 0)) setFollow(false);
+    };
+    window.addEventListener("scroll", onWin, { passive: true });
+    return () => {
+      col?.removeEventListener("scroll", onScroll);
+      window.removeEventListener("scroll", onWin);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!follow) return;
     if (!steps.length && !res && !freeNote && !freeLots?.length) return;
     const el = tapeEnd.current;
-    const col = el?.closest(".console-col") as HTMLElement | null;
+    const col = consoleCol.current;
     if (col && col.scrollHeight > col.clientHeight) col.scrollTop = col.scrollHeight;
-    else el?.scrollIntoView({ block: "nearest" });
-  }, [steps, res, freeNote, freeLots]);
+    else el?.scrollIntoView({ block: "nearest", behavior: "auto" });
+  }, [steps, res, freeNote, freeLots, follow]);
 
   const bid = async () => {
     buzz("medium");
@@ -93,6 +161,7 @@ export default function BidRoom() {
     setLive(false);
     setFreeLots(null);
     setFreeNote(null);
+    setFollow(true);
     try {
       const r = await fetch("/v1/demo/bid", {
         method: "POST",
@@ -154,6 +223,7 @@ export default function BidRoom() {
     setRes(null);
     setFreeLots(null);
     setFreeNote(null);
+    setFollow(true);
     try {
       const u = new URL("/v1/demo/search", location.origin);
       u.searchParams.set("q", q.trim() || "a quiet interior");
@@ -161,12 +231,15 @@ export default function BidRoom() {
       const r = await fetch(u.toString());
       const j = await r.json().catch(() => null);
       if (!r.ok) {
+        buzz("error");
         setFreeNote({ text: j?.message ?? `preview failed (${r.status}) — the paid desk is always open`, err: true });
       } else {
+        buzz("selection");
         setFreeLots(j?.results ?? []);
         setFreeNote({ text: "unpaid preview — three a day. The paid desk sells these for a cent each." });
       }
     } catch {
+      buzz("error");
       setFreeNote({ text: "preview failed — try again", err: true });
     } finally {
       setBusy(null);
@@ -183,6 +256,10 @@ export default function BidRoom() {
         <span>x402 · testnet</span>
       </div>
       <div className="bd">
+        <p className="console-lede">
+          House-funded testnet demonstration — the purse pays, no wallet needed. Three bids a day.
+          Your agent buys the search itself: the works it wins appear below, and the sale lands on the floor.
+        </p>
         <label className="f-label" htmlFor="bid-query">what your agent needs</label>
         <input
           type="text"
@@ -196,7 +273,15 @@ export default function BidRoom() {
         />
         <div className="chips" aria-label="example queries">
           {CHIPS.map((c) => (
-            <button key={c} type="button" onClick={() => { buzz("selection"); setQ(c); }}>{c}</button>
+            <button
+              key={c}
+              type="button"
+              className={q === c ? "sel" : ""}
+              aria-pressed={q === c}
+              onClick={() => { buzz("selection"); setQ(c); }}
+            >
+              {c}
+            </button>
           ))}
         </div>
         <div className="actions">
@@ -208,10 +293,34 @@ export default function BidRoom() {
           </button>
         </div>
         <p className="fineprint">
-          Fixed-price sale: <b>testnet money</b>, no wallet needed — the house purse pays so you can watch a real
-          x402 payment settle on-chain. The agent buys <b>one API response</b>, not exclusive ownership: the works
-          are public domain for everyone.
+          The agent buys <b>one API response</b>, not exclusive ownership — the works are public domain for
+          everyone.{" "}
+          <button type="button" className="hapt" onClick={toggleHaptics} aria-pressed={haptics}>
+            haptics {haptics ? "on" : "off"}
+          </button>
         </p>
+
+        <AnimatePresence>
+          {res?.settlement && res.explorer_url && (
+            <motion.div
+              className="settle-pin"
+              role="status"
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+            >
+              <span className="sp-stamp">sold</span>
+              <span>
+                settled on {res.settlement.network} —{" "}
+                <a href={res.explorer_url} target="_blank" rel="noreferrer">
+                  {res.settlement.transaction.slice(0, 14)}… ↗
+                </a>
+                {res.lots?.[0] ? <> · won “{res.lots[0].title}”{res.lots.length > 1 ? ` +${res.lots.length - 1}` : ""}</> : null}
+                {" "}· the new row is open on the floor →
+              </span>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div aria-live="polite">
         {(steps.length > 0 || res || freeLots || freeNote) && (
@@ -238,25 +347,25 @@ export default function BidRoom() {
                 </span>
               </div>
             )}
-            <AnimatePresence>
-              {res?.settlement && res.explorer_url && (
-                <motion.div className="ln ok" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                  <span className="k">sold</span>
-                  <span>
-                    settled on {res.settlement.network} —{" "}
-                    <a href={res.explorer_url} target="_blank" rel="noreferrer" style={{ color: "var(--usdc)" }}>
-                      {res.settlement.transaction.slice(0, 14)}… ↗
-                    </a>
-                    {" "}· the new row lands on the floor →
-                  </span>
-                </motion.div>
-              )}
-            </AnimatePresence>
             {freeNote && (
               <div className={`ln ${freeNote.err ? "err" : ""}`}>
                 <span className="k">—</span>
                 <span style={{ color: freeNote.err ? "var(--sold)" : "var(--ink-3)" }}>{freeNote.text}</span>
               </div>
+            )}
+            {!follow && (
+              <button
+                type="button"
+                className="followbtn"
+                onClick={() => {
+                  setFollow(true);
+                  const col = consoleCol.current;
+                  if (col) col.scrollTop = col.scrollHeight;
+                  else tapeEnd.current?.scrollIntoView({ block: "nearest" });
+                }}
+              >
+                ↓ follow the wire
+              </button>
             )}
           </div>
         )}

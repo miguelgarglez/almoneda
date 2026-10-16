@@ -55,19 +55,21 @@ export function rerankByKeywords(rows: CorpusRow[], q: string): CorpusRow[] {
 }
 
 export async function corpusSize(): Promise<number | null> {
+  // a HEAD count is cheap and doesn't depend on the corpus_size RPC, which
+  // has timed out before and taken the whole "floor open" signal with it
   try {
-    const res = await fetch(`${env.supabaseUrl}/rest/v1/rpc/corpus_size`, {
-      method: "POST",
+    const res = await fetch(`${env.supabaseUrl}/rest/v1/artworks?select=id&limit=0`, {
+      method: "HEAD",
       headers: {
         apikey: env.supabaseAnon,
         Authorization: `Bearer ${env.supabaseAnon}`,
-        "Content-Type": "application/json",
-        "Content-Profile": "mellizo",
+        "Accept-Profile": "mellizo",
+        Prefer: "count=exact",
       },
-      body: "{}",
     });
-    if (!res.ok) return null;
-    return await res.json();
+    const range = res.headers.get("content-range") || "";
+    const n = parseInt(range.split("/")[1] || "", 10);
+    return Number.isFinite(n) ? n : null;
   } catch {
     return null;
   }
@@ -89,20 +91,34 @@ export async function currentLot(windowMs = 120_000): Promise<CorpusRow | null> 
 }
 
 // Lot lookup for ledger rows: thumb, title, and the museum's own record so
-// an expanded receipt names the work and links its catalogue page.
-export type SaleLot = { thumb: string; title: string; object_url: string | null };
+// an expanded receipt names every delivered work and links its catalogue page.
+export type SaleLot = {
+  thumb: string;
+  image: string;
+  title: string;
+  artist: string;
+  museum: string;
+  object_url: string | null;
+};
 
 export async function saleThumbs(ids: string[]): Promise<Map<string, SaleLot>> {
   const out = new Map<string, SaleLot>();
   if (!ids.length) return out;
   try {
     const res = await fetch(
-      `${env.supabaseUrl}/rest/v1/artworks?select=id,title,thumb_url,image_url,object_url&id=in.(${ids.map((i) => `"${i}"`).join(",")})`,
+      `${env.supabaseUrl}/rest/v1/artworks?select=id,title,artist,source,thumb_url,image_url,object_url&id=in.(${ids.map((i) => `"${i}"`).join(",")})`,
       { headers: { apikey: env.supabaseAnon, Authorization: `Bearer ${env.supabaseAnon}`, "Accept-Profile": "mellizo" } }
     );
     if (res.ok)
       for (const r of await res.json())
-        out.set(r.id, { thumb: r.thumb_url || r.image_url, title: r.title, object_url: r.object_url ?? null });
+        out.set(r.id, {
+          thumb: r.thumb_url || r.image_url,
+          image: r.image_url || r.thumb_url,
+          title: r.title,
+          artist: r.artist ?? "",
+          museum: MUSEUMS[r.source]?.name ?? r.source,
+          object_url: r.object_url ?? null,
+        });
   } catch {}
   return out;
 }

@@ -90,11 +90,19 @@ export async function POST(req: NextRequest) {
       const send = (o: Record<string, unknown>) => ctrl.enqueue(enc.encode(JSON.stringify(o) + "\n"));
       const step = (step: string, detail: string) => send({ type: "step", step, detail, ms: Date.now() - t0 });
       // the facilitator occasionally drops its answer after a real settlement —
-      // before re-spending, check the floor for a sale this paddle just wrote
+      // before re-spending, check the floor for a sale this request wrote.
+      // The demo purse is shared, so payer alone can't prove "this bid
+      // settled": the row must postdate the request's baseline AND carry its
+      // query, or another visitor's sale could be claimed as ours.
+      const baselineId = (await recentSales(1).catch(() => []))[0]?.id ?? 0;
       const recovered = async () => {
         const recent = await recentSales(5).catch(() => []);
         return recent.find(
-          (s) => s.payer.toLowerCase() === payer.toLowerCase() && Date.now() - new Date(s.created_at).getTime() < 90_000,
+          (s) =>
+            s.id > baselineId &&
+            s.payer.toLowerCase() === payer.toLowerCase() &&
+            s.query_hint === query.slice(0, 120) &&
+            Date.now() - new Date(s.created_at).getTime() < 90_000,
         );
       };
       try {

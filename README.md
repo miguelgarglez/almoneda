@@ -8,7 +8,7 @@ Live: **https://almoneda-app.vercel.app**
 
 ## What it is
 
-22,000+ public-domain artworks from four museums — the Met, Cleveland, the Art Institute of Chicago, and the National Gallery of Art — searchable by text (CLIP embeddings) or by image (CLIP vision). Every result carries the museum's own accession number, a rights statement, a verification flag, and a link to the evidence. Nothing is sold as verified that wasn't actually verified.
+155,000+ public-domain artworks from four museums — the Met, Cleveland, the Art Institute of Chicago, and the National Gallery of Art — searchable by text (CLIP embeddings) or by image (CLIP vision). Every result carries the museum's own accession number, a rights statement, a verification flag, and a link to the evidence. Nothing is sold as verified that wasn't actually verified.
 
 Every paid call settles on-chain through x402 and lands on a public ledger — the sales floor.
 
