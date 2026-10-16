@@ -228,10 +228,14 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
   }, []);
 
   useEffect(() => {
-    // flash the row matching the console's settlement once it appears
+    // flash the row matching the console's settlement once it appears —
+    // and tell the console the consequence it promised actually landed
     if (!flashTx) return;
     const row = sales.find((s) => s.tx === flashTx);
-    if (row) setOpen(row.id);
+    if (row) {
+      setOpen(row.id);
+      window.dispatchEvent(new CustomEvent("almoneda:sale-shown", { detail: { tx: flashTx } }));
+    }
     const t = setTimeout(() => setFlashTx(null), 8000);
     return () => clearTimeout(t);
   }, [sales, flashTx]);

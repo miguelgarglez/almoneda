@@ -233,6 +233,14 @@ export default function BidRoom() {
     };
   }, []);
 
+  // the pin only claims the row once the floor has actually shown it —
+  // sale-shown is dispatched by the ledger itself, not on a guess timer
+  useEffect(() => {
+    const onShown = () => setRowLanded(true);
+    window.addEventListener("almoneda:sale-shown", onShown);
+    return () => window.removeEventListener("almoneda:sale-shown", onShown);
+  }, []);
+
   useEffect(() => {
     if (!follow) return;
     if (!steps.length && !res && !freeNote && !freeLots?.length) return;
@@ -281,7 +289,6 @@ export default function BidRoom() {
                 setTimeout(() => buzz("success"), 900);
                 setTimeout(() => {
                   window.dispatchEvent(new CustomEvent("almoneda:sale", { detail: { tx: m.settlement.transaction } }));
-                  setRowLanded(true);
                 }, 1600);
               }
             } else if (m.type === "error") {
