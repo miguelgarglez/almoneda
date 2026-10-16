@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#14161a"/>
+  <!-- the gavel: handle diagonal, head rotated block -->
+  <g transform="rotate(38 32 30)">
+    <rect x="14" y="26" width="24" height="9" fill="#f2f0ec"/>
+    <rect x="34" y="29" width="22" height="4" fill="#f2f0ec"/>
+  </g>
+  <rect x="10" y="52" width="44" height="3" fill="#f2f0ec"/>
+  <rect x="10" y="57" width="44" height="2" fill="#d92b1f"/>
+</svg>

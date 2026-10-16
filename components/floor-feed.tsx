@@ -1,0 +1,139 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+
+type Sale = {
+  id: number;
+  payer: string;
+  tx: string;
+  network: string;
+  amount: string;
+  endpoint: string;
+  query_hint: string;
+  created_at: string;
+};
+
+const railName = (n: string) => (n.startsWith("stellar") ? "XLM" : n.includes("84532") ? "USDC" : n);
+const railAmt = (s: Sale) =>
+  s.network.startsWith("stellar") ? `${(parseInt(s.amount, 10) / 1e7).toFixed(2)} XLM` : `$${(parseInt(s.amount, 10) / 1e6).toFixed(2)}`;
+const explorer = (s: Sale) =>
+  s.network.startsWith("stellar") ? `https://stellar.expert/explorer/testnet/tx/${s.tx}` : `https://sepolia.basescan.org/tx/${s.tx}`;
+const short = (a: string) => (a.length > 12 ? `${a.slice(0, 6)}…${a.slice(-4)}` : a);
+// Rolls toward the latest count instead of snapping to it.
+function Count({ value }: { value: number }) {
+  const [shown, setShown] = useState(value);
+  const ref = useRef(value);
+  useEffect(() => {
+    const from = ref.current;
+    const to = value;
+    if (from === to) return;
+    const t0 = performance.now();
+    const dur = 900;
+    let raf = 0;
+    const step = (t: number) => {
+      const p = Math.min(1, (t - t0) / dur);
+      const e = 1 - Math.pow(1 - p, 3);
+      const v = Math.round(from + (to - from) * e);
+      setShown(v);
+      if (p < 1) raf = requestAnimationFrame(step);
+      else ref.current = to;
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [value]);
+  return <>{shown}</>;
+}
+
+const ago = (iso: string) => {
+  const s = Math.max(1, Math.floor((Date.now() - new Date(iso).getTime()) / 1000));
+  if (s < 60) return `${s}s ago`;
+  if (s < 3600) return `${Math.floor(s / 60)}m ago`;
+  if (s < 86400) return `${Math.floor(s / 3600)}h ago`;
+  return `${Math.floor(s / 86400)}d ago`;
+};
+
+export default function FloorFeed({ initial, total }: { initial: Sale[]; total: number }) {
+  const [sales, setSales] = useState(initial);
+  const [count, setCount] = useState(total);
+  const [live, setLive] = useState(true);
+  const seen = useRef(new Set(initial.map((s) => s.id)));
+
+  useEffect(() => {
+    const tick = async () => {
+      try {
+        const r = await fetch("/v1/floor", { cache: "no-store" });
+        const j = await r.json();
+        if (Array.isArray(j?.sales?.recent)) {
+          setSales(j.sales.recent);
+          setCount(j.sales.total ?? 0);
+          j.sales.recent.forEach((s: Sale) => seen.current.add(s.id));
+          setLive(true);
+        }
+      } catch {
+        setLive(false);
+      }
+    };
+    const t = setInterval(tick, 15_000);
+    return () => clearInterval(t);
+  }, []);
+
+  return (
+    <section className="floor" id="floor">
+      <h2>
+        The floor · <Count value={count} /> {count === 1 ? "lot" : "lots"} sold
+      </h2>
+      <p className="sub">
+        <span className={`dot ${live ? "on" : ""}`} style={{ display: "inline-block", marginRight: 8 }} />
+        Every row is a settled on-chain payment. Testnet money, real protocol.
+      </p>
+      {sales.length === 0 ? (
+        <div className="empty">The gavel has not fallen yet. Send an agent to bid above — its settlement will appear here.</div>
+      ) : (
+        <div className="ledger-wrap">
+        <table className="ledger">
+          <thead>
+            <tr>
+              <th>time</th>
+              <th>paddle</th>
+              <th>rail</th>
+              <th>call</th>
+              <th>looking for</th>
+              <th>bid</th>
+              <th>settlement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <AnimatePresence initial={false}>
+              {sales.map((s) => (
+                <motion.tr
+                  key={s.id}
+                  initial={{ opacity: 0, backgroundColor: "rgba(217,43,31,0.08)" }}
+                  animate={{ opacity: 1, backgroundColor: "rgba(217,43,31,0)" }}
+                  transition={{ duration: 1.4 }}
+                >
+                  <td className="mono" style={{ whiteSpace: "nowrap" }}>{ago(s.created_at)}</td>
+                  <td className="mono" title={s.payer}>{short(s.payer)}</td>
+                  <td><span className={`pill ${s.network.startsWith("stellar") ? "xlm" : "usdc"}`}>{railName(s.network)}</span></td>
+                  <td className="mono">{s.endpoint}</td>
+                  <td style={{ maxWidth: 220, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} title={s.query_hint}>
+                    {s.query_hint || "—"}
+                  </td>
+                  <td className="mono">{railAmt(s)}</td>
+                  <td className="mono">
+                    {s.tx ? (
+                      <a href={explorer(s)} target="_blank" rel="noreferrer" style={{ color: "var(--usdc)", textDecoration: "none" }}>
+                        {short(s.tx)} ↗
+                      </a>
+                    ) : "—"}
+                  </td>
+                </motion.tr>
+              ))}
+            </AnimatePresence>
+          </tbody>
+        </table>
+        </div>
+      )}
+    </section>
+  );
+}

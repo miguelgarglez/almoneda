@@ -1,0 +1,36 @@
+{
+  "name": "almoneda",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^3.8.1",
+    "@modelcontextprotocol/sdk": "^1.32.0",
+    "@supabase/supabase-js": "^2.117.3",
+    "@x402/core": "^2.28.0",
+    "@x402/evm": "^2.28.0",
+    "@x402/extensions": "^2.28.0",
+    "@x402/fetch": "^2.28.0",
+    "@x402/mcp": "^2.28.0",
+    "@x402/next": "^2.28.0",
+    "@x402/stellar": "^2.28.0",
+    "motion": "^14.0.0",
+    "next": "16.4.0",
+    "number-flow": "^0.6.2",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "torph": "^0.1.3",
+    "viem": "^2.57.4",
+    "web-haptics": "^0.0.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
+  }
+}
