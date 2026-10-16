@@ -90,4 +90,4 @@ Serverless functions need the linux native binaries (onnxruntime, sharp) traced 
 vercel build --prod && vercel deploy --prod --prebuilt
 ```
 
-Testnet only. The USDC receiver is a dedicated test wallet; the XLM receiver likewise.
+Testnet only. The USDC receiver is a dedicated test wallet; the Stellar `payTo` is a run-generated testnet account, not a real wallet — friendbot money in, nothing out.
