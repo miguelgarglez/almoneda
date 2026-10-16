@@ -1,6 +1,7 @@
 import { corpusSize, saleThumbs } from "@/lib/corpus";
 import { salesCount, recentSales } from "@/lib/ledger";
 import BidRoom from "@/components/bid-room";
+import LiveStats from "@/components/live-stats";
 import FloorFeed from "@/components/floor-feed";
 import { SurfaceToggle, SurfaceClose, SheetA11y } from "@/components/surface-sheet";
 
@@ -52,11 +53,6 @@ export default async function Page() {
       .map((l) => ({ title: l!.title, object_url: l!.object_url })),
   }));
   const last = recent[0];
-  const lastAmt = last
-    ? last.network.startsWith("stellar")
-      ? `${(parseInt(last.amount, 10) / 1e7).toFixed(2)} XLM`
-      : `$${(parseInt(last.amount, 10) / 1e6).toFixed(2)}`
-    : null;
 
   return (
     <main>
@@ -85,10 +81,10 @@ export default async function Page() {
         <div className="wrap">
           <div className="row">
             <span>corpus <b>{size?.toLocaleString("en") ?? "—"}</b> works</span>
-            <span><b>{total}</b> lots sold</span>
-            {last && (
-              <span className="hammer">last hammer — <b>“{last.query_hint || last.endpoint}”</b> · {lastAmt}</span>
-            )}
+            <LiveStats
+              initialTotal={total}
+              initialLast={last ? { query_hint: last.query_hint, endpoint: last.endpoint, amount: last.amount, network: last.network } : null}
+            />
             <span className="opt"><b>4</b> museums</span>
             <span className="opt">text <b>$0.01</b> · image <b>$0.02</b></span>
             <span className="opt">protocol <b>x402 v2</b></span>

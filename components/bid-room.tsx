@@ -93,16 +93,21 @@ function GavelStrike({ onDone }: { onDone: () => void }) {
       <motion.svg
         viewBox="0 0 96 96"
         className="gavel"
-        initial={{ rotate: -52, y: -26, opacity: 0 }}
-        animate={{ rotate: [-52, -52, 0, -7, 0], y: [-26, -26, 0, -4, 0], opacity: [0, 1, 1, 1, 0] }}
+        initial={{ rotate: -48, y: -22, opacity: 0 }}
+        animate={{ rotate: [-48, -48, 0, -4, 0], y: [-22, -22, 0, -3, 0], opacity: [0, 1, 1, 1, 0] }}
         transition={{ duration: 0.9, times: [0, 0.28, 0.52, 0.68, 1], ease: ["easeOut", "easeIn", "easeOut", "easeIn"] }}
         onAnimationComplete={onDone}
       >
-        {/* head */}
-        <rect x="14" y="8" width="44" height="18" rx="3" fill="var(--ink)" />
-        <rect x="18" y="12" width="36" height="10" rx="2" fill="var(--sold)" />
-        {/* handle */}
-        <rect x="50" y="24" width="8" height="52" rx="3" fill="var(--ink)" transform="rotate(28 54 24)" />
+        {/* a clerk's desk gavel, drawn solid — the head is the mallet barrel
+            with two caps; the handle angles off down-right */}
+        <g transform="rotate(24 44 30)">
+          <rect x="14" y="14" width="60" height="22" rx="4" fill="var(--ink)" />
+          <rect x="10" y="11" width="12" height="28" rx="5" fill="var(--ink)" />
+          <rect x="66" y="11" width="12" height="28" rx="5" fill="var(--ink)" />
+          <rect x="22" y="14" width="6" height="22" fill="var(--sold)" />
+          <rect x="60" y="14" width="6" height="22" fill="var(--sold)" />
+          <rect x="38" y="34" width="12" height="56" rx="5" fill="var(--ink)" />
+        </g>
       </motion.svg>
     </motion.div>
   );
@@ -122,6 +127,7 @@ const tapeLine = (s: Step, i: number) => {
 
 const LotCard = ({ l, sold, slam }: { l: Lot; sold?: boolean; slam?: boolean }) => {
   const [failed, setFailed] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const [gavelGone, setGavelGone] = useState(false);
   const link = l.provenance?.evidence_url;
   return (
@@ -140,7 +146,14 @@ const LotCard = ({ l, sold, slam }: { l: Lot; sold?: boolean; slam?: boolean }) 
         </div>
       ) : (
         /* eslint-disable-next-line @next/next/no-img-element */
-        <img src={l.image.thumb} alt={l.title} loading="lazy" onError={() => setFailed(true)} />
+        <img
+          src={l.image.thumb}
+          alt={l.title}
+          loading="lazy"
+          className={loaded ? "in" : ""}
+          onLoad={() => setLoaded(true)}
+          onError={() => setFailed(true)}
+        />
       )}
       <div className="d">
         <div className="t">{l.title}</div>
@@ -171,6 +184,7 @@ export default function BidRoom() {
   const [freeLots, setFreeLots] = useState<Lot[] | null>(null);
   const [freeNote, setFreeNote] = useState<{ text: string; err?: boolean } | null>(null);
   const [slam, setSlam] = useState(0);
+  const [rowLanded, setRowLanded] = useState(false);
   const [haptics, setHaptics] = useState(true);
   const [follow, setFollow] = useState(true);
   const tapeEnd = useRef<HTMLDivElement>(null);
@@ -238,6 +252,7 @@ export default function BidRoom() {
     setFreeLots(null);
     setFreeNote(null);
     setFollow(true);
+    setRowLanded(false);
     try {
       const r = await fetch("/v1/demo/bid", {
         method: "POST",
@@ -264,7 +279,10 @@ export default function BidRoom() {
                 setSlam((s) => s + 1);
                 setTimeout(() => { buzz("heavy"); knock(); }, 470);
                 setTimeout(() => buzz("success"), 900);
-                setTimeout(() => window.dispatchEvent(new CustomEvent("almoneda:sale", { detail: { tx: m.settlement.transaction } })), 1600);
+                setTimeout(() => {
+                  window.dispatchEvent(new CustomEvent("almoneda:sale", { detail: { tx: m.settlement.transaction } }));
+                  setRowLanded(true);
+                }, 1600);
               }
             } else if (m.type === "error") {
               buzz("error");
@@ -396,7 +414,7 @@ export default function BidRoom() {
                   {res.settlement.transaction.slice(0, 14)}… ↗
                 </a>
                 {res.lots?.[0] ? <> · won “{res.lots[0].title}”{res.lots.length > 1 ? ` +${res.lots.length - 1}` : ""}</> : null}
-                {" "}· the new row is open on the floor →
+                {" "}· {rowLanded ? "the new row is open on the floor →" : "landing on the floor…"}
               </span>
             </motion.div>
           )}

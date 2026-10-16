@@ -200,6 +200,7 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
   const [open, setOpen] = useState<number | null>(null);
   const [showAll, setShowAll] = useState(false);
   const [flashTx, setFlashTx] = useState<string | null>(null);
+  const [brokenThumbs, setBrokenThumbs] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     const tick = async () => {
@@ -231,6 +232,8 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
     if (!flashTx) return;
     const row = sales.find((s) => s.tx === flashTx);
     if (row) setOpen(row.id);
+    const t = setTimeout(() => setFlashTx(null), 8000);
+    return () => clearTimeout(t);
   }, [sales, flashTx]);
 
   useEffect(() => {
@@ -330,9 +333,15 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
                       style={flashTx === s.tx ? { backgroundColor: "rgba(160,35,24,0.06)" } : undefined}
                     >
                       <td>
-                        {s.thumb ? (
+                        {s.thumb && !brokenThumbs.has(s.thumb) ? (
                           // eslint-disable-next-line @next/next/no-img-element
-                          <img className="lthumb" src={s.thumb} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.display = "none"; }} />
+                          <img
+                            className="lthumb"
+                            src={s.thumb}
+                            alt=""
+                            loading="lazy"
+                            onError={() => setBrokenThumbs((b) => new Set(b).add(s.thumb!))}
+                          />
                         ) : (
                           <span className="lthumb" style={{ display: "inline-block", background: "var(--paper-2)" }} />
                         )}
