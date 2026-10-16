@@ -49,6 +49,11 @@ const handler = async (req: NextRequest): Promise<NextResponse> => {
     // pull extra candidates so keyword overlap can reorder the top n
     const rows = rerankByKeywords(await matchArtworks(emb, n * 3), q).slice(0, n);
     const works = (await enrich(rows)).filter((w) => w.provenance.rights_check !== "refuted");
+    // an empty hand means the corpus is degraded mid-migration — refuse
+    // rather than let a settled payment buy nothing
+    if (!works.length) {
+      return NextResponse.json({ error: "corpus_degraded", message: "The desk could not reach the corpus — the bid was not taken." }, { status: 502 });
+    }
     const size = await corpusSize();
     stashSale(req.headers.get("payment-signature"), {
       endpoint: "text",
