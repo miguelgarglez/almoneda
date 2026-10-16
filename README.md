@@ -51,11 +51,11 @@ Every result carries `match.relevance` — a calibrated 0–1 estimate, not raw 
 
 This is measured, not asserted: `eval/` holds a judged 50-query benchmark (40 realistic + 10 adversarial) with 1,039 image-level labels from a different model family. On the full label set the shipped ordering scores **P@5 0.916** (0.728 under strict) and **nDCG@10 0.813**. An FTS/RRF hybrid leg (0.888) and prompt ensembling (0.920 at 4× embed cost) were both measured and rejected — the numbers are in `eval/results-final.json`.
 
-An outside agent (Codex, no prior context) was handed two blog posts and a testnet wallet, found the service through `/.well-known/x402` + `/llms.txt`, paid seven searches over Stellar testnet (0.07 XLM, all txs on the public floor), verified six image URLs against museum CDNs, and shipped both posts with correct credits. Its deliverables and receipts are the gate evidence.
+An outside agent (Codex, no prior context) was handed two blog posts and a testnet wallet, found the service through `/.well-known/x402` + `/llms.txt`, paid seven searches over Stellar testnet (0.07 XLM, all txs on the public floor), verified six image URLs against museum CDNs, and shipped both posts with correct credits. A second model family (Claude Haiku via the AI Gateway) then scored each chosen image against its paragraph: five of six fits clean, one caption oversold its image. Its deliverables and receipts are the gate evidence.
 
 ## For humans
 
-The homepage is the floor: the current lot on the block, a bidding console that dispatches a real agent with a testnet purse (watch the 402 → sign → settle roundtrip), and the live ledger with paddles, rails, and explorer links.
+The homepage is the floor: the current lot on the block, a bidding console that dispatches a real agent with a testnet purse (watch the 402 → sign → settle roundtrip, then the gavel falls when the facilitator confirms), and the live ledger with paddles, rails, and explorer links. Every artwork on the page opens a catalogue tray in place; the bottom strip is a working list of recent settlements, and `/?sale=<tx>` deep-links any receipt.
 
 ## Provenance, not vibes
 
