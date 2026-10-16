@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# almoneda
 
-## Getting Started
+**An auction house where machines are the only bidders.**
 
-First, run the development server:
+Agents pay per call over [x402](https://x402.org) and get public-domain artworks with machine-readable provenance and license proof. Humans get a sales floor to watch.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Live: **https://almoneda-app.vercel.app**
+
+## What it is
+
+22,000+ public-domain artworks from four museums — the Met, Cleveland, the Art Institute of Chicago, and the National Gallery of Art — searchable by text (CLIP embeddings) or by image (CLIP vision). Every result carries the museum's own accession number, a rights statement, a verification flag, and a link to the evidence. Nothing is sold as verified that wasn't actually verified.
+
+Every paid call settles on-chain through x402 and lands on a public ledger — the sales floor.
+
+## For agents
+
+| Endpoint | Price |
+| --- | --- |
+| `GET /v1/search?q=<text>&n=<1-12>` | $0.01 |
+| `POST /v1/search/image` `{ image_url }` or `{ image_base64 }` | $0.02 |
+| `POST /mcp` — tools `search_artworks`, `search_by_image`, `get_status` | $0.01–0.02 |
+| `GET /v1/demo/search?q=<text>` — unpaid preview | free, 3×/day |
+| `GET /v1/floor` — the sales ledger | free |
+| `GET /v1/status` | free |
+
+Payment rails (both are returned in every `accepts` array):
+
+- **USDC on Base Sepolia** (`eip155:84532`) — `$0.01`/`$0.02`, facilitator `x402.org`
+- **XLM on Stellar testnet** (`stellar:testnet`) — `0.01`/`0.02` XLM via the native SAC, fees sponsored by the facilitator
+
+Agent-facing docs are on the service itself:
+
+- `GET /llms.txt` — the guide
+- `GET /openapi.json` — the contract
+- `GET /.well-known/x402` — the x402 Bazaar discovery declaration
+
+### A paid call in one breath
+
+```
+GET /v1/search?q=storm%20at%20sea         → 402 Payment Required
+PAYMENT-REQUIRED: accepts[USDC·BaseSepolia, XLM·StellarTestnet]
+sign → retry with PAYMENT-SIGNATURE        → 200 OK + PAYMENT-RESPONSE
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`scripts/http-buyer.mjs` and `scripts/mcp-buyer.mjs` are working buyer clients (Stellar rail).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## For humans
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The homepage is the floor: the current lot on the block, a bidding console that dispatches a real agent with a testnet purse (watch the 402 → sign → settle roundtrip), and the live ledger with paddles, rails, and explorer links.
 
-## Learn More
+## Provenance, not vibes
 
-To learn more about Next.js, take a look at the following resources:
+- **Met** — accession and public-domain flags seeded from the official `MetObjects.csv`; Commons-hosted works re-checkable against their file pages.
+- **Cleveland** — rights re-checked per object against the open-access API, lazily, then cached.
+- **Art Institute of Chicago** — `is_public_domain` verified per object via the artic.edu API.
+- **National Gallery of Art** — NGA's published open-access policy; object pages linked as evidence.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Failed checks are never cached as permanent negatives, and `verified` is only `true` when a source was actually consulted.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Stack
 
-## Deploy on Vercel
+Next.js 16 · `@huggingface/transformers` (CLIP ViT-B/32, q8, 512-dim L2-normalized embeddings) · `sharp` · Supabase/Postgres (pgvector corpus + provenance cache + sales ledger) · x402 v2 (`@x402/next`, `@x402/evm`, `@x402/stellar`, `@x402/mcp`) · Vercel.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Run it
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm install
+cp .env.example .env.local   # SUPABASE_LAB_URL / _ANON_KEY / _SERVICE_KEY, optional test purses
+npm run dev
+```
+
+`supabase/migrations/` holds the schema (`almoneda.provenance`, `almoneda.sales`). `scripts/seed-provenance.mjs` seeds Met accessions from `MetObjects.csv`.
+
+## Deploy
+
+Serverless functions need the linux/arm64 native binaries (onnxruntime, sharp) traced into the bundle — `next.config.ts` does that, and `scripts/ensure-linux-binaries.mjs` (postinstall) makes sure the arm64 `@img` packages exist no matter the build machine's platform. Deploy from a local build for deterministic function payloads:
+
+```bash
+vercel build --prod && vercel deploy --prod --prebuilt
+```
+
+Testnet only. The USDC receiver is a dedicated test wallet; the XLM receiver likewise.
