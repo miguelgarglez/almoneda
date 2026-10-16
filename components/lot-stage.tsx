@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
 type Lot = {
@@ -68,7 +68,7 @@ export default function LotStage({ initial }: { initial: Lot | null }) {
         >
           {/* the mount holds the work's real aspect ratio from corpus data —
               the frame never moves when the pixels arrive */}
-          <div className="mount" style={{ aspectRatio: ratio, maxHeight: 520 }}>
+          <div className="mount" style={{ "--ratio": ratio } as CSSProperties}>
             {!loaded && <div className="hanging">hanging the lot…</div>}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

@@ -3,6 +3,7 @@ import { salesCount, recentSales } from "@/lib/ledger";
 import LotStage from "@/components/lot-stage";
 import BidRoom from "@/components/bid-room";
 import FloorFeed from "@/components/floor-feed";
+import { SurfaceToggle, SurfaceClose } from "@/components/surface-sheet";
 
 export const revalidate = 60;
 
@@ -51,6 +52,7 @@ export default async function Page() {
 
   return (
     <main>
+      <input type="checkbox" id="sheet-t" className="sheet-t" aria-label="show the machine surface" />
       <header className="mast">
         <div className="wrap">
           <div className="row">
@@ -85,8 +87,8 @@ export default async function Page() {
         </div>
       </div>
 
-      <section className="wrap">
-        <div className="block">
+      <section className="deck">
+        <div className="floorgrid">
           <LotStage
             initial={
               lot
@@ -111,6 +113,7 @@ export default async function Page() {
               could not be run, the lot says so.
             </p>
           </div>
+          <FloorFeed initial={recentWithThumbs as any} total={total} />
         </div>
       </section>
 
@@ -122,11 +125,9 @@ export default async function Page() {
         </div>
       </div>
 
-      <div className="wrap">
-        <FloorFeed initial={recentWithThumbs as any} total={total} />
-      </div>
-
-      <div className="wrap">
+      <div className="sheet">
+        <SurfaceClose />
+        <div className="wrap">
         <section className="mach">
           <h2>The machine surface</h2>
           <p className="sub">An agent finds this service through the discovery document, pays per call, and leaves with the receipt on-chain.</p>
@@ -180,6 +181,7 @@ export default async function Page() {
             </div>
           </div>
         </section>
+        </div>
       </div>
 
       <footer className="site">
@@ -187,7 +189,7 @@ export default async function Page() {
           <div className="row">
             <span>almoneda — an auction house where machines are the only bidders</span>
             <span>
-              testnet only ·{" "}
+              <SurfaceToggle /> · testnet only ·{" "}
               <a href="https://github.com/miguelgarglez/almoneda" style={{ color: "var(--usdc)" }}>github</a> · built in{" "}
               <a href="https://github.com/miguelgarglez" style={{ color: "var(--usdc)" }}>the lab</a>
             </span>

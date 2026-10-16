@@ -60,9 +60,12 @@ img { display: block; max-width: 100%; }
 }
 
 /* ——— auction block ——— */
-.block { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; padding: 40px 0 36px; align-items: start; }
-@media (max-width: 860px) { .block { grid-template-columns: 1fr; gap: 24px; padding: 24px 0; } }
-@media (max-width: 860px) { .block .console-col { order: -1; } }
+/* mobile-first: the deck is a normal stacked document (console first,
+   then the lot, then the ledger). At ≥1024px it locks into a viewport-fit
+   floor terminal — see the media query at the bottom of this file. */
+.deck { padding: 24px 0; }
+.floorgrid { display: flex; flex-direction: column; gap: 24px; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+.floorgrid .console-col { order: -1; }
 
 .easel { position: relative; }
 .easel .frame {
@@ -75,6 +78,8 @@ img { display: block; max-width: 100%; }
    work's real aspect ratio before pixels arrive, so nothing jumps */
 .easel .mount {
   position: relative;
+  aspect-ratio: var(--ratio, 4 / 3);
+  max-height: 520px;
   background:
     linear-gradient(var(--paper-2), var(--paper-2)) padding-box;
   outline: 1px solid var(--line-2);
@@ -165,7 +170,7 @@ img { display: block; max-width: 100%; }
 @keyframes rail { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ——— floor ——— */
-.floor { padding: 56px 0 48px; }
+.floor { padding: 56px 0 48px; min-width: 0; }
 .floor h2, .mach h2, .prov h2 { font-family: var(--font-serif), serif; font-size: 26px; font-weight: 600; margin-bottom: 6px; }
 .floor .sub, .mach .sub, .prov .sub { font-size: 13.5px; color: var(--ink-2); margin-bottom: 24px; font-family: var(--font-serif), serif; }
 .ledger-wrap { overflow-x: auto; }
@@ -221,6 +226,105 @@ pre.receipt .hl { color: #fff; }
 
 footer.site { border-top: 2px solid var(--ink); padding: 20px 0 60px; font-size: 11px; color: var(--ink-2); }
 footer.site .row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+/* ——— machine-surface sheet ——— */
+/* mobile: the sheet is just in-flow content; the toggle is a desktop concern. */
+.sheet-t { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.sheet-open { display: none; }
+.sheet-close { display: none; }
+
+@media (min-width: 1024px) {
+  .sheet-open {
+    display: inline; color: var(--usdc); cursor: pointer;
+    border-bottom: 1px solid transparent;
+  }
+  .sheet-open:hover { border-bottom-color: var(--usdc); }
+  .sheet {
+    position: fixed; left: 0; right: 0; bottom: 0; top: 10dvh;
+    background: var(--paper); border-top: 2px solid var(--ink);
+    box-shadow: 0 -24px 60px -24px rgba(35, 26, 18, 0.55);
+    transform: translateY(103%);
+    transition: transform 0.45s var(--ease-out);
+    overflow-y: auto; padding: 30px 0 56px; z-index: 30;
+  }
+  .sheet-t:checked ~ .sheet { transform: none; }
+  .sheet-close {
+    display: block; position: sticky; top: 0; float: right; z-index: 2;
+    margin: 0 24px 0 0; padding: 6px 12px; cursor: pointer;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--ink-2); border: 1px solid var(--line-2); background: var(--paper);
+  }
+  .sheet-close:hover { color: var(--ink); border-color: var(--ink); }
+}
+
+/* ——— the floor terminal: viewport-locked on desktop ——— */
+/* the whole core experience — the lot, the console, the ledger — fits one
+   screen; the ledger and the console tape scroll internally, the page never
+   does. Below 1024px it stays a normal stacked document. */
+@media (min-width: 1024px) {
+  html, body { height: 100dvh; overflow: hidden; }
+  body > main { height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
+  .mast { padding: 10px 0 8px; }
+  .mast .wordmark { font-size: 30px; }
+  .mast .what { margin-top: 4px; font-size: 12.5px; }
+  .statbar .row { padding: 7px 0; gap: 24px; }
+
+  .deck { flex: 1; min-height: 0; padding: 14px 0 12px; overflow: hidden; }
+  .floorgrid {
+    display: grid; height: 100%; min-height: 0; gap: 24px;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.8fr) minmax(0, 1fr);
+    max-width: 1500px;
+  }
+  .floorgrid > * { min-height: 0; min-width: 0; }
+  .floorgrid .console-col {
+    order: 0; display: flex; flex-direction: column;
+    min-height: 0; overflow-y: auto; padding-top: 13px;
+  }
+  .floorgrid .easel { display: flex; flex-direction: column; min-height: 0; padding-top: 13px; }
+  .easel .frame { flex: 1; min-height: 0; display: flex; padding: 10px; }
+  .easel .mount { flex: 1; min-height: 0; aspect-ratio: auto; max-height: none; }
+  .plate { padding-top: 12px; }
+  .plate h1 {
+    font-size: clamp(17px, 1.55vw, 26px);
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .plate .artist { font-size: 15px; margin-top: 4px; }
+  .plate .meta { margin-top: 8px; gap: 2px; font-size: 11px; }
+  .plate .stamp { margin-top: 8px; padding: 4px 9px; font-size: 10px; }
+
+  .floor { display: flex; flex-direction: column; height: 100%; min-height: 0; padding: 13px 0 0; overflow: hidden; }
+  .floor h2 { font-size: 20px; }
+  .floor .sub { font-size: 12px; margin-bottom: 10px; }
+  .ledger-wrap { flex: 1; min-height: 0; overflow: auto; border: 1px solid var(--line-2); background: #fff; }
+  table.ledger { min-width: 560px; font-size: 11px; }
+  table.ledger thead th { position: sticky; top: 0; background: #fff; z-index: 1; padding: 8px 8px 8px 10px; }
+  table.ledger td { padding: 8px 8px 8px 10px; }
+
+  .ticker { flex: none; }
+  footer.site { flex: none; padding: 9px 0; }
+  table.ledger td { white-space: nowrap; }
+  table.ledger tr.detail td { white-space: normal; }
+  .sale-detail span { white-space: normal; }
+
+  /* narrower terminals shed chrome first: optional stats, then secondary
+     ledger columns — the work, the bid, and the settlement stay in frame */
+  @media (max-width: 1280px) {
+    .statbar .opt { display: none; }
+  }
+  @media (max-width: 1560px) {
+    .floorgrid { grid-template-columns: minmax(0, 0.85fr) minmax(0, 0.7fr) minmax(0, 1.35fr); }
+    table.ledger { min-width: 0; }
+    table.ledger td:nth-child(6) { max-width: 130px; }
+    table.ledger th:nth-child(2), table.ledger td:nth-child(2),
+    table.ledger th:nth-child(3), table.ledger td:nth-child(3),
+    table.ledger th:nth-child(5), table.ledger td:nth-child(5) { display: none; }
+    .floor .sub { font-size: 11px; }
+    .console .hd { font-size: 9.5px; letter-spacing: 0.1em; gap: 6px; }
+    .btn { padding: 10px 12px; font-size: 11px; }
+    .console input[type=text] { padding: 10px 12px; font-size: 13px; }
+    .console .bd { padding: 12px; }
+  }
+}
 
 @media (max-width: 720px) {
   .easel .mount { max-height: 320px; }
