@@ -3,7 +3,7 @@ import { withX402 } from "@x402/next";
 import { declareDiscoveryExtension } from "@x402/extensions/bazaar";
 import { x402Server, stashSale, acceptsFor } from "@/lib/x402";
 import { embedText } from "@/lib/clip";
-import { matchArtworks, corpusSize } from "@/lib/corpus";
+import { matchArtworks, corpusSize, rerankByKeywords } from "@/lib/corpus";
 import { enrich } from "@/lib/provenance";
 import { PRICE_SEARCH, PRICE_SEARCH_XLM } from "@/lib/env";
 
@@ -46,7 +46,8 @@ const handler = async (req: NextRequest): Promise<NextResponse> => {
   }
   try {
     const emb = await embedText(q);
-    const rows = await matchArtworks(emb, n);
+    // pull extra candidates so keyword overlap can reorder the top n
+    const rows = rerankByKeywords(await matchArtworks(emb, n * 3), q).slice(0, n);
     const works = (await enrich(rows)).filter((w) => w.provenance.rights_check !== "refuted");
     const size = await corpusSize();
     stashSale(req.headers.get("payment-signature"), {

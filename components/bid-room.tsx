@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
 type Step = { step: string; detail: string; ms: number };
@@ -58,20 +58,16 @@ export default function BidRoom() {
   const [q, setQ] = useState("");
   const [busy, setBusy] = useState<"bid" | "free" | null>(null);
   const [res, setRes] = useState<BidResult | null>(null);
-  const [shownSteps, setShownSteps] = useState(0);
+  const [steps, setSteps] = useState<Step[]>([]);
+  const [live, setLive] = useState(false);
   const [freeLots, setFreeLots] = useState<Lot[] | null>(null);
   const [freeNote, setFreeNote] = useState<{ text: string; err?: boolean } | null>(null);
-  const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
-
-  const stagger = (n: number) => {
-    setShownSteps(0);
-    timers.current.forEach(clearTimeout);
-    timers.current = Array.from({ length: n }, (_, i) => setTimeout(() => setShownSteps(i + 1), 350 + i * 650));
-  };
 
   const bid = async () => {
     setBusy("bid");
     setRes(null);
+    setSteps([]);
+    setLive(false);
     setFreeLots(null);
     setFreeNote(null);
     try {
@@ -80,21 +76,45 @@ export default function BidRoom() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ q: q.trim() }),
       });
-      const j: BidResult = await r.json().catch(() => ({ error: "bid_failed", message: `HTTP ${r.status}` }));
-      setRes(j);
-      if (!r.ok || j.error) {
-        stagger((j.steps?.length ?? 0) + 1);
-      } else {
-        stagger((j.steps?.length ?? 0) + (j.explorer_url ? 1 : 0) + 1);
-        if (j.settlement?.transaction) {
-          // the ledger picks the new sale up immediately and flashes the row
-          setTimeout(() => window.dispatchEvent(new CustomEvent("almoneda:sale", { detail: { tx: j.settlement!.transaction } })), 2200);
+      // the tape is a live NDJSON wire — lines land when the protocol
+      // event actually happens, not on a replay timer
+      if (r.ok && (r.headers.get("content-type") || "").includes("ndjson") && r.body) {
+        setLive(true);
+        const reader = r.body.getReader();
+        const dec = new TextDecoder();
+        let buf = "";
+        const handle = (line: string) => {
+          if (!line.trim()) return;
+          try {
+            const m = JSON.parse(line);
+            if (m.type === "step") setSteps((s) => [...s, { step: m.step, detail: m.detail, ms: m.ms }]);
+            else if (m.type === "result") {
+              setRes(m);
+              if (m.settlement?.transaction) {
+                setTimeout(() => window.dispatchEvent(new CustomEvent("almoneda:sale", { detail: { tx: m.settlement.transaction } })), 1600);
+              }
+            } else if (m.type === "error") setRes({ error: m.error, message: m.message ?? `HTTP ${m.status ?? ""}` });
+          } catch {}
+        };
+        for (;;) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          buf += dec.decode(value, { stream: true });
+          const lines = buf.split("\n");
+          buf = lines.pop() ?? "";
+          for (const line of lines) handle(line);
         }
+        handle(buf); // last line may arrive unterminated
+        setLive(false);
+      } else {
+        const j: BidResult = await r.json().catch(() => ({ error: "bid_failed", message: `HTTP ${r.status}` }));
+        setRes(j);
       }
     } catch (e: any) {
       setRes({ error: "bid_failed", message: e?.message ?? "network error" });
     } finally {
       setBusy(null);
+      setLive(false);
     }
   };
 
@@ -122,13 +142,13 @@ export default function BidRoom() {
     }
   };
 
-  const done = res && !res.error && res.steps && shownSteps > res.steps.length;
+  const done = res && !res.error;
 
   return (
     <div className="console">
       <div className="hd">
         <span>the bidding console</span>
-        <span>x402 · usdc / xlm · testnet</span>
+        <span>x402 · testnet</span>
       </div>
       <div className="bd">
         <label className="f-label" htmlFor="bid-query">what your agent needs</label>
@@ -162,17 +182,26 @@ export default function BidRoom() {
         </p>
 
         <div aria-live="polite">
-        {(res || freeLots || freeNote) && (
+        {(steps.length > 0 || res || freeLots || freeNote) && (
           <div className="tape">
+            {steps.map(tapeLine)}
+            {live && <div className="ln"><span className="k">···</span><span className="wire">on the wire</span></div>}
             {res?.error && (
               <div className="ln err">
                 <span className="k">—</span>
                 <span>{res.message ?? res.error}</span>
               </div>
             )}
-            {res?.steps?.slice(0, shownSteps).map(tapeLine)}
+            {(res?.error === "demo_quota" || res?.error === "purse_empty") && (
+              <div className="ln">
+                <span className="k">→</span>
+                <span style={{ color: "var(--ink-3)" }}>
+                  the purse rests — expand any sale on the floor to replay its receipt
+                </span>
+              </div>
+            )}
             <AnimatePresence>
-              {res?.settlement && res.explorer_url && shownSteps > (res.steps?.length ?? 0) && (
+              {res?.settlement && res.explorer_url && (
                 <motion.div className="ln ok" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                   <span className="k">sold</span>
                   <span>
@@ -180,7 +209,7 @@ export default function BidRoom() {
                     <a href={res.explorer_url} target="_blank" rel="noreferrer" style={{ color: "var(--usdc)" }}>
                       {res.settlement.transaction.slice(0, 14)}… ↗
                     </a>
-                    {" "}· lands on the floor below
+                    {" "}· the new row lands on the floor →
                   </span>
                 </motion.div>
               )}

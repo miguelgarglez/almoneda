@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { embedText } from "@/lib/clip";
-import { matchArtworks, corpusSize } from "@/lib/corpus";
+import { matchArtworks, corpusSize, rerankByKeywords } from "@/lib/corpus";
 import { enrich } from "@/lib/provenance";
 import { takeQuota, giveQuota, clientIp } from "@/lib/quota";
 
@@ -27,7 +27,7 @@ export async function GET(req: NextRequest) {
   }
   try {
     const emb = await embedText(q);
-    const rows = await matchArtworks(emb, 3);
+    const rows = rerankByKeywords(await matchArtworks(emb, 9), q).slice(0, 3);
     const works = (await enrich(rows)).filter((w) => w.provenance.rights_check !== "refuted");
     const size = await corpusSize();
     return NextResponse.json({

@@ -35,6 +35,25 @@ export async function matchArtworks(embedding: number[], matchCount = 8): Promis
   return res.json();
 }
 
+// CLIP distance alone is loose on long-tail queries — "storm at sea" can
+// surface a calm portrait. Re-rank candidates by literal keyword overlap
+// with title/artist/medium/department so words that appear in the record
+// beat pure visual similarity. Distance stays in the output untouched.
+const STOP = new Set(["a", "an", "the", "of", "in", "on", "at", "and", "with", "by", "for", "to", "my", "its"]);
+
+export function rerankByKeywords(rows: CorpusRow[], q: string): CorpusRow[] {
+  const terms = q.toLowerCase().split(/[^a-z0-9]+/).filter((w) => w.length > 2 && !STOP.has(w));
+  if (!terms.length) return rows;
+  return rows
+    .map((r) => {
+      const hay = `${r.title} ${r.artist} ${r.medium} ${r.department}`.toLowerCase();
+      const hit = terms.filter((t) => hay.includes(t)).length / terms.length;
+      return { r, score: (r.distance ?? 1) - 0.3 * hit };
+    })
+    .sort((a, b) => a.score - b.score)
+    .map((x) => x.r);
+}
+
 export async function corpusSize(): Promise<number | null> {
   try {
     const res = await fetch(`${env.supabaseUrl}/rest/v1/rpc/corpus_size`, {

@@ -12,6 +12,9 @@ export const dynamic = "force-dynamic";
 
 // "Send an agent to bid": a server-side buyer agent signs a real payment
 // and buys from our own paid endpoint, on real testnet money.
+// The tape is a live wire: NDJSON steps are flushed the moment each
+// protocol event happens — the 402, the signature, the settlement — not
+// replayed from a finished response.
 // Quotas are atomic in Postgres — the purse is finite and races would spend it.
 
 const SUGGESTED = ["storm at sea", "a saint in gold", "portrait of a dog", "the harvest", "a sleeping child", "winter light", "an old violin"];
@@ -77,46 +80,69 @@ export async function POST(req: NextRequest) {
     query = "storm at sea";
   }
 
-  const steps: { step: string; detail: string; ms: number }[] = [];
   const t0 = Date.now();
-  try {
-    const client = new x402Client();
-    if (rail === "evm" && account) client.register(X402_NETWORK as `eip155:${number}`, new ExactEvmScheme(account));
-    else if (stellarSigner) {
-      client.register(X402_NETWORK_STELLAR, new ExactStellarScheme(stellarSigner));
-      client.setSpendControls({
-        allowedAssets: [{ network: X402_NETWORK_STELLAR, asset: XLM_NATIVE_SAC, maxAmountPerPayment: "1000000" }],
-      });
-    }
-    const paidFetch = wrapFetchWithPayment(fetch, client);
-    const url = new URL("/v1/search", req.nextUrl.origin);
-    url.searchParams.set("q", query);
-    url.searchParams.set("n", "3");
-    steps.push({ step: "GET /v1/search", detail: `q="${query}"`, ms: Date.now() - t0 });
-    const res = await paidFetch(url.toString());
-    const settle = decodePaymentResponseHeader(res.headers.get("payment-response") ?? "");
-    const data = await res.json().catch(() => null);
-    steps.push({ step: "402 payment required", detail: "accepts: $0.01 USDC on Base Sepolia · 0.01 XLM on Stellar testnet", ms: Date.now() - t0 });
-    steps.push({ step: "PAYMENT-SIGNATURE", detail: rail === "evm" ? "EIP-3009 typed-data signature" : "Soroban authorization entry, fees sponsored", ms: Date.now() - t0 });
-    if (!res.ok || !settle?.transaction) {
-      // the reserved slot is only spent when a payment actually settled
-      await refund();
-      return NextResponse.json({ error: "bid_failed", status: res.status, steps, data }, { status: 502 });
-    }
-    steps.push({ step: "settled on-chain", detail: `${settle.network} · tx ${String(settle.transaction).slice(0, 18)}…`, ms: Date.now() - t0 });
-    steps.push({ step: "200 delivered", detail: `${data?.results?.length ?? 0} lots, each with provenance`, ms: Date.now() - t0 });
-    const payer = rail === "evm" ? account!.address : stellarSigner!.address;
-    const explorer = rail === "evm" ? EXPLORER : EXPLORER_STELLAR;
-    return NextResponse.json({
-      agent: { address: payer, rail, note: rail === "evm" ? "A testnet wallet. It paid $0.01 of test USDC so you could watch." : "A testnet agent. It paid 0.01 XLM via Soroban so you could watch." },
-      query,
-      steps,
-      settlement: settle,
-      explorer_url: settle?.transaction ? explorer + settle.transaction : null,
-      lots: data?.results ?? [],
-    });
-  } catch (e: any) {
-    await refund();
-    return NextResponse.json({ error: "bid_failed", message: e?.message?.slice(0, 300), steps }, { status: 502 });
-  }
+  const enc = new TextEncoder();
+  const stream = new ReadableStream<Uint8Array>({
+    async start(ctrl) {
+      const send = (o: Record<string, unknown>) => ctrl.enqueue(enc.encode(JSON.stringify(o) + "\n"));
+      const step = (step: string, detail: string) => send({ type: "step", step, detail, ms: Date.now() - t0 });
+      try {
+        const client = new x402Client();
+        if (rail === "evm" && account) client.register(X402_NETWORK as `eip155:${number}`, new ExactEvmScheme(account));
+        else if (stellarSigner) {
+          client.register(X402_NETWORK_STELLAR, new ExactStellarScheme(stellarSigner));
+          client.setSpendControls({
+            allowedAssets: [{ network: X402_NETWORK_STELLAR, asset: XLM_NATIVE_SAC, maxAmountPerPayment: "1000000" }],
+          });
+        }
+        // hook into the client's payment lifecycle so each tape line lands
+        // when the protocol event actually happens
+        client.onBeforePaymentCreation(async () => {
+          step("402 payment required", "accepts: $0.01 USDC on Base Sepolia · 0.01 XLM on Stellar testnet");
+          step("signing the bid", rail === "evm" ? "EIP-3009 typed-data signature" : "Soroban authorization entry, fees sponsored");
+        });
+        client.onAfterPaymentCreation(async () => {
+          step("PAYMENT-SIGNATURE sent", "retrying with the payment attached");
+        });
+        const paidFetch = wrapFetchWithPayment(fetch, client);
+        const url = new URL("/v1/search", req.nextUrl.origin);
+        url.searchParams.set("q", query);
+        url.searchParams.set("n", "3");
+        step("GET /v1/search", `q="${query}"`);
+        const res = await paidFetch(url.toString());
+        const settle = decodePaymentResponseHeader(res.headers.get("payment-response") ?? "");
+        const data = await res.json().catch(() => null);
+        if (!res.ok || !settle?.transaction) {
+          // the reserved slot is only spent when a payment actually settled
+          await refund();
+          send({ type: "error", error: "bid_failed", status: res.status });
+          ctrl.close();
+          return;
+        }
+        step("settled on-chain", `${settle.network} · tx ${String(settle.transaction).slice(0, 18)}…`);
+        const winner = data?.results?.[0];
+        step(
+          "200 delivered",
+          winner ? `"${String(winner.title).slice(0, 60)}"${winner.artist ? ` — ${winner.artist}` : ""} · ${data.results.length} lots, each with provenance` : `${data?.results?.length ?? 0} lots`,
+        );
+        const payer = rail === "evm" ? account!.address : stellarSigner!.address;
+        const explorer = rail === "evm" ? EXPLORER : EXPLORER_STELLAR;
+        send({
+          type: "result",
+          agent: { address: payer, rail, note: rail === "evm" ? "A testnet wallet. It paid $0.01 of test USDC so you could watch." : "A testnet agent. It paid 0.01 XLM via Soroban so you could watch." },
+          query,
+          settlement: settle,
+          explorer_url: settle?.transaction ? explorer + settle.transaction : null,
+          lots: data?.results ?? [],
+        });
+      } catch (e: any) {
+        await refund();
+        send({ type: "error", error: "bid_failed", message: e?.message?.slice(0, 300) });
+      }
+      ctrl.close();
+    },
+  });
+  return new Response(stream, {
+    headers: { "content-type": "application/x-ndjson", "cache-control": "no-store", "x-accel-buffering": "no" },
+  });
 }

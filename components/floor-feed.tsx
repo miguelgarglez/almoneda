@@ -189,6 +189,14 @@ export default function FloorFeed({ initial, total }: { initial: Sale[]; total: 
                 {open === s.id && (
                   <tr className="detail">
                     <td colSpan={8}>
+                      <div className="replay">
+                        <span className="rlab">receipt replay</span>
+                        <div className="rl" style={{ animationDelay: "0.1s" }}>agent asked for “{s.query_hint || s.endpoint}”</div>
+                        <div className="rl" style={{ animationDelay: "0.55s" }}>the desk answered 402 — payment required</div>
+                        <div className="rl" style={{ animationDelay: "1.0s" }}>paddle {short(s.payer)} signed · paid {railAmt(s)}</div>
+                        <div className="rl" style={{ animationDelay: "1.45s" }}>settled on {s.network}{s.tx ? ` — tx ${short(s.tx)}` : ""}</div>
+                        <div className="rl" style={{ animationDelay: "1.9s" }}>delivered{s.latency_ms != null ? ` in ${(s.latency_ms / 1000).toFixed(1)}s` : ""}{s.artwork_ids?.length ? ` · ${s.artwork_ids.length} lot${s.artwork_ids.length === 1 ? "" : "s"}` : ""}</div>
+                      </div>
                       <div className="sale-detail">
                         <div className="cell">
                           <span className="lab">lot won</span>

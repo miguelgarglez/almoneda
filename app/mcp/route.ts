@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { x402Server, ensureX402Init } from "@/lib/x402";
 import { embedText, embedImage, decodeImage } from "@/lib/clip";
 import { fetchPublicImage } from "@/lib/images";
-import { matchArtworks, corpusSize } from "@/lib/corpus";
+import { matchArtworks, corpusSize, rerankByKeywords } from "@/lib/corpus";
 import { enrich } from "@/lib/provenance";
 import { salesCount, recentSales, insertSale } from "@/lib/ledger";
 import { X402_NETWORK, X402_NETWORK_STELLAR, X402_PAY_TO, X402_PAY_TO_STELLAR, USDC_BASE_SEPOLIA, PRICE_SEARCH, PRICE_IMAGE, PRICE_SEARCH_XLM, PRICE_IMAGE_XLM } from "@/lib/env";
@@ -95,7 +95,9 @@ async function runSearch(name: string, args: any): Promise<{ data: any; hint: st
     emb = await embedText(q);
     hint = q;
   }
-  const rows = await matchArtworks(emb, n);
+  const rows = hint.startsWith("img:")
+    ? await matchArtworks(emb, n)
+    : rerankByKeywords(await matchArtworks(emb, n * 3), hint).slice(0, n);
   const works = (await enrich(rows)).filter((w) => w.provenance.rights_check !== "refuted");
   return {
     hint,
