@@ -74,10 +74,15 @@ export default function BidRoom() {
   const [freeNote, setFreeNote] = useState<{ text: string; err?: boolean } | null>(null);
   const tapeEnd = useRef<HTMLDivElement>(null);
 
-  // the wire grows downward — keep the newest line in view so the payoff
-  // is never below the fold of the console's internal scroll
+  // the wire grows downward — keep the newest line in view, but scroll the
+  // console's own column rather than the page (on mobile the page must not
+  // jump) — and never on the empty mount
   useEffect(() => {
-    tapeEnd.current?.scrollIntoView({ block: "nearest" });
+    if (!steps.length && !res && !freeNote && !freeLots?.length) return;
+    const el = tapeEnd.current;
+    const col = el?.closest(".console-col") as HTMLElement | null;
+    if (col && col.scrollHeight > col.clientHeight) col.scrollTop = col.scrollHeight;
+    else el?.scrollIntoView({ block: "nearest" });
   }, [steps, res, freeNote, freeLots]);
 
   const bid = async () => {
