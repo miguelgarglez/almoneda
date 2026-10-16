@@ -4,7 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const envFile = path.join(process.env.HOME, ".config/lab/secrets.env");
-for (const l of fs.readFileSync(envFile, "utf8").split("\n")) {
+for (const l of (fs.existsSync(envFile) ? fs.readFileSync(envFile, "utf8") : "").split("\n")) {
   const m = l.match(/^([A-Z_]+)=(.*)$/);
   if (m) process.env[m[1]] ??= m[2].replace(/^['"]|['"]$/g, "");
 }

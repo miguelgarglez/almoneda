@@ -69,6 +69,20 @@ export async function currentLot(windowMs = 120_000): Promise<CorpusRow | null> 
   return rows?.[0] ?? null;
 }
 
+// Thumbnail lookup for ledger rows: one artwork's thumb per sale.
+export async function saleThumbs(ids: string[]): Promise<Map<string, string>> {
+  const out = new Map<string, string>();
+  if (!ids.length) return out;
+  try {
+    const res = await fetch(
+      `${env.supabaseUrl}/rest/v1/artworks?select=id,thumb_url,image_url&id=in.(${ids.map((i) => `"${i}"`).join(",")})`,
+      { headers: { apikey: env.supabaseAnon, Authorization: `Bearer ${env.supabaseAnon}`, "Accept-Profile": "mellizo" } }
+    );
+    if (res.ok) for (const r of await res.json()) out.set(r.id, r.thumb_url || r.image_url);
+  } catch {}
+  return out;
+}
+
 export const MUSEUMS: Record<string, { name: string; rights: string; rights_url: string }> = {
   met: { name: "The Metropolitan Museum of Art", rights: "CC0 1.0", rights_url: "https://creativecommons.org/publicdomain/zero/1.0/" },
   cle: { name: "Cleveland Museum of Art", rights: "CC0 1.0", rights_url: "https://creativecommons.org/publicdomain/zero/1.0/" },

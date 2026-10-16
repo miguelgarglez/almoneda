@@ -10,6 +10,11 @@ export type Provenance = {
   rights: string;
   rights_url: string;
   verified: boolean;
+  // verified: per-object re-check confirmed open access.
+  // asserted: museum asserts open access; per-object check unavailable.
+  // unchecked: the check could not run (fetch failed) — transient.
+  // refuted: the museum's own data says this work is NOT open — excluded from results.
+  rights_check: "verified" | "asserted" | "unchecked" | "refuted";
   evidence_url: string;
 };
 
@@ -59,10 +64,13 @@ async function fetchJson(url: string, ms = 2500): Promise<any> {
   ]);
 }
 
-// Per-museum verification. Returns null when the source can't be checked —
-// the work still sells, but with verified:false and the source's blanket
-// rights statement.
-async function verifyOne(a: CorpusRow): Promise<Partial<Provenance>> {
+// Licenses we affirm as public-domain-equivalent when a file page reports them.
+const OPEN_LICENSE = /public domain|cc0|cc-?0|pd[-_ ]?art|pd[-_ ]?old/i;
+
+// Per-museum verification. "refuted" means the museum's own API answered and
+// the work is not open — those works must be excluded from results, not sold
+// with a weaker claim.
+async function verifyOne(a: CorpusRow): Promise<Partial<Provenance> & { status?: Provenance["rights_check"] }> {
   const src = a.source;
   if (src === "met") {
     const oid = a.id.split("-")[1];
@@ -76,7 +84,10 @@ async function verifyOne(a: CorpusRow): Promise<Partial<Provenance>> {
       );
       const meta = (Object.values(j?.query?.pages ?? {})[0] as any)?.imageinfo?.[0]?.extmetadata;
       const lic = meta?.LicenseShortName?.value;
-      return { accession: oid, rights: lic || "Public domain", rights_url: "https://commons.wikimedia.org/wiki/File:" + encodeURIComponent(file), verified: !!lic, evidence_url: a.object_url };
+      const rights_url = "https://commons.wikimedia.org/wiki/File:" + encodeURIComponent(file);
+      if (lic && OPEN_LICENSE.test(lic)) return { accession: oid, rights: lic, rights_url, verified: true, status: "verified", evidence_url: a.object_url };
+      if (lic) return { accession: oid, rights: lic, rights_url, verified: false, status: "refuted", evidence_url: a.object_url };
+      return { accession: oid, rights: "Public domain", rights_url, verified: false, status: "asserted", evidence_url: a.object_url };
     }
     throw new Error("met: cache-only source");
   }
@@ -84,15 +95,21 @@ async function verifyOne(a: CorpusRow): Promise<Partial<Provenance>> {
     const acc = a.object_url.split("/art/")[1] ?? a.id.split("-")[1];
     const j = await fetchJson(`https://openaccess-api.clevelandart.org/api/artworks/${acc}`);
     const d = j?.data;
-    return { accession: d?.accession_number ?? acc, verified: d?.share_license_status === "CC0", evidence_url: a.object_url };
+    const lic = d?.share_license_status;
+    if (lic === "CC0") return { accession: d?.accession_number ?? acc, verified: true, status: "verified", evidence_url: a.object_url };
+    if (lic) return { accession: d?.accession_number ?? acc, rights: `Cleveland share_license_status: ${lic}`, verified: false, status: "refuted", evidence_url: a.object_url };
+    return { accession: d?.accession_number ?? acc, verified: false, status: "asserted", evidence_url: a.object_url };
   }
   if (src === "aic") {
     const oid = a.id.split("-")[1];
     const j = await fetchJson(`https://api.artic.edu/api/v1/artworks/${oid}?fields=main_reference_number,is_public_domain`);
-    return { accession: j?.data?.main_reference_number ?? oid, verified: j?.data?.is_public_domain === true, evidence_url: a.object_url };
+    const pd = j?.data?.is_public_domain;
+    if (pd === true) return { accession: j?.data?.main_reference_number ?? oid, verified: true, status: "verified", evidence_url: a.object_url };
+    if (pd === false) return { accession: j?.data?.main_reference_number ?? oid, rights: "AIC: not public domain", verified: false, status: "refuted", evidence_url: a.object_url };
+    return { accession: j?.data?.main_reference_number ?? oid, verified: false, status: "asserted", evidence_url: a.object_url };
   }
-  if (src === "nga") return { accession: a.id.split("-")[1], verified: false, evidence_url: a.object_url };
-  return { accession: null, verified: false, evidence_url: a.object_url };
+  if (src === "nga") return { accession: a.id.split("-")[1], verified: false, status: "asserted", evidence_url: a.object_url };
+  return { accession: null, verified: false, status: "asserted", evidence_url: a.object_url };
 }
 
 export async function enrich(artworks: CorpusRow[]): Promise<(CorpusRow & { provenance: Provenance })[]> {
@@ -113,6 +130,7 @@ export async function enrich(artworks: CorpusRow[]): Promise<(CorpusRow & { prov
             rights: v.rights ?? museum?.rights ?? "See source",
             rights_url: v.rights_url ?? museum?.rights_url ?? a.object_url,
             verified: v.verified ?? false,
+            rights_check: v.status ?? (v.verified ? "verified" : "asserted"),
             evidence_url: v.evidence_url ?? a.object_url,
             fetched_at: new Date().toISOString(),
             _ok: true,
@@ -127,6 +145,7 @@ export async function enrich(artworks: CorpusRow[]): Promise<(CorpusRow & { prov
             rights: MUSEUMS[a.source]?.rights ?? "See source",
             rights_url: MUSEUMS[a.source]?.rights_url ?? a.object_url,
             verified: false,
+            rights_check: "unchecked",
             evidence_url: a.object_url,
             fetched_at: new Date().toISOString(),
             _ok: false,
@@ -143,6 +162,7 @@ export async function enrich(artworks: CorpusRow[]): Promise<(CorpusRow & { prov
       rights: MUSEUMS[a.source]?.rights ?? "See source",
       rights_url: MUSEUMS[a.source]?.rights_url ?? a.object_url,
       verified: false,
+      rights_check: "unchecked",
       evidence_url: a.object_url,
     };
     return {
@@ -153,6 +173,7 @@ export async function enrich(artworks: CorpusRow[]): Promise<(CorpusRow & { prov
         rights: p.rights,
         rights_url: p.rights_url,
         verified: p.verified === true,
+        rights_check: p.verified === true ? "verified" : (p.rights_check ?? "asserted"),
         evidence_url: p.evidence_url ?? a.object_url,
       },
     };

@@ -2,37 +2,37 @@ import { NextRequest, NextResponse } from "next/server";
 import { embedText } from "@/lib/clip";
 import { matchArtworks, corpusSize } from "@/lib/corpus";
 import { enrich } from "@/lib/provenance";
+import { takeQuota, giveQuota, clientIp } from "@/lib/quota";
 
 export const maxDuration = 60;
 export const dynamic = "force-dynamic";
 
-// Free taste of the paid API: 5 searches per IP per day, 3 results each,
-// same pipeline as /v1/search. Rate limit is per instance — honest, not bulletproof.
-const quota = new Map<string, { n: number; day: string }>();
-const DAY = () => new Date().toISOString().slice(0, 10);
+// Free taste of the paid API: 3 searches per IP per day, 3 results each,
+// same pipeline as /v1/search. Quota is atomic in Postgres.
+const FREE_PER_DAY = 3;
 
 export async function GET(req: NextRequest) {
-  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "anon";
-  const slot = quota.get(ip);
-  const used = slot?.day === DAY() ? slot.n : 0;
-  if (used >= 5) {
+  const key = `search:${clientIp(req)}`;
+  if (!(await takeQuota(key, FREE_PER_DAY))) {
     return NextResponse.json(
-      { error: "demo_quota", message: "Free desk limit reached (5/day). Agents pay per call: GET /v1/search, $0.01 USDC on Base Sepolia.", paid_endpoint: "/v1/search" },
+      { error: "demo_quota", message: "Free desk limit reached (3/day). Agents pay per call: GET /v1/search, $0.01 USDC on Base Sepolia.", paid_endpoint: "/v1/search" },
       { status: 429 }
     );
   }
-  quota.set(ip, { n: used + 1, day: DAY() });
 
   const q = (req.nextUrl.searchParams.get("q") || "").trim().slice(0, 300);
-  if (!q) return NextResponse.json({ error: "missing_query", message: "Pass ?q=<search text>." }, { status: 400 });
+  if (!q) {
+    await giveQuota(key);
+    return NextResponse.json({ error: "missing_query", message: "Pass ?q=<search text>." }, { status: 400 });
+  }
   try {
     const emb = await embedText(q);
     const rows = await matchArtworks(emb, 3);
-    const works = await enrich(rows);
+    const works = (await enrich(rows)).filter((w) => w.provenance.rights_check !== "refuted");
     const size = await corpusSize();
     return NextResponse.json({
       query: q,
-      demo: { free_calls_left_today: 4 - used, note: "Agents pay $0.01 USDC per call via x402 — see /llms.txt" },
+      demo: { note: "Agents pay $0.01 USDC per call via x402 — see /llms.txt" },
       results: works.map((w) => ({
         id: w.id,
         title: w.title,

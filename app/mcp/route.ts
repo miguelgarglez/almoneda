@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { x402Server, ensureX402Init } from "@/lib/x402";
 import { embedText, embedImage, decodeImage } from "@/lib/clip";
+import { fetchPublicImage } from "@/lib/images";
 import { matchArtworks, corpusSize } from "@/lib/corpus";
 import { enrich } from "@/lib/provenance";
 import { salesCount, recentSales, insertSale } from "@/lib/ledger";
@@ -17,7 +18,7 @@ const TOOLS = [
   {
     name: "search_artworks",
     title: "Search public-domain artworks",
-    description: `Search ~200k public-domain/CC0 artworks by text. Returns works with machine-readable provenance (museum, accession, rights statement, license evidence). Paid: ${PRICE_SEARCH} per call via x402 (USDC Base Sepolia or XLM Stellar testnet).`,
+    description: `Search the public-domain/CC0 artwork corpus by text. Returns works with machine-readable provenance (museum, accession, rights statement, license evidence). Paid: ${PRICE_SEARCH} per call via x402 (USDC Base Sepolia or XLM Stellar testnet).`,
     inputSchema: {
       type: "object",
       properties: {
@@ -77,26 +78,36 @@ async function paymentRequiredBody(url: string, description: string, usdPrice: s
   };
 }
 
-async function runSearch(args: any): Promise<any> {
+// Dispatch is by tool name, not by which arguments happen to be present —
+// otherwise search_artworks could trigger image inference at the text price.
+async function runSearch(name: string, args: any): Promise<{ data: any; hint: string }> {
   const n = Math.min(Math.max(parseInt(args?.n ?? "5", 10) || 5, 1), 12);
   let emb: number[];
-  if (args?.image_url) {
-    const r = await fetch(String(args.image_url), { signal: AbortSignal.timeout(8000) });
-    if (!r.ok) throw new Error(`image fetch ${r.status}`);
-    emb = await embedImage(await decodeImage(await r.arrayBuffer()));
+  let hint: string;
+  if (name === "search_by_image") {
+    const url = String(args?.image_url ?? "");
+    if (!/^https?:\/\//.test(url)) throw new Error("search_by_image requires a public http(s) image_url");
+    emb = await embedImage(await decodeImage(await fetchPublicImage(url)));
+    hint = `img:${new URL(url).hostname}`;
   } else {
-    emb = await embedText(String(args?.query ?? "").slice(0, 300));
+    const q = String(args?.query ?? "").slice(0, 300).trim();
+    if (!q) throw new Error("search_artworks requires a non-empty query");
+    emb = await embedText(q);
+    hint = q;
   }
   const rows = await matchArtworks(emb, n);
-  const works = await enrich(rows);
+  const works = (await enrich(rows)).filter((w) => w.provenance.rights_check !== "refuted");
   return {
-    results: works.map((w) => ({
-      id: w.id, title: w.title, artist: w.artist, date: w.date, medium: w.medium, department: w.department,
-      image: { display: w.image_url, thumb: w.thumb_url || w.image_url, width: w.img_w ?? null, height: w.img_h ?? null },
-      match: { distance: w.distance ?? null },
-      provenance: w.provenance,
-    })),
-    corpus: { size: await corpusSize() },
+    hint,
+    data: {
+      results: works.map((w) => ({
+        id: w.id, title: w.title, artist: w.artist, date: w.date, medium: w.medium, department: w.department,
+        image: { display: w.image_url, thumb: w.thumb_url || w.image_url, width: w.img_w ?? null, height: w.img_h ?? null },
+        match: { distance: w.distance ?? null },
+        provenance: w.provenance,
+      })),
+      corpus: { size: await corpusSize() },
+    },
   };
 }
 
@@ -152,7 +163,18 @@ export async function POST(req: NextRequest) {
         continue;
       }
 
-      // paid tool: verify payment from _meta["x402/payment"], run, settle
+      // paid tool: validate args against the tool's own schema first so a
+      // search_artworks call can't sneak image_url into the text path
+      if (name === "search_artworks" && typeof args?.query !== "string") {
+        out.push(rpcErr(id, -32602, "search_artworks requires arguments.query (string)"));
+        continue;
+      }
+      if (name === "search_by_image" && typeof args?.image_url !== "string") {
+        out.push(rpcErr(id, -32602, "search_by_image requires arguments.image_url (string)"));
+        continue;
+      }
+
+      // verify payment from _meta["x402/payment"], run, settle
       const url = `${origin}/mcp`;
       const accepts = await buildAccepts(tool.paid);
       const payment = extractPaymentFromMeta(m.params);
@@ -174,8 +196,12 @@ export async function POST(req: NextRequest) {
           out.push(rpcErr(id, 402, `payment invalid: ${(v as any).invalidReason ?? "unknown"}`, { invalidReason: (v as any).invalidReason }));
           continue;
         }
-        const data = await runSearch(args);
+        const { data, hint } = await runSearch(name, args);
         const settle = await x402Server.settlePayment(payment, chosen);
+        if (!settle || (settle as any).success === false) {
+          out.push(rpcErr(id, 402, `settlement failed${(settle as any)?.errorReason ? `: ${(settle as any).errorReason}` : ""} — nothing was charged; retry the call`));
+          continue;
+        }
         try {
           await insertSale({
             payer: (settle as any)?.payer ?? "",
@@ -183,7 +209,7 @@ export async function POST(req: NextRequest) {
             network: (settle as any)?.network ?? String(chosen.network),
             amount: String(chosen.amount ?? ""),
             endpoint: "mcp",
-            query_hint: String(args?.query ?? args?.image_url ?? name).slice(0, 120),
+            query_hint: hint.slice(0, 120),
             artwork_ids: (data.results ?? []).map((w: any) => w.id),
             latency_ms: null,
           });

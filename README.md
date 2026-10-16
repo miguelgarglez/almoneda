@@ -55,7 +55,7 @@ The homepage is the floor: the current lot on the block, a bidding console that 
 - **Art Institute of Chicago** — `is_public_domain` verified per object via the artic.edu API.
 - **National Gallery of Art** — NGA's published open-access policy; object pages linked as evidence.
 
-Failed checks are never cached as permanent negatives, and `verified` is only `true` when a source was actually consulted.
+Every result carries a `rights_check`: `verified` (per-object re-check confirmed open access), `asserted` (the museum asserts open access but no per-object check exists), `unchecked` (the check could not run — transient, never cached), or `refuted` (the museum's own data says the work is **not** open — those are excluded from results entirely). Failed checks are never cached as permanent negatives.
 
 ## Stack
 
@@ -69,7 +69,9 @@ cp .env.example .env.local   # SUPABASE_LAB_URL / _ANON_KEY / _SERVICE_KEY, opti
 npm run dev
 ```
 
-`supabase/migrations/` holds the schema (`almoneda.provenance`, `almoneda.sales`). `scripts/seed-provenance.mjs` seeds Met accessions from `MetObjects.csv`.
+`supabase/migrations/` holds almoneda's own schema (`almoneda.provenance`, `almoneda.sales`, `almoneda.demo_quotas` + quota RPCs). `scripts/seed-provenance.mjs` seeds Met accessions from `MetObjects.csv`.
+
+**Corpus prerequisite:** the artwork index itself is not in this repo. Search goes through a `match_artworks(query_embedding vector(512), match_count int)` RPC and an `artworks` table (columns `id, source, title, artist, date, medium, department, image_url, thumb_url, object_url, img_w, img_h`) in a `mellizo` Postgres schema — a pgvector index of CLIP ViT-B/32 embeddings built from museum open data. Point `SUPABASE_LAB_*` at a project that has that corpus, or build your own with the same contract; every endpoint will then work unchanged. The buyer scripts read env vars directly (`~/.config/lab/secrets.env` is only an optional local fallback).
 
 ## Deploy
 

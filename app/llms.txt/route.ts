@@ -39,8 +39,8 @@ POST {origin}/mcp speaks JSON-RPC 2.0 (Streamable HTTP, stateless). tools/list s
 
 ## Receipts and honesty
 
-- Every settled call is recorded publicly: GET /v1/floor lists recent sales with tx hashes and payer addresses.
-- provenance.verified means we re-checked the rights claim against the museum's own data/API (cached). verified:false means the source asserts open access but we could not re-check — the rights field then names the museum's blanket policy.
+- Every settled call is recorded publicly: GET /v1/floor lists recent sales with tx hashes and payer addresses. Image-search rows log only the source hostname — caller URLs may carry signed tokens and are never published.
+- provenance.rights_check: "verified" = re-checked against the museum's own data/API per object; "asserted" = the museum asserts open access but no per-object check exists; "unchecked" = the check could not run (transient); "refuted" = the museum's own data says the work is not open — refuted works are excluded from results entirely.
 - Everything runs on testnets. The money is test money; the protocol is the real one.
 `;
 export function GET(req: Request) {

@@ -24,14 +24,20 @@ const lotNumber = (id: string) => {
 
 export default function LotStage({ initial }: { initial: Lot | null }) {
   const [lot, setLot] = useState(initial);
+  const [loaded, setLoaded] = useState(false);
   const no = lot ? lotNumber(lot.id) : 0;
+  const ratio =
+    lot?.image.width && lot?.image.height ? `${lot.image.width} / ${lot.image.height}` : "4 / 3";
 
   useEffect(() => {
     const tick = async () => {
       try {
         const r = await fetch("/v1/floor", { cache: "no-store" });
         const j = await r.json();
-        if (j?.lot?.id && j.lot.id !== lot?.id) setLot(j.lot);
+        if (j?.lot?.id && j.lot.id !== lot?.id) {
+          setLot(j.lot);
+          setLoaded(false);
+        }
       } catch {}
     };
     const t = setInterval(tick, 20_000);
@@ -60,8 +66,19 @@ export default function LotStage({ initial }: { initial: Lot | null }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={lot.image.display} alt={`${lot.title}${lot.artist ? " — " + lot.artist : ""}`} loading="eager" />
+          {/* the mount holds the work's real aspect ratio from corpus data —
+              the frame never moves when the pixels arrive */}
+          <div className="mount" style={{ aspectRatio: ratio, maxHeight: 520 }}>
+            {!loaded && <div className="hanging">hanging the lot…</div>}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={lot.image.display}
+              alt={`${lot.title}${lot.artist ? " — " + lot.artist : ""}`}
+              loading="eager"
+              className={loaded ? "on" : ""}
+              onLoad={() => setLoaded(true)}
+            />
+          </div>
         </motion.div>
       </AnimatePresence>
       <div className="plate">

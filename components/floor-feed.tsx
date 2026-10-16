@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { Fragment, useEffect, useRef, useState } from "react";
 
 type Sale = {
   id: number;
@@ -11,6 +10,9 @@ type Sale = {
   amount: string;
   endpoint: string;
   query_hint: string;
+  artwork_ids?: string[];
+  thumb?: string | null;
+  latency_ms?: number | null;
   created_at: string;
 };
 
@@ -61,10 +63,30 @@ function Ago({ iso }: { iso: string }) {
   return <>{new Date(iso).toISOString().slice(11, 19)}Z</>;
 }
 
+function Copy({ text }: { text: string }) {
+  const [done, setDone] = useState(false);
+  return (
+    <button
+      type="button"
+      className="copybtn"
+      onClick={(e) => {
+        e.stopPropagation();
+        navigator.clipboard?.writeText(text).catch(() => {});
+        setDone(true);
+        setTimeout(() => setDone(false), 1200);
+      }}
+    >
+      {done ? "copied" : "copy"}
+    </button>
+  );
+}
+
 export default function FloorFeed({ initial, total }: { initial: Sale[]; total: number }) {
   const [sales, setSales] = useState(initial);
   const [count, setCount] = useState(total);
   const [live, setLive] = useState(true);
+  const [open, setOpen] = useState<number | null>(null);
+  const [flashTx, setFlashTx] = useState<string | null>(null);
   const seen = useRef(new Set(initial.map((s) => s.id)));
 
   useEffect(() => {
@@ -82,8 +104,28 @@ export default function FloorFeed({ initial, total }: { initial: Sale[]; total: 
         setLive(false);
       }
     };
+    // the bidding console announces its settlement so the new row lands
+    // immediately instead of waiting for the next poll
+    const onSale = () => tick();
+    window.addEventListener("almoneda:sale", onSale);
     const t = setInterval(tick, 15_000);
-    return () => clearInterval(t);
+    return () => {
+      window.removeEventListener("almoneda:sale", onSale);
+      clearInterval(t);
+    };
+  }, []);
+
+  useEffect(() => {
+    // flash the row matching the console's settlement once it appears
+    if (!flashTx) return;
+    const row = sales.find((s) => s.tx === flashTx);
+    if (row) setOpen(row.id);
+  }, [sales, flashTx]);
+
+  useEffect(() => {
+    const onSale = (e: Event) => setFlashTx((e as CustomEvent).detail?.tx ?? null);
+    window.addEventListener("almoneda:sale", onSale);
+    return () => window.removeEventListener("almoneda:sale", onSale);
   }, []);
 
   return (
@@ -93,7 +135,7 @@ export default function FloorFeed({ initial, total }: { initial: Sale[]; total: 
       </h2>
       <p className="sub">
         <span className={`dot ${live ? "on" : ""}`} style={{ display: "inline-block", marginRight: 8 }} />
-        Every row is a settled on-chain payment. Testnet money, real protocol.
+        Every row is a settled on-chain payment — click one to open the catalogue entry. Testnet money, real protocol.
       </p>
       {sales.length === 0 ? (
         <div className="empty">The gavel has not fallen yet. Send an agent to bid above — its settlement will appear here.</div>
@@ -102,6 +144,7 @@ export default function FloorFeed({ initial, total }: { initial: Sale[]; total: 
         <table className="ledger">
           <thead>
             <tr>
+              <th></th>
               <th>time</th>
               <th>paddle</th>
               <th>rail</th>
@@ -112,14 +155,21 @@ export default function FloorFeed({ initial, total }: { initial: Sale[]; total: 
             </tr>
           </thead>
           <tbody>
-            <AnimatePresence initial={false}>
-              {sales.map((s) => (
-                <motion.tr
-                  key={s.id}
-                  initial={{ opacity: 0, backgroundColor: "rgba(217,43,31,0.08)" }}
-                  animate={{ opacity: 1, backgroundColor: "rgba(217,43,31,0)" }}
-                  transition={{ duration: 1.4 }}
+            {sales.map((s) => (
+              <Fragment key={s.id}>
+                <tr
+                  onClick={() => setOpen(open === s.id ? null : s.id)}
+                  aria-expanded={open === s.id}
+                  style={flashTx === s.tx ? { backgroundColor: "rgba(160,35,24,0.06)" } : undefined}
                 >
+                  <td>
+                    {s.thumb ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img className="lthumb" src={s.thumb} alt="" loading="lazy" />
+                    ) : (
+                      <span className="lthumb" style={{ display: "inline-block", background: "var(--paper-2)" }} />
+                    )}
+                  </td>
                   <td className="mono" style={{ whiteSpace: "nowrap" }}><Ago iso={s.created_at} /></td>
                   <td className="mono" title={s.payer}>{short(s.payer)}</td>
                   <td><span className={`pill ${s.network.startsWith("stellar") ? "xlm" : "usdc"}`}>{railName(s.network)}</span></td>
@@ -130,14 +180,55 @@ export default function FloorFeed({ initial, total }: { initial: Sale[]; total: 
                   <td className="mono">{railAmt(s)}</td>
                   <td className="mono">
                     {s.tx ? (
-                      <a href={explorer(s)} target="_blank" rel="noreferrer" style={{ color: "var(--usdc)", textDecoration: "none" }}>
+                      <a href={explorer(s)} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} style={{ color: "var(--usdc)", textDecoration: "none" }}>
                         {short(s.tx)} ↗
                       </a>
                     ) : "—"}
                   </td>
-                </motion.tr>
-              ))}
-            </AnimatePresence>
+                </tr>
+                {open === s.id && (
+                  <tr className="detail">
+                    <td colSpan={8}>
+                      <div className="sale-detail">
+                        <div className="cell">
+                          <span className="lab">lot won</span>
+                          <span>{s.artwork_ids?.[0] ?? "—"}{s.artwork_ids && s.artwork_ids.length > 1 ? ` +${s.artwork_ids.length - 1}` : ""}</span>
+                        </div>
+                        <div className="cell">
+                          <span className="lab">request</span>
+                          <span>{s.query_hint || s.endpoint}</span>
+                        </div>
+                        <div className="cell">
+                          <span className="lab">paddle (payer)</span>
+                          <span className="mono">{short(s.payer)}<Copy text={s.payer} /></span>
+                        </div>
+                        <div className="cell">
+                          <span className="lab">settlement</span>
+                          <span className="mono">
+                            {s.tx ? (
+                              <>
+                                <a href={explorer(s)} target="_blank" rel="noreferrer">{short(s.tx)} ↗</a>
+                                <Copy text={s.tx} />
+                              </>
+                            ) : "—"}
+                          </span>
+                        </div>
+                        {s.latency_ms != null && (
+                          <div className="cell">
+                            <span className="lab">call took</span>
+                            <span className="mono">{(s.latency_ms / 1000).toFixed(1)}s</span>
+                          </div>
+                        )}
+                        <div className="cell">
+                          <span className="lab">hammer fell</span>
+                          <span className="mono">{new Date(s.created_at).toISOString().slice(0, 19).replace("T", " ")}Z</span>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                )}
+              </Fragment>
+            ))}
           </tbody>
         </table>
         </div>
@@ -145,3 +236,5 @@ export default function FloorFeed({ initial, total }: { initial: Sale[]; total: 
     </section>
   );
 }
+
+

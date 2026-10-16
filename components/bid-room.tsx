@@ -22,8 +22,10 @@ type BidResult = {
   message?: string;
 };
 
+const CHIPS = ["a storm at sea", "gold and grief", "a sleeping child", "winter light"];
+
 const tapeLine = (s: Step, i: number) => {
-  const cls = i === 0 ? "" : i === 1 ? "pay" : "ok";
+  const cls = i === 0 ? "" : i === 1 || i === 2 ? "pay" : "ok";
   return (
     <div className={`ln ${cls}`} key={i}>
       <span className="k">{(s.ms / 1000).toFixed(1)}s</span>
@@ -34,13 +36,31 @@ const tapeLine = (s: Step, i: number) => {
   );
 };
 
+const LotCard = ({ l, sold }: { l: Lot; sold?: boolean }) => (
+  <div className="lot" key={l.id}>
+    {sold && <div className="stamp-sold">SOLD</div>}
+    {/* eslint-disable-next-line @next/next/no-img-element */}
+    <img src={l.image.thumb} alt={l.title} loading="lazy" />
+    <div className="d">
+      <div className="t">{l.title}</div>
+      {l.artist && <div className="a">{l.artist}</div>}
+      {l.provenance && (
+        <div className="p">
+          {l.provenance.accession ? `acc. ${l.provenance.accession} · ` : ""}
+          <span className={l.provenance.verified ? "ok" : ""}>{l.provenance.verified ? `${l.provenance.rights} ✓` : `${l.provenance.rights}`}</span>
+        </div>
+      )}
+    </div>
+  </div>
+);
+
 export default function BidRoom() {
   const [q, setQ] = useState("");
   const [busy, setBusy] = useState<"bid" | "free" | null>(null);
   const [res, setRes] = useState<BidResult | null>(null);
   const [shownSteps, setShownSteps] = useState(0);
   const [freeLots, setFreeLots] = useState<Lot[] | null>(null);
-  const [freeNote, setFreeNote] = useState("");
+  const [freeNote, setFreeNote] = useState<{ text: string; err?: boolean } | null>(null);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   const stagger = (n: number) => {
@@ -53,15 +73,24 @@ export default function BidRoom() {
     setBusy("bid");
     setRes(null);
     setFreeLots(null);
+    setFreeNote(null);
     try {
       const r = await fetch("/v1/demo/bid", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ q: q.trim() }),
       });
-      const j: BidResult = await r.json();
+      const j: BidResult = await r.json().catch(() => ({ error: "bid_failed", message: `HTTP ${r.status}` }));
       setRes(j);
-      stagger((j.steps?.length ?? 0) + (j.explorer_url ? 1 : 0) + 1);
+      if (!r.ok || j.error) {
+        stagger((j.steps?.length ?? 0) + 1);
+      } else {
+        stagger((j.steps?.length ?? 0) + (j.explorer_url ? 1 : 0) + 1);
+        if (j.settlement?.transaction) {
+          // the ledger picks the new sale up immediately and flashes the row
+          setTimeout(() => window.dispatchEvent(new CustomEvent("almoneda:sale", { detail: { tx: j.settlement!.transaction } })), 2200);
+        }
+      }
     } catch (e: any) {
       setRes({ error: "bid_failed", message: e?.message ?? "network error" });
     } finally {
@@ -73,33 +102,36 @@ export default function BidRoom() {
     setBusy("free");
     setRes(null);
     setFreeLots(null);
+    setFreeNote(null);
     try {
       const u = new URL("/v1/demo/search", location.origin);
       u.searchParams.set("q", q.trim() || "a quiet interior");
       u.searchParams.set("n", "4");
       const r = await fetch(u.toString());
-      const j = await r.json();
-      if (r.status === 429) setFreeNote(j.message ?? "Free quota spent for today.");
-      else {
-        setFreeLots(j.results ?? []);
-        setFreeNote(`unpaid preview — ${j?.demo?.free_calls_left_today ?? "?"} free calls left today`);
+      const j = await r.json().catch(() => null);
+      if (!r.ok) {
+        setFreeNote({ text: j?.message ?? `preview failed (${r.status}) — the paid desk is always open`, err: true });
+      } else {
+        setFreeLots(j?.results ?? []);
+        setFreeNote({ text: "unpaid preview — three a day. The paid desk sells these for a cent each." });
       }
     } catch {
-      setFreeNote("preview failed — try again");
+      setFreeNote({ text: "preview failed — try again", err: true });
     } finally {
       setBusy(null);
     }
   };
 
-  const done = res && res.steps && shownSteps > res.steps.length;
+  const done = res && !res.error && res.steps && shownSteps > res.steps.length;
 
   return (
     <div className="console">
       <div className="hd">
         <span>the bidding console</span>
-        <span>x402 · usdc / xlm</span>
+        <span>x402 · usdc / xlm · testnet</span>
       </div>
       <div className="bd">
+        <label className="f-label" htmlFor="bid-query">what your agent needs</label>
         <input
           type="text"
           id="bid-query"
@@ -107,9 +139,14 @@ export default function BidRoom() {
           value={q}
           onChange={(e) => setQ(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && !busy && bid()}
-          placeholder='describe the work your agent needs — "a storm at sea", "gold and grief"…'
+          placeholder='describe the work — e.g. "a storm at sea"'
           aria-label="search query"
         />
+        <div className="chips" aria-label="example queries">
+          {CHIPS.map((c) => (
+            <button key={c} type="button" onClick={() => setQ(c)}>{c}</button>
+          ))}
+        </div>
         <div className="actions">
           <button className="btn" onClick={bid} disabled={!!busy}>
             {busy === "bid" ? "the agent is bidding…" : "send an agent to bid — $0.01"}
@@ -119,11 +156,13 @@ export default function BidRoom() {
           </button>
         </div>
         <p className="fineprint">
-          The bid button dispatches a real agent with a testnet purse: it receives an HTTP 402, signs the payment, and settles
-          on-chain before the lots fall. Humans watch; machines do the paying.
+          Fixed-price sale: <b>testnet money</b>, no wallet needed — the house purse pays so you can watch a real
+          x402 payment settle on-chain. The agent buys <b>one API response</b>, not exclusive ownership: the works
+          are public domain for everyone.
         </p>
 
-        {(res || freeLots) && (
+        <div aria-live="polite">
+        {(res || freeLots || freeNote) && (
           <div className="tape">
             {res?.error && (
               <div className="ln err">
@@ -141,59 +180,30 @@ export default function BidRoom() {
                     <a href={res.explorer_url} target="_blank" rel="noreferrer" style={{ color: "var(--usdc)" }}>
                       {res.settlement.transaction.slice(0, 14)}… ↗
                     </a>
+                    {" "}· lands on the floor below
                   </span>
                 </motion.div>
               )}
             </AnimatePresence>
-            {freeLots && (
-              <div className="ln">
+            {freeNote && (
+              <div className={`ln ${freeNote.err ? "err" : ""}`}>
                 <span className="k">—</span>
-                <span style={{ color: "var(--ink-3)" }}>{freeNote}</span>
+                <span style={{ color: freeNote.err ? "var(--sold)" : "var(--ink-3)" }}>{freeNote.text}</span>
               </div>
             )}
           </div>
         )}
+        </div>
 
         {res?.lots && done && (
           <motion.div className="results" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
-            {res.lots.map((l, i) => (
-              <div className="lot" key={l.id}>
-                {i === 0 && <div className="stamp-sold">SOLD</div>}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={l.image.thumb} alt={l.title} loading="lazy" />
-                <div className="d">
-                  <div className="t">{l.title}</div>
-                  {l.artist && <div className="a">{l.artist}</div>}
-                  {l.provenance && (
-                    <div className="p">
-                      {l.provenance.accession ? `acc. ${l.provenance.accession} · ` : ""}
-                      <span className={l.provenance.verified ? "ok" : ""}>{l.provenance.verified ? `${l.provenance.rights} ✓` : `${l.provenance.rights}`}</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
+            {res.lots.map((l, i) => <LotCard l={l} sold={i === 0} key={l.id} />)}
           </motion.div>
         )}
 
         {freeLots && freeLots.length > 0 && (
           <motion.div className="results" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
-            {freeLots.map((l) => (
-              <div className="lot" key={l.id}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={l.image.thumb} alt={l.title} loading="lazy" />
-                <div className="d">
-                  <div className="t">{l.title}</div>
-                  {l.artist && <div className="a">{l.artist}</div>}
-                  {l.provenance && (
-                    <div className="p">
-                      {l.provenance.accession ? `acc. ${l.provenance.accession} · ` : ""}
-                      <span className={l.provenance.verified ? "ok" : ""}>{l.provenance.verified ? `${l.provenance.rights} ✓` : `${l.provenance.rights}`}</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
+            {freeLots.map((l) => <LotCard l={l} key={l.id} />)}
           </motion.div>
         )}
       </div>

@@ -1,4 +1,4 @@
-import { corpusSize, currentLot, MUSEUMS } from "@/lib/corpus";
+import { corpusSize, currentLot, saleThumbs, MUSEUMS } from "@/lib/corpus";
 import { salesCount, recentSales } from "@/lib/ledger";
 import LotStage from "@/components/lot-stage";
 import BidRoom from "@/components/bid-room";
@@ -37,6 +37,17 @@ PAYMENT-RESPONSE: {"success":true,
 
 export default async function Page() {
   const { size, total, recent, lot } = await floorData();
+  const thumbs = await saleThumbs([...new Set(recent.map((s) => s.artwork_ids?.[0]).filter(Boolean))] as string[]);
+  const recentWithThumbs = recent.map((s) => ({
+    ...s,
+    thumb: s.artwork_ids?.[0] ? thumbs.get(s.artwork_ids[0]) ?? null : null,
+  }));
+  const last = recent[0];
+  const lastAmt = last
+    ? last.network.startsWith("stellar")
+      ? `${(parseInt(last.amount, 10) / 1e7).toFixed(2)} XLM`
+      : `$${(parseInt(last.amount, 10) / 1e6).toFixed(2)}`
+    : null;
 
   return (
     <main>
@@ -52,6 +63,10 @@ export default async function Page() {
               <span>{size ? "floor open" : "floor closed"}</span>
             </div>
           </div>
+          <p className="what">
+            Agents pay a cent or two per search and leave with an image, its catalogue data, and license proof.
+            Every settled payment lands on the public floor below.
+          </p>
         </div>
       </header>
 
@@ -59,11 +74,13 @@ export default async function Page() {
         <div className="wrap">
           <div className="row">
             <span>corpus <b>{size?.toLocaleString("en") ?? "—"}</b> works</span>
-            <span><b>4</b> museums</span>
             <span><b>{total}</b> lots sold</span>
-            <span>text search <b>$0.01</b>/call</span>
-            <span>image search <b>$0.02</b>/call</span>
-            <span>protocol <b>x402 v2</b></span>
+            {last && (
+              <span className="hammer">last hammer — <b>“{last.query_hint || last.endpoint}”</b> · {lastAmt}</span>
+            )}
+            <span className="opt"><b>4</b> museums</span>
+            <span className="opt">text <b>$0.01</b> · image <b>$0.02</b></span>
+            <span className="opt">protocol <b>x402 v2</b></span>
           </div>
         </div>
       </div>
@@ -86,20 +103,13 @@ export default async function Page() {
                 : null
             }
           />
-          <div>
+          <div className="console-col">
             <BidRoom />
-            <section className="prov" style={{ padding: "26px 0 0" }}>
-              <div className="grid" style={{ gridTemplateColumns: "1fr" }}>
-                <div className="museum" style={{ borderStyle: "dashed" }}>
-                  <h3>what a lot is</h3>
-                  <p>
-                    One JSON object: the image, its catalogue title, artist, medium — and a provenance block with the
-                    museum's accession number, a rights statement, and the URL that proves it. If a check could not be
-                    run, the lot says so. Nothing is sold as verified that was not verified.
-                  </p>
-                </div>
-              </div>
-            </section>
+            <p className="fineprint" style={{ marginTop: 14 }}>
+              A lot is one JSON object: the image, its catalogue title, artist, medium — and a provenance block
+              with the museum's accession number, a rights statement, and the URL that proves it. If a check
+              could not be run, the lot says so.
+            </p>
           </div>
         </div>
       </section>
@@ -113,7 +123,7 @@ export default async function Page() {
       </div>
 
       <div className="wrap">
-        <FloorFeed initial={recent as any} total={total} />
+        <FloorFeed initial={recentWithThumbs as any} total={total} />
       </div>
 
       <div className="wrap">

@@ -47,7 +47,7 @@ const handler = async (req: NextRequest): Promise<NextResponse> => {
   try {
     const emb = await embedText(q);
     const rows = await matchArtworks(emb, n);
-    const works = await enrich(rows);
+    const works = (await enrich(rows)).filter((w) => w.provenance.rights_check !== "refuted");
     const size = await corpusSize();
     stashSale(req.headers.get("payment-signature"), {
       endpoint: "text",
@@ -80,7 +80,7 @@ export const GET = withX402(
   {
     "/v1/search": {
       accepts: acceptsFor(PRICE_SEARCH, PRICE_SEARCH_XLM),
-      description: "Search 20k-200k public-domain artworks by text. Returns works with machine-readable provenance and license proof.",
+      description: "Search the public-domain artwork corpus by text. Returns works with machine-readable provenance and license proof.",
       mimeType: "application/json",
       extensions: declareDiscoveryExtension({
         input: { q: "storm at sea", n: 5 },

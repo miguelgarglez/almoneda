@@ -36,8 +36,13 @@ export async function embedImage(image: RawImage): Promise<number[]> {
 }
 
 // Decode a fetched image buffer into a RawImage. sharp handles jpeg/png/webp/gif.
-export async function decodeImage(buf: ArrayBuffer): Promise<RawImage> {
+// limitInputPixels rejects pixel bombs: an 8 MB compressed PNG can expand to
+// hundreds of MB of raw pixels.
+export async function decodeImage(buf: ArrayBuffer | Buffer): Promise<RawImage> {
   const sharp = (await import("sharp")).default;
-  const { data, info } = await sharp(Buffer.from(buf)).flatten({ background: "#ffffff" }).raw().toBuffer({ resolveWithObject: true });
+  const { data, info } = await sharp(Buffer.from(buf as ArrayBuffer), { limitInputPixels: 30_000_000 })
+    .flatten({ background: "#ffffff" })
+    .raw()
+    .toBuffer({ resolveWithObject: true });
   return new RawImage(new Uint8ClampedArray(data.buffer, data.byteOffset, data.byteLength), info.width, info.height, info.channels as 1 | 2 | 3 | 4);
 }

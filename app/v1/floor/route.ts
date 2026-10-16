@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { corpusSize, currentLot, MUSEUMS } from "@/lib/corpus";
+import { corpusSize, currentLot, saleThumbs, MUSEUMS } from "@/lib/corpus";
 import { salesCount, recentSales } from "@/lib/ledger";
 
 export const dynamic = "force-dynamic";
@@ -14,6 +14,7 @@ export async function GET() {
     recentSales(20),
     currentLot(),
   ]);
+  const thumbs = await saleThumbs([...new Set(recent.map((s) => s.artwork_ids?.[0]).filter(Boolean))] as string[]);
   return NextResponse.json(
     {
       corpus: { size, sources: ["met", "cle", "aic", "nga"] },
@@ -27,6 +28,9 @@ export async function GET() {
           amount: s.amount,
           endpoint: s.endpoint,
           query_hint: s.query_hint,
+          artwork_ids: s.artwork_ids,
+          thumb: s.artwork_ids?.[0] ? thumbs.get(s.artwork_ids[0]) ?? null : null,
+          latency_ms: s.latency_ms,
           created_at: s.created_at,
         })),
       },

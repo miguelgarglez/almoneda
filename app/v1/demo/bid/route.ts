@@ -5,16 +5,14 @@ import { ExactStellarScheme } from "@x402/stellar/exact/client";
 import { createEd25519Signer, getHorizonClient } from "@x402/stellar";
 import { privateKeyToAccount } from "viem/accounts";
 import { env, USDC_BASE_SEPOLIA, EXPLORER, EXPLORER_STELLAR, X402_NETWORK, X402_NETWORK_STELLAR, XLM_NATIVE_SAC } from "@/lib/env";
+import { takeQuotaClosed, giveQuota, clientIp } from "@/lib/quota";
 
 export const maxDuration = 90;
 export const dynamic = "force-dynamic";
 
-// "Send an agent to bid": a server-side buyer agent signs a real EIP-3009
-// payment and buys from our own paid endpoint, on real testnet USDC.
-// Rate-limited per IP and globally — the purse is finite.
-const quota = new Map<string, { n: number; day: string }>();
-let globalToday = { n: 0, day: "" };
-const DAY = () => new Date().toISOString().slice(0, 10);
+// "Send an agent to bid": a server-side buyer agent signs a real payment
+// and buys from our own paid endpoint, on real testnet money.
+// Quotas are atomic in Postgres — the purse is finite and races would spend it.
 
 const SUGGESTED = ["storm at sea", "a saint in gold", "portrait of a dog", "the harvest", "a sleeping child", "winter light", "an old violin"];
 
@@ -34,13 +32,16 @@ async function buyerBalance(addr: string): Promise<bigint | null> {
 }
 
 export async function POST(req: NextRequest) {
-  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "anon";
-  const slot = quota.get(ip);
-  const used = slot?.day === DAY() ? slot.n : 0;
-  const g = globalToday.day === DAY() ? globalToday.n : 0;
-  if (used >= 3) return NextResponse.json({ error: "demo_quota", message: "Three bids a day from the public purse. Agents with their own wallet buy any time — see /llms.txt." }, { status: 429 });
-  if (g >= 60) return NextResponse.json({ error: "purse_empty", message: "The house purse is spent for today. It refills at midnight UTC." }, { status: 429 });
-  if (!env.buyerKey && !env.buyerStellar) return NextResponse.json({ error: "no_buyer", message: "The house buyer is not configured." }, { status: 503 });
+  const ip = clientIp(req);
+  const ipKey = `bid:${ip}`;
+  const gKey = "bid:global";
+  if (!(await takeQuotaClosed(ipKey, 3))) return NextResponse.json({ error: "demo_quota", message: "Three bids a day from the public purse. Agents with their own wallet buy any time — see /llms.txt." }, { status: 429 });
+  if (!(await takeQuotaClosed(gKey, 60))) {
+    await giveQuota(ipKey);
+    return NextResponse.json({ error: "purse_empty", message: "The house purse is spent for today. It refills at midnight UTC." }, { status: 429 });
+  }
+  const refund = async () => { await giveQuota(ipKey); await giveQuota(gKey); };
+  if (!env.buyerKey && !env.buyerStellar) { await refund(); return NextResponse.json({ error: "no_buyer", message: "The house buyer is not configured." }, { status: 503 }); }
 
   // Prefer USDC on Base Sepolia when the EVM purse is funded; otherwise the
   // Stellar purse pays in XLM (friendbot-refillable, facilitator-sponsored).
@@ -64,6 +65,7 @@ export async function POST(req: NextRequest) {
     }
   }
   if (!rail) {
+    await refund();
     return NextResponse.json({ error: "purse_empty", message: "The house buyer is out of test funds. It refills from the Circle faucet (USDC) or friendbot (XLM)." }, { status: 503 });
   }
 
@@ -94,13 +96,15 @@ export async function POST(req: NextRequest) {
     const res = await paidFetch(url.toString());
     const settle = decodePaymentResponseHeader(res.headers.get("payment-response") ?? "");
     const data = await res.json().catch(() => null);
-    steps.push({ step: "402 → PAYMENT-SIGNATURE → settle", detail: rail === "evm" ? "EIP-3009 signed, facilitator settled on-chain" : "Soroban auth entry signed, facilitator settled on Stellar testnet", ms: Date.now() - t0 });
-    if (!res.ok) {
+    steps.push({ step: "402 payment required", detail: "accepts: $0.01 USDC on Base Sepolia · 0.01 XLM on Stellar testnet", ms: Date.now() - t0 });
+    steps.push({ step: "PAYMENT-SIGNATURE", detail: rail === "evm" ? "EIP-3009 typed-data signature" : "Soroban authorization entry, fees sponsored", ms: Date.now() - t0 });
+    if (!res.ok || !settle?.transaction) {
+      // the reserved slot is only spent when a payment actually settled
+      await refund();
       return NextResponse.json({ error: "bid_failed", status: res.status, steps, data }, { status: 502 });
     }
-    steps.push({ step: "200 + PAYMENT-RESPONSE", detail: `tx ${settle?.transaction ?? "?"}`, ms: Date.now() - t0 });
-    quota.set(ip, { n: used + 1, day: DAY() });
-    globalToday = { n: g + 1, day: DAY() };
+    steps.push({ step: "settled on-chain", detail: `${settle.network} · tx ${String(settle.transaction).slice(0, 18)}…`, ms: Date.now() - t0 });
+    steps.push({ step: "200 delivered", detail: `${data?.results?.length ?? 0} lots, each with provenance`, ms: Date.now() - t0 });
     const payer = rail === "evm" ? account!.address : stellarSigner!.address;
     const explorer = rail === "evm" ? EXPLORER : EXPLORER_STELLAR;
     return NextResponse.json({
@@ -112,6 +116,7 @@ export async function POST(req: NextRequest) {
       lots: data?.results ?? [],
     });
   } catch (e: any) {
+    await refund();
     return NextResponse.json({ error: "bid_failed", message: e?.message?.slice(0, 300), steps }, { status: 502 });
   }
 }
