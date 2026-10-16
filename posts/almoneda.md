@@ -1,8 +1,8 @@
 # almoneda — X post
 
 platform: x
-media: /Users/miguelgarglez/Developer/almoneda/docs/launch.mp4
-status: pending render
+media: /Users/miguelgarglez/Developer/almoneda/video/renders/video.mp4
+status: rendered
 draft: pending
 
 ---

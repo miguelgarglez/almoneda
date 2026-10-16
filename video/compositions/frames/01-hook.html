@@ -1,0 +1,143 @@
+<template>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:IBM Plex Mono;font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/captured-e390973e931a41c5-s.0rgnxg2b64rzs.woff2")format("woff2");unicode-range:U+460-52F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}
+@font-face{font-family:IBM Plex Mono;font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/captured-59b15b4bcd7b1eb5-s.2vemzm0itqzfy.woff2")format("woff2");unicode-range:U+301,U+400-45F,U+490-491,U+4B0-4B1,U+2116}
+@font-face{font-family:IBM Plex Mono;font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/captured-e532fa1b9921e1cd-s.3cb5lpr2l6xud.woff2")format("woff2");unicode-range:U+102-103,U+110-111,U+128-129,U+168-169,U+1A0-1A1,U+1AF-1B0,U+300-301,U+303-304,U+308-309,U+323,U+329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:IBM Plex Mono;font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/captured-2fe89d53234c61d4-s.1u30mmyq6lnsd.woff2")format("woff2");unicode-range:U+100-2BA,U+2BD-2C5,U+2C7-2CC,U+2CE-2D7,U+2DD-2FF,U+304,U+308,U+329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:IBM Plex Mono;font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/captured-99e609270109b47d-s.p.40sczeszzbjw1.woff2")format("woff2");unicode-range:U+??,U+131,U+152-153,U+2BB-2BC,U+2C6,U+2DA,U+2DC,U+304,U+308,U+329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:IBM Plex Mono;font-style:normal;font-weight:500;font-display:swap;src:url("assets/fonts/captured-a7afbb44bec2bb18-s.1qc6dx89jd2qv.woff2")format("woff2");unicode-range:U+301,U+400-45F,U+490-491,U+4B0-4B1,U+2116}
+/* the shipped mono-500 file carries no latin glyphs — alias weight 500 latin to the
+   latin-primary mono file so chrome set at weight 500 renders real letters */
+@font-face{font-family:IBM Plex Mono;font-style:normal;font-weight:500;font-display:swap;src:url("assets/fonts/captured-99e609270109b47d-s.p.40sczeszzbjw1.woff2")format("woff2");unicode-range:U+??,U+131,U+152-153,U+2BB-2BC,U+2C6,U+2DA,U+2DC,U+304,U+308,U+329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:IBM Plex Serif;font-style:italic;font-weight:400;font-display:swap;src:url("assets/fonts/captured-6308822089fd3411-s.1g4p5h7qohzvf.woff2")format("woff2");unicode-range:U+102-103,U+110-111,U+128-129,U+168-169,U+1A0-1A1,U+1AF-1B0,U+300-301,U+303-304,U+308-309,U+323,U+329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:IBM Plex Serif;font-style:italic;font-weight:400;font-display:swap;src:url("assets/fonts/captured-ff4d9f8b7294524b-s.0o02v0n75imht.woff2")format("woff2");unicode-range:U+100-2BA,U+2BD-2C5,U+2C7-2CC,U+2CE-2D7,U+2DD-2FF,U+304,U+308,U+329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:IBM Plex Serif;font-style:italic;font-weight:500;font-display:swap;src:url("assets/fonts/captured-221a7ef2b9efbaad-s.3y_2a9syrf1t9.woff2")format("woff2");unicode-range:U+102-103,U+110-111,U+128-129,U+168-169,U+1A0-1A1,U+1AF-1B0,U+300-301,U+303-304,U+308-309,U+323,U+329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:IBM Plex Serif;font-style:italic;font-weight:500;font-display:swap;src:url("assets/fonts/captured-730055c84ed23e9d-s.11rdqt5t05d4j.woff2")format("woff2");unicode-range:U+100-2BA,U+2BD-2C5,U+2C7-2CC,U+2CE-2D7,U+2DD-2FF,U+304,U+308,U+329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:IBM Plex Serif;font-style:italic;font-weight:500;font-display:swap;src:url("assets/fonts/captured-b02a479d288d97d4-s.p.0mib0lja7x326.woff2")format("woff2");unicode-range:U+??,U+131,U+152-153,U+2BB-2BC,U+2C6,U+2DA,U+2DC,U+304,U+308,U+329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:IBM Plex Serif;font-style:italic;font-weight:600;font-display:swap;src:url("assets/fonts/captured-15c09482df909879-s.3u3lylzphf4wx.woff2")format("woff2");unicode-range:U+460-52F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}
+
+#root{position:absolute;inset:0;overflow:hidden;container-type:size}
+.\30 1-hook-bg{position:absolute;inset:0;background:#F1EAD9}
+.\30 1-hook-stage{position:absolute;inset:0;transform-origin:52% 44%}
+
+/* topbar — the spine */
+.\30 1-hook-top{position:absolute;left:96px;right:96px;top:44px;display:flex;align-items:flex-start;justify-content:space-between}
+.\30 1-hook-toplabel{font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:26px;letter-spacing:.18em;text-transform:uppercase;color:#8A6410;padding-top:12px}
+.\30 1-hook-mono{width:130px;height:130px;box-sizing:border-box;border:2px solid #A02318;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:44px;color:#A02318}
+
+/* wordmark lockup — centered */
+.\30 1-hook-lockup{position:absolute;left:0;top:236px;width:100%;text-align:center}
+.\30 1-hook-mark{margin:0;font-family:"IBM Plex Serif",serif;font-style:normal;font-weight:500;font-size:196px;line-height:1;letter-spacing:-.02em;color:#231A12}
+.\30 1-hook-gilt{width:640px;height:2px;background:#8A6410;margin:46px auto 0;transform-origin:0 50%}
+
+/* thesis — two placed lot cards, mono voice */
+.\30 1-hook-cards{position:absolute;left:0;top:556px;width:100%;display:flex;flex-direction:column;align-items:center;gap:26px}
+.\30 1-hook-card{display:flex;align-items:baseline;gap:20px;background:#E8DFCA;border:2px solid #8A6410;border-radius:6px;padding:18px 30px;font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:#231A12}
+.\30 1-hook-ord{color:#A02318}
+
+/* the hanging lot — focal artwork, thin gilt frame on a hairline, right-of-center */
+.\30 1-hook-art{position:absolute;left:1418px;top:150px;width:364px;height:680px}
+.\30 1-hook-nail{position:absolute;left:178px;top:0;width:8px;height:8px;border-radius:50%;background:#A02318}
+.\30 1-hook-wire{position:absolute;left:182px;top:4px;width:153px;height:2px;background:#8A6410;transform-origin:0 50%}
+.\30 1-hook-hang{position:absolute;inset:0;transform-origin:182px 4px}
+.\30 1-hook-sway{position:absolute;inset:0;transform-origin:182px 4px}
+.\30 1-hook-frame{position:absolute;left:0;top:106px;margin:0;background:#F1EAD9;border:2px solid #8A6410;padding:14px}
+.\30 1-hook-frame img{display:block;width:336px;height:488px}
+.\30 1-hook-lottag{position:absolute;left:0;top:648px;width:100%;text-align:center;font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:#8A6410}
+
+/* supporting lot — smaller, deeper, dimmed */
+.\30 1-hook-lot2{position:absolute;left:100px;top:548px;width:240px;height:330px}
+.\30 1-hook-nail2{position:absolute;left:116px;top:0;width:8px;height:8px;border-radius:50%;background:#A02318}
+.\30 1-hook-wire2{position:absolute;left:119px;top:8px;width:2px;height:104px;background:#8A6410}
+.\30 1-hook-frame2{position:absolute;left:8px;top:112px;margin:0;background:#F1EAD9;border:2px solid #8A6410;padding:10px}
+.\30 1-hook-frame2 img{display:block;width:200px;height:183px}
+@font-face{font-family:IBM Plex Serif;font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/ef7be03ed7e60a63-s.p.3v7282xeqat89.woff2")format("woff2")}
+@font-face{font-family:IBM Plex Serif;font-style:normal;font-weight:500;font-display:swap;src:url("assets/fonts/522cd826f2dc0be6-s.p.1-0iuabceimri.woff2")format("woff2")}
+@font-face{font-family:IBM Plex Serif;font-style:normal;font-weight:600;font-display:swap;src:url("assets/fonts/713e82fa9fe87496-s.p.0rayo0436sl6u.woff2")format("woff2")}
+@font-face{font-family:IBM Plex Mono;font-style:normal;font-weight:500;font-display:swap;src:url("assets/fonts/effe91970fc4db64-s.p.0oace-s_gkfks.woff2")format("woff2")}
+</style>
+
+<div id="root" data-composition-id="01-hook" data-width="1920" data-height="1080" data-duration="4.5">
+  <div class="clip 01-hook-bg" data-start="0" data-duration="4.5" data-track-index="0"></div>
+
+  <div class="01-hook-stage" data-k="stage">
+    <header class="01-hook-top" data-k="top">
+      <div class="01-hook-toplabel">Saleroom — Session 01</div>
+      <div class="01-hook-mono">a</div>
+    </header>
+
+    <div class="01-hook-lockup">
+      <h1 class="01-hook-mark" data-k="mark">almoneda</h1>
+      <div class="01-hook-gilt" data-k="gilt"></div>
+    </div>
+
+    <div class="01-hook-cards">
+      <div class="01-hook-card" data-k="cardA"><span class="01-hook-ord">№ 1</span><span>an auction house</span></div>
+      <div class="01-hook-card" data-k="cardB"><span class="01-hook-ord">№ 2</span><span>where machines are the only bidders</span></div>
+    </div>
+
+    <div class="01-hook-art">
+      <div class="01-hook-nail" data-k="nail"></div>
+      <div class="01-hook-wire" data-k="wireL"></div>
+      <div class="01-hook-wire" data-k="wireR"></div>
+      <div class="01-hook-hang" data-k="hang">
+        <div class="01-hook-sway" data-k="sway">
+          <figure class="01-hook-frame"><img src="capture/assets/1943-479-web.jpg" alt=""></figure>
+          <div class="01-hook-lottag" data-k="lottag">№ 1943-479</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="01-hook-lot2" data-k="lot2">
+      <div class="01-hook-nail2"></div>
+      <div class="01-hook-wire2"></div>
+      <figure class="01-hook-frame2"><img src="capture/assets/dt3073.jpg" alt=""></figure>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var rootEl = document.querySelector('[data-composition-id="01-hook"]');
+  var q = function(k){ return rootEl.querySelector('[data-k="'+k+'"]'); };
+
+  var tl = gsap.timeline({ paused: true });
+  window.__timelines = window.__timelines || {};
+  window.__timelines["01-hook"] = tl;
+
+  /* macro drift — barely-perceptible push across the whole shot */
+  tl.fromTo(q("stage"), { scale: 1 }, { scale: 1.015, duration: 4, ease: "none" }, 0);
+
+  /* Scene 1 (0.0–1.4) — vellum field; wordmark sets in ink; artwork hangs */
+  tl.fromTo(q("top"),  { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, 0);
+  tl.fromTo(q("mark"), { opacity: 0, y: 16, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power3.out" }, 0.15);
+  tl.fromTo(q("nail"), { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.2)" }, 0.5);
+  tl.fromTo(q("wireL"), { scaleX: 0, rotation: 138.2 }, { scaleX: 1, rotation: 138.2, duration: 0.45, ease: "power2.out" }, 0.6);
+  tl.fromTo(q("wireR"), { scaleX: 0, rotation: 41.8 },  { scaleX: 1, rotation: 41.8,  duration: 0.45, ease: "power2.out" }, 0.66);
+  tl.fromTo(q("hang"), { opacity: 0, y: -26, rotation: 1.5 }, { opacity: 1, y: 0, rotation: 0, duration: 0.8, ease: "power3.out" }, 0.72);
+  tl.fromTo(q("gilt"), { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.inOut" }, 0.78);
+  tl.fromTo(q("lot2"), { opacity: 0, y: 18 }, { opacity: 0.5, y: 0, duration: 0.7, ease: "power3.out" }, 1.05);
+  tl.fromTo(q("lottag"), { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "power1.out" }, 1.3);
+
+  /* Scene 2 (1.4–3.2) — the thesis lands in two beats, settling like placed lot cards */
+  tl.fromTo(q("cardA"), { opacity: 0, y: 26, rotation: -1.1 }, { opacity: 1, y: 0, rotation: 0, duration: 0.6, ease: "power3.out" }, 1.5);
+  tl.fromTo(q("cardB"), { opacity: 0, y: 26, rotation: 1.1 },  { opacity: 1, y: 0, rotation: 0, duration: 0.6, ease: "power3.out" }, 2.4);
+
+  /* Scene 3 (3.2–4.0) — the quiet: a barely-there pendulum sway decaying to stillness */
+  var swayEl = q("sway");
+  var ph = { p: 0 };
+  var SWAY_DUR = 1.0, SWAY_CYC = 0.85, SWAY_AMP = 0.45, SWAY_FADE = 0.35;
+  tl.to(ph, {
+    p: Math.PI * 2 * SWAY_CYC,
+    duration: SWAY_DUR,
+    ease: "none",
+    onUpdate: function(){
+      var t = ph.p / (Math.PI * 2 * SWAY_CYC);
+      var env = t < 1 - SWAY_FADE ? 1 : (1 - t) / SWAY_FADE;
+      gsap.set(swayEl, { rotation: Math.sin(ph.p) * SWAY_AMP * env });
+    }
+  }, 2.95);
+})();
+</script>
+</template>

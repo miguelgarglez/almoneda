@@ -1,0 +1,2983 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 5,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<div class=\"01-hook-bg\" data-start=\"0\" data-track-index=\"0\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/Users/miguelgarglez/Developer/almoneda/video/compositions/frames/01-hook.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<div class=\"f02-bg\" data-start=\"0\" data-track-index=\"0\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/Users/miguelgarglez/Developer/almoneda/video/compositions/frames/02-floor.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<div class=\"f03-bg\" data-start=\"0\" data-track-index=\"0\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/Users/miguelgarglez/Developer/almoneda/video/compositions/frames/03-wire.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<div class=\"settled-bg\" data-start=\"0\" data-track-index=\"0\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/Users/miguelgarglez/Developer/almoneda/video/compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<div data-start=\"0\" data-track-index=\"0\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/Users/miguelgarglez/Developer/almoneda/video/compositions/frames/05-end.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      }
+    ],
+    "filesScanned": 6
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 3,
+    "warningCount": 3,
+    "infoCount": 7,
+    "findings": [
+      {
+        "code": "text_occluded",
+        "severity": "error",
+        "time": 21.667,
+        "selector": "div.settled-hd-r",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 694.39,
+          "top": 189,
+          "right": 1020,
+          "bottom": 214,
+          "width": 325.61,
+          "height": 25
+        },
+        "containerSelector": "div.settled-stamp",
+        "text": "X402 · STELLAR TESTNET",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.44,
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 694.39,
+          "y": 189,
+          "width": 325.61,
+          "height": 25
+        },
+        "firstSeen": 21.667,
+        "lastSeen": 25,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          21.667,
+          25
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 21.667,
+        "selector": "div.settled-hd-l",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 124,
+          "top": 189,
+          "right": 405.2,
+          "bottom": 214,
+          "width": 281.2,
+          "height": 25
+        },
+        "containerSelector": "#settled-tl1 > span:nth-of-type(1)",
+        "text": "THE BIDDING CONSOLE",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 124,
+          "y": 189,
+          "width": 281.2,
+          "height": 25
+        },
+        "firstSeen": 19.75,
+        "lastSeen": 27.25,
+        "occurrences": 62,
+        "heldMs": 7500,
+        "times": [
+          19.75,
+          19.875,
+          20,
+          20.125,
+          20.25,
+          20.375,
+          20.5,
+          20.625,
+          20.75,
+          20.875,
+          21,
+          21.125,
+          21.25,
+          21.375,
+          21.5,
+          21.625,
+          21.667,
+          21.75,
+          21.875,
+          22,
+          22.125,
+          22.25,
+          22.375,
+          22.5,
+          22.625,
+          22.75,
+          22.875,
+          23,
+          23.125,
+          23.25,
+          23.375,
+          23.5,
+          23.625,
+          23.75,
+          23.875,
+          24,
+          24.125,
+          24.25,
+          24.375,
+          24.5,
+          24.625,
+          24.75,
+          24.875,
+          25,
+          25.125,
+          25.25,
+          25.375,
+          25.5,
+          25.625,
+          25.75,
+          25.875,
+          26,
+          26.125,
+          26.25,
+          26.375,
+          26.5,
+          26.625,
+          26.75,
+          26.875,
+          27,
+          27.125,
+          27.25
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 21.667,
+        "selector": "div.settled-hd-r",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 694.39,
+          "top": 189,
+          "right": 1020,
+          "bottom": 214,
+          "width": 325.61,
+          "height": 25
+        },
+        "containerSelector": "#settled-tl1 > span:nth-of-type(44)",
+        "text": "X402 · STELLAR TESTNET",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 694.39,
+          "y": 189,
+          "width": 325.61,
+          "height": 25
+        },
+        "firstSeen": 20.5,
+        "lastSeen": 27.25,
+        "occurrences": 56,
+        "heldMs": 6750,
+        "times": [
+          20.5,
+          20.625,
+          20.75,
+          20.875,
+          21,
+          21.125,
+          21.25,
+          21.375,
+          21.5,
+          21.625,
+          21.667,
+          21.75,
+          21.875,
+          22,
+          22.125,
+          22.25,
+          22.375,
+          22.5,
+          22.625,
+          22.75,
+          22.875,
+          23,
+          23.125,
+          23.25,
+          23.375,
+          23.5,
+          23.625,
+          23.75,
+          23.875,
+          24,
+          24.125,
+          24.25,
+          24.375,
+          24.5,
+          24.625,
+          24.75,
+          24.875,
+          25,
+          25.125,
+          25.25,
+          25.375,
+          25.5,
+          25.625,
+          25.75,
+          25.875,
+          26,
+          26.125,
+          26.25,
+          26.375,
+          26.5,
+          26.625,
+          26.75,
+          26.875,
+          27,
+          27.125,
+          27.25
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 24.75,
+        "selector": "div.settled-oldrows > div:nth-of-type(1) > span:nth-of-type(2)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 1220,
+          "top": 644.07,
+          "right": 1364,
+          "bottom": 664.07,
+          "width": 144,
+          "height": 20
+        },
+        "containerSelector": "div.settled-newrow > span:nth-of-type(2)",
+        "text": "a saint in gold",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 1220,
+          "y": 644.07,
+          "width": 144,
+          "height": 20
+        },
+        "firstSeen": 24.75,
+        "lastSeen": 24.875,
+        "occurrences": 2,
+        "heldMs": 125,
+        "times": [
+          24.75,
+          24.875
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 24.75,
+        "selector": "div.settled-oldrows > div:nth-of-type(1) > span:nth-of-type(3)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 1550,
+          "top": 644.07,
+          "right": 1626.81,
+          "bottom": 664.07,
+          "width": 76.81,
+          "height": 20
+        },
+        "containerSelector": "div.settled-newrow > span:nth-of-type(3)",
+        "text": "0.01 XLM",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 1550,
+          "y": 644.07,
+          "width": 76.81,
+          "height": 20
+        },
+        "firstSeen": 24.75,
+        "lastSeen": 24.875,
+        "occurrences": 2,
+        "heldMs": 125,
+        "times": [
+          24.75,
+          24.875
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 24.75,
+        "selector": "div.settled-oldrows > div:nth-of-type(1) > span:nth-of-type(4)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 1640,
+          "top": 644.07,
+          "right": 1745.61,
+          "bottom": 664.07,
+          "width": 105.61,
+          "height": 20
+        },
+        "containerSelector": "div.settled-newrow > span:nth-of-type(4)",
+        "text": "a44b56…2310",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 1640,
+          "y": 644.07,
+          "width": 105.61,
+          "height": 20
+        },
+        "firstSeen": 24.75,
+        "lastSeen": 24.875,
+        "occurrences": 2,
+        "heldMs": 125,
+        "times": [
+          24.75,
+          24.875
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 1.667,
+        "selector": "div.\\30 1-hook-stage",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -6.29,
+          "top": -2.99,
+          "right": 1925.81,
+          "bottom": 1083.81,
+          "width": 1932.1,
+          "height": 1086.8
+        },
+        "containerSelector": "#el-01-hook > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "left": 6.29,
+          "right": 5.81,
+          "top": 2.99,
+          "bottom": 3.81
+        },
+        "dataAttributes": {
+          "data-k": "stage"
+        },
+        "sourceFile": "compositions/frames/01-hook.html",
+        "bbox": {
+          "x": -6.29,
+          "y": -2.99,
+          "width": 1932.1,
+          "height": 1086.8
+        },
+        "firstSeen": 1.667,
+        "lastSeen": 1.667,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          1.667
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 8.333,
+        "selector": "#f02-chip-lot > div:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 515.2,
+          "top": 174,
+          "right": 618.8,
+          "bottom": 199,
+          "width": 103.61,
+          "height": 25
+        },
+        "containerSelector": "#el-02-floor-video-1",
+        "text": "The Lot",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/02-floor.html",
+        "bbox": {
+          "x": 515.2,
+          "y": 174,
+          "width": 103.61,
+          "height": 25
+        },
+        "firstSeen": 8.333,
+        "lastSeen": 8.333,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          8.333
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 8.333,
+        "selector": "#f02-chip-console > div:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 850.59,
+          "top": 174,
+          "right": 1013.41,
+          "bottom": 199,
+          "width": 162.81,
+          "height": 25
+        },
+        "containerSelector": "#el-02-floor-video-1",
+        "text": "The Console",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/02-floor.html",
+        "bbox": {
+          "x": 850.59,
+          "y": 174,
+          "width": 162.81,
+          "height": 25
+        },
+        "firstSeen": 8.333,
+        "lastSeen": 8.333,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          8.333
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 8.333,
+        "selector": "#f02-chip-ledger > div:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 1223,
+          "top": 174,
+          "right": 1371,
+          "bottom": 199,
+          "width": 148,
+          "height": 25
+        },
+        "containerSelector": "#el-02-floor-video-1",
+        "text": "The Ledger",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/02-floor.html",
+        "bbox": {
+          "x": 1223,
+          "y": 174,
+          "width": 148,
+          "height": 25
+        },
+        "firstSeen": 8.333,
+        "lastSeen": 8.333,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          8.333
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 24.875,
+        "selector": "div.settled-oldrows > div:nth-of-type(1) > span:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 1138,
+          "top": 653,
+          "right": 1195.61,
+          "bottom": 673,
+          "width": 57.61,
+          "height": 20
+        },
+        "containerSelector": "div.settled-newrow > span:nth-of-type(1)",
+        "text": "8m ago",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 1138,
+          "y": 653,
+          "width": 57.61,
+          "height": 20
+        },
+        "firstSeen": 24.875,
+        "lastSeen": 24.875,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          24.875
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 27.25,
+        "selector": "div.settled-top-l",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 96,
+          "top": 49,
+          "right": 278.53,
+          "bottom": 83,
+          "width": 182.53,
+          "height": 34
+        },
+        "containerSelector": "div.end-topbar > span:nth-of-type(1)",
+        "text": "ALMONEDA · THE FLOOR",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 96,
+          "y": 49,
+          "width": 182.53,
+          "height": 34
+        },
+        "firstSeen": 27.25,
+        "lastSeen": 27.25,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          27.25
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 27.25,
+        "selector": "span.settled-g",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 278.53,
+          "top": 49,
+          "right": 501.63,
+          "bottom": 83,
+          "width": 223.1,
+          "height": 34
+        },
+        "containerSelector": "div.end-topbar > span:nth-of-type(1)",
+        "text": "· THE FLOOR",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 278.53,
+          "y": 49,
+          "width": 223.1,
+          "height": 34
+        },
+        "firstSeen": 27.25,
+        "lastSeen": 27.25,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          27.25
+        ]
+      }
+    ],
+    "duration": 30,
+    "samples": [
+      1.667,
+      5,
+      8.333,
+      11.667,
+      15,
+      18.333,
+      21.667,
+      25,
+      28.333
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 13,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 84,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 4.05:1; WCAG AA requires 4.5:1.",
+        "text": "First Load — Live",
+        "fg": "rgb(138,100,16)",
+        "bg": "rgb(232,223,202)",
+        "ratio": 4.05,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(129,93,15)",
+        "large": false,
+        "selector": "div > div:nth-of-type(2) > div > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(3)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/02-floor.html",
+        "bbox": {
+          "x": 1267.296875,
+          "y": 101.5,
+          "width": 188.703125,
+          "height": 19
+        },
+        "time": 8.333,
+        "times": [
+          8.333
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 4.48:1; WCAG AA requires 4.5:1.",
+        "text": "Send an agent to bid",
+        "fg": "rgb(138,100,16)",
+        "bg": "rgb(241,234,217)",
+        "ratio": 4.48,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(137,99,16)",
+        "large": false,
+        "selector": "#f03-pin0-note",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/03-wire.html",
+        "bbox": {
+          "x": 640,
+          "y": 350,
+          "width": 222,
+          "height": 19
+        },
+        "time": 15,
+        "times": [
+          15
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 4.48:1; WCAG AA requires 4.5:1.",
+        "text": "Accepts — $0.01 USDC · Base Sepolia",
+        "fg": "rgb(138,100,16)",
+        "bg": "rgb(241,234,217)",
+        "ratio": 4.48,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(137,99,16)",
+        "large": false,
+        "selector": "#f03-pin1-note1",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/03-wire.html",
+        "bbox": {
+          "x": 640,
+          "y": 519,
+          "width": 388.5,
+          "height": 19
+        },
+        "time": 15,
+        "times": [
+          15
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 4.48:1; WCAG AA requires 4.5:1.",
+        "text": "0.01 XLM · Stellar testnet",
+        "fg": "rgb(138,100,16)",
+        "bg": "rgb(241,234,217)",
+        "ratio": 4.48,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(137,99,16)",
+        "large": false,
+        "selector": "#f03-pin1-note2",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/03-wire.html",
+        "bbox": {
+          "x": 640,
+          "y": 541,
+          "width": 288.609375,
+          "height": 19
+        },
+        "time": 15,
+        "times": [
+          15
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 4.48:1; WCAG AA requires 4.5:1.",
+        "text": "Soroban authorization entry",
+        "fg": "rgb(138,100,16)",
+        "bg": "rgb(241,234,217)",
+        "ratio": 4.48,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(137,99,16)",
+        "large": false,
+        "selector": "#f03-pin2-note1",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/03-wire.html",
+        "bbox": {
+          "x": 640,
+          "y": 566,
+          "width": 299.703125,
+          "height": 19
+        },
+        "time": 15,
+        "times": [
+          15
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 4.48:1; WCAG AA requires 4.5:1.",
+        "text": "Fees sponsored",
+        "fg": "rgb(138,100,16)",
+        "bg": "rgb(241,234,217)",
+        "ratio": 4.48,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(137,99,16)",
+        "large": false,
+        "selector": "#f03-pin2-note2",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/03-wire.html",
+        "bbox": {
+          "x": 640,
+          "y": 588,
+          "width": 155.40625,
+          "height": 19
+        },
+        "time": 15,
+        "times": [
+          15
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 4.05:1; WCAG AA requires 4.5:1.",
+        "text": "Wire-A · Real Speed",
+        "fg": "rgb(138,100,16)",
+        "bg": "rgb(232,223,202)",
+        "ratio": 4.05,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(129,93,15)",
+        "large": false,
+        "selector": "div > div:nth-of-type(3) > div > div:nth-of-type(29) > div > span:nth-of-type(3)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/03-wire.html",
+        "bbox": {
+          "x": 1589.09375,
+          "y": 101.5,
+          "width": 210.90625,
+          "height": 19
+        },
+        "time": 15,
+        "times": [
+          15
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 4.28:1; WCAG AA requires 4.5:1.",
+        "text": "X402 · STELLAR TESTNET",
+        "fg": "rgb(165,119,31)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 4.28,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(168,123,38)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(6)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 694.390625,
+          "y": 189,
+          "width": 325.609375,
+          "height": 25
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": ">",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(1)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 124,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "W",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(3)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 150.46875,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "I",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(4)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 163.703125,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "R",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(5)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 176.9375,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "E",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(6)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 190.171875,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "S",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(8)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 216.640625,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "E",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(9)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 229.875,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "N",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(10)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 243.109375,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "T",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(11)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 256.34375,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "·",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(13)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 282.8125,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "0",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(15)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 309.28125,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": ".",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(16)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 322.515625,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "0",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(17)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 335.75,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "1",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(18)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 348.984375,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "X",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(20)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 375.453125,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "L",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(21)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 388.6875,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "M",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(22)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 401.921875,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "·",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(24)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 428.390625,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "X",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(26)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 454.859375,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "4",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(27)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 468.09375,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "0",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(28)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 481.328125,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "2",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(29)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 494.5625,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "E",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(31)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 521.03125,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "X",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(32)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 534.265625,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "A",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(33)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 547.5,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "C",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(34)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 560.734375,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "T",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(35)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 573.96875,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "—",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(37)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 600.4375,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "A",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(39)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 626.90625,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "W",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(40)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 640.140625,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "A",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(41)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 653.375,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "I",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(42)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 666.609375,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "T",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(43)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 679.84375,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "I",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(44)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 693.078125,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "N",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(45)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 706.3125,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "G",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(46)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 719.546875,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "S",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(48)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 746.015625,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "E",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(49)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 759.25,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "T",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(50)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 772.484375,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "T",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(51)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 785.71875,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "L",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(52)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 798.953125,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "E",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(53)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 812.1875,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "M",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(54)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 825.421875,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "E",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(55)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 838.65625,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "N",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(56)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 851.890625,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "T",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(9) > span:nth-of-type(57)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 865.125,
+          "y": 179,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": ">",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(1)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 124,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "S",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(3)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 150.46875,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "E",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(4)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 163.703125,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "T",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(5)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 176.9375,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "T",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(6)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 190.171875,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "L",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(7)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 203.40625,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "E",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(8)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 216.640625,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "D",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(9)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 229.875,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "O",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(11)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 256.34375,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "N",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(12)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 269.578125,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "-",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(13)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 282.8125,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "C",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(14)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 296.046875,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "H",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(15)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 309.28125,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "A",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(16)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 322.515625,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "I",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(17)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 335.75,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "N",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(18)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 348.984375,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "·",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(20)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 375.453125,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "T",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(22)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 401.921875,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "X",
+        "fg": "rgb(35,26,18)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(136,131,127)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(23)",
+        "dataAttributes": {
+          "data-base": "settled-tc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 415.15625,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 3.18:1; WCAG AA requires 4.5:1.",
+        "text": "C",
+        "fg": "rgb(138,100,16)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 3.18,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(158,127,57)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(25)",
+        "dataAttributes": {
+          "data-base": "settled-tc acc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 441.625,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 3.18:1; WCAG AA requires 4.5:1.",
+        "text": "4",
+        "fg": "rgb(138,100,16)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 3.18,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(158,127,57)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(26)",
+        "dataAttributes": {
+          "data-base": "settled-tc acc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 454.859375,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 3.18:1; WCAG AA requires 4.5:1.",
+        "text": "5",
+        "fg": "rgb(138,100,16)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 3.18,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(158,127,57)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(27)",
+        "dataAttributes": {
+          "data-base": "settled-tc acc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 468.09375,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 3.18:1; WCAG AA requires 4.5:1.",
+        "text": "F",
+        "fg": "rgb(138,100,16)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 3.18,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(158,127,57)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(28)",
+        "dataAttributes": {
+          "data-base": "settled-tc acc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 481.328125,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 3.18:1; WCAG AA requires 4.5:1.",
+        "text": "7",
+        "fg": "rgb(138,100,16)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 3.18,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(158,127,57)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(29)",
+        "dataAttributes": {
+          "data-base": "settled-tc acc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 494.5625,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 3.18:1; WCAG AA requires 4.5:1.",
+        "text": "0",
+        "fg": "rgb(138,100,16)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 3.18,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(158,127,57)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(30)",
+        "dataAttributes": {
+          "data-base": "settled-tc acc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 507.796875,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 3.18:1; WCAG AA requires 4.5:1.",
+        "text": "…",
+        "fg": "rgb(138,100,16)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 3.18,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(158,127,57)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(31)",
+        "dataAttributes": {
+          "data-base": "settled-tc acc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 521.03125,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 3.18:1; WCAG AA requires 4.5:1.",
+        "text": "1",
+        "fg": "rgb(138,100,16)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 3.18,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(158,127,57)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(32)",
+        "dataAttributes": {
+          "data-base": "settled-tc acc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 534.265625,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 3.18:1; WCAG AA requires 4.5:1.",
+        "text": "C",
+        "fg": "rgb(138,100,16)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 3.18,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(158,127,57)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(33)",
+        "dataAttributes": {
+          "data-base": "settled-tc acc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 547.5,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 3.18:1; WCAG AA requires 4.5:1.",
+        "text": "7",
+        "fg": "rgb(138,100,16)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 3.18,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(158,127,57)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(34)",
+        "dataAttributes": {
+          "data-base": "settled-tc acc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 560.734375,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 3.18:1; WCAG AA requires 4.5:1.",
+        "text": "5",
+        "fg": "rgb(138,100,16)",
+        "bg": "rgb(35,26,18)",
+        "ratio": 3.18,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(158,127,57)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div > div:nth-of-type(4) > div:nth-of-type(10) > span:nth-of-type(35)",
+        "dataAttributes": {
+          "data-base": "settled-tc acc"
+        },
+        "sourceFile": "compositions/frames/04-settled.html",
+        "bbox": {
+          "x": 573.96875,
+          "y": 207,
+          "width": 13.234375,
+          "height": 28
+        },
+        "time": 21.667,
+        "times": [
+          21.667
+        ]
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      1.667,
+      8.333,
+      15,
+      21.667,
+      28.333
+    ],
+    "checked": 127,
+    "passed": 43
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}
