@@ -133,6 +133,8 @@ export default function BidRoom() {
         }
         handle(buf); // last line may arrive unterminated
         setLive(false);
+        // the wire can still go quiet before the result line — say so plainly
+        setRes((r) => r ?? { error: "wire_dropped", message: "the wire went quiet before the hammer fell — retry in a moment" });
       } else {
         const j: BidResult = await r.json().catch(() => ({ error: "bid_failed", message: `HTTP ${r.status}` }));
         setRes(j);
@@ -140,7 +142,7 @@ export default function BidRoom() {
       }
     } catch (e: any) {
       buzz("error");
-      setRes({ error: "bid_failed", message: e?.message ?? "network error" });
+      setRes({ error: "bid_failed", message: "the wire dropped mid-call — retry in a moment" });
     } finally {
       setBusy(null);
       setLive(false);
