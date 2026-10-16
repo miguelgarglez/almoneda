@@ -19,6 +19,7 @@ Every paid call settles on-chain through x402 and lands on a public ledger — t
 | `GET /v1/search?q=<text>&n=<1-12>` | $0.01 |
 | `POST /v1/search/image` `{ image_url }` or `{ image_base64 }` | $0.02 |
 | `POST /mcp` — tools `search_artworks`, `search_by_image`, `get_status` | $0.01–0.02 |
+| `GET /v1/search?q=<text>&strict=1` — suppress low-relevance results | $0.01, uncharged 404 on a miss |
 | `GET /v1/demo/search?q=<text>` — unpaid preview | free, 3×/day |
 | `GET /v1/floor` — the sales ledger | free |
 | `GET /v1/status` | free |
@@ -26,7 +27,7 @@ Every paid call settles on-chain through x402 and lands on a public ledger — t
 Payment rails (both are returned in every `accepts` array):
 
 - **USDC on Base Sepolia** (`eip155:84532`) — `$0.01`/`$0.02`, facilitator `x402.org`
-- **XLM on Stellar testnet** (`stellar:testnet`) — `0.01`/`0.02` XLM via the native SAC, fees sponsored by the facilitator
+- **XLM on Stellar testnet** (`stellar:testnet`, secondary rail) — `0.01`/`0.02` XLM via the native SAC, fees sponsored by the facilitator; free testnet XLM from friendbot, no login needed
 
 Agent-facing docs are on the service itself:
 
@@ -44,6 +45,14 @@ sign → retry with PAYMENT-SIGNATURE        → 200 OK + PAYMENT-RESPONSE
 
 `scripts/http-buyer.mjs` and `scripts/mcp-buyer.mjs` are working buyer clients (Stellar rail).
 
+## Relevance is honest, and measured
+
+Every result carries `match.relevance` — a calibrated 0–1 estimate, not raw CLIP similarity — plus `match.why`, the evidence behind it (visual similarity, which metadata fields matched, whether the full-text index corroborates). `strict=1` withholds everything below the threshold and returns an **uncharged** 404 instead of selling a bad answer.
+
+This is measured, not asserted: `eval/` holds a judged 50-query benchmark (40 realistic + 10 adversarial) with 1,039 image-level labels from a different model family. On the full label set the shipped ordering scores **P@5 0.916** (0.728 under strict) and **nDCG@10 0.813**. An FTS/RRF hybrid leg (0.888) and prompt ensembling (0.920 at 4× embed cost) were both measured and rejected — the numbers are in `eval/results-final.json`.
+
+An outside agent (Codex, no prior context) was handed two blog posts and a testnet wallet, found the service through `/.well-known/x402` + `/llms.txt`, paid seven searches over Stellar testnet (0.07 XLM, all txs on the public floor), verified six image URLs against museum CDNs, and shipped both posts with correct credits. Its deliverables and receipts are the gate evidence.
+
 ## For humans
 
 The homepage is the floor: the current lot on the block, a bidding console that dispatches a real agent with a testnet purse (watch the 402 → sign → settle roundtrip), and the live ledger with paddles, rails, and explorer links.
@@ -59,7 +68,7 @@ Every result carries a `rights_check`: `verified` (per-object re-check confirmed
 
 ## Stack
 
-Next.js 16 · `@huggingface/transformers` (CLIP ViT-B/32, q8, 512-dim L2-normalized embeddings) · `sharp` · Supabase/Postgres (pgvector corpus + provenance cache + sales ledger) · x402 v2 (`@x402/next`, `@x402/evm`, `@x402/stellar`, `@x402/mcp`) · Vercel.
+Next.js 16 · `@huggingface/transformers` (CLIP ViT-B, q8, 512-dim L2-normalized embeddings — the live corpus model is auto-detected from stored probe fingerprints, so a corpus-side model swap needs no deploy) · `sharp` · Supabase/Postgres (pgvector corpus + provenance cache + sales ledger + mirrored museum metadata/tags for relevance evidence) · x402 v2 (`@x402/next`, `@x402/evm`, `@x402/stellar`, `@x402/mcp`) · Vercel.
 
 ## Run it
 
@@ -75,7 +84,7 @@ npm run dev
 
 ## Deploy
 
-Serverless functions need the linux/arm64 native binaries (onnxruntime, sharp) traced into the bundle — `next.config.ts` does that, and `scripts/ensure-linux-binaries.mjs` (postinstall) makes sure the arm64 `@img` packages exist no matter the build machine's platform. Deploy from a local build for deterministic function payloads:
+Serverless functions need the linux native binaries (onnxruntime, sharp) traced into the bundle for **both** arm64 and x64 — `next.config.ts` traces both, and `scripts/ensure-linux-binaries.mjs` (postinstall) fetches the `@img` packages for both arches no matter the build machine's platform. Deploy from a local build for deterministic function payloads:
 
 ```bash
 vercel build --prod && vercel deploy --prod --prebuilt
