@@ -56,23 +56,26 @@ export function rerankByKeywords(rows: CorpusRow[], q: string): CorpusRow[] {
 
 export async function corpusSize(): Promise<number | null> {
   // a HEAD count is cheap and doesn't depend on the corpus_size RPC, which
-  // has timed out before and taken the whole "floor open" signal with it
-  try {
-    const res = await fetch(`${env.supabaseUrl}/rest/v1/artworks?select=id&limit=0`, {
-      method: "HEAD",
-      headers: {
-        apikey: env.supabaseAnon,
-        Authorization: `Bearer ${env.supabaseAnon}`,
-        "Accept-Profile": "mellizo",
-        Prefer: "count=exact",
-      },
-    });
-    const range = res.headers.get("content-range") || "";
-    const n = parseInt(range.split("/")[1] || "", 10);
-    return Number.isFinite(n) ? n : null;
-  } catch {
-    return null;
+  // has timed out before and taken the whole "floor open" signal with it.
+  // PostgREST flakes this occasionally (schema reloads, statement timeouts)
+  // so retry once before reporting the corpus unreachable.
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const res = await fetch(`${env.supabaseUrl}/rest/v1/artworks?select=id&limit=0`, {
+        method: "HEAD",
+        headers: {
+          apikey: env.supabaseAnon,
+          Authorization: `Bearer ${env.supabaseAnon}`,
+          "Accept-Profile": "mellizo",
+          Prefer: "count=exact",
+        },
+      });
+      const range = res.headers.get("content-range") || "";
+      const n = parseInt(range.split("/")[1] || "", 10);
+      if (Number.isFinite(n)) return n;
+    } catch {}
   }
+  return null;
 }
 
 // The current lot: deterministic per time window so every visitor on the
