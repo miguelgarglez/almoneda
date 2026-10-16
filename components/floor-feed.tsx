@@ -1,6 +1,17 @@
 "use client";
 
 import { Fragment, useEffect, useRef, useState } from "react";
+import "number-flow";
+
+declare global {
+  namespace React {
+    namespace JSX {
+      interface IntrinsicElements {
+        "number-flow": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & { value?: number };
+      }
+    }
+  }
+}
 
 type Sale = {
   id: number;
@@ -12,6 +23,8 @@ type Sale = {
   query_hint: string;
   artwork_ids?: string[];
   thumb?: string | null;
+  lot_title?: string | null;
+  lot_url?: string | null;
   latency_ms?: number | null;
   created_at: string;
 };
@@ -22,29 +35,22 @@ const railAmt = (s: Sale) =>
 const explorer = (s: Sale) =>
   s.network.startsWith("stellar") ? `https://stellar.expert/explorer/testnet/tx/${s.tx}` : `https://sepolia.basescan.org/tx/${s.tx}`;
 const short = (a: string) => (a.length > 12 ? `${a.slice(0, 6)}…${a.slice(-4)}` : a);
-// Rolls toward the latest count instead of snapping to it.
+// Digits morph place-value by place-value instead of a numeric crossfade.
 function Count({ value }: { value: number }) {
-  const [shown, setShown] = useState(value);
-  const ref = useRef(value);
+  const [reduce, setReduce] = useState(false);
   useEffect(() => {
-    const from = ref.current;
-    const to = value;
-    if (from === to) return;
-    const t0 = performance.now();
-    const dur = 900;
-    let raf = 0;
-    const step = (t: number) => {
-      const p = Math.min(1, (t - t0) / dur);
-      const e = 1 - Math.pow(1 - p, 3);
-      const v = Math.round(from + (to - from) * e);
-      setShown(v);
-      if (p < 1) raf = requestAnimationFrame(step);
-      else ref.current = to;
-    };
-    raf = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(raf);
-  }, [value]);
-  return <>{shown}</>;
+    const mq = matchMedia("(prefers-reduced-motion: reduce)");
+    setReduce(mq.matches);
+    const on = (e: MediaQueryListEvent) => setReduce(e.matches);
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
+  if (reduce) return <>{value}</>;
+  return (
+    <span role="text" aria-label={String(value)}>
+      <number-flow value={value} aria-hidden="true" />
+    </span>
+  );
 }
 
 const ago = (iso: string) => {
@@ -64,19 +70,23 @@ function Ago({ iso }: { iso: string }) {
 }
 
 function Copy({ text }: { text: string }) {
-  const [done, setDone] = useState(false);
+  const [state, setState] = useState<"idle" | "ok" | "err">("idle");
   return (
     <button
       type="button"
       className="copybtn"
-      onClick={(e) => {
+      onClick={async (e) => {
         e.stopPropagation();
-        navigator.clipboard?.writeText(text).catch(() => {});
-        setDone(true);
-        setTimeout(() => setDone(false), 1200);
+        try {
+          await navigator.clipboard.writeText(text);
+          setState("ok");
+        } catch {
+          setState("err");
+        }
+        setTimeout(() => setState("idle"), 1200);
       }}
     >
-      {done ? "copied" : "copy"}
+      {state === "ok" ? "copied" : state === "err" ? "failed" : "copy"}
     </button>
   );
 }
@@ -176,7 +186,7 @@ export default function FloorFeed({ initial, total }: { initial: Sale[]; total: 
                   <td>
                     {s.thumb ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img className="lthumb" src={s.thumb} alt="" loading="lazy" />
+                      <img className="lthumb" src={s.thumb} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.display = "none"; }} />
                     ) : (
                       <span className="lthumb" style={{ display: "inline-block", background: "var(--paper-2)" }} />
                     )}
@@ -200,6 +210,7 @@ export default function FloorFeed({ initial, total }: { initial: Sale[]; total: 
                 {open === s.id && (
                   <tr className="detail">
                     <td colSpan={8}>
+                      <div className="expand">
                       <div className="replay">
                         <span className="rlab">receipt replay</span>
                         <div className="rl" style={{ animationDelay: "0.1s" }}>agent asked for “{s.query_hint || s.endpoint}”</div>
@@ -211,7 +222,16 @@ export default function FloorFeed({ initial, total }: { initial: Sale[]; total: 
                       <div className="sale-detail">
                         <div className="cell">
                           <span className="lab">lot won</span>
-                          <span>{s.artwork_ids?.[0] ?? "—"}{s.artwork_ids && s.artwork_ids.length > 1 ? ` +${s.artwork_ids.length - 1}` : ""}</span>
+                          <span>
+                            {s.lot_url ? (
+                              <a href={s.lot_url} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+                                {s.lot_title ?? s.artwork_ids?.[0] ?? "—"} ↗
+                              </a>
+                            ) : (
+                              s.lot_title ?? s.artwork_ids?.[0] ?? "—"
+                            )}
+                            {s.artwork_ids && s.artwork_ids.length > 1 ? ` +${s.artwork_ids.length - 1}` : ""}
+                          </span>
                         </div>
                         <div className="cell">
                           <span className="lab">request</span>
@@ -242,6 +262,7 @@ export default function FloorFeed({ initial, total }: { initial: Sale[]; total: 
                           <span className="lab">hammer fell</span>
                           <span className="mono">{new Date(s.created_at).toISOString().slice(0, 19).replace("T", " ")}Z</span>
                         </div>
+                      </div>
                       </div>
                     </td>
                   </tr>

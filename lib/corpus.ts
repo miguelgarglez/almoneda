@@ -88,16 +88,21 @@ export async function currentLot(windowMs = 120_000): Promise<CorpusRow | null> 
   return rows?.[0] ?? null;
 }
 
-// Thumbnail lookup for ledger rows: one artwork's thumb per sale.
-export async function saleThumbs(ids: string[]): Promise<Map<string, string>> {
-  const out = new Map<string, string>();
+// Lot lookup for ledger rows: thumb, title, and the museum's own record so
+// an expanded receipt names the work and links its catalogue page.
+export type SaleLot = { thumb: string; title: string; object_url: string | null };
+
+export async function saleThumbs(ids: string[]): Promise<Map<string, SaleLot>> {
+  const out = new Map<string, SaleLot>();
   if (!ids.length) return out;
   try {
     const res = await fetch(
-      `${env.supabaseUrl}/rest/v1/artworks?select=id,thumb_url,image_url&id=in.(${ids.map((i) => `"${i}"`).join(",")})`,
+      `${env.supabaseUrl}/rest/v1/artworks?select=id,title,thumb_url,image_url,object_url&id=in.(${ids.map((i) => `"${i}"`).join(",")})`,
       { headers: { apikey: env.supabaseAnon, Authorization: `Bearer ${env.supabaseAnon}`, "Accept-Profile": "mellizo" } }
     );
-    if (res.ok) for (const r of await res.json()) out.set(r.id, r.thumb_url || r.image_url);
+    if (res.ok)
+      for (const r of await res.json())
+        out.set(r.id, { thumb: r.thumb_url || r.image_url, title: r.title, object_url: r.object_url ?? null });
   } catch {}
   return out;
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, type CSSProperties } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, MotionConfig, motion } from "motion/react";
 
 type Lot = {
   id: string;
@@ -25,6 +25,7 @@ const lotNumber = (id: string) => {
 export default function LotStage({ initial }: { initial: Lot | null }) {
   const [lot, setLot] = useState(initial);
   const [loaded, setLoaded] = useState(false);
+  const [failed, setFailed] = useState(false);
   const no = lot ? lotNumber(lot.id) : 0;
   const ratio =
     lot?.image.width && lot?.image.height ? `${lot.image.width} / ${lot.image.height}` : "4 / 3";
@@ -37,6 +38,7 @@ export default function LotStage({ initial }: { initial: Lot | null }) {
         if (j?.lot?.id && j.lot.id !== lot?.id) {
           setLot(j.lot);
           setLoaded(false);
+          setFailed(false);
         }
       } catch {}
     };
@@ -55,6 +57,7 @@ export default function LotStage({ initial }: { initial: Lot | null }) {
   }
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="easel">
       <div className="lotno">LOT {String(no).padStart(4, "0")}</div>
       <AnimatePresence mode="wait" initial={false}>
@@ -69,15 +72,25 @@ export default function LotStage({ initial }: { initial: Lot | null }) {
           {/* the mount holds the work's real aspect ratio from corpus data —
               the frame never moves when the pixels arrive */}
           <div className="mount" style={{ "--ratio": ratio } as CSSProperties}>
-            {!loaded && <div className="hanging">hanging the lot…</div>}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={lot.image.display}
-              alt={`${lot.title}${lot.artist ? " — " + lot.artist : ""}`}
-              loading="eager"
-              className={loaded ? "on" : ""}
-              onLoad={() => setLoaded(true)}
-            />
+            {!loaded && !failed && <div className="hanging">hanging the lot…</div>}
+            {failed && (
+              <div className="hanging">
+                the museum's CDN held this one back —{" "}
+                <a href={lot.object_url} target="_blank" rel="noreferrer">see the catalogue record ↗</a>
+                {" "}· another hangs shortly
+              </div>
+            )}
+            {!failed && (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img
+                src={lot.image.display}
+                alt={`${lot.title}${lot.artist ? " — " + lot.artist : ""}`}
+                loading="eager"
+                className={loaded ? "on" : ""}
+                onLoad={() => setLoaded(true)}
+                onError={() => setFailed(true)}
+              />
+            )}
           </div>
         </motion.div>
       </AnimatePresence>
@@ -96,5 +109,6 @@ export default function LotStage({ initial }: { initial: Lot | null }) {
         </motion.div>
       </div>
     </div>
+    </MotionConfig>
   );
 }

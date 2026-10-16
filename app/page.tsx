@@ -3,13 +3,13 @@ import { salesCount, recentSales } from "@/lib/ledger";
 import LotStage from "@/components/lot-stage";
 import BidRoom from "@/components/bid-room";
 import FloorFeed from "@/components/floor-feed";
-import { SurfaceToggle, SurfaceClose } from "@/components/surface-sheet";
+import { SurfaceToggle, SurfaceClose, SheetA11y } from "@/components/surface-sheet";
 
 export const revalidate = 60;
 
 const TICKER = [
   "public domain", "x402", "agents only", "per call", "no accounts", "no api keys",
-  "provenance in the json", "usdc · xlm", "sold", "sold", "sold",
+  "provenance in the json", "usdc · xlm", "the met", "cleveland", "art institute of chicago", "national gallery",
 ];
 
 async function floorData() {
@@ -41,7 +41,9 @@ export default async function Page() {
   const thumbs = await saleThumbs([...new Set(recent.map((s) => s.artwork_ids?.[0]).filter(Boolean))] as string[]);
   const recentWithThumbs = recent.map((s) => ({
     ...s,
-    thumb: s.artwork_ids?.[0] ? thumbs.get(s.artwork_ids[0]) ?? null : null,
+    thumb: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.thumb ?? null) : null,
+    lot_title: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.title ?? null) : null,
+    lot_url: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.object_url ?? null) : null,
   }));
   const last = recent[0];
   const lastAmt = last
@@ -53,6 +55,7 @@ export default async function Page() {
   return (
     <main>
       <input type="checkbox" id="sheet-t" className="sheet-t" aria-label="show the machine surface" />
+      <SheetA11y />
       <header className="mast">
         <div className="wrap">
           <div className="row">
@@ -120,7 +123,7 @@ export default async function Page() {
       <div className="ticker" aria-hidden="true">
         <div className="rail">
           {[...TICKER, ...TICKER].map((t, i) => (
-            <span key={i}>{t === "sold" ? <b>SOLD —</b> : `${t} —`}</span>
+            <span key={i}>{t} —</span>
           ))}
         </div>
       </div>

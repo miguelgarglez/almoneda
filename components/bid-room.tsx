@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, MotionConfig, motion } from "motion/react";
+import { WebHaptics } from "web-haptics";
 
 type Step = { step: string; detail: string; ms: number };
 type Lot = {
@@ -23,6 +24,15 @@ type BidResult = {
 };
 
 const CHIPS = ["a storm at sea", "gold and grief", "a sleeping child", "winter light"];
+
+// Haptics are a bonus layer — devices without support just don't feel it.
+let haptics: WebHaptics | null = null;
+const buzz = (preset: string) => {
+  try {
+    if (!WebHaptics.isSupported) return;
+    (haptics ??= new WebHaptics()).trigger(preset);
+  } catch {}
+};
 
 const tapeLine = (s: Step, i: number) => {
   const cls = i === 0 ? "" : i === 1 || i === 2 ? "pay" : "ok";
@@ -71,6 +81,7 @@ export default function BidRoom() {
   }, [steps, res, freeNote, freeLots]);
 
   const bid = async () => {
+    buzz("medium");
     setBusy("bid");
     setRes(null);
     setSteps([]);
@@ -98,9 +109,13 @@ export default function BidRoom() {
             else if (m.type === "result") {
               setRes(m);
               if (m.settlement?.transaction) {
+                buzz("success");
                 setTimeout(() => window.dispatchEvent(new CustomEvent("almoneda:sale", { detail: { tx: m.settlement.transaction } })), 1600);
               }
-            } else if (m.type === "error") setRes({ error: m.error, message: m.message ?? `HTTP ${m.status ?? ""}` });
+            } else if (m.type === "error") {
+              buzz("error");
+              setRes({ error: m.error, message: m.message ?? `HTTP ${m.status ?? ""}` });
+            }
           } catch {}
         };
         for (;;) {
@@ -116,8 +131,10 @@ export default function BidRoom() {
       } else {
         const j: BidResult = await r.json().catch(() => ({ error: "bid_failed", message: `HTTP ${r.status}` }));
         setRes(j);
+        if (j.error) buzz("error");
       }
     } catch (e: any) {
+      buzz("error");
       setRes({ error: "bid_failed", message: e?.message ?? "network error" });
     } finally {
       setBusy(null);
@@ -152,6 +169,7 @@ export default function BidRoom() {
   const done = res && !res.error;
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="console">
       <div className="hd">
         <span>the bidding console</span>
@@ -171,15 +189,15 @@ export default function BidRoom() {
         />
         <div className="chips" aria-label="example queries">
           {CHIPS.map((c) => (
-            <button key={c} type="button" onClick={() => setQ(c)}>{c}</button>
+            <button key={c} type="button" onClick={() => { buzz("selection"); setQ(c); }}>{c}</button>
           ))}
         </div>
         <div className="actions">
-          <button className="btn" onClick={bid} disabled={!!busy}>
-            {busy === "bid" ? "the agent is bidding…" : "send an agent to bid — $0.01"}
+          <button className={`btn${busy === "bid" ? " busy" : ""}`} onClick={bid} disabled={!!busy}>
+            send an agent to bid — $0.01
           </button>
-          <button className="btn ghost" onClick={free} disabled={!!busy}>
-            {busy === "free" ? "looking…" : "browse free"}
+          <button className={`btn ghost${busy === "free" ? " busy" : ""}`} onClick={free} disabled={!!busy}>
+            browse free
           </button>
         </div>
         <p className="fineprint">
@@ -251,5 +269,6 @@ export default function BidRoom() {
         <div ref={tapeEnd} />
       </div>
     </div>
+    </MotionConfig>
   );
 }
