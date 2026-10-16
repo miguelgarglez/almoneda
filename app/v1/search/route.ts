@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { withX402 } from "@x402/next";
 import { declareDiscoveryExtension } from "@x402/extensions/bazaar";
 import { x402Server, stashSale, acceptsFor } from "@/lib/x402";
-import { embedText } from "@/lib/clip";
-import { matchArtworks, corpusSize, rerankByKeywords } from "@/lib/corpus";
+import { corpusSize } from "@/lib/corpus";
+import { hybridSearch, STRICT_THRESHOLD } from "@/lib/retrieval";
 import { enrich } from "@/lib/provenance";
 import { PRICE_SEARCH, PRICE_SEARCH_XLM } from "@/lib/env";
 
@@ -20,7 +20,7 @@ const RESULT_EXAMPLE = {
       date: "1835",
       medium: "Oil on canvas",
       image: { display: "https://…", thumb: "https://…", width: 1400, height: 1000 },
-      match: { distance: 0.9 },
+      match: { distance: 0.9, relevance: 0.72, why: ["visual similarity 31%", "metadata match: storm, sea"] },
       provenance: {
         museum: "The Metropolitan Museum of Art",
         accession: "38.64",
@@ -44,16 +44,28 @@ const handler = async (req: NextRequest): Promise<NextResponse> => {
       { status: 400 }
     );
   }
+  const strict = ["1", "true", "yes"].includes((req.nextUrl.searchParams.get("strict") || "").toLowerCase());
   try {
-    const emb = await embedText(q);
-    // pull extra candidates so keyword overlap can reorder the top n
-    const rows = rerankByKeywords(await matchArtworks(emb, n * 3), q).slice(0, n);
-    const works = (await enrich(rows)).filter((w) => w.provenance.rights_check !== "refuted");
+    const { works: fused } = await hybridSearch(q, n);
+    let works = (await enrich(fused)).filter((w) => w.provenance.rights_check !== "refuted");
     // an empty hand means the corpus is degraded mid-migration — refuse
     // rather than let a settled payment buy nothing
     if (!works.length) {
       return NextResponse.json({ error: "corpus_degraded", message: "The desk could not reach the corpus — the bid was not taken." }, { status: 502 });
     }
+    // strict mode: anything below the threshold is withheld, and a request
+    // with no good match returns 404 before settlement — the caller is not
+    // charged for a miss.
+    if (strict) {
+      works = works.filter((w) => w.relevance >= STRICT_THRESHOLD);
+      if (!works.length) {
+        return NextResponse.json(
+          { error: "no_good_match", charged: false, threshold: STRICT_THRESHOLD, message: "No result cleared the relevance bar. The bid was not taken." },
+          { status: 404 }
+        );
+      }
+    }
+    works = works.slice(0, n);
     const size = await corpusSize();
     stashSale(req.headers.get("payment-signature"), {
       endpoint: "text",
@@ -71,7 +83,7 @@ const handler = async (req: NextRequest): Promise<NextResponse> => {
         medium: w.medium,
         department: w.department,
         image: { display: w.image_url, thumb: w.thumb_url || w.image_url, width: w.img_w ?? null, height: w.img_h ?? null },
-        match: { distance: w.distance ?? null },
+        match: { distance: w.distance ?? null, relevance: w.relevance, why: w.why },
         provenance: w.provenance,
       })),
       corpus: { size, sources: ["met", "cle", "aic", "nga"] },
@@ -89,11 +101,12 @@ export const GET = withX402(
       description: "Search the public-domain artwork corpus by text. Returns works with machine-readable provenance and license proof.",
       mimeType: "application/json",
       extensions: declareDiscoveryExtension({
-        input: { q: "storm at sea", n: 5 },
+        input: { q: "storm at sea", n: 5, strict: false },
         inputSchema: {
           properties: {
             q: { type: "string", description: "Search text" },
             n: { type: "integer", description: "Number of results, 1-12, default 5" },
+            strict: { type: "boolean", description: "Only return results above the relevance bar; a miss is a 404 and is not charged" },
           },
           required: ["q"],
         },

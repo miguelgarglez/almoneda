@@ -43,3 +43,6 @@ next-env.d.ts
 
 # video capture artifacts
 video/capture/
+
+# eval image pool (regenerate with eval/pool*.mjs)
+eval/thumbs/

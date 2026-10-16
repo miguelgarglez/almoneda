@@ -4,7 +4,8 @@ import { declareDiscoveryExtension } from "@x402/extensions/bazaar";
 import { x402Server, stashSale, acceptsFor } from "@/lib/x402";
 import { embedImage, decodeImage } from "@/lib/clip";
 import { fetchPublicImage, MAX_IMAGE_BYTES } from "@/lib/images";
-import { matchArtworks, corpusSize } from "@/lib/corpus";
+import { matchArtworks, corpusSize, corpusModel } from "@/lib/corpus";
+import { vecRel } from "@/lib/retrieval";
 import { enrich } from "@/lib/provenance";
 import { PRICE_IMAGE, PRICE_IMAGE_XLM } from "@/lib/env";
 
@@ -36,7 +37,7 @@ const handler = async (req: NextRequest): Promise<NextResponse> => {
       return NextResponse.json({ error: "missing_image", message: "JSON body: { image_url } or { image_base64 }" }, { status: 400 });
     }
     const img = await decodeImage(buf);
-    const emb = await embedImage(img);
+    const emb = await embedImage(img, await corpusModel());
     const rows = await matchArtworks(emb, n);
     const works = (await enrich(rows)).filter((w) => w.provenance.rights_check !== "refuted");
     const size = await corpusSize();
@@ -55,7 +56,7 @@ const handler = async (req: NextRequest): Promise<NextResponse> => {
         medium: w.medium,
         department: w.department,
         image: { display: w.image_url, thumb: w.thumb_url || w.image_url, width: w.img_w ?? null, height: w.img_h ?? null },
-        match: { distance: w.distance ?? null },
+        match: { distance: w.distance ?? null, relevance: Math.round(vecRel(w.distance) * 1000) / 1000, why: w.distance != null ? [`visual similarity ${(Math.max(0, 1 - w.distance) * 100).toFixed(0)}%`] : [] },
         provenance: w.provenance,
       })),
       corpus: { size, sources: ["met", "cle", "aic", "nga"] },

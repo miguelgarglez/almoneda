@@ -112,7 +112,7 @@ async function verifyOne(a: CorpusRow): Promise<Partial<Provenance> & { status?:
   return { accession: null, verified: false, status: "asserted", evidence_url: a.object_url };
 }
 
-export async function enrich(artworks: CorpusRow[]): Promise<(CorpusRow & { provenance: Provenance })[]> {
+export async function enrich<T extends CorpusRow>(artworks: T[]): Promise<(T & { provenance: Provenance })[]> {
   const ids = artworks.map((a) => a.id);
   const hit = await cached(ids);
   const missing = artworks.filter((a) => !hit.has(a.id));

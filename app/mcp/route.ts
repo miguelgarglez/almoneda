@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { x402Server, ensureX402Init } from "@/lib/x402";
-import { embedText, embedImage, decodeImage } from "@/lib/clip";
+import { embedImage, decodeImage } from "@/lib/clip";
 import { fetchPublicImage } from "@/lib/images";
-import { matchArtworks, corpusSize, rerankByKeywords } from "@/lib/corpus";
+import { matchArtworks, corpusSize, corpusModel } from "@/lib/corpus";
+import { hybridSearch, vecRel } from "@/lib/retrieval";
 import { enrich } from "@/lib/provenance";
 import { salesCount, recentSales, insertSale } from "@/lib/ledger";
 import { X402_NETWORK, X402_NETWORK_STELLAR, X402_PAY_TO, X402_PAY_TO_STELLAR, USDC_BASE_SEPOLIA, PRICE_SEARCH, PRICE_IMAGE, PRICE_SEARCH_XLM, PRICE_IMAGE_XLM } from "@/lib/env";
@@ -82,22 +83,24 @@ async function paymentRequiredBody(url: string, description: string, usdPrice: s
 // otherwise search_artworks could trigger image inference at the text price.
 async function runSearch(name: string, args: any): Promise<{ data: any; hint: string }> {
   const n = Math.min(Math.max(parseInt(args?.n ?? "5", 10) || 5, 1), 12);
-  let emb: number[];
+  let rows: any[];
   let hint: string;
   if (name === "search_by_image") {
     const url = String(args?.image_url ?? "");
     if (!/^https?:\/\//.test(url)) throw new Error("search_by_image requires a public http(s) image_url");
-    emb = await embedImage(await decodeImage(await fetchPublicImage(url)));
+    const emb = await embedImage(await decodeImage(await fetchPublicImage(url)), await corpusModel());
     hint = `img:${new URL(url).hostname}`;
+    rows = (await matchArtworks(emb, n)).map((r) => ({
+      ...r,
+      relevance: Math.round(vecRel(r.distance) * 1000) / 1000,
+      why: r.distance != null ? [`visual similarity ${(Math.max(0, 1 - r.distance) * 100).toFixed(0)}%`] : [],
+    }));
   } else {
     const q = String(args?.query ?? "").slice(0, 300).trim();
     if (!q) throw new Error("search_artworks requires a non-empty query");
-    emb = await embedText(q);
     hint = q;
+    rows = (await hybridSearch(q, n)).works.slice(0, n);
   }
-  const rows = hint.startsWith("img:")
-    ? await matchArtworks(emb, n)
-    : rerankByKeywords(await matchArtworks(emb, n * 3), hint).slice(0, n);
   const works = (await enrich(rows)).filter((w) => w.provenance.rights_check !== "refuted");
   return {
     hint,
@@ -105,7 +108,7 @@ async function runSearch(name: string, args: any): Promise<{ data: any; hint: st
       results: works.map((w) => ({
         id: w.id, title: w.title, artist: w.artist, date: w.date, medium: w.medium, department: w.department,
         image: { display: w.image_url, thumb: w.thumb_url || w.image_url, width: w.img_w ?? null, height: w.img_h ?? null },
-        match: { distance: w.distance ?? null },
+        match: { distance: w.distance ?? null, relevance: w.relevance ?? null, why: w.why ?? [] },
         provenance: w.provenance,
       })),
       corpus: { size: await corpusSize() },

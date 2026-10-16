@@ -5,7 +5,7 @@ import path from "node:path";
 
 const envFile = path.join(process.env.HOME, ".config/lab/secrets.env");
 for (const l of (fs.existsSync(envFile) ? fs.readFileSync(envFile, "utf8") : "").split("\n")) {
-  const m = l.match(/^([A-Z_]+)=(.*)$/);
+  const m = l.match(/^([A-Z0-9_]+)=(.*)$/);
   if (m) process.env[m[1]] ??= m[2].replace(/^['"]|['"]$/g, "");
 }
 const TOKEN = process.env.SUPABASE_ACCESS_TOKEN, REF = process.env.SUPABASE_LAB_REF;

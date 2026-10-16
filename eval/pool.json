@@ -1,0 +1,4444 @@
+{
+ "q01": {
+  "q": "storm at sea",
+  "candidates": [
+   {
+    "id": "nga-123678",
+    "img": "https://api.nga.gov/iiif/1f6ec3b3-d760-4dca-bb7d-c4826c85bcc0/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-148481",
+    "img": "https://api.nga.gov/iiif/4aeeb6af-1b04-471a-bfe5-6f9c7141eddb/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-149015",
+    "img": "https://api.nga.gov/iiif/ebc317ef-21c7-4ce1-93fa-86d9b2296758/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-119967",
+    "img": "https://api.nga.gov/iiif/88977cd9-c972-43cf-88df-2e06dde60b95/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-10209",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Shipwreck%20off%20Nantucket%20(Wreck%20off%20Nantucket%20after%20a%20Storm)%20MET%20ap1971.192.jpg?width=400"
+   },
+   {
+    "id": "cle-171558",
+    "img": "https://openaccess-cdn.clevelandart.org/2014.346/2014.346_web.jpg"
+   },
+   {
+    "id": "met-437292",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/A%20Shipwreck%20in%20a%20Storm%20MET%20DP233702.jpg?width=400"
+   },
+   {
+    "id": "nga-56402",
+    "img": "https://api.nga.gov/iiif/9bd4501b-65c3-495f-8137-fb38443b94e0/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-51138",
+    "img": "https://api.nga.gov/iiif/309ca665-ff41-4f7e-8433-c8dd6e0038a0/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-125536",
+    "img": "https://openaccess-cdn.clevelandart.org/1947.468/1947.468_web.jpg"
+   },
+   {
+    "id": "cle-124313",
+    "img": "https://openaccess-cdn.clevelandart.org/1945.294/1945.294_web.jpg"
+   },
+   {
+    "id": "cle-129878",
+    "img": "https://openaccess-cdn.clevelandart.org/1952.296.11/1952.296.11_web.jpg"
+   },
+   {
+    "id": "cle-106088",
+    "img": "https://openaccess-cdn.clevelandart.org/1924.195/1924.195_web.jpg"
+   },
+   {
+    "id": "cle-106831",
+    "img": "https://openaccess-cdn.clevelandart.org/1924.848.10/1924.848.10_web.jpg"
+   },
+   {
+    "id": "nga-209724",
+    "img": "https://api.nga.gov/iiif/642cd3df-98ea-4a4b-9f85-b12f86f878c8/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-105655",
+    "img": "https://openaccess-cdn.clevelandart.org/1923.76/1923.76_web.jpg"
+   },
+   {
+    "id": "nga-136220",
+    "img": "https://api.nga.gov/iiif/81037734-da1e-418e-bb8d-aae1aa2939fc/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-65898",
+    "img": "https://api.nga.gov/iiif/fd08af53-328d-49b2-902e-e4636c6946ce/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-168895",
+    "img": "https://openaccess-cdn.clevelandart.org/2010.576/2010.576_web.jpg"
+   },
+   {
+    "id": "nga-117659",
+    "img": "https://api.nga.gov/iiif/6797bfed-5795-4b41-af50-639286d1e502/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-118157",
+    "img": "https://openaccess-cdn.clevelandart.org/1939.267/1939.267_web.jpg"
+   },
+   {
+    "id": "nga-119963",
+    "img": "https://api.nga.gov/iiif/e392684c-7393-4692-9dde-fc2fb403d618/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-12129",
+    "img": "https://api.nga.gov/iiif/96d0a15c-9a96-44a0-81be-e5d5c4872451/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-121881",
+    "img": "https://api.nga.gov/iiif/d8eebdc1-df28-47fb-a265-acfbd508bd8e/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q02": {
+  "q": "portrait of a woman reading",
+  "candidates": [
+   {
+    "id": "nga-66407",
+    "img": "https://api.nga.gov/iiif/85d40b25-aef8-4586-829e-1b1d51203ff7/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-347891",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP800595.jpg"
+   },
+   {
+    "id": "nga-50847",
+    "img": "https://api.nga.gov/iiif/74fcc928-96a3-4b7c-ab43-23c46877aeba/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-435991",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-16589-001.jpg"
+   },
+   {
+    "id": "cle-140337",
+    "img": "https://openaccess-cdn.clevelandart.org/1964.288/1964.288_web.jpg"
+   },
+   {
+    "id": "aic-14591",
+    "img": "https://www.artic.edu/iiif/2/fd991fea-0c13-8444-7879-aba467f1d9db/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-436153",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DT297552.jpg"
+   },
+   {
+    "id": "nga-88",
+    "img": "https://api.nga.gov/iiif/9150722c-f34d-484b-aa58-4079c7e85850/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-218688",
+    "img": "https://api.nga.gov/iiif/a566c533-12b8-409b-bb77-445de0de7270/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-13210",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/James%20McNeill%20Whistler%20-%20Arrangement%20in%20Black-%20Girl%20Reading%20MET%20DP361944.jpg?width=400"
+   },
+   {
+    "id": "nga-195586",
+    "img": "https://api.nga.gov/iiif/989d8d59-3dad-43c4-ba6e-b25477e3f6b9/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-231675",
+    "img": "https://api.nga.gov/iiif/ec9d38c1-290b-4865-9c8f-ffa45f404075/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-106937",
+    "img": "https://openaccess-cdn.clevelandart.org/1924.944/1924.944_web.jpg"
+   },
+   {
+    "id": "cle-107964",
+    "img": "https://openaccess-cdn.clevelandart.org/1925.589/1925.589_web.jpg"
+   },
+   {
+    "id": "nga-103919",
+    "img": "https://api.nga.gov/iiif/0a3554a0-d68d-4fca-91eb-3c31c28385ef/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-9807",
+    "img": "https://api.nga.gov/iiif/79174474-ddb5-40b2-86c2-3d87eeeeec8c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-163746",
+    "img": "https://api.nga.gov/iiif/0440250d-1415-4040-a350-306df5b09ebd/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-43512",
+    "img": "https://api.nga.gov/iiif/7042f1f6-4093-4580-a1ad-eeb4fda470d4/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-46303",
+    "img": "https://api.nga.gov/iiif/2476ae10-777c-43af-b48c-a6bc141aecac/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-70",
+    "img": "https://api.nga.gov/iiif/c5f5cfa6-6150-435a-bf5d-a0a7a55c52f7/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437757",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP146510.jpg"
+   },
+   {
+    "id": "cle-97137",
+    "img": "https://openaccess-cdn.clevelandart.org/1916.777/1916.777_web.jpg"
+   }
+  ]
+ },
+ "q03": {
+  "q": "botanical illustration of a fern",
+  "candidates": [
+   {
+    "id": "nga-226185",
+    "img": "https://api.nga.gov/iiif/058d406e-23d9-4725-9822-3140d80eba27/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-157153",
+    "img": "https://openaccess-cdn.clevelandart.org/1993.45/1993.45_web.jpg"
+   },
+   {
+    "id": "nga-53846",
+    "img": "https://api.nga.gov/iiif/b491927b-aae5-49f7-92a9-d61f2149484b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-50734",
+    "img": "https://api.nga.gov/iiif/dfae0397-b8f4-447a-b84c-fe9de8b6f987/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-73698",
+    "img": "https://api.nga.gov/iiif/3797430e-5974-4ef7-af50-f18f6b2add8c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-225705",
+    "img": "https://api.nga.gov/iiif/1f0e7080-78fd-4127-8183-d913ab696874/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-122755",
+    "img": "https://openaccess-cdn.clevelandart.org/1942.93/1942.93_web.jpg"
+   },
+   {
+    "id": "nga-225697",
+    "img": "https://api.nga.gov/iiif/f1aceb20-b342-4e10-9f52-29f824917f07/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-57157",
+    "img": "https://api.nga.gov/iiif/59914498-abbd-4c5f-8173-28c47a4c32d9/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-24902",
+    "img": "https://api.nga.gov/iiif/d2535a03-01a5-4bf1-8cb4-9bb7be5876d5/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-225765",
+    "img": "https://api.nga.gov/iiif/cde56867-5201-46cf-8086-98c3087fde9b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-58626",
+    "img": "https://api.nga.gov/iiif/5e22267d-f9f6-4599-a19d-593126c47006/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-157269",
+    "img": "https://openaccess-cdn.clevelandart.org/1994.140/1994.140_web.jpg"
+   },
+   {
+    "id": "cle-157276",
+    "img": "https://openaccess-cdn.clevelandart.org/1994.147/1994.147_web.jpg"
+   },
+   {
+    "id": "cle-157270",
+    "img": "https://openaccess-cdn.clevelandart.org/1994.141/1994.141_web.jpg"
+   },
+   {
+    "id": "nga-32231",
+    "img": "https://api.nga.gov/iiif/94e9f3c2-99ff-4db1-ae0f-39d2324c7720/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q04": {
+  "q": "a crowded market at dusk",
+  "candidates": [
+   {
+    "id": "cle-105602",
+    "img": "https://openaccess-cdn.clevelandart.org/1923.715/1923.715_web.jpg"
+   },
+   {
+    "id": "nga-131864",
+    "img": "https://api.nga.gov/iiif/13e91d9b-dfe3-48fd-8381-9d1448b853d2/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-122724",
+    "img": "https://openaccess-cdn.clevelandart.org/1942.903/1942.903_web.jpg"
+   },
+   {
+    "id": "nga-54203",
+    "img": "https://api.nga.gov/iiif/14e4e640-8e9c-45c2-ac99-11eb01a3ec25/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-157345",
+    "img": "https://openaccess-cdn.clevelandart.org/1994.207/1994.207_web.jpg"
+   },
+   {
+    "id": "cle-170064",
+    "img": "https://openaccess-cdn.clevelandart.org/2012.288/2012.288_web.jpg"
+   },
+   {
+    "id": "cle-102662",
+    "img": "https://openaccess-cdn.clevelandart.org/1921.1321/1921.1321_web.jpg"
+   },
+   {
+    "id": "nga-181062",
+    "img": "https://api.nga.gov/iiif/11716b16-358e-4943-83cb-fdc18e7ddb7b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-103562",
+    "img": "https://openaccess-cdn.clevelandart.org/1921.514/1921.514_web.jpg"
+   },
+   {
+    "id": "cle-135776",
+    "img": "https://openaccess-cdn.clevelandart.org/1959.306/1959.306_web.jpg"
+   },
+   {
+    "id": "cle-115937",
+    "img": "https://openaccess-cdn.clevelandart.org/1936.641/1936.641_web.jpg"
+   },
+   {
+    "id": "nga-51140",
+    "img": "https://api.nga.gov/iiif/e0812330-4915-4452-9b71-a0bac1147a07/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-164921",
+    "img": "https://api.nga.gov/iiif/f396770c-dcc6-4b12-9b4d-294e30edd9f5/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-436554",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-22552-001.jpg"
+   },
+   {
+    "id": "nga-30215",
+    "img": "https://api.nga.gov/iiif/db757780-eec9-429f-b475-2cef2a48414f/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q05": {
+  "q": "minimalist japanese landscape",
+  "candidates": [
+   {
+    "id": "cle-154177",
+    "img": "https://openaccess-cdn.clevelandart.org/1988.23.3.14/1988.23.3.14_web.jpg"
+   },
+   {
+    "id": "met-355655",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP836039.jpg"
+   },
+   {
+    "id": "met-51645",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Anonymous%20-%20Landscape%20-%2047.18.14%20-%20Metropolitan%20Museum%20of%20Art.jpg?width=400"
+   },
+   {
+    "id": "met-45643",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/MET%2053%20123%201%20155587.jpg?width=400"
+   },
+   {
+    "id": "cle-149726",
+    "img": "https://openaccess-cdn.clevelandart.org/1979.73.2.11/1979.73.2.11_web.jpg"
+   },
+   {
+    "id": "cle-79932",
+    "img": "https://openaccess-cdn.clevelandart.org/2015.516/2015.516_web.jpg"
+   },
+   {
+    "id": "cle-132082",
+    "img": "https://openaccess-cdn.clevelandart.org/1954.648.f/1954.648.f_web.jpg"
+   },
+   {
+    "id": "cle-132926",
+    "img": "https://openaccess-cdn.clevelandart.org/1955.37.4/1955.37.4_web.jpg"
+   },
+   {
+    "id": "cle-154134",
+    "img": "https://openaccess-cdn.clevelandart.org/1988.23.1.13/1988.23.1.13_web.jpg"
+   },
+   {
+    "id": "cle-149374",
+    "img": "https://openaccess-cdn.clevelandart.org/1978.34/1978.34_web.jpg"
+   },
+   {
+    "id": "met-51711",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Anonymous%20-%20Landscape%20with%20goats%20-%2047.18.99%20-%20Metropolitan%20Museum%20of%20Art.jpg?width=400"
+   },
+   {
+    "id": "cle-154140",
+    "img": "https://openaccess-cdn.clevelandart.org/1988.23.1.19/1988.23.1.19_web.jpg"
+   },
+   {
+    "id": "cle-162947",
+    "img": "https://openaccess-cdn.clevelandart.org/2003.396.h/2003.396.h_web.jpg"
+   },
+   {
+    "id": "cle-161383",
+    "img": "https://openaccess-cdn.clevelandart.org/2000.1/2000.1_web.jpg"
+   },
+   {
+    "id": "nga-71832",
+    "img": "https://api.nga.gov/iiif/4292c1f5-10e4-449f-a3c3-5408cb652f95/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-36007",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Anonymous%20-%20Waiting%20for%20the%20Ferry%20-%2013.100.117%20-%20Metropolitan%20Museum%20of%20Art.jpg?width=400"
+   },
+   {
+    "id": "met-57337",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Shibata%20Zeshin%20-%20Sailboats%20and%20Mt.%20Fuji%20-%2053.194.1%20-%20Metropolitan%20Museum%20of%20Art.jpg?width=400"
+   },
+   {
+    "id": "nga-206543",
+    "img": "https://api.nga.gov/iiif/5b036c8e-9786-467f-961c-269899799223/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-51735",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Anonymous%20-%20Rainy%20Landscape%20-%2047.18.134%20-%20Metropolitan%20Museum%20of%20Art.jpg?width=400"
+   },
+   {
+    "id": "cle-155393",
+    "img": "https://openaccess-cdn.clevelandart.org/1990.130.j/1990.130.j_web.jpg"
+   },
+   {
+    "id": "cle-155388",
+    "img": "https://openaccess-cdn.clevelandart.org/1990.130.e/1990.130.e_web.jpg"
+   },
+   {
+    "id": "cle-148358",
+    "img": "https://openaccess-cdn.clevelandart.org/1975.71.1/1975.71.1_web.jpg"
+   },
+   {
+    "id": "cle-154170",
+    "img": "https://openaccess-cdn.clevelandart.org/1988.23.2.9/1988.23.2.9_web.jpg"
+   }
+  ]
+ },
+ "q06": {
+  "q": "still life with fruit and flowers",
+  "candidates": [
+   {
+    "id": "met-436293",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DT1980.jpg"
+   },
+   {
+    "id": "nga-166469",
+    "img": "https://api.nga.gov/iiif/b74ba454-2953-4b77-b0db-a501449f3ef0/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-71024",
+    "img": "https://api.nga.gov/iiif/329c02b8-9b4b-488b-b62e-f0a5f29635f3/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-10895",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Still%20Life%20with%20Fruit%20MET%20ap1982.139.jpg?width=400"
+   },
+   {
+    "id": "met-16590",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Still%20Life%20with%20Fruit%20MET%20ap1999.298.jpg?width=400"
+   },
+   {
+    "id": "met-888924",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-25141-001.jpg"
+   },
+   {
+    "id": "met-816520",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-19777-001.jpg"
+   },
+   {
+    "id": "cle-166510",
+    "img": "https://openaccess-cdn.clevelandart.org/2008.290/2008.290_web.jpg"
+   },
+   {
+    "id": "met-11939",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Severin%20Roesen%20-%20Still%20Life%2C%20Fruit.jpg?width=400"
+   },
+   {
+    "id": "met-18819",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Still%20Life%20Fruit%20and%20Wine%20Glass%20MET%20DP115730.jpg?width=400"
+   },
+   {
+    "id": "aic-111059",
+    "img": "https://www.artic.edu/iiif/2/9e4bfbcc-176f-3dac-4529-f67c9a98065c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-436345",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-23426-001.jpg"
+   },
+   {
+    "id": "met-11938",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Severin%20Roesen%20-%20Still%20Life%2C%20Flowers%20and%20Fruit.jpg?width=400"
+   },
+   {
+    "id": "met-13006",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Still%20Life%E2%80%94Flowers%20and%20Fruit%20in%20White%20and%20Pink%20Bowl%20MET%20ap64.309.7.jpg?width=400"
+   },
+   {
+    "id": "nga-96655",
+    "img": "https://api.nga.gov/iiif/35db881d-fdfe-416d-bb2c-68907ec39b34/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "aic-94126",
+    "img": "https://www.artic.edu/iiif/2/293ab61e-5536-c2d3-936a-4116f027260c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-227490",
+    "img": "https://api.nga.gov/iiif/2400455c-9b59-4464-94b0-874e0be2686b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-335597",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP800432.jpg"
+   },
+   {
+    "id": "met-816624",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-19711-001.jpg"
+   },
+   {
+    "id": "met-436946",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-13655-001.jpg"
+   },
+   {
+    "id": "nga-50825",
+    "img": "https://api.nga.gov/iiif/3c99a562-8fe4-4f14-ae89-45b8dad18ca7/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-42504",
+    "img": "https://api.nga.gov/iiif/53ee4651-d206-4927-ab97-080febc8d87c/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q07": {
+  "q": "dog portrait painting",
+  "candidates": [
+   {
+    "id": "met-435864",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-29214-001.jpg"
+   },
+   {
+    "id": "nga-37636",
+    "img": "https://api.nga.gov/iiif/6b7957f5-adbb-4ff7-9387-2fef42cc97e0/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-828497",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-18781-001.jpg"
+   },
+   {
+    "id": "nga-52228",
+    "img": "https://api.nga.gov/iiif/8c0e57ec-5ee8-4fff-b303-6e34da2dc494/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-52201",
+    "img": "https://api.nga.gov/iiif/4bb653ec-5b4f-4c4b-b7ee-7c94ef4d5b79/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-435704",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP123961.jpg"
+   },
+   {
+    "id": "nga-20484",
+    "img": "https://api.nga.gov/iiif/b4b4d1e7-6703-4ac2-bd40-ff32459a1c60/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-20306",
+    "img": "https://api.nga.gov/iiif/2ff90b0b-fa98-413b-aff6-19934c19867f/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-168964",
+    "img": "https://openaccess-cdn.clevelandart.org/2010.638/2010.638_web.jpg"
+   },
+   {
+    "id": "nga-28647",
+    "img": "https://api.nga.gov/iiif/5d95820b-1ae8-4eb0-87a2-2f2bd2614962/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-150012",
+    "img": "https://openaccess-cdn.clevelandart.org/1980.229/1980.229_web.jpg"
+   },
+   {
+    "id": "cle-147521",
+    "img": "https://openaccess-cdn.clevelandart.org/1973.31/1973.31_web.jpg"
+   },
+   {
+    "id": "cle-169662",
+    "img": "https://openaccess-cdn.clevelandart.org/2011.47/2011.47_web.jpg"
+   },
+   {
+    "id": "nga-28470",
+    "img": "https://api.nga.gov/iiif/9fd365a7-b864-4d3d-af90-271b19550c7c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-164453",
+    "img": "https://openaccess-cdn.clevelandart.org/2005.74/2005.74_web.jpg"
+   },
+   {
+    "id": "nga-96999",
+    "img": "https://api.nga.gov/iiif/ebb7aeb1-31fa-4791-ad72-3ea7baecf91f/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-128601",
+    "img": "https://api.nga.gov/iiif/859b7743-e490-4e3e-8188-0f8b2dde616a/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-20647",
+    "img": "https://api.nga.gov/iiif/e138f887-6268-484b-9dc8-a81013889bda/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-436014",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DT1961.jpg"
+   },
+   {
+    "id": "nga-59961",
+    "img": "https://api.nga.gov/iiif/daf75c6f-c584-4db0-8c0f-f0526fdd88dd/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-16450",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Baby%20with%20Rattle%20and%20Dog%20MET%20DT4353.jpg?width=400"
+   },
+   {
+    "id": "nga-92997",
+    "img": "https://api.nga.gov/iiif/de58e33a-5e3f-48a7-8e81-60fd18006772/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q08": {
+  "q": "winter landscape with skaters",
+  "candidates": [
+   {
+    "id": "met-438373",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP120412.jpg"
+   },
+   {
+    "id": "met-352286",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP800777.jpg"
+   },
+   {
+    "id": "nga-72073",
+    "img": "https://api.nga.gov/iiif/d6b648ba-74ce-4866-8e39-33db7dd22ae1/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-436826",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP143197.jpg"
+   },
+   {
+    "id": "nga-195072",
+    "img": "https://api.nga.gov/iiif/3cc32a62-fdac-43f2-a33b-f26ea78093b6/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-93015",
+    "img": "https://openaccess-cdn.clevelandart.org/1923.1339/1923.1339_web.jpg"
+   },
+   {
+    "id": "nga-70359",
+    "img": "https://api.nga.gov/iiif/5fee04b5-5c3d-469d-a5a6-0c96394c5baf/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-435843",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP143174.jpg"
+   },
+   {
+    "id": "nga-66572",
+    "img": "https://api.nga.gov/iiif/4aad2ce8-738d-41e6-81a9-7de915afa903/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-89675",
+    "img": "https://api.nga.gov/iiif/a6a9b39d-661b-4420-9c1e-00adf4d9e8e8/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-142223",
+    "img": "https://openaccess-cdn.clevelandart.org/1965.76/1965.76_web.jpg"
+   },
+   {
+    "id": "met-335558",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP800360.jpg"
+   },
+   {
+    "id": "cle-329324",
+    "img": "https://openaccess-cdn.clevelandart.org/2019.7/2019.7_web.jpg"
+   },
+   {
+    "id": "met-359378",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP820048.jpg"
+   },
+   {
+    "id": "nga-150754",
+    "img": "https://api.nga.gov/iiif/80b8e427-1f2c-4614-8fab-dce270763fc8/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-50721",
+    "img": "https://api.nga.gov/iiif/af3e7276-2f9f-47ab-92dd-4a79b4aa9178/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-152265",
+    "img": "https://openaccess-cdn.clevelandart.org/1985.145/1985.145_web.jpg"
+   },
+   {
+    "id": "met-435633",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP143154.jpg"
+   },
+   {
+    "id": "nga-70279",
+    "img": "https://api.nga.gov/iiif/e0be13bd-37db-4f9d-a9e6-188571e9efbb/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q09": {
+  "q": "portrait of a man in armor",
+  "candidates": [
+   {
+    "id": "met-436254",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP361123.jpg"
+   },
+   {
+    "id": "met-437416",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP145410.jpg"
+   },
+   {
+    "id": "nga-111581",
+    "img": "https://api.nga.gov/iiif/e90f1d62-3ac1-4975-8b8c-8ee31f97722d/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437598",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DT200205.jpg"
+   },
+   {
+    "id": "nga-51096",
+    "img": "https://api.nga.gov/iiif/16707b5a-1217-4e98-8133-b3d552380b4a/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437874",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP221248.jpg"
+   },
+   {
+    "id": "met-336419",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP800299.jpg"
+   },
+   {
+    "id": "nga-89",
+    "img": "https://api.nga.gov/iiif/1bd606b9-f58c-4d40-8514-f53c63e37dbd/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-75855",
+    "img": "https://api.nga.gov/iiif/5fd9eac1-7d47-478a-82b6-7002dfc69a60/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-37632",
+    "img": "https://api.nga.gov/iiif/d068c7b1-0a96-4b46-95ef-bda8d4717552/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-119037",
+    "img": "https://openaccess-cdn.clevelandart.org/1940.1222/1940.1222_web.jpg"
+   },
+   {
+    "id": "cle-109507",
+    "img": "https://openaccess-cdn.clevelandart.org/1928.16/1928.16_web.jpg"
+   },
+   {
+    "id": "met-34020",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20of%20a%20Man%20in%20Armor%20MET%20ep29.158.755.bw.R.jpg?width=400"
+   },
+   {
+    "id": "met-435722",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-17629-001.jpg"
+   },
+   {
+    "id": "nga-38776",
+    "img": "https://api.nga.gov/iiif/8fa1882f-c12b-4a06-857c-fe39b1139c66/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-38884",
+    "img": "https://api.nga.gov/iiif/0a9f2b19-177c-4d74-8424-7579889fffdf/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-435664",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP161258.jpg"
+   },
+   {
+    "id": "met-336524",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP162299.jpg"
+   }
+  ]
+ },
+ "q10": {
+  "q": "harvest scene with workers in a field",
+  "candidates": [
+   {
+    "id": "nga-195862",
+    "img": "https://api.nga.gov/iiif/989a51f2-9bc7-4e9e-84ee-c1eb44591d45/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-459108",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Harvest%2C%20Pontoise.jpg?width=400"
+   },
+   {
+    "id": "nga-207027",
+    "img": "https://api.nga.gov/iiif/bd2f1a0a-126f-41ab-98c1-d083102d2673/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-21626",
+    "img": "https://api.nga.gov/iiif/c5d82d8c-d51b-4a9a-bcc4-b6c40f808620/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-149420",
+    "img": "https://openaccess-cdn.clevelandart.org/1978.72/1978.72_web.jpg"
+   },
+   {
+    "id": "met-435809",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP119115.jpg"
+   },
+   {
+    "id": "met-10824",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Thomas%20Eakins%20-%20Pushing%20for%20Rail.jpg?width=400"
+   },
+   {
+    "id": "cle-127515",
+    "img": "https://openaccess-cdn.clevelandart.org/1950.195/1950.195_web.jpg"
+   },
+   {
+    "id": "met-11134",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/A%20Rainy%20Day%20in%20Camp%20by%20Winslow%20Homer%201871.jpeg?width=400"
+   },
+   {
+    "id": "cle-172756",
+    "img": "https://openaccess-cdn.clevelandart.org/1930.2083/1930.2083_web.jpg"
+   },
+   {
+    "id": "nga-164963",
+    "img": "https://api.nga.gov/iiif/e5c816b9-34e7-440c-9f09-04d09b4c4a85/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-220445",
+    "img": "https://api.nga.gov/iiif/7fcdd3c1-21d8-4d4b-9113-9b8ba5ed48da/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-177052",
+    "img": "https://api.nga.gov/iiif/06c79e5b-bc00-4fd7-b0ef-98ea3d8fe988/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-1182",
+    "img": "https://api.nga.gov/iiif/ae16bf56-a60b-496a-8a33-e6f76895ed2e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437096",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-22841-001.jpg"
+   }
+  ]
+ },
+ "q11": {
+  "q": "seascape at sunset",
+  "candidates": [
+   {
+    "id": "nga-151040",
+    "img": "https://api.nga.gov/iiif/7abb6ee4-bbda-4401-97ad-5ad186fb84ef/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-11325",
+    "img": "https://images.metmuseum.org/CRDImages/ad/web-large/DT226485.jpg"
+   },
+   {
+    "id": "met-11326",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Sunset%20Sky%20MET%20ap74.30.jpg?width=400"
+   },
+   {
+    "id": "nga-111775",
+    "img": "https://api.nga.gov/iiif/09221902-62df-412f-b5d4-e0120ca8cacc/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-169228",
+    "img": "https://openaccess-cdn.clevelandart.org/2011.134/2011.134_web.jpg"
+   },
+   {
+    "id": "met-11324",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Sunset%20MET%20ap74.37.jpg?width=400"
+   },
+   {
+    "id": "nga-158587",
+    "img": "https://api.nga.gov/iiif/6340c60b-570f-4872-b3be-16858dccafd0/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437975",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-34962-001.jpg"
+   },
+   {
+    "id": "nga-195170",
+    "img": "https://api.nga.gov/iiif/bbcdf5c0-104b-47c4-bd1c-dd4d3f66e8b7/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "aic-68792",
+    "img": "https://www.artic.edu/iiif/2/3d2d0842-312e-8d48-708b-d6adde0777bf/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-11127",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Winslow%20Homer%20-%20Moonlight%2C%20Wood%20Island%20Light.jpg?width=400"
+   },
+   {
+    "id": "nga-127672",
+    "img": "https://api.nga.gov/iiif/972b9157-26fc-4f11-9b9b-ab9c2c253e67/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-98872",
+    "img": "https://api.nga.gov/iiif/049b735e-a9a4-46d9-9754-ef2a5baa1910/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-169614",
+    "img": "https://openaccess-cdn.clevelandart.org/2011.43/2011.43_web.jpg"
+   },
+   {
+    "id": "nga-62309",
+    "img": "https://api.nga.gov/iiif/4c23f3d3-ccd4-4b08-9a8e-758bd7371a6f/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q12": {
+  "q": "interior of a gothic church",
+  "candidates": [
+   {
+    "id": "met-437187",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/ep30.58.20.bw.R.jpg"
+   },
+   {
+    "id": "met-437188",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/ep30.58.21.bw.R.jpg"
+   },
+   {
+    "id": "met-437189",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-23544-001.jpg"
+   },
+   {
+    "id": "cle-138809",
+    "img": "https://openaccess-cdn.clevelandart.org/1963.193/1963.193_web.jpg"
+   },
+   {
+    "id": "met-336224",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP800312.jpg"
+   },
+   {
+    "id": "cle-145450",
+    "img": "https://openaccess-cdn.clevelandart.org/1971.1/1971.1_web.jpg"
+   },
+   {
+    "id": "met-358951",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP810183.jpg"
+   },
+   {
+    "id": "nga-8001",
+    "img": "https://api.nga.gov/iiif/15d9e946-8020-4e61-af1d-e50403185feb/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-57142",
+    "img": "https://api.nga.gov/iiif/092f9a51-a6de-41ad-bfbf-ede84471c9c5/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-32827",
+    "img": "https://api.nga.gov/iiif/9402b9a2-45e4-4b5f-a43c-88ae473e45e4/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-138807",
+    "img": "https://openaccess-cdn.clevelandart.org/1963.191/1963.191_web.jpg"
+   },
+   {
+    "id": "nga-183834",
+    "img": "https://api.nga.gov/iiif/955a6759-137c-4306-89d8-704a89cb4ce0/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-138816",
+    "img": "https://openaccess-cdn.clevelandart.org/1963.199/1963.199_web.jpg"
+   },
+   {
+    "id": "nga-183835",
+    "img": "https://api.nga.gov/iiif/80f51dad-63b9-47c0-813a-dbe843f2c4dd/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-138797",
+    "img": "https://openaccess-cdn.clevelandart.org/1963.182/1963.182_web.jpg"
+   },
+   {
+    "id": "nga-73485",
+    "img": "https://api.nga.gov/iiif/5b356742-5bdc-4862-93c1-f911fb6ba8dc/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-34641",
+    "img": "https://api.nga.gov/iiif/bd9294b2-c0b3-4f4e-94eb-a173de69692e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-139135",
+    "img": "https://api.nga.gov/iiif/56bde1c4-4f99-4cea-be3e-1d239eef9934/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-134960",
+    "img": "https://openaccess-cdn.clevelandart.org/1957.505/1957.505_web.jpg"
+   },
+   {
+    "id": "nga-130808",
+    "img": "https://api.nga.gov/iiif/ef2b7b7d-966d-4405-a2ed-adb63409b32c/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q13": {
+  "q": "mother and child",
+  "candidates": [
+   {
+    "id": "nga-57435",
+    "img": "https://api.nga.gov/iiif/84fcc5c7-7211-4950-8bea-8fbc6766c48d/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-5924",
+    "img": "https://api.nga.gov/iiif/5301ba96-7d8b-4cdf-a0f2-73be3db5db4e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-340436",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP810965.jpg"
+   },
+   {
+    "id": "cle-122642",
+    "img": "https://openaccess-cdn.clevelandart.org/1942.887/1942.887_web.jpg"
+   },
+   {
+    "id": "nga-37",
+    "img": "https://api.nga.gov/iiif/ce218ff9-837d-41f9-80dd-d9578995013c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-118646",
+    "img": "https://openaccess-cdn.clevelandart.org/1939.661.a/1939.661.a_web.jpg"
+   },
+   {
+    "id": "nga-140825",
+    "img": "https://api.nga.gov/iiif/80dcd05e-1175-4de1-9eba-c23715017063/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-144216",
+    "img": "https://openaccess-cdn.clevelandart.org/1968.66/1968.66_web.jpg"
+   },
+   {
+    "id": "met-334180",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP824171.jpg"
+   },
+   {
+    "id": "met-459060",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Virgin%20and%20Child%20MET%20DT3080.jpg?width=400"
+   },
+   {
+    "id": "cle-166293",
+    "img": "https://openaccess-cdn.clevelandart.org/2008.16/2008.16_web.jpg"
+   },
+   {
+    "id": "cle-129218",
+    "img": "https://openaccess-cdn.clevelandart.org/1952.110/1952.110_web.jpg"
+   },
+   {
+    "id": "nga-169342",
+    "img": "https://api.nga.gov/iiif/2b6ca4a2-4782-4aad-b9bf-5477e44ce3fa/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "aic-497",
+    "img": "https://www.artic.edu/iiif/2/a9a3e2fa-f7a4-2713-00ed-909062cb48d7/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-105161",
+    "img": "https://openaccess-cdn.clevelandart.org/1923.36/1923.36_web.jpg"
+   },
+   {
+    "id": "cle-108459",
+    "img": "https://openaccess-cdn.clevelandart.org/1926.176/1926.176_web.jpg"
+   },
+   {
+    "id": "cle-117020",
+    "img": "https://openaccess-cdn.clevelandart.org/1937.566/1937.566_web.jpg"
+   },
+   {
+    "id": "cle-120915",
+    "img": "https://openaccess-cdn.clevelandart.org/1941.621/1941.621_web.jpg"
+   },
+   {
+    "id": "cle-122829",
+    "img": "https://openaccess-cdn.clevelandart.org/1942.997/1942.997_web.jpg"
+   },
+   {
+    "id": "cle-105294",
+    "img": "https://openaccess-cdn.clevelandart.org/1923.44/1923.44_web.jpg"
+   },
+   {
+    "id": "cle-128710",
+    "img": "https://openaccess-cdn.clevelandart.org/1951.424.s/1951.424.s_web.jpg"
+   },
+   {
+    "id": "cle-133029",
+    "img": "https://openaccess-cdn.clevelandart.org/1955.454/1955.454_web.jpg"
+   },
+   {
+    "id": "cle-133267",
+    "img": "https://openaccess-cdn.clevelandart.org/1955.645.a/1955.645.a_web.jpg"
+   },
+   {
+    "id": "cle-105074",
+    "img": "https://openaccess-cdn.clevelandart.org/1923.29/1923.29_web.jpg"
+   },
+   {
+    "id": "nga-4101",
+    "img": "https://api.nga.gov/iiif/d76f73da-6430-40bc-9b09-1b70c663a108/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-198343",
+    "img": "https://api.nga.gov/iiif/62970d52-5d95-45ca-a39d-9fa9c5b1d214/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-5936",
+    "img": "https://api.nga.gov/iiif/09df3cc7-5166-4d00-9e77-9c20f5766cdf/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-435977",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DT2008.jpg"
+   },
+   {
+    "id": "nga-34101",
+    "img": "https://api.nga.gov/iiif/892ccfe1-e0e3-4faa-87d6-98aa92387a05/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-95257",
+    "img": "https://openaccess-cdn.clevelandart.org/1916.1030/1916.1030_web.jpg"
+   },
+   {
+    "id": "cle-149014",
+    "img": "https://openaccess-cdn.clevelandart.org/1977.167/1977.167_web.jpg"
+   },
+   {
+    "id": "nga-34957",
+    "img": "https://api.nga.gov/iiif/8ff2d6a0-c863-4127-bb9a-7edd6a56650a/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-117897",
+    "img": "https://openaccess-cdn.clevelandart.org/1938.52/1938.52_web.jpg"
+   },
+   {
+    "id": "nga-409",
+    "img": "https://api.nga.gov/iiif/e9c8084a-335c-427b-931d-372f839b6dd9/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-100164",
+    "img": "https://openaccess-cdn.clevelandart.org/1919.673/1919.673_web.jpg"
+   }
+  ]
+ },
+ "q14": {
+  "q": "battle scene with cavalry",
+  "candidates": [
+   {
+    "id": "met-343312",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP801475.jpg"
+   },
+   {
+    "id": "nga-110491",
+    "img": "https://api.nga.gov/iiif/de22191e-b3b5-432d-ab1b-37eae4d4d4e2/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-117959",
+    "img": "https://api.nga.gov/iiif/82c13da6-3e14-408a-ac04-7d4f2eebfc0c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-120344",
+    "img": "https://openaccess-cdn.clevelandart.org/1941.192/1941.192_web.jpg"
+   },
+   {
+    "id": "cle-106111",
+    "img": "https://openaccess-cdn.clevelandart.org/1924.213/1924.213_web.jpg"
+   },
+   {
+    "id": "cle-146098",
+    "img": "https://openaccess-cdn.clevelandart.org/1971.286/1971.286_web.jpg"
+   },
+   {
+    "id": "met-338079",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP807669.jpg"
+   },
+   {
+    "id": "met-338065",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP807689.jpg"
+   },
+   {
+    "id": "nga-184360",
+    "img": "https://api.nga.gov/iiif/f7b7543f-5415-4903-b04e-75a59a286f10/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-213172",
+    "img": "https://api.nga.gov/iiif/cae38c45-884e-4257-a7d1-061dbd971369/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-225439",
+    "img": "https://api.nga.gov/iiif/5cc5fa89-c58c-4e87-8b3d-c04a2b4607a8/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-336551",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP805706.jpg"
+   },
+   {
+    "id": "met-336554",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP805707.jpg"
+   },
+   {
+    "id": "nga-56215",
+    "img": "https://api.nga.gov/iiif/f1360f5c-b599-4b93-9218-efefec397346/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-50686",
+    "img": "https://api.nga.gov/iiif/87ece172-f4cb-4a1c-9439-3f29ef085665/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-54494",
+    "img": "https://api.nga.gov/iiif/fa774fb1-8981-44f8-aeb6-9be201943b9f/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-30803",
+    "img": "https://api.nga.gov/iiif/f7e78f78-e9ee-47e4-8149-9a1b94ef765d/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-76200",
+    "img": "https://api.nga.gov/iiif/2a40c05e-6544-491a-813a-9b5ab4aa2c50/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-113842",
+    "img": "https://openaccess-cdn.clevelandart.org/1933.126.7/1933.126.7_web.jpg"
+   },
+   {
+    "id": "nga-138618",
+    "img": "https://api.nga.gov/iiif/43f31d0a-6c83-4da0-aaca-509f8417c40c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-206774",
+    "img": "https://api.nga.gov/iiif/5ea9233e-bee7-4464-9302-0ed419755ff9/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-436890",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP143186.jpg"
+   },
+   {
+    "id": "met-337313",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP811928.jpg"
+   },
+   {
+    "id": "met-437074",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/ep71.96.R.jpg"
+   },
+   {
+    "id": "nga-45885",
+    "img": "https://api.nga.gov/iiif/2168b8e0-865c-4520-a9e5-c48c8592fcaa/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-210099",
+    "img": "https://api.nga.gov/iiif/b1f8566f-4bfe-4555-b26a-b5659638c065/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-33864",
+    "img": "https://api.nga.gov/iiif/5b4bc2ba-e732-428e-ab08-43e68183af79/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q15": {
+  "q": "city street in the rain",
+  "candidates": [
+   {
+    "id": "nga-32840",
+    "img": "https://api.nga.gov/iiif/34049105-ec49-4172-ba93-f6d4bc24b3f3/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-148403",
+    "img": "https://api.nga.gov/iiif/9f06c791-f83c-4247-a1a4-b90e2545852c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-102046",
+    "img": "https://openaccess-cdn.clevelandart.org/1920.705/1920.705_web.jpg"
+   },
+   {
+    "id": "cle-120048",
+    "img": "https://openaccess-cdn.clevelandart.org/1940.834/1940.834_web.jpg"
+   },
+   {
+    "id": "cle-106572",
+    "img": "https://openaccess-cdn.clevelandart.org/1924.62/1924.62_web.jpg"
+   },
+   {
+    "id": "nga-180939",
+    "img": "https://api.nga.gov/iiif/874c1a04-02fe-4cbf-9826-a32acdec4717/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-125926",
+    "img": "https://openaccess-cdn.clevelandart.org/1948.156.5/1948.156.5_web.jpg"
+   },
+   {
+    "id": "cle-149558",
+    "img": "https://openaccess-cdn.clevelandart.org/1979.133/1979.133_web.jpg"
+   },
+   {
+    "id": "cle-136276",
+    "img": "https://openaccess-cdn.clevelandart.org/1960.166/1960.166_web.jpg"
+   },
+   {
+    "id": "nga-4444",
+    "img": "https://api.nga.gov/iiif/6c8dbb47-e443-49cd-9bf3-eaa83bd8f41a/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-104325",
+    "img": "https://openaccess-cdn.clevelandart.org/1922.461/1922.461_web.jpg"
+   },
+   {
+    "id": "cle-118883",
+    "img": "https://openaccess-cdn.clevelandart.org/1940.1086/1940.1086_web.jpg"
+   },
+   {
+    "id": "cle-143982",
+    "img": "https://openaccess-cdn.clevelandart.org/1968.356/1968.356_web.jpg"
+   },
+   {
+    "id": "met-359320",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP813628.jpg"
+   },
+   {
+    "id": "cle-125520",
+    "img": "https://openaccess-cdn.clevelandart.org/1947.453/1947.453_web.jpg"
+   },
+   {
+    "id": "nga-144897",
+    "img": "https://api.nga.gov/iiif/393b71f7-fec9-4480-92e2-f1111b5df7b7/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-124605",
+    "img": "https://openaccess-cdn.clevelandart.org/1946.10.q/1946.10.q_web.jpg"
+   },
+   {
+    "id": "cle-120101",
+    "img": "https://openaccess-cdn.clevelandart.org/1940.882/1940.882_web.jpg"
+   }
+  ]
+ },
+ "q16": {
+  "q": "mountain landscape with a lake",
+  "candidates": [
+   {
+    "id": "met-438624",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP168286.jpg"
+   },
+   {
+    "id": "cle-114116",
+    "img": "https://openaccess-cdn.clevelandart.org/1933.388/1933.388_web.jpg"
+   },
+   {
+    "id": "met-10496",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Thomas%20Cole%20-%20The%20Mountain%20Ford.jpg?width=400"
+   },
+   {
+    "id": "met-10149",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Bierstadt%20Albert%20Canadian%20Rockies%20Lake%20Louise.jpg?width=400"
+   },
+   {
+    "id": "nga-56570",
+    "img": "https://api.nga.gov/iiif/3c8e7a1c-a350-4078-8105-75b70de00b33/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-335485",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP800249.jpg"
+   },
+   {
+    "id": "met-10154",
+    "img": "https://images.metmuseum.org/CRDImages/ad/web-large/DT82.jpg"
+   },
+   {
+    "id": "met-10151",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Bierstadt%20Albert%20Mountain%20Scene.jpg?width=400"
+   },
+   {
+    "id": "nga-71107",
+    "img": "https://api.nga.gov/iiif/0d6d9a29-e253-4d85-920a-614455f5152b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-152006",
+    "img": "https://openaccess-cdn.clevelandart.org/1984.59/1984.59_web.jpg"
+   },
+   {
+    "id": "met-11311",
+    "img": "https://images.metmuseum.org/CRDImages/ad/web-large/DT84.jpg"
+   },
+   {
+    "id": "nga-103590",
+    "img": "https://api.nga.gov/iiif/b56ec0dd-1846-4a34-a6d9-fc4f5aff91cd/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-75966",
+    "img": "https://api.nga.gov/iiif/25ccf238-90e5-45ac-9d18-d398cbdaed32/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-347434",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP800484.jpg"
+   },
+   {
+    "id": "nga-166428",
+    "img": "https://api.nga.gov/iiif/b5657933-52bc-4bfa-9bb9-12ea235e7198/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-10150",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Bierstadt%20Albert%20Merced%20River%20Yosemite%20Valley.jpg?width=400"
+   },
+   {
+    "id": "cle-150129",
+    "img": "https://openaccess-cdn.clevelandart.org/1980.5/1980.5_web.jpg"
+   },
+   {
+    "id": "cle-153352",
+    "img": "https://openaccess-cdn.clevelandart.org/1986.49.4/1986.49.4_web.jpg"
+   },
+   {
+    "id": "cle-153350",
+    "img": "https://openaccess-cdn.clevelandart.org/1986.49.2/1986.49.2_web.jpg"
+   },
+   {
+    "id": "cle-153357",
+    "img": "https://openaccess-cdn.clevelandart.org/1986.49.9/1986.49.9_web.jpg"
+   },
+   {
+    "id": "cle-153356",
+    "img": "https://openaccess-cdn.clevelandart.org/1986.49.8/1986.49.8_web.jpg"
+   },
+   {
+    "id": "cle-153351",
+    "img": "https://openaccess-cdn.clevelandart.org/1986.49.3/1986.49.3_web.jpg"
+   },
+   {
+    "id": "cle-79932",
+    "img": "https://openaccess-cdn.clevelandart.org/2015.516/2015.516_web.jpg"
+   },
+   {
+    "id": "cle-160135",
+    "img": "https://openaccess-cdn.clevelandart.org/1997.93/1997.93_web.jpg"
+   },
+   {
+    "id": "cle-153355",
+    "img": "https://openaccess-cdn.clevelandart.org/1986.49.7/1986.49.7_web.jpg"
+   },
+   {
+    "id": "cle-139831",
+    "img": "https://openaccess-cdn.clevelandart.org/1963.589/1963.589_web.jpg"
+   },
+   {
+    "id": "cle-139454",
+    "img": "https://openaccess-cdn.clevelandart.org/1963.262/1963.262_web.jpg"
+   }
+  ]
+ },
+ "q17": {
+  "q": "hunting scene with dogs",
+  "candidates": [
+   {
+    "id": "met-436014",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DT1961.jpg"
+   },
+   {
+    "id": "nga-75809",
+    "img": "https://api.nga.gov/iiif/c9bbeb2c-7bba-4229-8d77-910f96d24ca7/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-55431",
+    "img": "https://api.nga.gov/iiif/c28618ce-e088-42a5-aef5-576ae4301ab9/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-150471",
+    "img": "https://openaccess-cdn.clevelandart.org/1981.36/1981.36_web.jpg"
+   },
+   {
+    "id": "met-334964",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP803981.jpg"
+   },
+   {
+    "id": "nga-53789",
+    "img": "https://api.nga.gov/iiif/d6603c31-dd7f-4a04-b4c3-e27efeeb42f0/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-11103",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Rabbit%20Hunters%20MET%20ap43.52.jpg?width=400"
+   },
+   {
+    "id": "nga-124656",
+    "img": "https://api.nga.gov/iiif/807f4ac1-50b3-4448-9832-9547dbecab06/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-142987",
+    "img": "https://openaccess-cdn.clevelandart.org/1966.725/1966.725_web.jpg"
+   },
+   {
+    "id": "nga-53780",
+    "img": "https://api.nga.gov/iiif/6269a450-dd01-498b-98e3-023f2e1da20e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-150805",
+    "img": "https://openaccess-cdn.clevelandart.org/1982.179.49/1982.179.49_web.jpg"
+   },
+   {
+    "id": "nga-32690",
+    "img": "https://api.nga.gov/iiif/5d387dcc-4507-4edb-86be-c8481e8a34e6/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-1182",
+    "img": "https://api.nga.gov/iiif/ae16bf56-a60b-496a-8a33-e6f76895ed2e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-66",
+    "img": "https://api.nga.gov/iiif/e394bc24-b1d8-4358-92c1-0d78480b5473/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-42500",
+    "img": "https://api.nga.gov/iiif/6de0d1c2-db76-4d0f-bd86-2424b22ad37f/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-95259",
+    "img": "https://openaccess-cdn.clevelandart.org/1916.1032/1916.1032_web.jpg"
+   },
+   {
+    "id": "cle-144431",
+    "img": "https://openaccess-cdn.clevelandart.org/1969.18/1969.18_web.jpg"
+   },
+   {
+    "id": "nga-35108",
+    "img": "https://api.nga.gov/iiif/1c6bcfe7-bf4b-4b01-8e15-a9c0204f1bb8/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-341805",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP801951.jpg"
+   },
+   {
+    "id": "nga-62625",
+    "img": "https://api.nga.gov/iiif/5f9945f8-54dd-4b64-aa17-db823cfe393e/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q18": {
+  "q": "couple dancing at a ball",
+  "candidates": [
+   {
+    "id": "nga-96",
+    "img": "https://api.nga.gov/iiif/8abd9a6d-3b2f-4c4f-8afd-6dc55fb69834/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-106287",
+    "img": "https://openaccess-cdn.clevelandart.org/1924.376/1924.376_web.jpg"
+   },
+   {
+    "id": "cle-146817",
+    "img": "https://openaccess-cdn.clevelandart.org/1972.237/1972.237_web.jpg"
+   },
+   {
+    "id": "nga-47118",
+    "img": "https://api.nga.gov/iiif/72de5c15-d957-4fb2-9be6-57530ecf9970/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-79483",
+    "img": "https://openaccess-cdn.clevelandart.org/2015.151/2015.151_web.jpg"
+   },
+   {
+    "id": "cle-107133",
+    "img": "https://openaccess-cdn.clevelandart.org/1925.1124/1925.1124_web.jpg"
+   },
+   {
+    "id": "nga-170123",
+    "img": "https://api.nga.gov/iiif/371766db-72be-4128-bc63-bda2967bfeb3/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-161812",
+    "img": "https://openaccess-cdn.clevelandart.org/2001.138/2001.138_web.jpg"
+   },
+   {
+    "id": "nga-197536",
+    "img": "https://api.nga.gov/iiif/3d79f73e-fd60-4999-8e44-e7959048969d/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-6150",
+    "img": "https://api.nga.gov/iiif/66c9dedf-1865-4cbf-ac8d-7ae837caf536/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-47117",
+    "img": "https://api.nga.gov/iiif/a12dbbd5-4edc-44dc-b7e6-5e23d7d2234b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-216727",
+    "img": "https://api.nga.gov/iiif/a925f34c-f7ff-43ff-a5c6-329b075995b3/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-1220",
+    "img": "https://api.nga.gov/iiif/0dd57cd1-91db-4e04-a709-6fb236d266d1/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-111610",
+    "img": "https://api.nga.gov/iiif/583339f5-58ac-4492-a388-d177a7d93d20/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-130640",
+    "img": "https://api.nga.gov/iiif/566f1d2b-6f29-41bc-a0e5-44a7b109b016/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-125946",
+    "img": "https://openaccess-cdn.clevelandart.org/1948.176.5/1948.176.5_web.jpg"
+   },
+   {
+    "id": "nga-52185",
+    "img": "https://api.nga.gov/iiif/bfd3764c-8711-4b04-9f02-ed6b07995d40/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-3032",
+    "img": "https://api.nga.gov/iiif/56ab8f33-595f-493f-909d-3d20a0e97d78/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-122465",
+    "img": "https://openaccess-cdn.clevelandart.org/1942.733/1942.733_web.jpg"
+   }
+  ]
+ },
+ "q19": {
+  "q": "kitchen interior with copper pots",
+  "candidates": [
+   {
+    "id": "nga-27045",
+    "img": "https://api.nga.gov/iiif/ebf14bbe-b02a-47f7-a8f4-778085c71313/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-27048",
+    "img": "https://api.nga.gov/iiif/ac83260a-69a4-4252-b491-633bad9346c1/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-18857",
+    "img": "https://api.nga.gov/iiif/840c31a4-1ecc-47a9-b381-adaaaf55f7f2/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-27044",
+    "img": "https://api.nga.gov/iiif/7f76b04f-7a9c-4096-b805-b99388d3ae7c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-18856",
+    "img": "https://api.nga.gov/iiif/e20c162d-0810-4b1d-886c-f832d7cf4063/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-18858",
+    "img": "https://api.nga.gov/iiif/158a596b-8ae5-4e9c-be15-645a82ad055e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-15634",
+    "img": "https://api.nga.gov/iiif/912175b3-9ead-4101-b95f-aedbccdfbbc1/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-27101",
+    "img": "https://api.nga.gov/iiif/90ae354f-a44b-40d6-bd71-f774adf561b5/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-20119",
+    "img": "https://api.nga.gov/iiif/8c224088-468d-485c-9522-1782e0237588/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-16043",
+    "img": "https://api.nga.gov/iiif/8f13bc67-0d8e-41d0-b287-28aacaf2ff6b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-16040",
+    "img": "https://api.nga.gov/iiif/270d3051-f8e6-4d07-a50f-780968d66094/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-21573",
+    "img": "https://api.nga.gov/iiif/3359682d-72c2-4cc1-93af-7bcccbf1398f/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-24405",
+    "img": "https://api.nga.gov/iiif/addbf7e8-3a9a-4ca0-bdb4-67cb51975b81/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-18395",
+    "img": "https://api.nga.gov/iiif/1ab21c1e-16b4-4889-8a4d-1765f8f75ebc/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-25496",
+    "img": "https://api.nga.gov/iiif/03ef5244-66ac-47e5-b46c-2b5e3df925b3/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-173167",
+    "img": "https://openaccess-cdn.clevelandart.org/1915.682/1915.682_web.jpg"
+   },
+   {
+    "id": "met-436806",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP143189.jpg"
+   },
+   {
+    "id": "cle-150115",
+    "img": "https://openaccess-cdn.clevelandart.org/1980.37/1980.37_web.jpg"
+   },
+   {
+    "id": "nga-19874",
+    "img": "https://api.nga.gov/iiif/1b79c01a-aa0e-4d3d-9cf2-7be2bd578403/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437703",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP145945.jpg"
+   },
+   {
+    "id": "nga-28938",
+    "img": "https://api.nga.gov/iiif/766126ce-73d1-41b2-af4a-54c2b8fe4586/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-19830",
+    "img": "https://api.nga.gov/iiif/a2fa90ef-1770-4ace-bbd9-9ad7c5631e6e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-19866",
+    "img": "https://api.nga.gov/iiif/1efaf6ad-90e3-4a93-8d83-4ce99dceff68/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-339159",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP805744.jpg"
+   },
+   {
+    "id": "nga-73921",
+    "img": "https://api.nga.gov/iiif/60216006-387d-4519-ace7-2a5c5b9e1449/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q20": {
+  "q": "ship leaving a harbor",
+  "candidates": [
+   {
+    "id": "nga-61366",
+    "img": "https://api.nga.gov/iiif/05d1b6ea-8357-4fe6-a2ca-2db4fff480c6/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-163456",
+    "img": "https://openaccess-cdn.clevelandart.org/2004.35/2004.35_web.jpg"
+   },
+   {
+    "id": "cle-148368",
+    "img": "https://openaccess-cdn.clevelandart.org/1975.80/1975.80_web.jpg"
+   },
+   {
+    "id": "cle-167922",
+    "img": "https://openaccess-cdn.clevelandart.org/2009.509/2009.509_web.jpg"
+   },
+   {
+    "id": "met-10521",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/New%20York%20from%20the%20Harbor%20Showing%20the%20Battery%20and%20Castle%20Garden%20MET%20ap54.90.89.jpg?width=400"
+   },
+   {
+    "id": "nga-35092",
+    "img": "https://api.nga.gov/iiif/5b9a89da-4995-477b-99f8-14b4254b54f9/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-148198",
+    "img": "https://api.nga.gov/iiif/d6a4fb66-3962-4d01-b928-30f657b6af06/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-61360",
+    "img": "https://api.nga.gov/iiif/d6f248cf-a24b-4053-9d2a-b22c2276836d/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-57729",
+    "img": "https://api.nga.gov/iiif/cc69daa8-5072-4e10-989e-5f16e403a347/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-118042",
+    "img": "https://openaccess-cdn.clevelandart.org/1939.165/1939.165_web.jpg"
+   },
+   {
+    "id": "cle-143272",
+    "img": "https://openaccess-cdn.clevelandart.org/1967.21/1967.21_web.jpg"
+   },
+   {
+    "id": "cle-160570",
+    "img": "https://openaccess-cdn.clevelandart.org/1998.348/1998.348_web.jpg"
+   },
+   {
+    "id": "cle-105007",
+    "img": "https://openaccess-cdn.clevelandart.org/1923.232/1923.232_web.jpg"
+   },
+   {
+    "id": "cle-120276",
+    "img": "https://openaccess-cdn.clevelandart.org/1941.130/1941.130_web.jpg"
+   },
+   {
+    "id": "nga-134212",
+    "img": "https://api.nga.gov/iiif/2d688967-b902-43db-950e-cb8596e65ea5/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-154655",
+    "img": "https://api.nga.gov/iiif/d4323200-afb8-4122-9f5b-3ca0de232793/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-214374",
+    "img": "https://api.nga.gov/iiif/9ff9bdd7-99fb-4997-a1b6-6a25e1dc7efa/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-194593",
+    "img": "https://api.nga.gov/iiif/79a976bc-6ade-4bbe-add7-388edc804b1c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-154215",
+    "img": "https://api.nga.gov/iiif/de1707f6-1d8a-4fbd-b364-061f79fd1b04/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-67349",
+    "img": "https://api.nga.gov/iiif/4c2c9fca-0885-4227-8af9-43f178157b79/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-576",
+    "img": "https://api.nga.gov/iiif/317eb85d-cb70-4408-837b-bcaff6de5f85/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q21": {
+  "q": "old man with a beard, rembrandt style",
+  "candidates": [
+   {
+    "id": "nga-10059",
+    "img": "https://api.nga.gov/iiif/414da3f9-9046-47ea-9f6d-34bec362332c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-10043",
+    "img": "https://api.nga.gov/iiif/94c99561-4077-47ba-99ef-d6e5970984a2/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-37153",
+    "img": "https://api.nga.gov/iiif/c1e4f482-d9b1-46b2-b5bd-68cf0b67abb9/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437421",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP143183.jpg"
+   },
+   {
+    "id": "met-437418",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP146456.jpg"
+   },
+   {
+    "id": "nga-85918",
+    "img": "https://api.nga.gov/iiif/cfed35ce-8d8a-4588-94f9-acc61287f111/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-164708",
+    "img": "https://api.nga.gov/iiif/be601af9-19a1-4dd9-b5a6-154938cdfb75/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-1202",
+    "img": "https://api.nga.gov/iiif/d277c2a7-190e-475a-bae9-f1cbd0b1218d/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-9843",
+    "img": "https://api.nga.gov/iiif/fa45dcdf-e59a-4d68-baad-f657bdcb1dc4/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-9876",
+    "img": "https://api.nga.gov/iiif/92a17cd2-7611-4186-afe0-df0b1dca3d54/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-55111",
+    "img": "https://api.nga.gov/iiif/91bae0ad-81a3-41d4-8e6b-ae6a8f7458a7/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-131993",
+    "img": "https://api.nga.gov/iiif/4829a4e8-22ad-4afc-8980-87cc82cb6cb9/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-338440",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP812345.jpg"
+   },
+   {
+    "id": "met-437392",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP145921.jpg"
+   },
+   {
+    "id": "met-436309",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP136267.jpg"
+   },
+   {
+    "id": "nga-177795",
+    "img": "https://api.nga.gov/iiif/223524b5-ba54-4b89-8bed-3940e68a4f91/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437386",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP121326.jpg"
+   }
+  ]
+ },
+ "q22": {
+  "q": "woman sewing by a window",
+  "candidates": [
+   {
+    "id": "nga-110334",
+    "img": "https://api.nga.gov/iiif/ed26d6c5-6ea2-4222-bdc1-a7e34af2b920/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-333797",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP805444.jpg"
+   },
+   {
+    "id": "met-437757",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP146510.jpg"
+   },
+   {
+    "id": "nga-206788",
+    "img": "https://api.nga.gov/iiif/41206c17-a553-479e-bdbe-1e7ba5d12639/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-459085",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Pieter%20de%20hooch%2C%20coppia%20che%20gioca%20a%20carte%20e%20una%20serva%2C%201650-80%20ca..JPG?width=400"
+   },
+   {
+    "id": "cle-97137",
+    "img": "https://openaccess-cdn.clevelandart.org/1916.777/1916.777_web.jpg"
+   },
+   {
+    "id": "nga-61348",
+    "img": "https://api.nga.gov/iiif/ff9f2fed-1711-41f0-98f5-a418457ff9f4/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437412",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP146474.jpg"
+   },
+   {
+    "id": "nga-8297",
+    "img": "https://api.nga.gov/iiif/f7fd48ae-2e56-4e7f-ac26-9165ece1f517/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-53532",
+    "img": "https://api.nga.gov/iiif/05a612fd-23ad-4862-8ba2-84811c563c5a/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-66407",
+    "img": "https://api.nga.gov/iiif/85d40b25-aef8-4586-829e-1b1d51203ff7/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-52191",
+    "img": "https://api.nga.gov/iiif/26c52279-c2f8-409c-b7b4-467a38de2453/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-195455",
+    "img": "https://api.nga.gov/iiif/4d10c83f-3901-4a65-aa90-b6bbba476fba/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-166442",
+    "img": "https://api.nga.gov/iiif/66362fa9-749a-44b1-baf2-ad3c31fa7e05/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-169560",
+    "img": "https://api.nga.gov/iiif/ec6c4a7a-21e9-4644-b4cf-5dc1ebc7bb0f/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-436724",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/ep87.8.13.R.jpg"
+   },
+   {
+    "id": "nga-138964",
+    "img": "https://api.nga.gov/iiif/60865ae9-c848-4c6a-b6cd-74eca593586e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-41303",
+    "img": "https://api.nga.gov/iiif/efe95c3c-24d9-4ed0-96ed-634542761908/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-135450",
+    "img": "https://api.nga.gov/iiif/806e99cc-64a3-4dfe-a104-af96bc2d76af/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-43512",
+    "img": "https://api.nga.gov/iiif/7042f1f6-4093-4580-a1ad-eeb4fda470d4/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-1148",
+    "img": "https://api.nga.gov/iiif/e4788e0d-79d1-434c-a358-3015c865409b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-160960",
+    "img": "https://api.nga.gov/iiif/cec223de-bf79-46d6-acb0-73fb36c34920/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-703436",
+    "img": "https://openaccess-cdn.clevelandart.org/2025.209/2025.209_web.jpg"
+   }
+  ]
+ },
+ "q23": {
+  "q": "study of a nude figure",
+  "candidates": [
+   {
+    "id": "cle-109570",
+    "img": "https://openaccess-cdn.clevelandart.org/1928.202/1928.202_web.jpg"
+   },
+   {
+    "id": "met-340995",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP812232.jpg"
+   },
+   {
+    "id": "nga-10372",
+    "img": "https://api.nga.gov/iiif/8b895acc-8194-4dc7-ad8a-91ffe40dfb12/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-337607",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP811607.jpg"
+   },
+   {
+    "id": "met-337599",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP807238.jpg"
+   },
+   {
+    "id": "cle-129409",
+    "img": "https://openaccess-cdn.clevelandart.org/1952.223.ff/1952.223.ff_web.jpg"
+   },
+   {
+    "id": "met-483380",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Standing%20Nude%20model%2C%20Facing%20Left%20MET%20sf1984.433.242.jpg?width=400"
+   },
+   {
+    "id": "cle-108577",
+    "img": "https://openaccess-cdn.clevelandart.org/1926.274/1926.274_web.jpg"
+   },
+   {
+    "id": "cle-111597",
+    "img": "https://openaccess-cdn.clevelandart.org/1930.163/1930.163_web.jpg"
+   },
+   {
+    "id": "cle-129389",
+    "img": "https://openaccess-cdn.clevelandart.org/1952.223.aa/1952.223.aa_web.jpg"
+   },
+   {
+    "id": "nga-43032",
+    "img": "https://api.nga.gov/iiif/f499c8a9-e2c4-42c4-8e83-2e8654c6a59c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-135381",
+    "img": "https://openaccess-cdn.clevelandart.org/1958.389/1958.389_web.jpg"
+   },
+   {
+    "id": "met-338400",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP808251.jpg"
+   },
+   {
+    "id": "nga-48967",
+    "img": "https://api.nga.gov/iiif/8612660e-026d-4dbe-abed-6a04d98f5b42/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-338318",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP801294.jpg"
+   },
+   {
+    "id": "met-340375",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP802176.jpg"
+   },
+   {
+    "id": "met-355656",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP836165.jpg"
+   },
+   {
+    "id": "nga-11391",
+    "img": "https://api.nga.gov/iiif/47d9ed92-fa04-4fb7-8071-f412f4c24ecc/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-338169",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP807832.jpg"
+   },
+   {
+    "id": "nga-62960",
+    "img": "https://api.nga.gov/iiif/f131fca6-564b-4728-80ff-3ff597e53f45/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-43224",
+    "img": "https://api.nga.gov/iiif/27ad7b76-3f50-4050-89ef-b41cdbdcbe29/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-340401",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP801490.jpg"
+   },
+   {
+    "id": "cle-119614",
+    "img": "https://openaccess-cdn.clevelandart.org/1940.465/1940.465_web.jpg"
+   },
+   {
+    "id": "met-338217",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP807995.jpg"
+   },
+   {
+    "id": "cle-95307",
+    "img": "https://openaccess-cdn.clevelandart.org/1916.1078/1916.1078_web.jpg"
+   },
+   {
+    "id": "cle-120774",
+    "img": "https://openaccess-cdn.clevelandart.org/1941.504/1941.504_web.jpg"
+   },
+   {
+    "id": "met-438661",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP103071.jpg"
+   },
+   {
+    "id": "nga-53867",
+    "img": "https://api.nga.gov/iiif/37d1b5fd-4f41-45f4-9319-9e6a7533a48d/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-76201",
+    "img": "https://api.nga.gov/iiif/0f8ab777-1999-42bf-a599-70ac2be72d3f/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-206785",
+    "img": "https://api.nga.gov/iiif/639da656-a9de-4f8f-826b-be62b6a1e172/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-102126",
+    "img": "https://api.nga.gov/iiif/1918b306-9f4a-4752-9ad5-8373e7e65d00/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-102125",
+    "img": "https://api.nga.gov/iiif/2b83dd71-cc7d-4434-b0ec-f0f56b497caf/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-166677",
+    "img": "https://openaccess-cdn.clevelandart.org/2008.390/2008.390_web.jpg"
+   },
+   {
+    "id": "cle-122828",
+    "img": "https://openaccess-cdn.clevelandart.org/1942.996/1942.996_web.jpg"
+   },
+   {
+    "id": "nga-139243",
+    "img": "https://api.nga.gov/iiif/c5ed2000-9846-4fb7-84ce-04a9a61a51e9/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-180912",
+    "img": "https://api.nga.gov/iiif/1be7d7c7-7018-4303-ad9b-0cd6e053184c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-10371",
+    "img": "https://api.nga.gov/iiif/a1868cbc-21c1-45e0-b5fa-f0c544de0519/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q24": {
+  "q": "flowers in a glass vase",
+  "candidates": [
+   {
+    "id": "nga-94743",
+    "img": "https://api.nga.gov/iiif/9ef5f855-780f-4e5b-ab4b-5cc3b1480b8e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-214111",
+    "img": "https://api.nga.gov/iiif/a89bbeac-f07f-443e-9246-fec5a55eeb19/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-61382",
+    "img": "https://api.nga.gov/iiif/2cf45b58-42eb-4359-a50f-b1143459a6be/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-136207",
+    "img": "https://openaccess-cdn.clevelandart.org/1960.108/1960.108_web.jpg"
+   },
+   {
+    "id": "nga-127554",
+    "img": "https://api.nga.gov/iiif/d96730f9-b64b-47dc-bce9-27f670375816/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-52181",
+    "img": "https://api.nga.gov/iiif/8863a7bc-4cc4-4bc1-a5ee-0ac7b92dad76/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-55781",
+    "img": "https://api.nga.gov/iiif/5586812e-8ffb-461b-af9c-d6266ff2fbb8/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437867",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DT202022.jpg"
+   },
+   {
+    "id": "cle-115067",
+    "img": "https://openaccess-cdn.clevelandart.org/1935.233/1935.233_web.jpg"
+   },
+   {
+    "id": "cle-150840",
+    "img": "https://openaccess-cdn.clevelandart.org/1982.246/1982.246_web.jpg"
+   },
+   {
+    "id": "met-437864",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-17394-001.jpg"
+   },
+   {
+    "id": "met-437148",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DT2791.jpg"
+   },
+   {
+    "id": "nga-134166",
+    "img": "https://api.nga.gov/iiif/0132f7ad-adee-49c3-a79b-0108f66fc042/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-126147",
+    "img": "https://api.nga.gov/iiif/98a93313-dd43-472e-ac4e-ab3d72fb0afc/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-166460",
+    "img": "https://api.nga.gov/iiif/1534dd35-2609-4ca4-b4e5-3eda9575695e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-436961",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP123836.jpg"
+   }
+  ]
+ },
+ "q25": {
+  "q": "village festival with peasants dancing",
+  "candidates": [
+   {
+    "id": "cle-148965",
+    "img": "https://openaccess-cdn.clevelandart.org/1977.122/1977.122_web.jpg"
+   },
+   {
+    "id": "nga-32739",
+    "img": "https://api.nga.gov/iiif/f67043d0-fd1f-4476-98bc-4d51fc1115bd/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437779",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP120379.jpg"
+   },
+   {
+    "id": "nga-10816",
+    "img": "https://api.nga.gov/iiif/1fc6aa81-0785-4eb8-be0b-f6af8545fe0f/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-119933",
+    "img": "https://openaccess-cdn.clevelandart.org/1940.733/1940.733_web.jpg"
+   },
+   {
+    "id": "nga-3103",
+    "img": "https://api.nga.gov/iiif/8a52aeb3-5b66-4ca9-b6b6-5ae62739b947/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-45727",
+    "img": "https://api.nga.gov/iiif/a76978c1-1e60-476b-8dd3-f80a9a28f2d8/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-106612",
+    "img": "https://openaccess-cdn.clevelandart.org/1924.657/1924.657_web.jpg"
+   },
+   {
+    "id": "nga-2775",
+    "img": "https://api.nga.gov/iiif/ceae0d46-ea38-4b8a-ac41-0759ad48f1f9/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-1220",
+    "img": "https://api.nga.gov/iiif/0dd57cd1-91db-4e04-a709-6fb236d266d1/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-45729",
+    "img": "https://api.nga.gov/iiif/75980b0a-8f50-45c2-bd0d-a3dbeb7598ab/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-49031",
+    "img": "https://api.nga.gov/iiif/20f8c1fe-3c74-4ad0-8325-63aee452eedc/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-7302",
+    "img": "https://api.nga.gov/iiif/d477bb17-a7ec-4620-a635-4c88a1fc0874/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-177786",
+    "img": "https://api.nga.gov/iiif/cd3ab444-8451-4661-bfea-e0dd0e386296/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-7303",
+    "img": "https://api.nga.gov/iiif/bf6efb80-84ef-45a5-ad6e-13d049c572b2/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-10830",
+    "img": "https://api.nga.gov/iiif/5a566778-0d6d-4146-9d80-57e5035130cf/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-102813",
+    "img": "https://openaccess-cdn.clevelandart.org/1921.1450/1921.1450_web.jpg"
+   },
+   {
+    "id": "nga-36679",
+    "img": "https://api.nga.gov/iiif/dd0672c2-96d5-45d2-bd2c-99173ff5b1fb/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-61369",
+    "img": "https://api.nga.gov/iiif/732faae9-f8fe-459b-b86e-1c6039024179/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-96",
+    "img": "https://api.nga.gov/iiif/8abd9a6d-3b2f-4c4f-8afd-6dc55fb69834/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q26": {
+  "q": "forest path in autumn",
+  "candidates": [
+   {
+    "id": "cle-172806",
+    "img": "https://openaccess-cdn.clevelandart.org/1922.220/1922.220_web.jpg"
+   },
+   {
+    "id": "cle-173181",
+    "img": "https://openaccess-cdn.clevelandart.org/1915.685/1915.685_web.jpg"
+   },
+   {
+    "id": "nga-195825",
+    "img": "https://api.nga.gov/iiif/96adf641-cc97-46de-8447-ebfb678b9840/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-162093",
+    "img": "https://openaccess-cdn.clevelandart.org/2001.44/2001.44_web.jpg"
+   },
+   {
+    "id": "cle-173640",
+    "img": "https://openaccess-cdn.clevelandart.org/1915.692/1915.692_web.jpg"
+   },
+   {
+    "id": "met-436192",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP352741.jpg"
+   },
+   {
+    "id": "cle-134072",
+    "img": "https://openaccess-cdn.clevelandart.org/1956.578/1956.578_web.jpg"
+   },
+   {
+    "id": "met-265904",
+    "img": "https://images.metmuseum.org/CRDImages/ph/web-large/DT1170.jpg"
+   },
+   {
+    "id": "nga-35088",
+    "img": "https://api.nga.gov/iiif/240e0ed1-e565-4ad9-b695-0376d5c8d95e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-1149",
+    "img": "https://api.nga.gov/iiif/ad77030c-3690-4f50-a062-e762e23c393b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-127263",
+    "img": "https://api.nga.gov/iiif/f7cb6da8-d871-48ca-8f86-f177ddc7a38b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-97298",
+    "img": "https://openaccess-cdn.clevelandart.org/1916.930/1916.930_web.jpg"
+   },
+   {
+    "id": "cle-160091",
+    "img": "https://openaccess-cdn.clevelandart.org/1997.6/1997.6_web.jpg"
+   },
+   {
+    "id": "cle-108809",
+    "img": "https://openaccess-cdn.clevelandart.org/1926.488/1926.488_web.jpg"
+   }
+  ]
+ },
+ "q27": {
+  "q": "cat sleeping on a chair",
+  "candidates": [
+   {
+    "id": "nga-16618",
+    "img": "https://api.nga.gov/iiif/dd7335b8-59f4-4d59-831f-7b5d95c46c05/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-227029",
+    "img": "https://api.nga.gov/iiif/85e7607b-06a7-4c6d-9081-fc9d67aa8368/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-16619",
+    "img": "https://api.nga.gov/iiif/b964f868-d79d-4f7d-85db-882659cc965e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-25042",
+    "img": "https://api.nga.gov/iiif/47646ea5-8b62-48b3-8197-c8d26d2f7f57/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-16316",
+    "img": "https://api.nga.gov/iiif/dcba2eb4-a023-4ed0-9d06-31b952c6c4af/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-16303",
+    "img": "https://api.nga.gov/iiif/4d620d9f-3086-481e-a0ee-335cd96781e1/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-16501",
+    "img": "https://api.nga.gov/iiif/e0aa63f7-f1b2-47cf-b475-9ebb87f95624/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-16509",
+    "img": "https://api.nga.gov/iiif/29d1be04-a2a7-4c3c-81b8-b8e820124c18/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-16314",
+    "img": "https://api.nga.gov/iiif/4b43c180-d154-40ec-8bfa-d8f2c43f8af1/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-16443",
+    "img": "https://api.nga.gov/iiif/1141ddce-8600-4cd3-8f38-0ccaac63a1ce/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-16289",
+    "img": "https://api.nga.gov/iiif/8a517bf7-af72-434e-9360-58e9ebd0710c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-16362",
+    "img": "https://api.nga.gov/iiif/cac30216-9b53-412f-89a7-1a25969d2c77/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-26877",
+    "img": "https://api.nga.gov/iiif/202d656c-f902-4e52-9dea-9333655b0ddd/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-20058",
+    "img": "https://api.nga.gov/iiif/76c93aa7-e383-4748-93eb-0c651366ed15/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-16601",
+    "img": "https://api.nga.gov/iiif/a4644a67-bf84-4b7b-9010-086ef3317d66/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-16473",
+    "img": "https://api.nga.gov/iiif/40d62805-e6d3-4322-9307-08da3500347d/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-22462",
+    "img": "https://api.nga.gov/iiif/fb2e3c27-535c-46df-9768-4216601d6681/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-16551",
+    "img": "https://api.nga.gov/iiif/3de34a05-e875-4d74-aaca-5a5ab7d3a128/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-16375",
+    "img": "https://api.nga.gov/iiif/bfca74a0-a296-429a-a08b-06b7c7ad41f6/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q28": {
+  "q": "boats on a river under a bridge",
+  "candidates": [
+   {
+    "id": "cle-100953",
+    "img": "https://openaccess-cdn.clevelandart.org/1920.1301/1920.1301_web.jpg"
+   },
+   {
+    "id": "cle-155611",
+    "img": "https://openaccess-cdn.clevelandart.org/1990.56/1990.56_web.jpg"
+   },
+   {
+    "id": "nga-61374",
+    "img": "https://api.nga.gov/iiif/7372b15a-3830-43bf-8c41-4836619312b7/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-136805",
+    "img": "https://openaccess-cdn.clevelandart.org/1961.302/1961.302_web.jpg"
+   },
+   {
+    "id": "cle-130995",
+    "img": "https://openaccess-cdn.clevelandart.org/1953.681/1953.681_web.jpg"
+   },
+   {
+    "id": "cle-143093",
+    "img": "https://openaccess-cdn.clevelandart.org/1966.87/1966.87_web.jpg"
+   },
+   {
+    "id": "nga-52188",
+    "img": "https://api.nga.gov/iiif/823405e0-599f-4fd8-ae71-4d901edc36b0/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-103176",
+    "img": "https://openaccess-cdn.clevelandart.org/1921.254/1921.254_web.jpg"
+   },
+   {
+    "id": "cle-132433",
+    "img": "https://openaccess-cdn.clevelandart.org/1954.882/1954.882_web.jpg"
+   },
+   {
+    "id": "nga-1166",
+    "img": "https://api.nga.gov/iiif/d9e7fbf2-accf-4fcd-9996-ffc204a8875b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-35090",
+    "img": "https://api.nga.gov/iiif/649827c9-0904-4a03-a23b-612107abd267/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-106425",
+    "img": "https://openaccess-cdn.clevelandart.org/1924.5/1924.5_web.jpg"
+   },
+   {
+    "id": "cle-367992",
+    "img": "https://openaccess-cdn.clevelandart.org/2019.170.5/2019.170.5_web.jpg"
+   },
+   {
+    "id": "cle-95399",
+    "img": "https://openaccess-cdn.clevelandart.org/1916.1152/1916.1152_web.jpg"
+   },
+   {
+    "id": "cle-95400",
+    "img": "https://openaccess-cdn.clevelandart.org/1916.1153/1916.1153_web.jpg"
+   },
+   {
+    "id": "nga-254",
+    "img": "https://api.nga.gov/iiif/0b8c1e3b-c1d9-4e67-adac-49af47dc5643/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-153668",
+    "img": "https://openaccess-cdn.clevelandart.org/1987.190/1987.190_web.jpg"
+   },
+   {
+    "id": "nga-32828",
+    "img": "https://api.nga.gov/iiif/b2f33cd2-84bd-4cbd-bd05-62480f6462b8/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-127849",
+    "img": "https://openaccess-cdn.clevelandart.org/1950.489.1/1950.489.1_web.jpg"
+   },
+   {
+    "id": "cle-103954",
+    "img": "https://openaccess-cdn.clevelandart.org/1922.147/1922.147_web.jpg"
+   },
+   {
+    "id": "cle-131961",
+    "img": "https://openaccess-cdn.clevelandart.org/1954.548/1954.548_web.jpg"
+   },
+   {
+    "id": "cle-84745",
+    "img": "https://openaccess-cdn.clevelandart.org/2022.432/2022.432_web.jpg"
+   },
+   {
+    "id": "nga-158528",
+    "img": "https://api.nga.gov/iiif/f3785e55-8658-4d48-a96c-290dd7dc1922/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-46658",
+    "img": "https://api.nga.gov/iiif/5f0f2f71-1428-4fc7-a951-0fab4fe39ffd/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q29": {
+  "q": "child playing with a toy",
+  "candidates": [
+   {
+    "id": "nga-66434",
+    "img": "https://api.nga.gov/iiif/594b2f21-2660-4a52-9c8e-599eb52c9079/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-167567",
+    "img": "https://openaccess-cdn.clevelandart.org/2009.305/2009.305_web.jpg"
+   },
+   {
+    "id": "met-342129",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP802257.jpg"
+   },
+   {
+    "id": "nga-61251",
+    "img": "https://api.nga.gov/iiif/81fe0da8-b374-4749-90f1-d39b9c3d80b6/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-172145",
+    "img": "https://openaccess-cdn.clevelandart.org/2014.695.ww/2014.695.ww_web.jpg"
+   },
+   {
+    "id": "cle-80329",
+    "img": "https://openaccess-cdn.clevelandart.org/2020.118/2020.118_web.jpg"
+   },
+   {
+    "id": "cle-104301",
+    "img": "https://openaccess-cdn.clevelandart.org/1922.439/1922.439_web.jpg"
+   },
+   {
+    "id": "met-335515",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP800260.jpg"
+   },
+   {
+    "id": "met-436626",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP145900.jpg"
+   },
+   {
+    "id": "met-339930",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP812628.jpg"
+   },
+   {
+    "id": "met-436932",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP145402.jpg"
+   },
+   {
+    "id": "met-10976",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Crossing%20Sweeper%20MET%20ap25.110.50.jpg?width=400"
+   },
+   {
+    "id": "nga-52163",
+    "img": "https://api.nga.gov/iiif/20818b10-1f66-4186-ac55-af70e3586084/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-42474",
+    "img": "https://api.nga.gov/iiif/2f8d84b4-0e9e-45f1-9d0d-d2546c5d6cbe/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-12932",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Boy%20with%20Blond%20Hair%20MET%20ap1973.323.5.jpg?width=400"
+   },
+   {
+    "id": "cle-148369",
+    "img": "https://openaccess-cdn.clevelandart.org/1975.81/1975.81_web.jpg"
+   },
+   {
+    "id": "nga-42466",
+    "img": "https://api.nga.gov/iiif/ae346dd2-83be-4ce0-81e3-976212c33ce3/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-42465",
+    "img": "https://api.nga.gov/iiif/24b64a11-237c-4f39-9943-4956297b6923/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q30": {
+  "q": "musicians playing string instruments",
+  "candidates": [
+   {
+    "id": "met-435717",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP145907.jpg"
+   },
+   {
+    "id": "met-334037",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP800219.jpg"
+   },
+   {
+    "id": "aic-16362",
+    "img": "https://www.artic.edu/iiif/2/622998f1-73f9-4c96-08cf-60bda7c9ce4b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-129805",
+    "img": "https://openaccess-cdn.clevelandart.org/1952.235.4/1952.235.4_web.jpg"
+   },
+   {
+    "id": "aic-561",
+    "img": "https://www.artic.edu/iiif/2/7f1ea423-7538-3bc7-3d4a-0766522ab62f/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-350797",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP818290.jpg"
+   },
+   {
+    "id": "nga-221200",
+    "img": "https://api.nga.gov/iiif/aa33172d-31cf-4990-a25a-9c77b6cecbe3/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-99423",
+    "img": "https://openaccess-cdn.clevelandart.org/1919.1000/1919.1000_web.jpg"
+   },
+   {
+    "id": "met-341518",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP815148.jpg"
+   },
+   {
+    "id": "nga-70988",
+    "img": "https://api.nga.gov/iiif/86d11149-a35c-4244-a7dc-5ba5c80a33d4/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-65918",
+    "img": "https://api.nga.gov/iiif/c996ceff-4512-4932-968b-998666cbc6f6/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-150037",
+    "img": "https://openaccess-cdn.clevelandart.org/1980.250/1980.250_web.jpg"
+   },
+   {
+    "id": "met-435844",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-687-001.jpg"
+   },
+   {
+    "id": "nga-195366",
+    "img": "https://api.nga.gov/iiif/5d3dddf6-7279-421b-9e91-75e13ff15be8/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-148970",
+    "img": "https://openaccess-cdn.clevelandart.org/1977.127/1977.127_web.jpg"
+   }
+  ]
+ },
+ "q31": {
+  "q": "desert caravan with camels",
+  "candidates": [
+   {
+    "id": "cle-74600",
+    "img": "https://openaccess-cdn.clevelandart.org/2019.61/2019.61_web.jpg"
+   },
+   {
+    "id": "met-441358",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-14274-007.jpg"
+   },
+   {
+    "id": "met-702996",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/74.%20Pr%C3%A8s%20d'Alexandrie.%20Le%20d%C3%A9sert.%20MET%20DP-13897-013.jpg?width=400"
+   },
+   {
+    "id": "met-355541",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP805927.jpg"
+   },
+   {
+    "id": "nga-53893",
+    "img": "https://api.nga.gov/iiif/690e0d53-fb09-4936-8115-ff1e3383c6ff/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-148969",
+    "img": "https://openaccess-cdn.clevelandart.org/1977.126/1977.126_web.jpg"
+   },
+   {
+    "id": "cle-135065",
+    "img": "https://openaccess-cdn.clevelandart.org/1958.11.b/1958.11.b_web.jpg"
+   },
+   {
+    "id": "cle-166685",
+    "img": "https://openaccess-cdn.clevelandart.org/2008.398/2008.398_web.jpg"
+   },
+   {
+    "id": "nga-53596",
+    "img": "https://api.nga.gov/iiif/8adb3ad9-ebd4-4a72-ba2f-6739f6f0f1e4/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-130822",
+    "img": "https://openaccess-cdn.clevelandart.org/1953.527/1953.527_web.jpg"
+   },
+   {
+    "id": "nga-98214",
+    "img": "https://api.nga.gov/iiif/68cf504c-5c25-4f1a-b993-27ac3a9f11a0/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-123388",
+    "img": "https://openaccess-cdn.clevelandart.org/1943.620/1943.620_web.jpg"
+   },
+   {
+    "id": "nga-180487",
+    "img": "https://api.nga.gov/iiif/53ee6d2d-7ff4-4fbe-b8dc-8e09bd3f4e65/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-120041",
+    "img": "https://openaccess-cdn.clevelandart.org/1940.828/1940.828_web.jpg"
+   },
+   {
+    "id": "nga-195800",
+    "img": "https://api.nga.gov/iiif/dba496a4-2789-4a21-9076-5ad0de13006b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-109413",
+    "img": "https://openaccess-cdn.clevelandart.org/1927.79/1927.79_web.jpg"
+   }
+  ]
+ },
+ "q32": {
+  "q": "fishermen mending nets on a beach",
+  "candidates": [
+   {
+    "id": "nga-156739",
+    "img": "https://api.nga.gov/iiif/4553c2e2-e76b-4213-8bf6-0257381f229e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-162964",
+    "img": "https://openaccess-cdn.clevelandart.org/2003.397.6/2003.397.6_web.jpg"
+   },
+   {
+    "id": "nga-61364",
+    "img": "https://api.nga.gov/iiif/85f2142e-1b34-4e75-a077-62de44276f88/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-125091",
+    "img": "https://openaccess-cdn.clevelandart.org/1946.71/1946.71_web.jpg"
+   },
+   {
+    "id": "nga-52159",
+    "img": "https://api.nga.gov/iiif/02c8ff0d-dc16-4120-b611-90a2ed8de407/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-52161",
+    "img": "https://api.nga.gov/iiif/5258dd44-266b-4d20-b4eb-d8a26f5ecdda/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-120150",
+    "img": "https://openaccess-cdn.clevelandart.org/1940.929/1940.929_web.jpg"
+   },
+   {
+    "id": "cle-153192",
+    "img": "https://openaccess-cdn.clevelandart.org/1986.169/1986.169_web.jpg"
+   },
+   {
+    "id": "met-349199",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP218933.jpg"
+   },
+   {
+    "id": "nga-164930",
+    "img": "https://api.nga.gov/iiif/ee88ca26-bf51-4585-9992-7cfbe7430f68/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-121462",
+    "img": "https://openaccess-cdn.clevelandart.org/1942.1313/1942.1313_web.jpg"
+   },
+   {
+    "id": "nga-159285",
+    "img": "https://api.nga.gov/iiif/87822758-43bc-411e-ad78-1ea268081f59/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-46481",
+    "img": "https://api.nga.gov/iiif/23a2e880-4b64-4ac1-95de-42f391a759ea/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-164933",
+    "img": "https://api.nga.gov/iiif/f3c12d74-0541-4680-8aee-8a3be222940b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-52156",
+    "img": "https://api.nga.gov/iiif/c50251b6-5e1f-4fdc-a37c-153a42b2fe2b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-52158",
+    "img": "https://api.nga.gov/iiif/ce2428ad-dd31-4049-8f9a-d63ae483070e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-61363",
+    "img": "https://api.nga.gov/iiif/208a01da-c708-4b7e-980b-9dfffb94cbf1/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-157923",
+    "img": "https://api.nga.gov/iiif/e448a88b-b7c1-486e-9995-9c96d611faff/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-98377",
+    "img": "https://openaccess-cdn.clevelandart.org/1918.113/1918.113_web.jpg"
+   }
+  ]
+ },
+ "q33": {
+  "q": "castle on a hill above a valley",
+  "candidates": [
+   {
+    "id": "nga-56611",
+    "img": "https://api.nga.gov/iiif/a526f137-8c7a-49de-aa67-40b0be41259a/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-99492",
+    "img": "https://openaccess-cdn.clevelandart.org/1919.128/1919.128_web.jpg"
+   },
+   {
+    "id": "cle-149786",
+    "img": "https://openaccess-cdn.clevelandart.org/1979.97/1979.97_web.jpg"
+   },
+   {
+    "id": "nga-136184",
+    "img": "https://api.nga.gov/iiif/144fd54a-c7a3-44af-ada8-d9f1c4ede9e5/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-157897",
+    "img": "https://openaccess-cdn.clevelandart.org/1995.199.26.h/1995.199.26.h_web.jpg"
+   },
+   {
+    "id": "cle-79552",
+    "img": "https://openaccess-cdn.clevelandart.org/2016.194/2016.194_web.jpg"
+   },
+   {
+    "id": "nga-206133",
+    "img": "https://api.nga.gov/iiif/18130774-893b-44cf-a8fb-99664b2af1a0/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-149785",
+    "img": "https://openaccess-cdn.clevelandart.org/1979.96/1979.96_web.jpg"
+   },
+   {
+    "id": "cle-168543",
+    "img": "https://openaccess-cdn.clevelandart.org/2010.280.4/2010.280.4_web.jpg"
+   },
+   {
+    "id": "nga-209452",
+    "img": "https://api.nga.gov/iiif/67ef69b2-c5c9-4890-825a-e19241f51bd8/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-206132",
+    "img": "https://api.nga.gov/iiif/d6900c86-f2e4-4cba-8584-c0000b5f99cb/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-173180",
+    "img": "https://openaccess-cdn.clevelandart.org/1915.684/1915.684_web.jpg"
+   },
+   {
+    "id": "cle-150038",
+    "img": "https://openaccess-cdn.clevelandart.org/1980.251/1980.251_web.jpg"
+   },
+   {
+    "id": "cle-150141",
+    "img": "https://openaccess-cdn.clevelandart.org/1980.60/1980.60_web.jpg"
+   },
+   {
+    "id": "cle-172172",
+    "img": "https://openaccess-cdn.clevelandart.org/2014.696.29/2014.696.29_web.jpg"
+   },
+   {
+    "id": "nga-130897",
+    "img": "https://api.nga.gov/iiif/793cce4a-0b9c-4c18-96e4-8327c6475eee/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-43236",
+    "img": "https://api.nga.gov/iiif/41bb8139-05b9-499b-8218-8bbdba4dbca2/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-157235",
+    "img": "https://openaccess-cdn.clevelandart.org/1994.112/1994.112_web.jpg"
+   },
+   {
+    "id": "nga-76083",
+    "img": "https://api.nga.gov/iiif/2acb2bf5-63c5-4ebc-9e23-c52a264f915d/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-76350",
+    "img": "https://api.nga.gov/iiif/8f6ea3e2-f118-43f2-bf3c-f1216b847e50/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-340923",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP800900.jpg"
+   },
+   {
+    "id": "nga-169381",
+    "img": "https://api.nga.gov/iiif/51d28faa-4a5e-486a-abf4-3fa5f5b2000c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-111633",
+    "img": "https://api.nga.gov/iiif/4cbb6efb-3f95-482e-85d5-1dcccff21d53/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-359882",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP819998.jpg"
+   }
+  ]
+ },
+ "q34": {
+  "q": "angel announcing to a saint",
+  "candidates": [
+   {
+    "id": "met-342556",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP853504.jpg"
+   },
+   {
+    "id": "nga-34800",
+    "img": "https://api.nga.gov/iiif/14233618-f379-4bb8-aa99-8e48569f8c8e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-53151",
+    "img": "https://api.nga.gov/iiif/20922073-60c4-44d2-b1ec-049009d00920/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-459062",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Archangel%20Gabriel%3B%20The%20Virgin%20Annunciate%20MET%20DT3083.jpg?width=400"
+   },
+   {
+    "id": "met-336226",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP802317.jpg"
+   },
+   {
+    "id": "nga-3835",
+    "img": "https://api.nga.gov/iiif/9b15e962-e1ce-4d92-a832-cc6e89dcbed3/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-130334",
+    "img": "https://openaccess-cdn.clevelandart.org/1952.99/1952.99_web.jpg"
+   },
+   {
+    "id": "nga-4595",
+    "img": "https://api.nga.gov/iiif/e3b89e60-76e2-41d8-929c-1a7425c91d81/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-3833",
+    "img": "https://api.nga.gov/iiif/c87ccf94-4b61-4fa6-88bf-4a5c5b2ccc90/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-155383",
+    "img": "https://api.nga.gov/iiif/212d01be-bd3f-430d-9ddf-35faafdab058/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-4415",
+    "img": "https://api.nga.gov/iiif/e60eb393-9503-4ac3-9bda-502d963a1c2f/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-33893",
+    "img": "https://api.nga.gov/iiif/5fe80939-fe32-45c1-ab44-582bfa6767a6/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-3313",
+    "img": "https://api.nga.gov/iiif/a52235d6-18eb-4ab1-8145-630d1dee18ef/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-65747",
+    "img": "https://api.nga.gov/iiif/ea9b9c47-52f6-4b92-9bf9-064f8f959902/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-46",
+    "img": "https://api.nga.gov/iiif/46633bd6-4834-40fb-8ce0-fb975c731dc1/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-150962",
+    "img": "https://openaccess-cdn.clevelandart.org/1982.366/1982.366_web.jpg"
+   },
+   {
+    "id": "nga-3764",
+    "img": "https://api.nga.gov/iiif/57fd24b5-c7fa-45c2-99e3-fc056114e2ad/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-336188",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP800245.jpg"
+   },
+   {
+    "id": "met-436497",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP375436.jpg"
+   },
+   {
+    "id": "cle-127572",
+    "img": "https://openaccess-cdn.clevelandart.org/1950.251/1950.251_web.jpg"
+   },
+   {
+    "id": "cle-142384",
+    "img": "https://openaccess-cdn.clevelandart.org/1966.2/1966.2_web.jpg"
+   },
+   {
+    "id": "nga-177670",
+    "img": "https://api.nga.gov/iiif/029fd365-e1eb-42ec-aa17-d1086ddf9068/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-128829",
+    "img": "https://openaccess-cdn.clevelandart.org/1951.447.a/1951.447.a_web.jpg"
+   },
+   {
+    "id": "nga-143827",
+    "img": "https://api.nga.gov/iiif/060c7a6f-0479-4278-88db-d2af277b1d3f/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q35": {
+  "q": "portrait of a noblewoman in lace collar",
+  "candidates": [
+   {
+    "id": "cle-116276",
+    "img": "https://openaccess-cdn.clevelandart.org/1937.12/1937.12_web.jpg"
+   },
+   {
+    "id": "aic-518",
+    "img": "https://www.artic.edu/iiif/2/c340ef34-8efa-d4b2-7e51-bbc2eb619aee/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437374",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP143159.jpg"
+   },
+   {
+    "id": "cle-124089",
+    "img": "https://openaccess-cdn.clevelandart.org/1944.90/1944.90_web.jpg"
+   },
+   {
+    "id": "met-436739",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP104987.jpg"
+   },
+   {
+    "id": "nga-573",
+    "img": "https://api.nga.gov/iiif/7a5c8d93-6d4e-4eb4-9b4d-cb0406c7f16f/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-436630",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP146498.jpg"
+   },
+   {
+    "id": "met-436255",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-17538-001.jpg"
+   },
+   {
+    "id": "met-643540",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP341866.jpg"
+   },
+   {
+    "id": "cle-125029",
+    "img": "https://openaccess-cdn.clevelandart.org/1946.464/1946.464_web.jpg"
+   },
+   {
+    "id": "met-437917",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/ep89.15.37.jpg"
+   },
+   {
+    "id": "nga-46095",
+    "img": "https://api.nga.gov/iiif/b8bc7ebd-04f2-4784-975c-75d58731eea5/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-12354",
+    "img": "https://api.nga.gov/iiif/eb0e98f2-90a5-4f57-bca9-f83687a20ba7/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-15026",
+    "img": "https://api.nga.gov/iiif/db967c81-5dc6-4c61-9d18-16565889c5c8/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-13960",
+    "img": "https://api.nga.gov/iiif/febfbd2a-8a34-4267-9839-bfd60aaea2f3/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-13532",
+    "img": "https://api.nga.gov/iiif/26d862ad-5aaf-4bad-8323-0a6d788ce057/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-13481",
+    "img": "https://api.nga.gov/iiif/3393ed1e-940b-4f3d-a238-811ccd45f6fe/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-13821",
+    "img": "https://api.nga.gov/iiif/2c5e6678-de0e-47ad-ae08-3018781b893f/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-153281",
+    "img": "https://openaccess-cdn.clevelandart.org/1986.240.b/1986.240.b_web.jpg"
+   },
+   {
+    "id": "cle-153279",
+    "img": "https://openaccess-cdn.clevelandart.org/1986.240/1986.240_web.jpg"
+   }
+  ]
+ },
+ "q36": {
+  "q": "farmyard with chickens",
+  "candidates": [
+   {
+    "id": "cle-79186",
+    "img": "https://openaccess-cdn.clevelandart.org/2016.198/2016.198_web.jpg"
+   },
+   {
+    "id": "cle-102798",
+    "img": "https://openaccess-cdn.clevelandart.org/1921.1437/1921.1437_web.jpg"
+   },
+   {
+    "id": "cle-149602",
+    "img": "https://openaccess-cdn.clevelandart.org/1979.26/1979.26_web.jpg"
+   },
+   {
+    "id": "nga-53606",
+    "img": "https://api.nga.gov/iiif/f966a2a4-4079-4743-bfe3-df08a4691417/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-347694",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP800548.jpg"
+   },
+   {
+    "id": "cle-111042",
+    "img": "https://openaccess-cdn.clevelandart.org/1929.539/1929.539_web.jpg"
+   },
+   {
+    "id": "nga-53605",
+    "img": "https://api.nga.gov/iiif/3a88b114-c921-4071-aad2-45c2082e1a56/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-341907",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP854942.jpg"
+   },
+   {
+    "id": "cle-102839",
+    "img": "https://openaccess-cdn.clevelandart.org/1921.1474/1921.1474_web.jpg"
+   },
+   {
+    "id": "cle-150805",
+    "img": "https://openaccess-cdn.clevelandart.org/1982.179.49/1982.179.49_web.jpg"
+   },
+   {
+    "id": "nga-42496",
+    "img": "https://api.nga.gov/iiif/02f53d1f-074a-4c0e-8765-cc1801a08101/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-46074",
+    "img": "https://api.nga.gov/iiif/a177219a-1718-4aa5-8ac0-642a967d10d2/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-150141",
+    "img": "https://openaccess-cdn.clevelandart.org/1980.60/1980.60_web.jpg"
+   },
+   {
+    "id": "met-12855",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Ark%20MET%20DP152388.jpg?width=400"
+   },
+   {
+    "id": "nga-1191",
+    "img": "https://api.nga.gov/iiif/fd006ab2-888f-485d-b909-eb2d56c4a4f5/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-149420",
+    "img": "https://openaccess-cdn.clevelandart.org/1978.72/1978.72_web.jpg"
+   },
+   {
+    "id": "cle-452866",
+    "img": "https://openaccess-cdn.clevelandart.org/2022.3/2022.3_web.jpg"
+   },
+   {
+    "id": "nga-1187",
+    "img": "https://api.nga.gov/iiif/1b7fec5d-9502-42a2-9939-0457b49b8be7/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-178080",
+    "img": "https://api.nga.gov/iiif/88b584ac-904a-41f6-ae3a-0bada5224a3e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-130914",
+    "img": "https://api.nga.gov/iiif/1a216470-0ccb-4577-8b1a-aeae40bac013/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-148965",
+    "img": "https://openaccess-cdn.clevelandart.org/1977.122/1977.122_web.jpg"
+   }
+  ]
+ },
+ "q37": {
+  "q": "waterfall in a rocky gorge",
+  "candidates": [
+   {
+    "id": "nga-136756",
+    "img": "https://api.nga.gov/iiif/c1b9a6e2-4af5-4cc3-9cde-e5dfdc014cd0/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-57001",
+    "img": "https://api.nga.gov/iiif/669c6e12-f4e0-407a-8b34-10119dce5d68/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-125190",
+    "img": "https://api.nga.gov/iiif/2e50925d-cb27-453f-be61-bc7203ac41ff/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-151882",
+    "img": "https://openaccess-cdn.clevelandart.org/1984.175/1984.175_web.jpg"
+   },
+   {
+    "id": "nga-156201",
+    "img": "https://api.nga.gov/iiif/e53367d6-04df-4e48-879b-52aef1d4e5b4/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-57002",
+    "img": "https://api.nga.gov/iiif/66741882-5911-4962-92c3-563c0caade7c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-180893",
+    "img": "https://api.nga.gov/iiif/d7161186-bca2-4335-99d6-056d1055b3fe/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-60768",
+    "img": "https://api.nga.gov/iiif/ef264a89-396c-41f9-89ad-3da5a0e8ea87/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-152383",
+    "img": "https://api.nga.gov/iiif/39f2012c-6238-4461-977c-6ccf6f2061e7/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437078",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-23366-001.jpg"
+   },
+   {
+    "id": "nga-154934",
+    "img": "https://api.nga.gov/iiif/4effa087-6d18-48ae-9a6c-0988bd3d209a/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-150986",
+    "img": "https://openaccess-cdn.clevelandart.org/1982.40/1982.40_web.jpg"
+   },
+   {
+    "id": "nga-62536",
+    "img": "https://api.nga.gov/iiif/c23cb538-4102-429b-b63b-3257191854e1/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-196215",
+    "img": "https://api.nga.gov/iiif/34d17ae8-683f-4df6-a335-88b9d984edd8/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-436023",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DT1964.jpg"
+   },
+   {
+    "id": "nga-130889",
+    "img": "https://api.nga.gov/iiif/0a1123ce-a460-4caa-9fa3-186150b63136/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-359246",
+    "img": "https://openaccess-cdn.clevelandart.org/2019.76/2019.76_web.jpg"
+   }
+  ]
+ },
+ "q38": {
+  "q": "dead game and hunting trophies",
+  "candidates": [
+   {
+    "id": "nga-55520",
+    "img": "https://api.nga.gov/iiif/f262b770-3dae-4e15-b63f-6e507a9ea430/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-150784",
+    "img": "https://openaccess-cdn.clevelandart.org/1982.179.3/1982.179.3_web.jpg"
+   },
+   {
+    "id": "cle-150788",
+    "img": "https://openaccess-cdn.clevelandart.org/1982.179.33/1982.179.33_web.jpg"
+   },
+   {
+    "id": "nga-69753",
+    "img": "https://api.nga.gov/iiif/0fa8cedd-70dc-4e83-838b-3c8d7980bec1/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-55524",
+    "img": "https://api.nga.gov/iiif/34e743ec-bdbd-4551-8ed4-571389787156/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-55518",
+    "img": "https://api.nga.gov/iiif/7f0d0eff-1250-4631-a99c-d19ca75ad76e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "aic-883",
+    "img": "https://www.artic.edu/iiif/2/565dd29f-6c02-3f31-3db2-46902059f047/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-150790",
+    "img": "https://openaccess-cdn.clevelandart.org/1982.179.35/1982.179.35_web.jpg"
+   },
+   {
+    "id": "cle-150782",
+    "img": "https://openaccess-cdn.clevelandart.org/1982.179.28/1982.179.28_web.jpg"
+   },
+   {
+    "id": "cle-150813",
+    "img": "https://openaccess-cdn.clevelandart.org/1982.179.56/1982.179.56_web.jpg"
+   },
+   {
+    "id": "cle-150765",
+    "img": "https://openaccess-cdn.clevelandart.org/1982.179.12/1982.179.12_web.jpg"
+   },
+   {
+    "id": "nga-67744",
+    "img": "https://api.nga.gov/iiif/373204e6-8440-4693-8942-36b9f29bf66a/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-436014",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DT1961.jpg"
+   },
+   {
+    "id": "met-12769",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Doe%20and%20Two%20Fawns%20MET%20DP144804.jpg?width=400"
+   },
+   {
+    "id": "nga-55539",
+    "img": "https://api.nga.gov/iiif/7b719232-4a5b-4d35-9687-bd82c3cc26f7/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-219050",
+    "img": "https://api.nga.gov/iiif/f8f072e8-1099-4517-9760-f1a6e605bbd2/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-173656",
+    "img": "https://openaccess-cdn.clevelandart.org/1915.693/1915.693_web.jpg"
+   },
+   {
+    "id": "nga-55517",
+    "img": "https://api.nga.gov/iiif/3a8e4a9d-9668-4ad3-ab37-6b57af5c11b4/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-101528",
+    "img": "https://openaccess-cdn.clevelandart.org/1920.304/1920.304_web.jpg"
+   }
+  ]
+ },
+ "q39": {
+  "q": "two lovers in a garden",
+  "candidates": [
+   {
+    "id": "met-437096",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-22841-001.jpg"
+   },
+   {
+    "id": "nga-224368",
+    "img": "https://api.nga.gov/iiif/bd90ebcb-530d-4bec-8daa-cd8943002663/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-102478",
+    "img": "https://api.nga.gov/iiif/493cec84-cf54-4888-af86-15b417c5a2ee/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-436177",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-14092-001.jpg"
+   },
+   {
+    "id": "nga-4360",
+    "img": "https://api.nga.gov/iiif/e84a5ace-1a10-41fd-93e8-8d72ce724d89/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-42726",
+    "img": "https://api.nga.gov/iiif/3242f9e2-7161-4816-9bcc-122390eaa82e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-113164",
+    "img": "https://openaccess-cdn.clevelandart.org/1932.179/1932.179_web.jpg"
+   },
+   {
+    "id": "nga-111480",
+    "img": "https://api.nga.gov/iiif/6d6e29a7-e70c-42b3-b10c-4062aff9d81c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-111487",
+    "img": "https://api.nga.gov/iiif/91c2adfa-9747-4c56-ac22-6075f458a914/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-70309",
+    "img": "https://api.nga.gov/iiif/b9fc59b2-6ecc-472b-9177-0144ce506d10/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-335539",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP801381.jpg"
+   },
+   {
+    "id": "cle-145473",
+    "img": "https://openaccess-cdn.clevelandart.org/1971.102/1971.102_web.jpg"
+   },
+   {
+    "id": "nga-134324",
+    "img": "https://api.nga.gov/iiif/15eb3cf6-e9a5-4f4c-85b1-53799ebf08ba/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-79483",
+    "img": "https://openaccess-cdn.clevelandart.org/2015.151/2015.151_web.jpg"
+   },
+   {
+    "id": "met-437211",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/LC-29_100_599.jpg"
+   },
+   {
+    "id": "cle-143221",
+    "img": "https://openaccess-cdn.clevelandart.org/1967.18/1967.18_web.jpg"
+   },
+   {
+    "id": "nga-58210",
+    "img": "https://api.nga.gov/iiif/3df2a535-0605-4fc2-9684-1d22ff5da75e/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q40": {
+  "q": "sailing ships in calm water",
+  "candidates": [
+   {
+    "id": "met-435842",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP143157.jpg"
+   },
+   {
+    "id": "cle-163420",
+    "img": "https://openaccess-cdn.clevelandart.org/2004.210/2004.210_web.jpg"
+   },
+   {
+    "id": "nga-75217",
+    "img": "https://api.nga.gov/iiif/1d6b4b0f-394d-4893-b2b3-d8ea8f9e6851/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-74601",
+    "img": "https://openaccess-cdn.clevelandart.org/2021.108/2021.108_web.jpg"
+   },
+   {
+    "id": "nga-10344",
+    "img": "https://api.nga.gov/iiif/64f3afb5-8fd5-44f5-ad02-5541f794ef83/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-132215",
+    "img": "https://openaccess-cdn.clevelandart.org/1954.703/1954.703_web.jpg"
+   },
+   {
+    "id": "met-10258",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Early%20Morning%E2%80%94Venice%20MET%20ap09.72.1.jpg?width=400"
+   },
+   {
+    "id": "nga-61366",
+    "img": "https://api.nga.gov/iiif/05d1b6ea-8357-4fe6-a2ca-2db4fff480c6/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-140376",
+    "img": "https://api.nga.gov/iiif/787d420b-974d-4949-8564-df84a9a12816/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-163456",
+    "img": "https://openaccess-cdn.clevelandart.org/2004.35/2004.35_web.jpg"
+   },
+   {
+    "id": "nga-148300",
+    "img": "https://api.nga.gov/iiif/993c1f9d-33d7-489f-a2f8-4a1785eef0b9/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-10507",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Colman%20First%20Americas%20Cup.jpg?width=400"
+   },
+   {
+    "id": "nga-576",
+    "img": "https://api.nga.gov/iiif/317eb85d-cb70-4408-837b-bcaff6de5f85/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-163418",
+    "img": "https://openaccess-cdn.clevelandart.org/2004.209/2004.209_web.jpg"
+   },
+   {
+    "id": "nga-148224",
+    "img": "https://api.nga.gov/iiif/f4e02f79-7da5-428f-b74b-107adb4b0770/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-194593",
+    "img": "https://api.nga.gov/iiif/79a976bc-6ade-4bbe-add7-388edc804b1c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-11305",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Entrance%20to%20Harbor%E2%80%94Moonlight%20MET%20ap68.41.jpg?width=400"
+   },
+   {
+    "id": "met-359581",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP821996.jpg"
+   },
+   {
+    "id": "nga-52187",
+    "img": "https://api.nga.gov/iiif/73069488-cbc0-412b-a9fd-8094e24e2915/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-52160",
+    "img": "https://api.nga.gov/iiif/b6a6ab68-cbe4-4ea3-85c5-b8c86faa9fd3/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q41": {
+  "q": "composition without any human figure",
+  "candidates": [
+   {
+    "id": "cle-128565",
+    "img": "https://openaccess-cdn.clevelandart.org/1951.422.uuu/1951.422.uuu_web.jpg"
+   },
+   {
+    "id": "cle-137153",
+    "img": "https://openaccess-cdn.clevelandart.org/1962.116/1962.116_web.jpg"
+   },
+   {
+    "id": "cle-156682",
+    "img": "https://openaccess-cdn.clevelandart.org/1992.344.iii/1992.344.iii_web.jpg"
+   },
+   {
+    "id": "nga-107105",
+    "img": "https://api.nga.gov/iiif/b725427a-3f6d-4803-85a3-575d843755e9/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-73858",
+    "img": "https://api.nga.gov/iiif/479099a9-1eff-40f5-8805-e939a0078c5b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-338169",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP807832.jpg"
+   },
+   {
+    "id": "met-340582",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP811341.jpg"
+   },
+   {
+    "id": "cle-135774",
+    "img": "https://openaccess-cdn.clevelandart.org/1959.304.b/1959.304.b_web.jpg"
+   },
+   {
+    "id": "cle-111391",
+    "img": "https://openaccess-cdn.clevelandart.org/1929.893/1929.893_web.jpg"
+   },
+   {
+    "id": "cle-153123",
+    "img": "https://openaccess-cdn.clevelandart.org/1986.130/1986.130_web.jpg"
+   },
+   {
+    "id": "nga-55653",
+    "img": "https://api.nga.gov/iiif/0f76ebfd-e5cb-41bd-977e-d9f5d1d887e8/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-54014",
+    "img": "https://api.nga.gov/iiif/1521aca5-b0ba-4388-9096-75fe2f591817/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-8468",
+    "img": "https://api.nga.gov/iiif/57ca9e01-3145-4260-af09-980f172252b8/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-52461",
+    "img": "https://api.nga.gov/iiif/eb44e327-a5d7-4da7-85f9-ff051601730c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-119019",
+    "img": "https://api.nga.gov/iiif/ae58e93b-c26e-449c-889c-f71a7308ed7b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-225201",
+    "img": "https://api.nga.gov/iiif/14973335-0a0a-401c-a708-a9d3d5104635/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437880",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP354965.jpg"
+   },
+   {
+    "id": "nga-1148",
+    "img": "https://api.nga.gov/iiif/e4788e0d-79d1-434c-a358-3015c865409b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-164936",
+    "img": "https://api.nga.gov/iiif/42844276-54e1-4c5d-bf28-21c0bb625732/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-715339",
+    "img": "https://openaccess-cdn.clevelandart.org/2026.37/2026.37_web.jpg"
+   },
+   {
+    "id": "nga-43686",
+    "img": "https://api.nga.gov/iiif/0c47c30b-6850-49f1-aae2-669f7c1fbb54/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-95212",
+    "img": "https://openaccess-cdn.clevelandart.org/1916.1001/1916.1001_web.jpg"
+   },
+   {
+    "id": "cle-150115",
+    "img": "https://openaccess-cdn.clevelandart.org/1980.37/1980.37_web.jpg"
+   },
+   {
+    "id": "met-459085",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Pieter%20de%20hooch%2C%20coppia%20che%20gioca%20a%20carte%20e%20una%20serva%2C%201650-80%20ca..JPG?width=400"
+   },
+   {
+    "id": "nga-46615",
+    "img": "https://api.nga.gov/iiif/73441ea2-ccac-4947-9728-c7c6624b442f/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-57652",
+    "img": "https://api.nga.gov/iiif/2871434a-1f57-4a85-86d7-657dbed79953/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-52247",
+    "img": "https://api.nga.gov/iiif/7b375c23-0142-45a6-80e0-70efabad4c25/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-195800",
+    "img": "https://api.nga.gov/iiif/dba496a4-2789-4a21-9076-5ad0de13006b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-100926",
+    "img": "https://api.nga.gov/iiif/75189388-085e-4751-bd3d-deadf6dd4988/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-7027",
+    "img": "https://api.nga.gov/iiif/b021dd5d-2953-4fe2-8fbc-58628103b02e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-159876",
+    "img": "https://openaccess-cdn.clevelandart.org/1997.178.a/1997.178.a_web.jpg"
+   },
+   {
+    "id": "nga-7301",
+    "img": "https://api.nga.gov/iiif/f486a990-04fb-43d9-bbef-31b36c41e445/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-160083",
+    "img": "https://openaccess-cdn.clevelandart.org/1997.52.b/1997.52.b_web.jpg"
+   }
+  ]
+ },
+ "q42": {
+  "q": "mostly blue painting",
+  "candidates": [
+   {
+    "id": "cle-106958",
+    "img": "https://openaccess-cdn.clevelandart.org/1924.963/1924.963_web.jpg"
+   },
+   {
+    "id": "cle-166636",
+    "img": "https://openaccess-cdn.clevelandart.org/2008.357/2008.357_web.jpg"
+   },
+   {
+    "id": "cle-543334",
+    "img": "https://openaccess-cdn.clevelandart.org/2023.120/2023.120_web.jpg"
+   },
+   {
+    "id": "cle-161383",
+    "img": "https://openaccess-cdn.clevelandart.org/2000.1/2000.1_web.jpg"
+   },
+   {
+    "id": "met-291514",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Met%20DP-17302-020.jpg?width=400"
+   },
+   {
+    "id": "nga-144606",
+    "img": "https://api.nga.gov/iiif/9d45853e-4619-44d2-b9f9-912c2686f30c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-291512",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Met%20DP-17302-018.jpg?width=400"
+   },
+   {
+    "id": "met-291573",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Met%20DP-17302-079.jpg?width=400"
+   },
+   {
+    "id": "met-291507",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Met%20DP-17302-013.jpg?width=400"
+   },
+   {
+    "id": "cle-154149",
+    "img": "https://openaccess-cdn.clevelandart.org/1988.23.1.9/1988.23.1.9_web.jpg"
+   },
+   {
+    "id": "met-291515",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Met%20DP-17302-021.jpg?width=400"
+   },
+   {
+    "id": "met-291567",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Met%20DP-17302-073.jpg?width=400"
+   },
+   {
+    "id": "nga-143795",
+    "img": "https://api.nga.gov/iiif/fc7cc4e2-4f3a-4246-b522-b9b14135013a/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-127667",
+    "img": "https://openaccess-cdn.clevelandart.org/1950.348/1950.348_web.jpg"
+   },
+   {
+    "id": "cle-135185",
+    "img": "https://openaccess-cdn.clevelandart.org/1958.21/1958.21_web.jpg"
+   },
+   {
+    "id": "nga-12887",
+    "img": "https://api.nga.gov/iiif/fc0be189-e658-482c-ba9a-b3433de90e29/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q43": {
+  "q": "scene of mourning and grief",
+  "candidates": [
+   {
+    "id": "nga-93716",
+    "img": "https://api.nga.gov/iiif/c7a72609-2a1f-43d7-a974-8bd204bf9ac0/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-42358",
+    "img": "https://api.nga.gov/iiif/74a1e6d6-19bb-4d6d-9fe9-12956c88c828/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-104481",
+    "img": "https://openaccess-cdn.clevelandart.org/1922.603/1922.603_web.jpg"
+   },
+   {
+    "id": "cle-104491",
+    "img": "https://openaccess-cdn.clevelandart.org/1922.612/1922.612_web.jpg"
+   },
+   {
+    "id": "cle-107963",
+    "img": "https://openaccess-cdn.clevelandart.org/1925.588/1925.588_web.jpg"
+   },
+   {
+    "id": "cle-109460",
+    "img": "https://openaccess-cdn.clevelandart.org/1928.102.8/1928.102.8_web.jpg"
+   },
+   {
+    "id": "cle-124311",
+    "img": "https://openaccess-cdn.clevelandart.org/1945.292/1945.292_web.jpg"
+   },
+   {
+    "id": "met-359757",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP815615.jpg"
+   },
+   {
+    "id": "nga-214173",
+    "img": "https://api.nga.gov/iiif/55cab9e7-8c8d-486b-8d60-c430772da8fd/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-136199",
+    "img": "https://api.nga.gov/iiif/d536a2fb-3af1-4478-b8f9-c6fb7257b46d/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-121452",
+    "img": "https://openaccess-cdn.clevelandart.org/1942.1304/1942.1304_web.jpg"
+   },
+   {
+    "id": "cle-103895",
+    "img": "https://openaccess-cdn.clevelandart.org/1921.989/1921.989_web.jpg"
+   },
+   {
+    "id": "nga-42430",
+    "img": "https://api.nga.gov/iiif/a65b56d8-7ae7-4a80-a84a-5a9dd7c13ea7/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-46632",
+    "img": "https://api.nga.gov/iiif/c3b6258a-5fc9-4815-9491-acde75248a37/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-57651",
+    "img": "https://api.nga.gov/iiif/18edfc59-c774-427a-be28-bce7aa398da4/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437748",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP147594.jpg"
+   },
+   {
+    "id": "nga-204",
+    "img": "https://api.nga.gov/iiif/f31ccc83-58e4-4ea4-8333-5a70df5d2a44/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-47182",
+    "img": "https://api.nga.gov/iiif/88878e05-dc56-4455-8736-91bf99412fea/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-148301",
+    "img": "https://openaccess-cdn.clevelandart.org/1975.3/1975.3_web.jpg"
+   },
+   {
+    "id": "met-438467",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP136254.jpg"
+   },
+   {
+    "id": "cle-166508",
+    "img": "https://openaccess-cdn.clevelandart.org/2008.289/2008.289_web.jpg"
+   },
+   {
+    "id": "cle-97137",
+    "img": "https://openaccess-cdn.clevelandart.org/1916.777/1916.777_web.jpg"
+   }
+  ]
+ },
+ "q44": {
+  "q": "triumphal victory celebration",
+  "candidates": [
+   {
+    "id": "nga-45790",
+    "img": "https://api.nga.gov/iiif/909a9ff3-0d03-4404-a526-e806af527a21/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-126568",
+    "img": "https://api.nga.gov/iiif/41b937be-4a59-48e2-8985-a79e36622223/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-133388",
+    "img": "https://api.nga.gov/iiif/e12b97e2-4a82-4184-b6dc-8674d7c66db6/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-160717",
+    "img": "https://openaccess-cdn.clevelandart.org/1998.76/1998.76_web.jpg"
+   },
+   {
+    "id": "cle-161708",
+    "img": "https://openaccess-cdn.clevelandart.org/2000.71/2000.71_web.jpg"
+   },
+   {
+    "id": "nga-162308",
+    "img": "https://api.nga.gov/iiif/2287afe6-6a77-40e9-b391-9d4d708ca6dd/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-338889",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP802007.jpg"
+   },
+   {
+    "id": "cle-159420",
+    "img": "https://openaccess-cdn.clevelandart.org/1996.229.15/1996.229.15_web.jpg"
+   },
+   {
+    "id": "nga-45783",
+    "img": "https://api.nga.gov/iiif/01c75a7e-512a-4d5f-9933-8cb12ca7e779/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437534",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Triumph%20of%20Henry%20IV%20MET%20DT5154.jpg?width=400"
+   },
+   {
+    "id": "met-341959",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP801776.jpg"
+   },
+   {
+    "id": "nga-54071",
+    "img": "https://api.nga.gov/iiif/4a8b893a-7c76-4493-a498-3d54f0a6000c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-150719",
+    "img": "https://openaccess-cdn.clevelandart.org/1982.143/1982.143_web.jpg"
+   },
+   {
+    "id": "met-436183",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP318355.jpg"
+   },
+   {
+    "id": "nga-45640",
+    "img": "https://api.nga.gov/iiif/5b1fe0fa-1bad-4820-a77e-586d8cfcd481/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-1612",
+    "img": "https://api.nga.gov/iiif/39ec0f89-e914-430f-9161-e2807b1e2aa7/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-143769",
+    "img": "https://openaccess-cdn.clevelandart.org/1968.207/1968.207_web.jpg"
+   },
+   {
+    "id": "met-437260",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP123851.jpg"
+   },
+   {
+    "id": "nga-151049",
+    "img": "https://api.nga.gov/iiif/9043416e-ef42-4fb2-b511-b343bc858b09/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q45": {
+  "q": "night scene lit by moonlight",
+  "candidates": [
+   {
+    "id": "nga-71369",
+    "img": "https://api.nga.gov/iiif/642620fe-1a26-4ae8-b93a-a84f8c695b60/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-10454",
+    "img": "https://api.nga.gov/iiif/3a9d09ab-2281-40cd-827d-0d7939929120/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-10183",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/A%20Waterfall%2C%20Moonlight%20MET%20DP343327.jpg?width=400"
+   },
+   {
+    "id": "cle-86510",
+    "img": "https://openaccess-cdn.clevelandart.org/2015.586/2015.586_web.jpg"
+   },
+   {
+    "id": "cle-168893",
+    "img": "https://openaccess-cdn.clevelandart.org/2010.574/2010.574_web.jpg"
+   },
+   {
+    "id": "met-11305",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Entrance%20to%20Harbor%E2%80%94Moonlight%20MET%20ap68.41.jpg?width=400"
+   },
+   {
+    "id": "cle-147435",
+    "img": "https://openaccess-cdn.clevelandart.org/1973.174/1973.174_web.jpg"
+   },
+   {
+    "id": "met-437979",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-23290-001.jpg"
+   },
+   {
+    "id": "nga-177627",
+    "img": "https://api.nga.gov/iiif/fb0fe6a4-2acb-428c-afa9-f569fddd9dd6/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-152732",
+    "img": "https://openaccess-cdn.clevelandart.org/1985.53/1985.53_web.jpg"
+   },
+   {
+    "id": "cle-120393",
+    "img": "https://openaccess-cdn.clevelandart.org/1941.233/1941.233_web.jpg"
+   },
+   {
+    "id": "cle-123327",
+    "img": "https://openaccess-cdn.clevelandart.org/1943.569/1943.569_web.jpg"
+   },
+   {
+    "id": "met-10191",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Corn%20Husking%20MET%20ap57.19.jpg?width=400"
+   },
+   {
+    "id": "cle-120077",
+    "img": "https://openaccess-cdn.clevelandart.org/1940.860/1940.860_web.jpg"
+   },
+   {
+    "id": "cle-144967",
+    "img": "https://openaccess-cdn.clevelandart.org/1970.161/1970.161_web.jpg"
+   },
+   {
+    "id": "cle-125487",
+    "img": "https://openaccess-cdn.clevelandart.org/1947.423/1947.423_web.jpg"
+   },
+   {
+    "id": "cle-107971",
+    "img": "https://openaccess-cdn.clevelandart.org/1925.595/1925.595_web.jpg"
+   },
+   {
+    "id": "nga-50528",
+    "img": "https://api.nga.gov/iiif/4857016f-c0c3-4aee-aea3-729823b9db8a/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-214332",
+    "img": "https://api.nga.gov/iiif/372938c9-5631-4591-a485-fafef0780bb7/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-50585",
+    "img": "https://api.nga.gov/iiif/d32f10af-c491-45c2-97cf-594a9ec3552c/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q46": {
+  "q": "crowded composition with many small figures",
+  "candidates": [
+   {
+    "id": "cle-137153",
+    "img": "https://openaccess-cdn.clevelandart.org/1962.116/1962.116_web.jpg"
+   },
+   {
+    "id": "nga-56580",
+    "img": "https://api.nga.gov/iiif/f69c9b7d-3fa2-46ad-8387-63f4fe5615c1/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-341804",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP804438.jpg"
+   },
+   {
+    "id": "nga-125734",
+    "img": "https://api.nga.gov/iiif/b9a9af25-a835-480b-aa08-c782505cae24/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-334568",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP801128.jpg"
+   },
+   {
+    "id": "nga-65774",
+    "img": "https://api.nga.gov/iiif/234df531-8a84-46b8-b913-973b3e2c5570/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-54014",
+    "img": "https://api.nga.gov/iiif/1521aca5-b0ba-4388-9096-75fe2f591817/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-56578",
+    "img": "https://api.nga.gov/iiif/4ae7a6e5-2914-469c-8ad9-cd628afdeca4/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-57613",
+    "img": "https://api.nga.gov/iiif/adfd82bb-f418-434e-98e5-b3cac398f116/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-73510",
+    "img": "https://api.nga.gov/iiif/35d184b4-3a2d-4c24-9552-8af027eac753/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-56579",
+    "img": "https://api.nga.gov/iiif/93765668-f079-4a6d-93ea-debafcbbd612/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-55653",
+    "img": "https://api.nga.gov/iiif/0f76ebfd-e5cb-41bd-977e-d9f5d1d887e8/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-34067",
+    "img": "https://api.nga.gov/iiif/568d1621-5f36-4611-8035-237bb9ac178c/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-129283",
+    "img": "https://api.nga.gov/iiif/cb8636ed-d3ea-40f6-9e4d-88e032e5f003/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-46615",
+    "img": "https://api.nga.gov/iiif/73441ea2-ccac-4947-9728-c7c6624b442f/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-321",
+    "img": "https://api.nga.gov/iiif/9d65469d-7f64-4f58-8123-527ba3865458/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-2886",
+    "img": "https://api.nga.gov/iiif/18bd3165-d1e8-4489-8b76-116612d791a2/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437260",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP123851.jpg"
+   },
+   {
+    "id": "nga-50256",
+    "img": "https://api.nga.gov/iiif/9bac5daf-11c8-4a6d-a834-0f0ad6406fd2/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-87286",
+    "img": "https://openaccess-cdn.clevelandart.org/2019.251/2019.251_web.jpg"
+   },
+   {
+    "id": "met-435745",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP259114.jpg"
+   },
+   {
+    "id": "cle-144302",
+    "img": "https://openaccess-cdn.clevelandart.org/1969.131/1969.131_web.jpg"
+   },
+   {
+    "id": "nga-76158",
+    "img": "https://api.nga.gov/iiif/04a7ced9-ca3d-4c64-9e20-14245070c838/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-143719",
+    "img": "https://api.nga.gov/iiif/f521da44-42d0-42a9-b9b5-1b93ceeabc41/full/!400,400/0/default.jpg"
+   }
+  ]
+ },
+ "q47": {
+  "q": "empty landscape with no people",
+  "candidates": [
+   {
+    "id": "met-335621",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP800938.jpg"
+   },
+   {
+    "id": "cle-156677",
+    "img": "https://openaccess-cdn.clevelandart.org/1992.344.hh/1992.344.hh_web.jpg"
+   },
+   {
+    "id": "met-341075",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP800956.jpg"
+   },
+   {
+    "id": "met-11231",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Landscape%20MET%20DP276951.jpg?width=400"
+   },
+   {
+    "id": "met-10180",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/An%20Indian%20Encampment%20MET%20ap06.1269.jpg?width=400"
+   },
+   {
+    "id": "met-10944",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Near%20the%20Coast%20MET%20ap85.7.jpg?width=400"
+   },
+   {
+    "id": "cle-136362",
+    "img": "https://openaccess-cdn.clevelandart.org/1960.234/1960.234_web.jpg"
+   },
+   {
+    "id": "nga-52247",
+    "img": "https://api.nga.gov/iiif/7b375c23-0142-45a6-80e0-70efabad4c25/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-144462",
+    "img": "https://openaccess-cdn.clevelandart.org/1969.19/1969.19_web.jpg"
+   },
+   {
+    "id": "met-816791",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Charles%20Dewolf%20Brownell%20-%20Ingo%2C%20San%20Martin%2C%20Cuba%20-%202019.9%20-%20Metropolitan%20Museum%20of%20Art.jpg?width=400"
+   },
+   {
+    "id": "nga-50319",
+    "img": "https://api.nga.gov/iiif/b39f3e67-7044-4964-98a3-0d0a1c107eee/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-11515",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Behind%20Dunes%2C%20Lake%20Ontario%20MET%20ap06.1287.jpg?width=400"
+   },
+   {
+    "id": "cle-112831",
+    "img": "https://openaccess-cdn.clevelandart.org/1931.440/1931.440_web.jpg"
+   },
+   {
+    "id": "cle-95284",
+    "img": "https://openaccess-cdn.clevelandart.org/1916.1053/1916.1053_web.jpg"
+   },
+   {
+    "id": "cle-139816",
+    "img": "https://openaccess-cdn.clevelandart.org/1963.575/1963.575_web.jpg"
+   },
+   {
+    "id": "met-437079",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-15730-001.jpg"
+   },
+   {
+    "id": "met-437519",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP274261.jpg"
+   },
+   {
+    "id": "met-437657",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-19196-001.jpg"
+   },
+   {
+    "id": "cle-98043",
+    "img": "https://openaccess-cdn.clevelandart.org/1917.67/1917.67_web.jpg"
+   },
+   {
+    "id": "nga-35094",
+    "img": "https://api.nga.gov/iiif/c0279003-c6f3-4eed-a8f9-56d841c45d85/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437323",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP145952.jpg"
+   },
+   {
+    "id": "nga-195138",
+    "img": "https://api.nga.gov/iiif/64190215-4741-4d33-a20d-be79ef4202c1/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-437102",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP146459.jpg"
+   },
+   {
+    "id": "nga-66765",
+    "img": "https://api.nga.gov/iiif/a1da7862-6a90-402f-b904-3b5912e66161/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-149088",
+    "img": "https://openaccess-cdn.clevelandart.org/1977.22/1977.22_web.jpg"
+   }
+  ]
+ },
+ "q48": {
+  "q": "cupid and psyche, mythological lovers",
+  "candidates": [
+   {
+    "id": "cle-138464",
+    "img": "https://openaccess-cdn.clevelandart.org/1962.37/1962.37_web.jpg"
+   },
+   {
+    "id": "nga-115380",
+    "img": "https://api.nga.gov/iiif/38be25e0-d66d-4d41-88d3-f0a1b09b7902/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-224468",
+    "img": "https://api.nga.gov/iiif/4ffee4a0-1e73-4dbf-9d23-92d8bc0e234a/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-136807",
+    "img": "https://openaccess-cdn.clevelandart.org/1961.304/1961.304_web.jpg"
+   },
+   {
+    "id": "met-437268",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-17631-001.jpg"
+   },
+   {
+    "id": "nga-143866",
+    "img": "https://api.nga.gov/iiif/b73f3c58-b2bd-4c17-a1ba-647f9e8b4ac1/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-340146",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP803006.jpg"
+   },
+   {
+    "id": "nga-71253",
+    "img": "https://api.nga.gov/iiif/70601b5b-d4f5-49e3-9ccc-b3062cdfcc27/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-2872",
+    "img": "https://api.nga.gov/iiif/505423dd-5077-4217-98b4-39af60612a50/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-107243",
+    "img": "https://openaccess-cdn.clevelandart.org/1925.1233/1925.1233_web.jpg"
+   },
+   {
+    "id": "cle-163041",
+    "img": "https://openaccess-cdn.clevelandart.org/2003.6.2/2003.6.2_web.jpg"
+   },
+   {
+    "id": "nga-5960",
+    "img": "https://api.nga.gov/iiif/5d10c53c-0f3f-4e12-b3ab-feb7613d2a40/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-162396",
+    "img": "https://openaccess-cdn.clevelandart.org/2002.91/2002.91_web.jpg"
+   },
+   {
+    "id": "nga-177432",
+    "img": "https://api.nga.gov/iiif/8a0da638-ffac-4eed-9099-f9288d1ea5ab/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-153800",
+    "img": "https://openaccess-cdn.clevelandart.org/1987.91/1987.91_web.jpg"
+   },
+   {
+    "id": "met-16744",
+    "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Angelica%20Kauffmann%20-%20The%20Victory%20of%20Eros%20-%2039.184.19%20-%20Metropolitan%20Museum%20of%20Art.jpg?width=400"
+   }
+  ]
+ },
+ "q49": {
+  "q": "vanitas still life with a skull",
+  "candidates": [
+   {
+    "id": "nga-164870",
+    "img": "https://api.nga.gov/iiif/ffcbf669-7d12-4f64-a3b2-39f9dc3d5a91/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-359336",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP800419.jpg"
+   },
+   {
+    "id": "nga-128671",
+    "img": "https://api.nga.gov/iiif/b86e4212-3fc0-44bd-b99d-0139866e1912/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-436485",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP143209.jpg"
+   },
+   {
+    "id": "nga-93323",
+    "img": "https://api.nga.gov/iiif/b3bd3733-ff46-4863-87e5-caeecca56d41/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-435904",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP145929.jpg"
+   },
+   {
+    "id": "met-435918",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP146494.jpg"
+   },
+   {
+    "id": "met-436637",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP104986.jpg"
+   },
+   {
+    "id": "met-435663",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP143207.jpg"
+   },
+   {
+    "id": "cle-151555",
+    "img": "https://openaccess-cdn.clevelandart.org/1983.97/1983.97_web.jpg"
+   },
+   {
+    "id": "cle-150140",
+    "img": "https://openaccess-cdn.clevelandart.org/1980.6/1980.6_web.jpg"
+   },
+   {
+    "id": "met-436345",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-23426-001.jpg"
+   },
+   {
+    "id": "cle-138359",
+    "img": "https://openaccess-cdn.clevelandart.org/1962.292/1962.292_web.jpg"
+   },
+   {
+    "id": "cle-141641",
+    "img": "https://openaccess-cdn.clevelandart.org/1965.235/1965.235_web.jpg"
+   },
+   {
+    "id": "nga-79349",
+    "img": "https://api.nga.gov/iiif/69cd039f-0252-4816-8c8a-4051ad1cd226/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "met-436291",
+    "img": "https://images.metmuseum.org/CRDImages/ep/web-large/ep48.187.738.bw.R.jpg"
+   },
+   {
+    "id": "nga-119019",
+    "img": "https://api.nga.gov/iiif/ae58e93b-c26e-449c-889c-f71a7308ed7b/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-96103",
+    "img": "https://openaccess-cdn.clevelandart.org/1916.1846/1916.1846_web.jpg"
+   },
+   {
+    "id": "cle-97228",
+    "img": "https://openaccess-cdn.clevelandart.org/1916.860/1916.860_web.jpg"
+   },
+   {
+    "id": "cle-135080",
+    "img": "https://openaccess-cdn.clevelandart.org/1958.123/1958.123_web.jpg"
+   },
+   {
+    "id": "cle-97215",
+    "img": "https://openaccess-cdn.clevelandart.org/1916.848/1916.848_web.jpg"
+   },
+   {
+    "id": "cle-145100",
+    "img": "https://openaccess-cdn.clevelandart.org/1970.28.a/1970.28.a_web.jpg"
+   },
+   {
+    "id": "cle-96602",
+    "img": "https://openaccess-cdn.clevelandart.org/1916.344/1916.344_web.jpg"
+   },
+   {
+    "id": "cle-96612",
+    "img": "https://openaccess-cdn.clevelandart.org/1916.354/1916.354_web.jpg"
+   }
+  ]
+ },
+ "q50": {
+  "q": "etching of architectural ruins",
+  "candidates": [
+   {
+    "id": "nga-61228",
+    "img": "https://api.nga.gov/iiif/fe996822-8bbc-4eb1-b7ac-eae977f8e828/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-61229",
+    "img": "https://api.nga.gov/iiif/62304208-fdb0-422c-bcdd-986abb46ea8e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-37065",
+    "img": "https://api.nga.gov/iiif/1444097c-f929-4c1d-b617-92bd3615ea97/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-99496",
+    "img": "https://openaccess-cdn.clevelandart.org/1919.132/1919.132_web.jpg"
+   },
+   {
+    "id": "met-340541",
+    "img": "https://images.metmuseum.org/CRDImages/dp/web-large/DP802842.jpg"
+   },
+   {
+    "id": "cle-160555",
+    "img": "https://openaccess-cdn.clevelandart.org/1998.334/1998.334_web.jpg"
+   },
+   {
+    "id": "nga-91345",
+    "img": "https://api.nga.gov/iiif/b464914d-7cde-44c8-a971-587440a2e41d/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-107270",
+    "img": "https://openaccess-cdn.clevelandart.org/1925.1239.28/1925.1239.28_web.jpg"
+   },
+   {
+    "id": "cle-143848",
+    "img": "https://openaccess-cdn.clevelandart.org/1968.259/1968.259_web.jpg"
+   },
+   {
+    "id": "cle-162009",
+    "img": "https://openaccess-cdn.clevelandart.org/2001.214/2001.214_web.jpg"
+   },
+   {
+    "id": "nga-91339",
+    "img": "https://api.nga.gov/iiif/b666db2f-eab8-4c06-95d1-e50c7ef3965e/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-132107",
+    "img": "https://openaccess-cdn.clevelandart.org/1954.668/1954.668_web.jpg"
+   },
+   {
+    "id": "nga-108658",
+    "img": "https://api.nga.gov/iiif/0434fa4f-f1b7-44fb-a825-cfe21f721e52/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-61144",
+    "img": "https://api.nga.gov/iiif/cd5501a0-3f75-4389-9fbc-12e8390f4e72/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-61147",
+    "img": "https://api.nga.gov/iiif/fa42dd00-adfc-4974-b3ea-1127609495b5/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-61154",
+    "img": "https://api.nga.gov/iiif/7bcb68d1-a48e-4af7-8021-01e4317dc948/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "nga-208524",
+    "img": "https://api.nga.gov/iiif/2287a587-2dd9-47c8-a0c9-a99b032cbbff/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-455547",
+    "img": "https://openaccess-cdn.clevelandart.org/2022.51/2022.51_web.jpg"
+   },
+   {
+    "id": "nga-128051",
+    "img": "https://api.nga.gov/iiif/28526dc2-589e-45a5-84d6-661e8631ade3/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-109417",
+    "img": "https://openaccess-cdn.clevelandart.org/1927.82/1927.82_web.jpg"
+   },
+   {
+    "id": "nga-119881",
+    "img": "https://api.nga.gov/iiif/2625ceb8-1437-464b-8035-40ed35491747/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-104256",
+    "img": "https://openaccess-cdn.clevelandart.org/1922.4/1922.4_web.jpg"
+   },
+   {
+    "id": "cle-518661",
+    "img": "https://openaccess-cdn.clevelandart.org/2022.93/2022.93_web.jpg"
+   },
+   {
+    "id": "nga-61227",
+    "img": "https://api.nga.gov/iiif/8b6a0227-c722-4d72-8d09-b67ac2c9ed5f/full/!400,400/0/default.jpg"
+   },
+   {
+    "id": "cle-102522",
+    "img": "https://openaccess-cdn.clevelandart.org/1921.1156/1921.1156_web.jpg"
+   },
+   {
+    "id": "nga-32877",
+    "img": "https://api.nga.gov/iiif/51c28041-1794-4369-b3f8-a813c93f3756/full/!400,400/0/default.jpg"
+   }
+  ]
+ }
+}

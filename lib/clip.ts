@@ -1,35 +1,42 @@
-// CLIP text + image embeddings matching the mellizo corpus exactly:
-// Xenova/clip-vit-base-patch32, q8 weights, L2-normalized 512-d vectors.
+// CLIP text + image embeddings matching the mellizo corpus exactly.
+// The corpus was Xenova/clip-vit-base-patch32 at build time and swaps to
+// patch16 (same 512-d output, different embedding space) when mellizo's
+// round-3 migration lands — lib/corpus.ts corpusModel() detects which space
+// is live and every embed call passes the id explicitly.
 // Models are fetched from Hugging Face into /tmp at cold start (serverless-writable).
 import { env as hfEnv, AutoTokenizer, AutoProcessor, CLIPTextModelWithProjection, CLIPVisionModelWithProjection, RawImage } from "@huggingface/transformers";
+import type { CorpusModel } from "./corpus-fingerprints";
 
 hfEnv.cacheDir = "/tmp/hf-cache";
 
-const MODEL_ID = "Xenova/clip-vit-base-patch32";
-
-let tokP: Promise<any> | null = null;
-let textP: Promise<any> | null = null;
-let procP: Promise<any> | null = null;
-let visP: Promise<any> | null = null;
+type Bundle = { tokP: Promise<any> | null; textP: Promise<any> | null; procP: Promise<any> | null; visP: Promise<any> | null };
+const bundles = new Map<CorpusModel, Bundle>();
+function bundle(model: CorpusModel): Bundle {
+  let b = bundles.get(model);
+  if (!b) { b = { tokP: null, textP: null, procP: null, visP: null }; bundles.set(model, b); }
+  return b;
+}
 
 function l2norm(v: number[]): number[] {
   const n = Math.sqrt(v.reduce((s, x) => s + x * x, 0)) || 1;
   return v.map((x) => x / n);
 }
 
-export async function embedText(text: string): Promise<number[]> {
-  tokP ??= AutoTokenizer.from_pretrained(MODEL_ID).catch((e) => { tokP = null; throw e; });
-  textP ??= CLIPTextModelWithProjection.from_pretrained(MODEL_ID, { dtype: "q8" }).catch((e) => { textP = null; throw e; });
-  const [tok, mdl] = await Promise.all([tokP, textP]);
+export async function embedText(text: string, model: CorpusModel): Promise<number[]> {
+  const b = bundle(model);
+  b.tokP ??= AutoTokenizer.from_pretrained(model).catch((e) => { b.tokP = null; throw e; });
+  b.textP ??= CLIPTextModelWithProjection.from_pretrained(model, { dtype: "q8" }).catch((e) => { b.textP = null; throw e; });
+  const [tok, mdl] = await Promise.all([b.tokP, b.textP]);
   const inputs = tok([text], { padding: true, truncation: true });
   const { text_embeds } = await mdl(inputs);
   return l2norm(Array.from(text_embeds.data as Float32Array));
 }
 
-export async function embedImage(image: RawImage): Promise<number[]> {
-  procP ??= AutoProcessor.from_pretrained(MODEL_ID).catch((e) => { procP = null; throw e; });
-  visP ??= CLIPVisionModelWithProjection.from_pretrained(MODEL_ID, { dtype: "q8" }).catch((e) => { visP = null; throw e; });
-  const [proc, mdl] = await Promise.all([procP, visP]);
+export async function embedImage(image: RawImage, model: CorpusModel): Promise<number[]> {
+  const b = bundle(model);
+  b.procP ??= AutoProcessor.from_pretrained(model).catch((e) => { b.procP = null; throw e; });
+  b.visP ??= CLIPVisionModelWithProjection.from_pretrained(model, { dtype: "q8" }).catch((e) => { b.visP = null; throw e; });
+  const [proc, mdl] = await Promise.all([b.procP, b.visP]);
   const inputs = await proc(image);
   const { image_embeds } = await mdl(inputs);
   return l2norm(Array.from(image_embeds.data as Float32Array));

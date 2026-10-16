@@ -3,6 +3,7 @@
 // mellizo's repo or schema. Survives the r3 artworks swap: match_artworks
 // keeps its (vector(512), int) signature; new columns arrive as extras.
 import { env } from "./env";
+import { PATCH16, PATCH32, PATCH32_PROBES, type CorpusModel } from "./corpus-fingerprints";
 
 export type CorpusRow = {
   id: string;
@@ -19,6 +20,78 @@ export type CorpusRow = {
   img_h?: number;
   distance?: number;
 };
+
+// Which embedding space the live corpus uses. mellizo's round-3 swap replaces
+// the table in place (same ids, same vector(512) signature, patch16 weights) —
+// detected by comparing probe artworks' stored vectors against the patch32
+// fingerprints captured pre-swap. Cached 5 min; a swap mid-process flips on
+// the next window.
+let modelCache: { model: CorpusModel; at: number } | null = null;
+export async function corpusModel(): Promise<CorpusModel> {
+  if (modelCache && Date.now() - modelCache.at < 5 * 60_000) return modelCache.model;
+  try {
+    const ids = Object.keys(PATCH32_PROBES).map((i) => `"${i}"`).join(",");
+    const res = await fetch(`${env.supabaseUrl}/rest/v1/artworks?select=id,embedding&id=in.(${ids})`, {
+      headers: { apikey: env.supabaseAnon, Authorization: `Bearer ${env.supabaseAnon}`, "Accept-Profile": "mellizo" },
+      next: { revalidate: 0 },
+    });
+    if (res.ok) {
+      const rows: { id: string; embedding: string | number[] }[] = await res.json();
+      let matched = 0;
+      for (const r of rows) {
+        const cur = (typeof r.embedding === "string" ? JSON.parse(r.embedding) : r.embedding) as number[];
+        const fp = PATCH32_PROBES[r.id];
+        if (!fp || !cur || cur.length < fp.length) continue;
+        let maxDiff = 0;
+        for (let i = 0; i < fp.length; i++) maxDiff = Math.max(maxDiff, Math.abs(cur[i] - fp[i]));
+        if (maxDiff < 0.002) matched++;
+      }
+      // Any probe still carrying its patch32 vector proves the old space is
+      // live. Probes present but different (or gone) means the swap landed.
+      const model: CorpusModel = matched > 0 ? PATCH32 : PATCH16;
+      modelCache = { model, at: Date.now() };
+      return model;
+    }
+  } catch {}
+  return modelCache?.model ?? PATCH32;
+}
+
+// The text leg of hybrid search: full-text over the mirrored metadata table
+// (title/tags A-weighted, artist B, medium/department C). Service role only —
+// ranked metadata search is the product, even though rows are world-readable.
+export type MetaHit = { artwork_id: string; rank: number };
+export async function metaSearch(q: string, k = 40): Promise<MetaHit[]> {
+  try {
+    const res = await fetch(`${env.supabaseUrl}/rest/v1/rpc/meta_search`, {
+      method: "POST",
+      headers: {
+        apikey: env.supabaseService,
+        Authorization: `Bearer ${env.supabaseService}`,
+        "Content-Type": "application/json",
+        "Content-Profile": "almoneda",
+      },
+      body: JSON.stringify({ q, k }),
+    });
+    if (!res.ok) return [];
+    return res.json();
+  } catch {
+    return [];
+  }
+}
+
+// Full rows for ids the FTS leg surfaced (they carry no distance).
+export async function artworksByIds(ids: string[]): Promise<Map<string, CorpusRow>> {
+  const out = new Map<string, CorpusRow>();
+  if (!ids.length) return out;
+  try {
+    const res = await fetch(
+      `${env.supabaseUrl}/rest/v1/artworks?select=id,source,title,artist,date,medium,department,image_url,thumb_url,object_url,img_w,img_h&id=in.(${ids.map((i) => `"${i}"`).join(",")})`,
+      { headers: { apikey: env.supabaseAnon, Authorization: `Bearer ${env.supabaseAnon}`, "Accept-Profile": "mellizo" } }
+    );
+    if (res.ok) for (const r of await res.json()) out.set(r.id, r);
+  } catch {}
+  return out;
+}
 
 export async function matchArtworks(embedding: number[], matchCount = 8): Promise<CorpusRow[]> {
   const res = await fetch(`${env.supabaseUrl}/rest/v1/rpc/match_artworks`, {

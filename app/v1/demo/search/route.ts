@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { embedText } from "@/lib/clip";
-import { matchArtworks, corpusSize, rerankByKeywords } from "@/lib/corpus";
+import { corpusSize } from "@/lib/corpus";
+import { hybridSearch } from "@/lib/retrieval";
 import { enrich } from "@/lib/provenance";
 import { takeQuota, giveQuota, clientIp } from "@/lib/quota";
 
@@ -26,9 +26,8 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "missing_query", message: "Pass ?q=<search text>." }, { status: 400 });
   }
   try {
-    const emb = await embedText(q);
-    const rows = rerankByKeywords(await matchArtworks(emb, 9), q).slice(0, 3);
-    const works = (await enrich(rows)).filter((w) => w.provenance.rights_check !== "refuted");
+    const { works: fused } = await hybridSearch(q, 3);
+    const works = (await enrich(fused)).filter((w) => w.provenance.rights_check !== "refuted").slice(0, 3);
     const size = await corpusSize();
     return NextResponse.json({
       query: q,
@@ -40,7 +39,7 @@ export async function GET(req: NextRequest) {
         date: w.date,
         medium: w.medium,
         image: { display: w.image_url, thumb: w.thumb_url || w.image_url, width: w.img_w ?? null, height: w.img_h ?? null },
-        match: { distance: w.distance ?? null },
+        match: { distance: w.distance ?? null, relevance: w.relevance, why: w.why },
         provenance: w.provenance,
       })),
       corpus: { size },

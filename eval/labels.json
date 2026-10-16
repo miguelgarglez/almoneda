@@ -1,0 +1,4322 @@
+{
+ "q01": {
+  "met-437292": {
+   "score": 2,
+   "why": "Depicts stormy sea with ship detail."
+  },
+  "nga-119967": {
+   "score": 2,
+   "why": "Depicts a stormy sea scene effectively."
+  },
+  "met-10209": {
+   "score": 2,
+   "why": "Clearly shows a ship in a violent storm at sea."
+  },
+  "nga-149015": {
+   "score": 2,
+   "why": "Depicts a stormy sea effectively."
+  },
+  "cle-171558": {
+   "score": 2,
+   "why": "Depicts a stormy sea with a ship."
+  },
+  "nga-123678": {
+   "score": 2,
+   "why": "Clearly depicts a stormy sea with turbulent waves and dark sky."
+  },
+  "nga-56402": {
+   "score": 1,
+   "why": "Represents a storm at sea vaguely."
+  },
+  "nga-51138": {
+   "score": 2,
+   "why": "Depicts a stormy sea clearly."
+  },
+  "nga-148481": {
+   "score": 2,
+   "why": "Depicts a stormy sea effectively."
+  },
+  "cle-125536": {
+   "score": 1,
+   "why": "Atmosphere suggests a storm, but not at sea."
+  },
+  "cle-129878": {
+   "score": 1,
+   "why": "Suggestive of stormy sea elements."
+  },
+  "cle-124313": {
+   "score": 1,
+   "why": "Depicts stormy weather, not sea."
+  },
+  "nga-209724": {
+   "score": 2,
+   "why": "Depicts a stormy sea effectively."
+  },
+  "cle-106088": {
+   "score": 2,
+   "why": "Conveys a stormy sea accurately."
+  },
+  "cle-106831": {
+   "score": 2,
+   "why": "Depicts a stormy sea with ships"
+  },
+  "nga-65898": {
+   "score": 2,
+   "why": "Depicts a dramatic storm at sea."
+  },
+  "nga-136220": {
+   "score": 2,
+   "why": "Depicts a clear storm at sea scene."
+  },
+  "nga-117659": {
+   "score": 2,
+   "why": "Depicts a stormy sea with ships."
+  },
+  "cle-168895": {
+   "score": 2,
+   "why": "Dramatic ocean scene matches request."
+  },
+  "cle-105655": {
+   "score": 2,
+   "why": "Dynamic waves capture 'storm at sea' essence."
+  },
+  "nga-119963": {
+   "score": 2,
+   "why": "Clearly depicts a stormy sea scene."
+  },
+  "nga-12129": {
+   "score": 2,
+   "why": "Depicts stormy sea clearly."
+  },
+  "cle-118157": {
+   "score": 1,
+   "why": "Scene suggests storm, but lacks focus on sea."
+  },
+  "nga-121881": {
+   "score": 2,
+   "why": "Depicts a stormy sea scene."
+  }
+ },
+ "q02": {
+  "aic-14591": {
+   "score": -1,
+   "why": "no thumb"
+  },
+  "met-436153": {
+   "score": 0,
+   "why": "No indication of reading activity."
+  },
+  "nga-66407": {
+   "score": 2,
+   "why": "Depicts a woman reading clearly."
+  },
+  "met-13210": {
+   "score": 2,
+   "why": "Woman reading is clearly depicted."
+  },
+  "cle-140337": {
+   "score": 2,
+   "why": "Woman reading is clearly depicted."
+  },
+  "nga-50847": {
+   "score": 2,
+   "why": "Depicts a woman reading clearly."
+  },
+  "met-347891": {
+   "score": 2,
+   "why": "Clearly shows a woman reading."
+  },
+  "nga-88": {
+   "score": 1,
+   "why": "Woman engaged in an activity, not reading."
+  },
+  "met-435991": {
+   "score": 2,
+   "why": "Woman reading is clearly depicted."
+  },
+  "nga-218688": {
+   "score": 2,
+   "why": "Clearly depicts a woman reading."
+  },
+  "nga-231675": {
+   "score": 2,
+   "why": "Woman engaged with a book, clearly relevant."
+  },
+  "nga-195586": {
+   "score": 1,
+   "why": "Woman engaged but not reading actively."
+  },
+  "nga-9807": {
+   "score": 2,
+   "why": "Woman clearly reading, fits request well."
+  },
+  "nga-103919": {
+   "score": 2,
+   "why": "Woman reading is clearly depicted."
+  },
+  "nga-163746": {
+   "score": 1,
+   "why": "Woman appears engaged but not reading."
+  },
+  "cle-107964": {
+   "score": 2,
+   "why": "Woman reading is clearly depicted."
+  },
+  "cle-106937": {
+   "score": 2,
+   "why": "Woman reading is the main focus."
+  },
+  "nga-43512": {
+   "score": 0,
+   "why": "Not a woman reading."
+  },
+  "nga-46303": {
+   "score": 2,
+   "why": "Clearly shows a woman reading."
+  },
+  "nga-70": {
+   "score": 2,
+   "why": "Clearly shows a woman reading."
+  },
+  "cle-97137": {
+   "score": 1,
+   "why": "Not reading; book is closed."
+  },
+  "met-437757": {
+   "score": 1,
+   "why": "Not reading, but woman is engaged."
+  }
+ },
+ "q03": {
+  "nga-226185": {
+   "score": 2,
+   "why": "Clear botanical illustration of a fern."
+  },
+  "nga-50734": {
+   "score": 1,
+   "why": "Includes fern but unrelated fish present."
+  },
+  "nga-225697": {
+   "score": 0,
+   "why": "Does not depict a fern."
+  },
+  "nga-24902": {
+   "score": 0,
+   "why": "Not a fern illustration."
+  },
+  "nga-225705": {
+   "score": 1,
+   "why": "Not clearly a fern illustration."
+  },
+  "nga-73698": {
+   "score": 1,
+   "why": "Involves a fern, but includes a fish."
+  },
+  "nga-53846": {
+   "score": 1,
+   "why": "Not a fern, includes unrelated elements."
+  },
+  "cle-122755": {
+   "score": 0,
+   "why": "No ferns present in the illustration."
+  },
+  "cle-157153": {
+   "score": 2,
+   "why": "Shows a clear botanical illustration of a fern."
+  },
+  "nga-57157": {
+   "score": 2,
+   "why": "Good depiction of botanical subjects, including ferns."
+  },
+  "nga-225765": {
+   "score": 2,
+   "why": "Clear fern illustration, meets request."
+  },
+  "nga-58626": {
+   "score": 2,
+   "why": "Clearly a botanical illustration of a fern."
+  },
+  "cle-157276": {
+   "score": 0,
+   "why": "Not a fern illustration."
+  },
+  "cle-157270": {
+   "score": 0,
+   "why": "Not a fern illustration."
+  },
+  "cle-157269": {
+   "score": 1,
+   "why": "Not a fern, includes other plants."
+  },
+  "nga-32231": {
+   "score": 0,
+   "why": "Not a fern illustration, irrelevant subject."
+  }
+ },
+ "q04": {
+  "nga-131864": {
+   "score": 2,
+   "why": "Captures a crowded market atmosphere."
+  },
+  "nga-181062": {
+   "score": 1,
+   "why": "Crowded scene, lacks market context."
+  },
+  "cle-135776": {
+   "score": 1,
+   "why": "Not dusk; depicts a market scene."
+  },
+  "nga-54203": {
+   "score": 2,
+   "why": "Dense crowd, evening market scene."
+  },
+  "cle-170064": {
+   "score": 2,
+   "why": "Crowded market with dusk-like lighting."
+  },
+  "cle-105602": {
+   "score": 2,
+   "why": "Captures a crowded market scene effectively."
+  },
+  "cle-103562": {
+   "score": 1,
+   "why": "Not clearly a market or dusk scene."
+  },
+  "cle-157345": {
+   "score": 2,
+   "why": "Clearly depicts a crowded market scene."
+  },
+  "cle-102662": {
+   "score": 2,
+   "why": "Crowded market scene at dusk depicted clearly."
+  },
+  "cle-122724": {
+   "score": 2,
+   "why": "Depicts market activity at dusk."
+  },
+  "nga-51140": {
+   "score": 2,
+   "why": "Depicts a lively market scene effectively."
+  },
+  "cle-115937": {
+   "score": 2,
+   "why": "Clearly depicts a crowded market scene."
+  },
+  "nga-164921": {
+   "score": 1,
+   "why": "Crowded scene, not market-related."
+  },
+  "met-436554": {
+   "score": 1,
+   "why": "Crowded but not a market scene."
+  },
+  "nga-30215": {
+   "score": 1,
+   "why": "Dark scene, lacks market activity."
+  }
+ },
+ "q05": {
+  "cle-132082": {
+   "score": 2,
+   "why": "Minimalist landscape fits requested theme."
+  },
+  "met-51645": {
+   "score": 2,
+   "why": "Clear minimalist Japanese landscape."
+  },
+  "cle-79932": {
+   "score": 2,
+   "why": "Minimalist Japanese landscape theme is evident."
+  },
+  "met-45643": {
+   "score": 2,
+   "why": "Minimalist and captures Japanese landscape essence."
+  },
+  "cle-149726": {
+   "score": 2,
+   "why": "Simple and elegant minimalist landscape."
+  },
+  "cle-154177": {
+   "score": 2,
+   "why": "Minimalist with Japanese landscape elements."
+  },
+  "cle-149374": {
+   "score": 1,
+   "why": "Misdirected; lacks Japanese minimalism elements."
+  },
+  "cle-132926": {
+   "score": 2,
+   "why": "Minimalist Japanese landscape is clearly depicted."
+  },
+  "cle-154134": {
+   "score": 2,
+   "why": "Minimalist representation of a Japanese landscape."
+  },
+  "met-355655": {
+   "score": 2,
+   "why": "Minimalist style, landscape depiction fits well."
+  },
+  "met-51711": {
+   "score": 1,
+   "why": "Simplistic, but lacks broader landscape elements."
+  },
+  "cle-154140": {
+   "score": 1,
+   "why": "Minimalist but lacks clear landscape elements."
+  },
+  "cle-161383": {
+   "score": 2,
+   "why": "Minimalist and captures Japanese landscape essence."
+  },
+  "cle-162947": {
+   "score": 2,
+   "why": "Clear minimalist Japanese landscape elements present."
+  },
+  "nga-206543": {
+   "score": 1,
+   "why": "Very minimal, lacks clear landscape elements."
+  },
+  "met-36007": {
+   "score": 2,
+   "why": "Minimalist Japanese landscape representation."
+  },
+  "nga-71832": {
+   "score": 2,
+   "why": "Minimalist Japanese landscape representation is clear."
+  },
+  "met-57337": {
+   "score": 2,
+   "why": "Minimalist and matches Japanese landscape style."
+  },
+  "met-51735": {
+   "score": 2,
+   "why": "Minimalist landscape with Japanese elements."
+  },
+  "cle-154170": {
+   "score": 2,
+   "why": "Simple, minimalist Japanese landscape elements present."
+  },
+  "cle-155393": {
+   "score": 1,
+   "why": "Simplistic, but lacks broader landscape elements."
+  },
+  "cle-155388": {
+   "score": 2,
+   "why": "Captures minimalist Japanese landscape elements well."
+  },
+  "cle-148358": {
+   "score": 2,
+   "why": "Authentic minimalist Japanese landscape artwork."
+  }
+ },
+ "q06": {
+  "aic-111059": {
+   "score": -1,
+   "why": "no thumb"
+  },
+  "aic-94126": {
+   "score": -1,
+   "why": "no thumb"
+  },
+  "met-888924": {
+   "score": 2,
+   "why": "Clearly depicts fruit and flowers."
+  },
+  "cle-166510": {
+   "score": 2,
+   "why": "Fully depicts fruit and flowers elegantly."
+  },
+  "met-10895": {
+   "score": 2,
+   "why": "Clearly depicts fruit and flowers."
+  },
+  "nga-71024": {
+   "score": 2,
+   "why": "Contains fruits and flowers prominently."
+  },
+  "met-436293": {
+   "score": 2,
+   "why": "Includes both fruit and flowers effectively."
+  },
+  "met-816520": {
+   "score": 2,
+   "why": "Rich depiction of fruit and flowers."
+  },
+  "met-16590": {
+   "score": 2,
+   "why": "Clearly depicts fruit in a still life."
+  },
+  "met-18819": {
+   "score": 2,
+   "why": "Directly depicts fruit and flowers."
+  },
+  "nga-166469": {
+   "score": 2,
+   "why": "Rich display of fruit and flowers."
+  },
+  "met-11939": {
+   "score": 2,
+   "why": "Classic still life with fruit prominently featured."
+  },
+  "met-11938": {
+   "score": 2,
+   "why": "Clearly represents fruit and flowers."
+  },
+  "met-13006": {
+   "score": 2,
+   "why": "Clearly depicts fruit and flowers in a still life."
+  },
+  "nga-227490": {
+   "score": 1,
+   "why": "Focus on flowers, minimal fruit presence."
+  },
+  "nga-96655": {
+   "score": 2,
+   "why": "Includes both fruit and flowers."
+  },
+  "met-436345": {
+   "score": 1,
+   "why": "Missing flowers, focus on vegetables and fruit."
+  },
+  "met-816624": {
+   "score": 2,
+   "why": "Clearly depicts fruit and flowers together."
+  },
+  "met-436946": {
+   "score": 2,
+   "why": "Includes fruit and flowers, fits theme."
+  },
+  "met-335597": {
+   "score": 2,
+   "why": "Directly depicts fruit and flowers."
+  },
+  "nga-42504": {
+   "score": 2,
+   "why": "Includes both fruit and flowers clearly."
+  },
+  "nga-50825": {
+   "score": 2,
+   "why": "Features both fruit and flowers clearly."
+  }
+ },
+ "q07": {
+  "met-435864": {
+   "score": 2,
+   "why": "Clear depiction of a dog in a portrait."
+  },
+  "nga-52201": {
+   "score": 2,
+   "why": "Clear depiction of a dog portrait."
+  },
+  "nga-37636": {
+   "score": 1,
+   "why": "Dog depicted, but not a portrait focus."
+  },
+  "met-435704": {
+   "score": 2,
+   "why": "Clear dog portrait painting."
+  },
+  "nga-52228": {
+   "score": 2,
+   "why": "Dog portrait clearly depicted."
+  },
+  "nga-20484": {
+   "score": 1,
+   "why": "Not a painting, but has a dog."
+  },
+  "met-828497": {
+   "score": 1,
+   "why": "Focus on the person, not the dog."
+  },
+  "cle-147521": {
+   "score": 1,
+   "why": "Dog present but not the main focus."
+  },
+  "nga-28647": {
+   "score": 1,
+   "why": "Not a traditional portrait painting."
+  },
+  "cle-168964": {
+   "score": 2,
+   "why": "Clear dog portrait with artistic style."
+  },
+  "cle-150012": {
+   "score": 0,
+   "why": "Not a dog; it's sheep portraits."
+  },
+  "cle-169662": {
+   "score": 0,
+   "why": "No dog visible in the painting."
+  },
+  "nga-20306": {
+   "score": 2,
+   "why": "A clear dog portrait painting."
+  },
+  "nga-20647": {
+   "score": 2,
+   "why": "Depicts a dog clearly."
+  },
+  "nga-128601": {
+   "score": 2,
+   "why": "Clearly depicts a dog portrait."
+  },
+  "cle-164453": {
+   "score": 2,
+   "why": "Clear depiction of a dog portrait."
+  },
+  "nga-96999": {
+   "score": 1,
+   "why": "Features a dog but focuses on a person."
+  },
+  "nga-28470": {
+   "score": 0,
+   "why": "Not a dog portrait."
+  },
+  "met-436014": {
+   "score": 1,
+   "why": "Dogs present but not portrayed as pets."
+  },
+  "nga-92997": {
+   "score": 2,
+   "why": "Clear dog portrait, fits request well."
+  },
+  "nga-59961": {
+   "score": 2,
+   "why": "Includes a dog prominently in portrait."
+  },
+  "met-16450": {
+   "score": 1,
+   "why": "Dog present, but not a portrait."
+  }
+ },
+ "q08": {
+  "met-436826": {
+   "score": 2,
+   "why": "Features winter landscape with skaters clearly."
+  },
+  "cle-93015": {
+   "score": 2,
+   "why": "Depicts winter landscape with skaters clearly."
+  },
+  "met-352286": {
+   "score": 2,
+   "why": "Clearly depicts winter landscape with multiple people skating."
+  },
+  "met-438373": {
+   "score": 2,
+   "why": "Depicts winter landscape with skaters clearly."
+  },
+  "nga-195072": {
+   "score": 2,
+   "why": "Depicts winter landscape with skaters clearly."
+  },
+  "nga-72073": {
+   "score": 2,
+   "why": "Depicts winter landscape with skaters clearly."
+  },
+  "nga-70359": {
+   "score": 1,
+   "why": "Skaters are missing, captures winter theme."
+  },
+  "nga-66572": {
+   "score": 2,
+   "why": "Features skaters in a winter landscape."
+  },
+  "cle-142223": {
+   "score": 2,
+   "why": "Depicts skaters in a winter landscape."
+  },
+  "cle-329324": {
+   "score": 0,
+   "why": "No skaters or ice depicted."
+  },
+  "met-335558": {
+   "score": 1,
+   "why": "No skaters, broader winter theme."
+  },
+  "met-359378": {
+   "score": 1,
+   "why": "Includes winter activity, lacks focus on skaters."
+  },
+  "nga-89675": {
+   "score": 1,
+   "why": "Lacks skaters, winter landscape present."
+  },
+  "met-435843": {
+   "score": 2,
+   "why": "Depicts skaters in a winter landscape."
+  },
+  "nga-50721": {
+   "score": 2,
+   "why": "Depicts winter landscape with skaters clearly."
+  },
+  "nga-150754": {
+   "score": 2,
+   "why": "Depicts winter landscape with skaters clearly."
+  },
+  "met-435633": {
+   "score": 2,
+   "why": "Features skaters in a winter landscape."
+  },
+  "cle-152265": {
+   "score": 1,
+   "why": "Features snow but lacks skaters."
+  },
+  "nga-70279": {
+   "score": 2,
+   "why": "Depicts skaters in a winter landscape."
+  }
+ },
+ "q09": {
+  "met-437416": {
+   "score": 2,
+   "why": "Clearly depicts a man in armor."
+  },
+  "nga-111581": {
+   "score": 2,
+   "why": "Man in armor is clearly depicted."
+  },
+  "met-436254": {
+   "score": 1,
+   "why": "Missing armor, but relevant character depiction."
+  },
+  "met-437598": {
+   "score": 2,
+   "why": "Clearly depicts a man in armor."
+  },
+  "met-437874": {
+   "score": 2,
+   "why": "Clearly depicts a man in armor."
+  },
+  "nga-89": {
+   "score": 1,
+   "why": "Missing armor, face-focused portrait instead."
+  },
+  "nga-37632": {
+   "score": 2,
+   "why": "Depicts a man in armor clearly."
+  },
+  "met-336419": {
+   "score": 2,
+   "why": "Portrait matches description closely."
+  },
+  "nga-51096": {
+   "score": 2,
+   "why": "Depicts a man in armor clearly."
+  },
+  "nga-75855": {
+   "score": 2,
+   "why": "Depicts a man in armor clearly."
+  },
+  "met-435722": {
+   "score": 2,
+   "why": "Clearly depicts a man in armor."
+  },
+  "cle-119037": {
+   "score": 2,
+   "why": "Clear portrait of a man in armor."
+  },
+  "cle-109507": {
+   "score": 2,
+   "why": "Clearly a portrait of a man in full armor."
+  },
+  "met-34020": {
+   "score": 2,
+   "why": "Clear portrait of a man in armor."
+  },
+  "nga-38776": {
+   "score": 2,
+   "why": "Clearly depicts a man in armor."
+  },
+  "nga-38884": {
+   "score": 2,
+   "why": "Clearly depicts a man in armor."
+  },
+  "met-435664": {
+   "score": 1,
+   "why": "Lacks visible armor details."
+  },
+  "met-336524": {
+   "score": 1,
+   "why": "Relevance to armor, missing solo portrait aspect."
+  }
+ },
+ "q10": {
+  "met-459108": {
+   "score": 2,
+   "why": "Clearly depicts workers harvesting in a field."
+  },
+  "nga-195862": {
+   "score": 2,
+   "why": "Depicts a harvest scene with workers."
+  },
+  "met-11134": {
+   "score": 1,
+   "why": "Workers present, not in a field."
+  },
+  "met-435809": {
+   "score": 2,
+   "why": "Clear depiction of harvest scene with workers."
+  },
+  "nga-207027": {
+   "score": 2,
+   "why": "Clearly depicts workers harvesting in a field."
+  },
+  "nga-21626": {
+   "score": 2,
+   "why": "Perfectly matches harvest scene with workers in a field."
+  },
+  "cle-149420": {
+   "score": 2,
+   "why": "Clearly depicts harvest scene with workers."
+  },
+  "nga-220445": {
+   "score": 1,
+   "why": "Broadly related, lacks clear harvest depiction."
+  },
+  "met-10824": {
+   "score": 2,
+   "why": "Depicts workers harvesting in a field."
+  },
+  "cle-127515": {
+   "score": 2,
+   "why": "Depicts workers harvesting in a field."
+  },
+  "cle-172756": {
+   "score": 1,
+   "why": "Broadly related, lacks explicit harvest activity."
+  },
+  "nga-164963": {
+   "score": 2,
+   "why": "Depicts harvest scene with workers clearly."
+  },
+  "nga-177052": {
+   "score": 2,
+   "why": "Depicts harvest scene with field workers directly."
+  },
+  "nga-1182": {
+   "score": 0,
+   "why": "Not a harvest scene; depicts hunting."
+  },
+  "met-437096": {
+   "score": 2,
+   "why": "Depicts harvest scene with workers clearly"
+  }
+ },
+ "q11": {
+  "aic-68792": {
+   "score": -1,
+   "why": "no thumb"
+  },
+  "nga-151040": {
+   "score": 2,
+   "why": "Depicts a seascape at sunset."
+  },
+  "met-11325": {
+   "score": 2,
+   "why": "Perfect representation of sunset at sea."
+  },
+  "met-11326": {
+   "score": 2,
+   "why": "Captures seascape and sunset beautifully."
+  },
+  "met-437975": {
+   "score": 2,
+   "why": "Clearly depicts a seascape at sunset."
+  },
+  "met-11324": {
+   "score": 2,
+   "why": "Clear seascape with sunset colors."
+  },
+  "met-11127": {
+   "score": 1,
+   "why": "Dark tones miss sunset's warmth."
+  },
+  "nga-158587": {
+   "score": 2,
+   "why": "Features sunset and seascape with boats."
+  },
+  "nga-111775": {
+   "score": 2,
+   "why": "Sunset over water is depicted clearly."
+  },
+  "cle-169228": {
+   "score": 2,
+   "why": "Visually depicts a seascape at sunset."
+  },
+  "nga-127672": {
+   "score": 2,
+   "why": "Sunset over the sea, relevant elements present."
+  },
+  "nga-195170": {
+   "score": 2,
+   "why": "Clearly depicts a seascape at sunset."
+  },
+  "cle-169614": {
+   "score": 2,
+   "why": "Clear sunset seascape with boats."
+  },
+  "nga-98872": {
+   "score": 1,
+   "why": "Sky but no visible seascape or sunset."
+  },
+  "nga-62309": {
+   "score": 1,
+   "why": "Lacks clear water or horizon details."
+  }
+ },
+ "q12": {
+  "met-437187": {
+   "score": 2,
+   "why": "Detailed depiction of a gothic church interior."
+  },
+  "met-437189": {
+   "score": 2,
+   "why": "Clear depiction of a gothic church interior."
+  },
+  "met-437188": {
+   "score": 2,
+   "why": "Clearly depicts a gothic church interior."
+  },
+  "nga-32827": {
+   "score": 2,
+   "why": "Clearly shows interior of a gothic church."
+  },
+  "nga-8001": {
+   "score": 2,
+   "why": "Gothic church interior depicted accurately."
+  },
+  "nga-57142": {
+   "score": 2,
+   "why": "Clear depiction of gothic church interior."
+  },
+  "met-336224": {
+   "score": 2,
+   "why": "Authentic depiction of a gothic church interior."
+  },
+  "cle-138809": {
+   "score": 2,
+   "why": "Clearly depicts a gothic church interior."
+  },
+  "cle-138807": {
+   "score": 2,
+   "why": "Clearly depicts a gothic church interior."
+  },
+  "nga-183834": {
+   "score": 2,
+   "why": "Clearly depicts a gothic church interior."
+  },
+  "met-358951": {
+   "score": 2,
+   "why": "Depicts gothic church interior clearly."
+  },
+  "cle-145450": {
+   "score": 2,
+   "why": "Interior view of a gothic church."
+  },
+  "nga-183835": {
+   "score": 2,
+   "why": "Detailed depiction of gothic church interior."
+  },
+  "cle-138816": {
+   "score": 2,
+   "why": "Authentic gothic church interior depicted."
+  },
+  "cle-138797": {
+   "score": 2,
+   "why": "Accurately depicts a gothic church interior."
+  },
+  "nga-139135": {
+   "score": 2,
+   "why": "Clearly depicts an interior of a gothic church."
+  },
+  "nga-34641": {
+   "score": 2,
+   "why": "Clearly depicts a gothic church interior."
+  },
+  "nga-73485": {
+   "score": 2,
+   "why": "Depicts interior of a gothic church."
+  },
+  "nga-130808": {
+   "score": 2,
+   "why": "Clear depiction of a gothic church interior."
+  },
+  "cle-134960": {
+   "score": 1,
+   "why": "Not gothic; more Baroque in style."
+  }
+ },
+ "q13": {
+  "aic-497": {
+   "score": -1,
+   "why": "no thumb"
+  },
+  "nga-57435": {
+   "score": 2,
+   "why": "Clear depiction of mother and child."
+  },
+  "met-340436": {
+   "score": 2,
+   "why": "Clearly depicts a woman holding a child."
+  },
+  "nga-5924": {
+   "score": 2,
+   "why": "Direct depiction of mother and child."
+  },
+  "nga-37": {
+   "score": 2,
+   "why": "Clearly depicts a woman holding a child."
+  },
+  "met-334180": {
+   "score": 2,
+   "why": "Depicts mother and child clearly."
+  },
+  "met-459060": {
+   "score": 2,
+   "why": "Clearly depicts a mother holding her child."
+  },
+  "cle-144216": {
+   "score": 2,
+   "why": "Clearly depicts a mother holding a child."
+  },
+  "cle-122642": {
+   "score": 2,
+   "why": "Depicts mother and child bond clearly."
+  },
+  "cle-105161": {
+   "score": 2,
+   "why": "Clearly depicts a woman holding a small child."
+  },
+  "cle-108459": {
+   "score": 2,
+   "why": "Clearly depicts mother and child relationship."
+  },
+  "nga-169342": {
+   "score": 2,
+   "why": "Clearly depicts a mother and child."
+  },
+  "cle-166293": {
+   "score": 2,
+   "why": "Clearly depicts a woman holding a child."
+  },
+  "cle-129218": {
+   "score": 2,
+   "why": "Clearly depicts a mother holding a child."
+  },
+  "nga-140825": {
+   "score": 2,
+   "why": "Clearly depicts a woman holding a baby."
+  },
+  "cle-118646": {
+   "score": 2,
+   "why": "Clearly depicts a mother and child."
+  },
+  "cle-117020": {
+   "score": 2,
+   "why": "Depicts mother and child clearly."
+  },
+  "cle-133029": {
+   "score": 2,
+   "why": "Clearly depicts a woman and a child interacting."
+  },
+  "cle-128710": {
+   "score": 1,
+   "why": "Basic representation, lacks detail and clarity."
+  },
+  "cle-122829": {
+   "score": 2,
+   "why": "Clearly depicts a woman holding a child."
+  },
+  "cle-105294": {
+   "score": 1,
+   "why": "Faint details, somewhat relatable theme."
+  },
+  "cle-133267": {
+   "score": 2,
+   "why": "Clearly depicts mother and child relationship."
+  },
+  "cle-120915": {
+   "score": 2,
+   "why": "Clearly depicts mother and child relationship."
+  },
+  "cle-105074": {
+   "score": 2,
+   "why": "Clear depiction of mother and child interaction."
+  },
+  "nga-198343": {
+   "score": 2,
+   "why": "Clearly depicts mother and child."
+  },
+  "nga-5936": {
+   "score": 2,
+   "why": "Depicts mother and child clearly."
+  },
+  "nga-4101": {
+   "score": 2,
+   "why": "Clearly depicts mother and child together."
+  },
+  "nga-34957": {
+   "score": 2,
+   "why": "Depicts mother with child clearly."
+  },
+  "nga-34101": {
+   "score": 2,
+   "why": "Clear depiction of mother and child."
+  },
+  "cle-149014": {
+   "score": 2,
+   "why": "Clear representation of mother and child."
+  },
+  "cle-100164": {
+   "score": 2,
+   "why": "Clearly depicts mother and child."
+  },
+  "nga-409": {
+   "score": 2,
+   "why": "Depicts mother and child clearly."
+  },
+  "cle-117897": {
+   "score": 2,
+   "why": "Clearly depicts mother and child interaction."
+  },
+  "cle-95257": {
+   "score": 2,
+   "why": "Depicts mother cradling child clearly."
+  },
+  "met-435977": {
+   "score": 2,
+   "why": "Direct depiction of mother and child."
+  }
+ },
+ "q14": {
+  "nga-117959": {
+   "score": 2,
+   "why": "Clear cavalry battle scene depiction."
+  },
+  "cle-120344": {
+   "score": 2,
+   "why": "Clear cavalry battle scene depicted."
+  },
+  "met-343312": {
+   "score": 2,
+   "why": "Depicts a clear cavalry battle scene."
+  },
+  "nga-110491": {
+   "score": 2,
+   "why": "Clear depiction of cavalry in battle."
+  },
+  "met-338079": {
+   "score": 2,
+   "why": "depicts a clear battle scene with cavalry"
+  },
+  "met-338065": {
+   "score": 2,
+   "why": "Depicts a cavalry battle scene clearly."
+  },
+  "cle-146098": {
+   "score": 2,
+   "why": "Dynamic cavalry battle depicted clearly."
+  },
+  "met-336551": {
+   "score": 2,
+   "why": "Clearly depicts a cavalry battle scene."
+  },
+  "nga-225439": {
+   "score": 2,
+   "why": "Clear depiction of cavalry in battle."
+  },
+  "nga-56215": {
+   "score": 2,
+   "why": "Clear depiction of cavalry in battle scene."
+  },
+  "met-336554": {
+   "score": 2,
+   "why": "Clear depiction of a cavalry battle scene."
+  },
+  "nga-184360": {
+   "score": 2,
+   "why": "Includes cavalry and a battle scene."
+  },
+  "nga-213172": {
+   "score": 2,
+   "why": "Clear battle scene with prominent cavalry."
+  },
+  "cle-106111": {
+   "score": 2,
+   "why": "Dynamic cavalry battle scene depicted clearly."
+  },
+  "nga-76200": {
+   "score": 2,
+   "why": "Depicts cavalry in a battle scene."
+  },
+  "nga-138618": {
+   "score": 2,
+   "why": "Dynamic cavalry battle scene depicted clearly."
+  },
+  "nga-30803": {
+   "score": 2,
+   "why": "Clear battle scene with cavalry depicted."
+  },
+  "cle-113842": {
+   "score": 1,
+   "why": "Cavalry implied, but not the main focus."
+  },
+  "nga-54494": {
+   "score": 2,
+   "why": "Clear battle scene with cavalry presence."
+  },
+  "nga-50686": {
+   "score": 2,
+   "why": "Depicts cavalry in battle context clearly."
+  },
+  "nga-206774": {
+   "score": 2,
+   "why": "Clear depiction of cavalry in battle."
+  },
+  "met-436890": {
+   "score": 2,
+   "why": "Dynamic cavalry battle depicted clearly."
+  },
+  "nga-33864": {
+   "score": 2,
+   "why": "depicts a clear cavalry battle scene"
+  },
+  "met-337313": {
+   "score": 2,
+   "why": "depicts a clear cavalry battle scene"
+  },
+  "nga-210099": {
+   "score": 1,
+   "why": "Cavalry present but not a clear battle scene."
+  },
+  "nga-45885": {
+   "score": 1,
+   "why": "Naval battle, not cavalry focused."
+  },
+  "met-437074": {
+   "score": 2,
+   "why": "Detailed cavalry battle scene depicted clearly."
+  }
+ },
+ "q15": {
+  "nga-32840": {
+   "score": 2,
+   "why": "Clearly depicts a rainy city street."
+  },
+  "nga-148403": {
+   "score": 2,
+   "why": "Clearly depicts a rainy city street."
+  },
+  "nga-180939": {
+   "score": 2,
+   "why": "Depicts a city street in the rain."
+  },
+  "cle-102046": {
+   "score": 2,
+   "why": "Depicts a rainy city street effectively."
+  },
+  "cle-125926": {
+   "score": 2,
+   "why": "Depicts city street with rain atmosphere."
+  },
+  "cle-120048": {
+   "score": 2,
+   "why": "Reflects a rainy city street effectively."
+  },
+  "cle-149558": {
+   "score": 2,
+   "why": "Depicts a city street in the rain."
+  },
+  "cle-106572": {
+   "score": 1,
+   "why": "Suggests a city scene, lacks rain details."
+  },
+  "nga-4444": {
+   "score": 2,
+   "why": "Depicts a city street in the rain."
+  },
+  "cle-104325": {
+   "score": 2,
+   "why": "Evokes a rainy city street atmosphere."
+  },
+  "cle-136276": {
+   "score": 2,
+   "why": "Depicts city street with rain atmosphere."
+  },
+  "cle-118883": {
+   "score": 2,
+   "why": "Captures city street and rainy atmosphere well."
+  },
+  "met-359320": {
+   "score": 2,
+   "why": "Depicts a rainy city street scene."
+  },
+  "cle-143982": {
+   "score": 1,
+   "why": "Water scene, lacks urban street context."
+  },
+  "cle-125520": {
+   "score": 2,
+   "why": "Rainy city street with detail."
+  },
+  "aic-20684": {
+   "score": -1,
+   "why": "no img"
+  },
+  "nga-144897": {
+   "score": 2,
+   "why": "Captures urban scene with rain ambiance."
+  },
+  "cle-120101": {
+   "score": 2,
+   "why": "Depicts a rainy city street scene."
+  },
+  "cle-124605": {
+   "score": 1,
+   "why": "Not clearly depicting rain or wet streets."
+  }
+ },
+ "q16": {
+  "met-438624": {
+   "score": 2,
+   "why": "Clearly depicts mountains and a lake."
+  },
+  "cle-114116": {
+   "score": 2,
+   "why": "Clear mountain landscape with a lake."
+  },
+  "met-10154": {
+   "score": 2,
+   "why": "Prominent mountains and lake depicted clearly."
+  },
+  "nga-103590": {
+   "score": 1,
+   "why": "Missing a lake detail."
+  },
+  "nga-71107": {
+   "score": 2,
+   "why": "Clearly depicts mountains and lake scene."
+  },
+  "met-335485": {
+   "score": 2,
+   "why": "Clear mountain landscape with a lake."
+  },
+  "met-10151": {
+   "score": 2,
+   "why": "Clearly depicts mountains, a lake, and a landscape."
+  },
+  "cle-152006": {
+   "score": 2,
+   "why": "Includes a mountain landscape and lake."
+  },
+  "nga-75966": {
+   "score": 2,
+   "why": "Clear depiction of mountains and lake."
+  },
+  "met-11311": {
+   "score": 2,
+   "why": "Clearly depicts mountains and a lake."
+  },
+  "met-347434": {
+   "score": 2,
+   "why": "Contains both mountains and a lake."
+  },
+  "met-10496": {
+   "score": 2,
+   "why": "Clear mountain landscape with lake present."
+  },
+  "met-10149": {
+   "score": 2,
+   "why": "Mountain landscape with a lake depicted clearly."
+  },
+  "nga-56570": {
+   "score": 2,
+   "why": "Clearly shows mountains and a lake in a landscape."
+  },
+  "met-10150": {
+   "score": 2,
+   "why": "Mountain landscape with a lake present."
+  },
+  "cle-150129": {
+   "score": 1,
+   "why": "Lacks a clear lake element."
+  },
+  "nga-166428": {
+   "score": 2,
+   "why": "Clear mountain landscape with a lake."
+  },
+  "cle-153357": {
+   "score": 2,
+   "why": "Clearly depicts mountain landscape with a lake."
+  },
+  "cle-153350": {
+   "score": 2,
+   "why": "Mountain landscape and lake depicted clearly."
+  },
+  "cle-153356": {
+   "score": 2,
+   "why": "Mountain landscape with a lake depicted clearly."
+  },
+  "cle-153352": {
+   "score": 2,
+   "why": "Clear mountain landscape with elements of a lake."
+  },
+  "cle-79932": {
+   "score": 2,
+   "why": "Clear mountain landscape with a lake."
+  },
+  "cle-160135": {
+   "score": 2,
+   "why": "Clear mountain landscape with lake present."
+  },
+  "cle-153351": {
+   "score": 2,
+   "why": "Contains both mountains and a lake."
+  },
+  "cle-139831": {
+   "score": 2,
+   "why": "Mountain landscape, water element visible."
+  },
+  "cle-139454": {
+   "score": 2,
+   "why": "Clear mountain landscape with a lake."
+  },
+  "cle-153355": {
+   "score": 2,
+   "why": "Mountain landscape with a lake present."
+  }
+ },
+ "q17": {
+  "cle-150471": {
+   "score": 2,
+   "why": "Depicts hunting scene with dogs clearly."
+  },
+  "nga-75809": {
+   "score": 1,
+   "why": "Includes hunting but lacks focus on dogs."
+  },
+  "nga-53780": {
+   "score": 1,
+   "why": "Features animals, not specifically hunting scenes."
+  },
+  "nga-53789": {
+   "score": 1,
+   "why": "Not a clear hunting scene."
+  },
+  "nga-55431": {
+   "score": 1,
+   "why": "Dogs present, but no clear hunting scene."
+  },
+  "nga-124656": {
+   "score": 1,
+   "why": "Includes dogs but not hunting."
+  },
+  "met-334964": {
+   "score": 1,
+   "why": "Lacks dogs, but features a hunting context."
+  },
+  "cle-150805": {
+   "score": 0,
+   "why": "No dogs or hunting scene present."
+  },
+  "nga-32690": {
+   "score": 1,
+   "why": "Scene lacks explicit hunting action."
+  },
+  "met-11103": {
+   "score": 2,
+   "why": "Depicts hunting scene with dogs clearly."
+  },
+  "cle-142987": {
+   "score": 1,
+   "why": "Dogs present, but not a clear hunting scene."
+  },
+  "met-436014": {
+   "score": 2,
+   "why": "Dogs present in hunting context."
+  },
+  "cle-95259": {
+   "score": 1,
+   "why": "No dogs present, scene lacks hunting theme."
+  },
+  "nga-1182": {
+   "score": 2,
+   "why": " depicts hunting scene with dogs clearly"
+  },
+  "nga-66": {
+   "score": 0,
+   "why": "No dogs or hunting depicted."
+  },
+  "cle-144431": {
+   "score": 0,
+   "why": "No hunting or dogs present."
+  },
+  "nga-35108": {
+   "score": 1,
+   "why": "Features hunters, but lacks focus on dogs."
+  },
+  "nga-42500": {
+   "score": 2,
+   "why": "Clear depiction of hunting scene with dogs."
+  },
+  "nga-62625": {
+   "score": 0,
+   "why": "No dogs or hunting depicted."
+  },
+  "met-341805": {
+   "score": 1,
+   "why": "Dogs present, but not a clear hunting scene."
+  }
+ },
+ "q18": {
+  "nga-96": {
+   "score": 2,
+   "why": "Couple dancing in a festive setting."
+  },
+  "nga-47118": {
+   "score": 1,
+   "why": "Couple present, but not dancing."
+  },
+  "cle-106287": {
+   "score": 2,
+   "why": "Couple dancing at a ball depicted clearly."
+  },
+  "cle-107133": {
+   "score": 2,
+   "why": "Couple dancing at a ball depicted clearly."
+  },
+  "nga-170123": {
+   "score": 1,
+   "why": "Caricature, not a traditional dance scene."
+  },
+  "nga-216727": {
+   "score": 1,
+   "why": "Not a ball; lacks formal dancing context."
+  },
+  "nga-6150": {
+   "score": 2,
+   "why": "Couple dancing clearly depicted."
+  },
+  "cle-146817": {
+   "score": 1,
+   "why": "Dancing implied, but not clearly depicted."
+  },
+  "nga-197536": {
+   "score": 0,
+   "why": "Not a couple dancing."
+  },
+  "nga-47117": {
+   "score": 1,
+   "why": "Couple present, lacks dancing context."
+  },
+  "cle-161812": {
+   "score": 0,
+   "why": "No dancing or ball depicted."
+  },
+  "cle-79483": {
+   "score": 1,
+   "why": "Not a dance scene, but romantic context."
+  },
+  "nga-130640": {
+   "score": 1,
+   "why": "Not dancing, but social scene present."
+  },
+  "nga-52185": {
+   "score": 1,
+   "why": "Couple not dancing, more of a walking pose."
+  },
+  "nga-111610": {
+   "score": 2,
+   "why": "Clearly depicts a couple dancing at a ball."
+  },
+  "nga-3032": {
+   "score": 1,
+   "why": "Dancing implied, but not at a ball."
+  },
+  "cle-125946": {
+   "score": 1,
+   "why": "Not a dance; it's a swing scene."
+  },
+  "nga-1220": {
+   "score": 1,
+   "why": "Group activity, but not a dance couple."
+  },
+  "cle-122465": {
+   "score": 0,
+   "why": "No dancing; children depicted instead."
+  }
+ },
+ "q19": {
+  "nga-18857": {
+   "score": 1,
+   "why": "Focus on pot, lacks broader kitchen context."
+  },
+  "nga-27044": {
+   "score": 1,
+   "why": "Focus on kettle, not kitchen interior."
+  },
+  "nga-27045": {
+   "score": 1,
+   "why": "Focuses on pots, lacks kitchen context."
+  },
+  "nga-27048": {
+   "score": 1,
+   "why": "Focuses on a pot, not kitchen interior."
+  },
+  "nga-16043": {
+   "score": 1,
+   "why": "Missing kitchen context; focuses on pots."
+  },
+  "nga-21573": {
+   "score": 1,
+   "why": "Focus on pot, not kitchen interior."
+  },
+  "nga-27101": {
+   "score": 1,
+   "why": "Focuses on pots, lacks full kitchen context."
+  },
+  "nga-18858": {
+   "score": 1,
+   "why": "Focuses on pots, lacks kitchen context."
+  },
+  "nga-18856": {
+   "score": 1,
+   "why": "Focuses on pot, not kitchen interior."
+  },
+  "nga-15634": {
+   "score": 0,
+   "why": "No kitchen interior or copper pots present."
+  },
+  "nga-16040": {
+   "score": 1,
+   "why": "Focuses on pots, misses kitchen context."
+  },
+  "nga-20119": {
+   "score": 1,
+   "why": "Focus on pots, lacks kitchen setting."
+  },
+  "nga-18395": {
+   "score": 0,
+   "why": "Not a kitchen interior."
+  },
+  "nga-24405": {
+   "score": 1,
+   "why": "Focus on objects, not kitchen interior."
+  },
+  "nga-25496": {
+   "score": 1,
+   "why": "Focuses on a pot, not the kitchen interior."
+  },
+  "aic-45316": {
+   "score": -1,
+   "why": "no img"
+  },
+  "cle-173167": {
+   "score": 1,
+   "why": "Kitchen scene, lacks copper pots focus."
+  },
+  "cle-150115": {
+   "score": 2,
+   "why": "Depicts kitchen items, including copper pots."
+  },
+  "met-436806": {
+   "score": 1,
+   "why": "Dark, unclear focus on copper pots."
+  },
+  "nga-73921": {
+   "score": 1,
+   "why": "Displays kitchen elements but not copper pots."
+  },
+  "met-437703": {
+   "score": 2,
+   "why": "Depicts a kitchen with copper pots present."
+  },
+  "nga-19874": {
+   "score": 2,
+   "why": "Contains kitchen interior and copper pots."
+  },
+  "nga-28938": {
+   "score": 2,
+   "why": "Clearly depicts a kitchen interior with copper pots."
+  },
+  "met-339159": {
+   "score": 1,
+   "why": "Missing copper pots, but kitchen interior present."
+  },
+  "nga-19866": {
+   "score": 0,
+   "why": "No kitchen or copper pots present."
+  },
+  "nga-19830": {
+   "score": 1,
+   "why": "Kitchen theme, lacks copper pots."
+  }
+ },
+ "q20": {
+  "cle-148368": {
+   "score": 2,
+   "why": "Ship clearly departing from harbor scene."
+  },
+  "cle-163456": {
+   "score": 2,
+   "why": "Several ships leaving a harbor scene."
+  },
+  "nga-148198": {
+   "score": 2,
+   "why": "Depicts a ship leaving a harbor clearly."
+  },
+  "nga-61360": {
+   "score": 1,
+   "why": "Depicts harbor, lacks clear ship departure."
+  },
+  "cle-167922": {
+   "score": 1,
+   "why": "Depicts fishing boats, not departure."
+  },
+  "nga-35092": {
+   "score": 2,
+   "why": "Depicts ships leaving a harbor scene."
+  },
+  "met-10521": {
+   "score": 2,
+   "why": "Ship leaving harbor is clearly depicted."
+  },
+  "nga-61366": {
+   "score": 2,
+   "why": "It clearly depicts ships in a harbor."
+  },
+  "nga-57729": {
+   "score": 1,
+   "why": "Ship present, but not actively leaving harbor."
+  },
+  "cle-160570": {
+   "score": 2,
+   "why": "Clear depiction of a ship leaving harbor."
+  },
+  "cle-118042": {
+   "score": 2,
+   "why": "Clearly shows ships in a harbor setting."
+  },
+  "cle-143272": {
+   "score": 1,
+   "why": "Lacks clear depiction of a ship departing."
+  },
+  "nga-134212": {
+   "score": 1,
+   "why": "Ships present but unclear departure context."
+  },
+  "cle-120276": {
+   "score": 2,
+   "why": "Ships are clearly departing harbor scene."
+  },
+  "cle-105007": {
+   "score": 1,
+   "why": "Docked ship, not leaving harbor."
+  },
+  "nga-67349": {
+   "score": 2,
+   "why": "Clearly depicts a ship leaving harbor."
+  },
+  "nga-154215": {
+   "score": 2,
+   "why": "Depicts multiple ships leaving a harbor."
+  },
+  "nga-214374": {
+   "score": 2,
+   "why": "Ship is clearly leaving a harbor."
+  },
+  "nga-194593": {
+   "score": 1,
+   "why": "Ships are present, not leaving harbor."
+  },
+  "nga-154655": {
+   "score": 2,
+   "why": "Ship leaving harbor is clearly depicted."
+  },
+  "nga-576": {
+   "score": 2,
+   "why": "Clearly shows ships leaving a harbor."
+  }
+ },
+ "q21": {
+  "nga-1202": {
+   "score": 2,
+   "why": "Matches description and style closely."
+  },
+  "met-437421": {
+   "score": 2,
+   "why": "Clearly resembles the requested description."
+  },
+  "nga-85918": {
+   "score": 2,
+   "why": "Clearly matches Rembrandt's style and subject."
+  },
+  "nga-10059": {
+   "score": 2,
+   "why": "Clearly depicts an old man with a beard."
+  },
+  "nga-9843": {
+   "score": 2,
+   "why": "Clearly resembles an old man in Rembrandt style."
+  },
+  "nga-10043": {
+   "score": 2,
+   "why": "Classic depiction of an old man, Rembrandt style."
+  },
+  "nga-37153": {
+   "score": 2,
+   "why": "Clearly represents an old man with a beard."
+  },
+  "nga-9876": {
+   "score": 2,
+   "why": "Clearly depicts an old man with a beard."
+  },
+  "nga-164708": {
+   "score": 2,
+   "why": "Matches description and Rembrandt style."
+  },
+  "met-437418": {
+   "score": 2,
+   "why": "Clearly depicts an old man with a beard."
+  },
+  "nga-55111": {
+   "score": 2,
+   "why": "Clearly depicts an old man with a beard."
+  },
+  "nga-131993": {
+   "score": 2,
+   "why": "Matches description and style perfectly."
+  },
+  "aic-93900": {
+   "score": -1,
+   "why": "fetch fail"
+  },
+  "met-338440": {
+   "score": 2,
+   "why": "Strong resemblance to Rembrandt's style."
+  },
+  "met-437392": {
+   "score": 2,
+   "why": "Clearly resembles Rembrandt's style."
+  },
+  "met-437386": {
+   "score": 2,
+   "why": "Clearly depicts an old man, Rembrandt-like."
+  },
+  "nga-177795": {
+   "score": 2,
+   "why": "Clearly resembles an old man with a beard."
+  },
+  "met-436309": {
+   "score": 2,
+   "why": "Clearly matches description and style requested."
+  }
+ },
+ "q22": {
+  "nga-66407": {
+   "score": 1,
+   "why": "Not sewing, but women and window are present."
+  },
+  "nga-52191": {
+   "score": 1,
+   "why": "Misses sewing, but depicts a woman by a window."
+  },
+  "met-459085": {
+   "score": 1,
+   "why": "Not sewing, but interior with women."
+  },
+  "met-333797": {
+   "score": 1,
+   "why": "Scene interests but lacks sewing context."
+  },
+  "nga-8297": {
+   "score": 1,
+   "why": "Related, but not sewing or by a window."
+  },
+  "nga-61348": {
+   "score": 2,
+   "why": "Woman sewing by a window, relevant scene."
+  },
+  "met-437757": {
+   "score": 0,
+   "why": "No sewing or window present."
+  },
+  "met-437412": {
+   "score": 1,
+   "why": "Not near a window, but sewing."
+  },
+  "nga-206788": {
+   "score": 1,
+   "why": "Woman sewing, but no window visible."
+  },
+  "cle-97137": {
+   "score": 1,
+   "why": "Missing the sewing element."
+  },
+  "nga-110334": {
+   "score": 2,
+   "why": "Woman sewing by a window depicted clearly."
+  },
+  "nga-53532": {
+   "score": 2,
+   "why": "Woman sewing by a window depicted clearly."
+  },
+  "nga-166442": {
+   "score": 2,
+   "why": "Woman sewing by a window depicted clearly."
+  },
+  "nga-195455": {
+   "score": 2,
+   "why": "Woman sewing by a window depicted clearly."
+  },
+  "nga-135450": {
+   "score": 2,
+   "why": "Woman sewing by a window depicted clearly."
+  },
+  "met-436724": {
+   "score": 1,
+   "why": "Woman sewing but lacks a window context."
+  },
+  "nga-169560": {
+   "score": 2,
+   "why": "Woman sewing by a window depicted clearly."
+  },
+  "nga-41303": {
+   "score": 2,
+   "why": "Woman sewing by a window depicted."
+  },
+  "nga-138964": {
+   "score": 1,
+   "why": "Sewing implied, but not by a window."
+  },
+  "nga-1148": {
+   "score": 1,
+   "why": "Involved artistry, missing sewing element."
+  },
+  "cle-703436": {
+   "score": 2,
+   "why": "Clearly depicts a woman sewing by a window."
+  },
+  "nga-43512": {
+   "score": 0,
+   "why": "No sewing or window present."
+  },
+  "nga-160960": {
+   "score": 1,
+   "why": "Woman present, but not sewing by window."
+  }
+ },
+ "q23": {
+  "met-483380": {
+   "score": 2,
+   "why": "Study of a nude figure clearly depicted."
+  },
+  "met-337599": {
+   "score": 2,
+   "why": "Clearly a study of a nude human figure."
+  },
+  "met-340995": {
+   "score": 2,
+   "why": "Clearly depicts a nude figure study."
+  },
+  "cle-108577": {
+   "score": 2,
+   "why": "Clearly depicts a nude figure study."
+  },
+  "cle-109570": {
+   "score": 2,
+   "why": "Clearly depicts a nude figure."
+  },
+  "nga-43032": {
+   "score": 2,
+   "why": "Clearly depicts a nude figure study."
+  },
+  "cle-111597": {
+   "score": 2,
+   "why": "Study of a nude figure clearly depicted."
+  },
+  "nga-10372": {
+   "score": 2,
+   "why": "Clearly depicts a nude figure study."
+  },
+  "cle-129389": {
+   "score": 2,
+   "why": "Direct study of a nude figure."
+  },
+  "cle-129409": {
+   "score": 2,
+   "why": "Clearly depicts a nude figure study."
+  },
+  "cle-135381": {
+   "score": 2,
+   "why": "Clearly depicts a nude figure study."
+  },
+  "met-337607": {
+   "score": 2,
+   "why": "Clearly depicts nude figures, highly relevant."
+  },
+  "nga-62960": {
+   "score": 2,
+   "why": "Study of nude figure evident in details."
+  },
+  "cle-119614": {
+   "score": 2,
+   "why": "Study of a nude figure, highly relevant."
+  },
+  "met-340375": {
+   "score": 2,
+   "why": "Clearly depicts a nude figure study."
+  },
+  "met-355656": {
+   "score": 2,
+   "why": "Study clearly depicts nude figures."
+  },
+  "nga-48967": {
+   "score": 2,
+   "why": "Nude figure study clearly depicted."
+  },
+  "met-338318": {
+   "score": 2,
+   "why": "Clear study of a nude figure."
+  },
+  "met-338400": {
+   "score": 2,
+   "why": "Clear study of a nude figure."
+  },
+  "met-340401": {
+   "score": 2,
+   "why": "Depicts nude figures effectively."
+  },
+  "met-338169": {
+   "score": 2,
+   "why": "Clear study of nude figures presented."
+  },
+  "nga-43224": {
+   "score": 2,
+   "why": "Clearly depicts a study of a nude figure."
+  },
+  "nga-11391": {
+   "score": 2,
+   "why": "Clearly depicts a nude figure study."
+  },
+  "met-338217": {
+   "score": 1,
+   "why": "Nude figure present, but not the main focus."
+  },
+  "cle-95307": {
+   "score": 2,
+   "why": "Clearly depicts a nude figure study."
+  },
+  "cle-120774": {
+   "score": 2,
+   "why": "Clearly depicts a nude figure study."
+  },
+  "met-438661": {
+   "score": 2,
+   "why": "Direct study of a nude figure."
+  },
+  "nga-53867": {
+   "score": 2,
+   "why": "Clearly depicts a nude figure study."
+  },
+  "nga-76201": {
+   "score": 2,
+   "why": "Clearly depicts a nude figure study."
+  },
+  "nga-102125": {
+   "score": 2,
+   "why": "Clearly depicts a nude figure."
+  },
+  "nga-139243": {
+   "score": 2,
+   "why": "Nude figure study is clearly depicted."
+  },
+  "nga-102126": {
+   "score": 2,
+   "why": "Direct study of a nude figure."
+  },
+  "cle-122828": {
+   "score": 2,
+   "why": "Depicts a nude figure clearly."
+  },
+  "cle-166677": {
+   "score": 2,
+   "why": "Direct study of a nude figure."
+  },
+  "nga-180912": {
+   "score": 2,
+   "why": "Clear depiction of a nude figure."
+  },
+  "nga-206785": {
+   "score": 2,
+   "why": "Clear study of nude figure."
+  },
+  "nga-10371": {
+   "score": 2,
+   "why": "Clear depiction of a nude figure study."
+  }
+ },
+ "q24": {
+  "nga-61382": {
+   "score": 1,
+   "why": "Vase is opaque, not glass."
+  },
+  "nga-127554": {
+   "score": 2,
+   "why": "Features flowers in a glass vase."
+  },
+  "cle-136207": {
+   "score": 2,
+   "why": "Excellent depiction of flowers in a vase."
+  },
+  "cle-150840": {
+   "score": 2,
+   "why": "Flowers in a glass vase are clearly depicted."
+  },
+  "met-437867": {
+   "score": 2,
+   "why": "Rich floral arrangement in a vase."
+  },
+  "met-437148": {
+   "score": 1,
+   "why": "Vase is not glass."
+  },
+  "nga-55781": {
+   "score": 2,
+   "why": "Depicts flowers in a glass vase clearly."
+  },
+  "nga-214111": {
+   "score": 2,
+   "why": "Clearly displays flowers in a glass vase."
+  },
+  "cle-115067": {
+   "score": 2,
+   "why": "Clearly depicts flowers in a glass vase."
+  },
+  "nga-94743": {
+   "score": 2,
+   "why": "Clearly depicts flowers in a glass vase."
+  },
+  "met-437864": {
+   "score": 2,
+   "why": "Clearly depicts flowers in a vase."
+  },
+  "nga-52181": {
+   "score": 2,
+   "why": "Clearly depicts flowers in a glass vase."
+  },
+  "nga-126147": {
+   "score": 2,
+   "why": "Clearly depicts flowers in a glass vase."
+  },
+  "met-436961": {
+   "score": 2,
+   "why": "Clearly depicts flowers in a vase."
+  },
+  "nga-166460": {
+   "score": 2,
+   "why": "Clearly depicts flowers in a vase."
+  },
+  "nga-134166": {
+   "score": 2,
+   "why": "Features flowers in a glass vase prominently."
+  }
+ },
+ "q25": {
+  "nga-45727": {
+   "score": 2,
+   "why": "Depicts villagers at a festive gathering."
+  },
+  "cle-148965": {
+   "score": 2,
+   "why": "Depicts peasants dancing at a festival."
+  },
+  "nga-32739": {
+   "score": 2,
+   "why": "Peasants dancing at a village festival."
+  },
+  "nga-49031": {
+   "score": 1,
+   "why": "Depicts people, but lacks clear dancing."
+  },
+  "nga-3103": {
+   "score": 1,
+   "why": "Involves a gathering, lacks dancing."
+  },
+  "nga-10816": {
+   "score": 2,
+   "why": "Peasants dancing at a village festival."
+  },
+  "nga-45729": {
+   "score": 2,
+   "why": "Clearly depicts a lively village celebration."
+  },
+  "nga-1220": {
+   "score": 2,
+   "why": "Shows peasants dancing at a festival."
+  },
+  "cle-119933": {
+   "score": 2,
+   "why": "Dancing peasants at a village festival."
+  },
+  "met-437779": {
+   "score": 2,
+   "why": "Clearly depicts a village festival with dancing."
+  },
+  "nga-2775": {
+   "score": 2,
+   "why": "Peasants dancing at a village festival."
+  },
+  "cle-106612": {
+   "score": 2,
+   "why": "Peasants dancing at a village festival."
+  },
+  "nga-7302": {
+   "score": 2,
+   "why": "Depicts peasants dancing at a festival."
+  },
+  "nga-7303": {
+   "score": 2,
+   "why": "Depicts dancing peasants at a festival."
+  },
+  "nga-177786": {
+   "score": 2,
+   "why": "Depicts peasants celebrating in a village setting."
+  },
+  "nga-10830": {
+   "score": 1,
+   "why": "Group scene, lacks clear dancing depiction."
+  },
+  "cle-102813": {
+   "score": 1,
+   "why": "Shows rural life, not dancing festival."
+  },
+  "nga-36679": {
+   "score": 1,
+   "why": "Dancers present, but lacks festival context."
+  },
+  "nga-61369": {
+   "score": 1,
+   "why": "Peasants present, but no dancing depicted."
+  },
+  "nga-96": {
+   "score": 2,
+   "why": "Depicts peasants dancing joyfully."
+  }
+ },
+ "q26": {
+  "cle-162093": {
+   "score": 1,
+   "why": "River scene, lacks clear autumn path."
+  },
+  "cle-173640": {
+   "score": 2,
+   "why": "Autumn forest path depicted clearly."
+  },
+  "met-265904": {
+   "score": 2,
+   "why": "Depicts a forest path in autumn."
+  },
+  "cle-134072": {
+   "score": 2,
+   "why": "Autumn colors and forest path present."
+  },
+  "nga-1149": {
+   "score": 2,
+   "why": "Autumn forest path is clearly depicted."
+  },
+  "cle-173181": {
+   "score": 2,
+   "why": "Captures autumn forest path beautifully."
+  },
+  "nga-35088": {
+   "score": 1,
+   "why": "Autumn not clearly depicted."
+  },
+  "met-436192": {
+   "score": 2,
+   "why": "Depicts forest path in autumn clearly."
+  },
+  "cle-97298": {
+   "score": 2,
+   "why": "Captures autumn forest path beautifully."
+  },
+  "nga-195825": {
+   "score": 2,
+   "why": "Autumn forest path is depicted clearly."
+  },
+  "nga-127263": {
+   "score": 2,
+   "why": "Clear forest path in autumn colors."
+  },
+  "cle-172806": {
+   "score": 2,
+   "why": "Captures autumn forest path beautifully."
+  },
+  "cle-108809": {
+   "score": 1,
+   "why": "Lacks clear autumn coloration."
+  },
+  "cle-160091": {
+   "score": 2,
+   "why": "Clearly depicts an autumn forest path."
+  }
+ },
+ "q27": {
+  "nga-25042": {
+   "score": 0,
+   "why": "No cat, no sleeping. Only a chair."
+  },
+  "nga-16303": {
+   "score": 0,
+   "why": "No cat, no sleeping. Only a chair."
+  },
+  "nga-227029": {
+   "score": 2,
+   "why": "Cat clearly sleeping on a chair."
+  },
+  "nga-16618": {
+   "score": 0,
+   "why": "No cat, no cat sleeping, only a chair."
+  },
+  "nga-16509": {
+   "score": 0,
+   "why": "No cat, no sleeping. Only a chair drawing."
+  },
+  "nga-16362": {
+   "score": 0,
+   "why": "No cat present in image."
+  },
+  "nga-16619": {
+   "score": 0,
+   "why": "No cat, no sleeping. Only a chair is present."
+  },
+  "nga-16316": {
+   "score": 0,
+   "why": "No cat is present."
+  },
+  "nga-16289": {
+   "score": 0,
+   "why": "No cat, no sleeping. Only a chair is visible."
+  },
+  "nga-16501": {
+   "score": 0,
+   "why": "No cat or sleeping depicted."
+  },
+  "nga-16314": {
+   "score": 0,
+   "why": "No cat, no sleeping cat, only a chair."
+  },
+  "nga-16443": {
+   "score": 0,
+   "why": "No cat present, just a chair."
+  },
+  "nga-20058": {
+   "score": 0,
+   "why": "No cat, only a chair shown."
+  },
+  "nga-26877": {
+   "score": 0,
+   "why": "No cat or sleeping is depicted."
+  },
+  "nga-16601": {
+   "score": 0,
+   "why": "No cat is present in image."
+  },
+  "nga-16473": {
+   "score": 0,
+   "why": "No cat present in the image."
+  },
+  "nga-16375": {
+   "score": 0,
+   "why": "No cat or sleeping depicted."
+  },
+  "nga-16551": {
+   "score": 0,
+   "why": "No cat present, only a chair."
+  },
+  "nga-22462": {
+   "score": 0,
+   "why": "No cat present in the image."
+  }
+ },
+ "q28": {
+  "nga-61374": {
+   "score": 2,
+   "why": "Boats and bridge are clearly depicted."
+  },
+  "nga-52188": {
+   "score": 2,
+   "why": "Boats and bridge are clearly visible."
+  },
+  "cle-130995": {
+   "score": 2,
+   "why": "Boats and bridge are prominently featured."
+  },
+  "cle-100953": {
+   "score": 2,
+   "why": "Boats and bridge are clearly depicted."
+  },
+  "nga-1166": {
+   "score": 2,
+   "why": "Clearly depicts boats under a bridge."
+  },
+  "cle-136805": {
+   "score": 2,
+   "why": "Depicts boats on a river under a bridge."
+  },
+  "cle-103176": {
+   "score": 2,
+   "why": "Boats and bridge clearly depicted."
+  },
+  "cle-132433": {
+   "score": 2,
+   "why": "Depicts boats, river, and bridge clearly."
+  },
+  "cle-143093": {
+   "score": 2,
+   "why": "Depicts boats and a bridge clearly."
+  },
+  "nga-35090": {
+   "score": 2,
+   "why": "Boats and bridge clearly visible."
+  },
+  "cle-155611": {
+   "score": 1,
+   "why": "Boats and river present, but no bridge."
+  },
+  "cle-106425": {
+   "score": 2,
+   "why": "Boats and a bridge are clearly depicted."
+  },
+  "cle-367992": {
+   "score": 2,
+   "why": "Boats on river under a bridge present."
+  },
+  "cle-95399": {
+   "score": 2,
+   "why": "Shows boats on water, relevant scene."
+  },
+  "cle-95400": {
+   "score": 1,
+   "why": "Boats present, river context unclear."
+  },
+  "nga-32828": {
+   "score": 2,
+   "why": "Shows boats under a bridge on a river."
+  },
+  "nga-254": {
+   "score": 2,
+   "why": "Clearly shows boats on a river under a bridge."
+  },
+  "cle-153668": {
+   "score": 2,
+   "why": "Contains boats, river, and a bridge."
+  },
+  "cle-131961": {
+   "score": 2,
+   "why": "Depicts boats on water under structures."
+  },
+  "cle-127849": {
+   "score": 1,
+   "why": "Boats present, but no river or bridge."
+  },
+  "cle-103954": {
+   "score": 2,
+   "why": "Boats and bridge clearly depicted."
+  },
+  "nga-158528": {
+   "score": 1,
+   "why": "Boats present, but no bridge depicted."
+  },
+  "nga-46658": {
+   "score": 2,
+   "why": "Depicts boats, river, and a bridge clearly."
+  },
+  "cle-84745": {
+   "score": 2,
+   "why": "Meets description; boats and bridge visible."
+  }
+ },
+ "q29": {
+  "nga-66434": {
+   "score": 2,
+   "why": "Child playing with toys clearly depicted."
+  },
+  "cle-167567": {
+   "score": 2,
+   "why": "Child clearly playing with a toy."
+  },
+  "met-335515": {
+   "score": 0,
+   "why": "No child or toy present."
+  },
+  "cle-172145": {
+   "score": 2,
+   "why": "Clearly shows a child with a toy."
+  },
+  "cle-80329": {
+   "score": 2,
+   "why": "Child interacting with a toy illustrated clearly."
+  },
+  "met-342129": {
+   "score": 1,
+   "why": "Child present, but no toy indication."
+  },
+  "met-436626": {
+   "score": 1,
+   "why": "Child playing, but not a toy."
+  },
+  "nga-61251": {
+   "score": 2,
+   "why": "Child playing with toys is clearly visible."
+  },
+  "cle-104301": {
+   "score": 1,
+   "why": "Child present, no clear toy interaction."
+  },
+  "met-10976": {
+   "score": 1,
+   "why": "Child interacting with object, not a toy."
+  },
+  "met-436932": {
+   "score": 1,
+   "why": "Child is present but not actively playing."
+  },
+  "met-339930": {
+   "score": 1,
+   "why": "Child present, but no toy visible."
+  },
+  "nga-42474": {
+   "score": 2,
+   "why": "Child holding a toy clearly depicted."
+  },
+  "met-12932": {
+   "score": 2,
+   "why": "Child clearly engaged with a toy."
+  },
+  "nga-52163": {
+   "score": 2,
+   "why": "Children engaged with toys on the beach."
+  },
+  "cle-148369": {
+   "score": 1,
+   "why": "Child with a flute, not a toy."
+  },
+  "nga-42466": {
+   "score": 1,
+   "why": "Child holding a bird, not a toy."
+  },
+  "nga-42465": {
+   "score": 1,
+   "why": "Child present but not clearly playing with a toy."
+  }
+ },
+ "q30": {
+  "aic-16362": {
+   "score": -1,
+   "why": "no thumb"
+  },
+  "aic-561": {
+   "score": -1,
+   "why": "no thumb"
+  },
+  "nga-65918": {
+   "score": 0,
+   "why": "No musicians or string instruments depicted."
+  },
+  "met-334037": {
+   "score": 0,
+   "why": "No musicians or string instruments present."
+  },
+  "met-341518": {
+   "score": 1,
+   "why": "Only one musician, not string instruments."
+  },
+  "nga-70988": {
+   "score": 0,
+   "why": "No string instruments depicted."
+  },
+  "cle-129805": {
+   "score": 0,
+   "why": "No musicians or string instruments present."
+  },
+  "met-350797": {
+   "score": 2,
+   "why": "Clearly shows musicians with string instruments."
+  },
+  "met-435717": {
+   "score": 2,
+   "why": "Depicts musicians with string instruments clearly."
+  },
+  "nga-221200": {
+   "score": 2,
+   "why": "Depicts musicians with string instruments clearly."
+  },
+  "cle-99423": {
+   "score": 2,
+   "why": "Depicts a musician with a string instrument."
+  },
+  "cle-150037": {
+   "score": 0,
+   "why": "No musicians or string instruments present."
+  },
+  "aic-2166": {
+   "score": -1,
+   "why": "no img"
+  },
+  "nga-195366": {
+   "score": 2,
+   "why": "Clearly shows musicians with string instruments."
+  },
+  "cle-148970": {
+   "score": 2,
+   "why": "Two musicians clearly featured playing instruments."
+  },
+  "met-435844": {
+   "score": 2,
+   "why": "Depicts musicians with string instruments clearly."
+  }
+ },
+ "q31": {
+  "met-702996": {
+   "score": 2,
+   "why": "Clearly depicts a desert caravan with camels."
+  },
+  "cle-148969": {
+   "score": 2,
+   "why": "Desert setting with camels and caravan."
+  },
+  "met-355541": {
+   "score": 1,
+   "why": "Missing the caravan context."
+  },
+  "nga-53893": {
+   "score": 1,
+   "why": "Camel present, lacks full caravan context."
+  },
+  "met-441358": {
+   "score": 2,
+   "why": "Depicts a caravan with camels clearly."
+  },
+  "nga-53596": {
+   "score": 1,
+   "why": "Camel depicted, missing broader caravan context."
+  },
+  "cle-74600": {
+   "score": 2,
+   "why": "Depicts a desert caravan with camels."
+  },
+  "nga-98214": {
+   "score": 1,
+   "why": "Shows a caravan, but no camels."
+  },
+  "cle-130822": {
+   "score": 1,
+   "why": "Desert scene, lacks camels."
+  },
+  "cle-166685": {
+   "score": 0,
+   "why": "No camels or caravan depicted."
+  },
+  "cle-135065": {
+   "score": 1,
+   "why": "Contains horses, not camels."
+  },
+  "cle-123388": {
+   "score": 0,
+   "why": "No camels or desert elements present."
+  },
+  "nga-180487": {
+   "score": 2,
+   "why": "Clearly depicts a desert caravan with camels."
+  },
+  "cle-109413": {
+   "score": 1,
+   "why": "Landscape context, but no camels present."
+  },
+  "nga-195800": {
+   "score": 1,
+   "why": "Features a caravan, lacks camels."
+  },
+  "cle-120041": {
+   "score": 2,
+   "why": "Desert caravan with camels is depicted clearly."
+  }
+ },
+ "q32": {
+  "nga-52161": {
+   "score": 2,
+   "why": "Fishermen mending nets on a beach depicted."
+  },
+  "nga-61364": {
+   "score": 1,
+   "why": "Beach scene, no fishermen or nets."
+  },
+  "nga-156739": {
+   "score": 2,
+   "why": "Depicts fishermen mending nets on a beach."
+  },
+  "cle-125091": {
+   "score": 1,
+   "why": "No nets or active mending depicted."
+  },
+  "met-349199": {
+   "score": 1,
+   "why": "Depicts beach scene, not fishermen mending nets."
+  },
+  "nga-164930": {
+   "score": 1,
+   "why": "Related subject but not mending nets."
+  },
+  "cle-121462": {
+   "score": 1,
+   "why": "Fishermen are absent, focus on family."
+  },
+  "cle-120150": {
+   "score": 0,
+   "why": "No fishermen or nets present."
+  },
+  "cle-162964": {
+   "score": 2,
+   "why": "Depicts fishermen with nets on the beach."
+  },
+  "cle-153192": {
+   "score": 1,
+   "why": "Relevant setting, but lacks nets and mending activity."
+  },
+  "nga-52159": {
+   "score": 1,
+   "why": "Related, but not clearly mending nets."
+  },
+  "nga-159285": {
+   "score": 2,
+   "why": "Depicts fishermen mending nets on a beach."
+  },
+  "nga-52156": {
+   "score": 1,
+   "why": "Beach scene, lacks fishermen mending nets."
+  },
+  "nga-61363": {
+   "score": 1,
+   "why": "People on beach, no fishermen or nets."
+  },
+  "nga-52158": {
+   "score": 1,
+   "why": "Beach scene, but no fishermen or nets."
+  },
+  "nga-46481": {
+   "score": 1,
+   "why": "Beach scene, no fishermen mending nets."
+  },
+  "nga-164933": {
+   "score": 1,
+   "why": "Women carrying baskets, not mending nets."
+  },
+  "nga-157923": {
+   "score": 0,
+   "why": "No fishermen or net mending present."
+  },
+  "cle-98377": {
+   "score": 0,
+   "why": "Not relevant to fishermen or nets."
+  }
+ },
+ "q33": {
+  "nga-136184": {
+   "score": 2,
+   "why": "Castle clearly above a valley."
+  },
+  "nga-56611": {
+   "score": 2,
+   "why": "Castle on a hill above a valley."
+  },
+  "nga-209452": {
+   "score": 2,
+   "why": "Castle on hill above a valley depicted."
+  },
+  "cle-157897": {
+   "score": 2,
+   "why": "Castle on hill above valley visible."
+  },
+  "cle-79552": {
+   "score": 2,
+   "why": "Castle on hill above valley present."
+  },
+  "cle-168543": {
+   "score": 2,
+   "why": "Clearly depicts a castle above a valley."
+  },
+  "cle-149785": {
+   "score": 2,
+   "why": "Castle on a hill above a valley."
+  },
+  "nga-206132": {
+   "score": 1,
+   "why": "Castle visible, but not on a hill."
+  },
+  "nga-206133": {
+   "score": 2,
+   "why": "Castle on a hill above a valley depicted."
+  },
+  "cle-99492": {
+   "score": 2,
+   "why": "Clearly depicts a castle on a hill."
+  },
+  "cle-149786": {
+   "score": 2,
+   "why": "Castle on hill above a valley."
+  },
+  "cle-173180": {
+   "score": 2,
+   "why": "Castle on a hill above a valley."
+  },
+  "nga-130897": {
+   "score": 2,
+   "why": "Castle on a hill above a valley."
+  },
+  "cle-150038": {
+   "score": 2,
+   "why": "Castle above a valley is clearly depicted."
+  },
+  "cle-150141": {
+   "score": 1,
+   "why": "Castle visible but lacks valley context."
+  },
+  "nga-43236": {
+   "score": 2,
+   "why": "Depicts a castle on a hill clearly."
+  },
+  "cle-172172": {
+   "score": 2,
+   "why": "Castle on hill above valley depicted."
+  },
+  "nga-76350": {
+   "score": 2,
+   "why": "Castle on hill above valley visible."
+  },
+  "nga-76083": {
+   "score": 1,
+   "why": "Castle presence, but not a hill or valley."
+  },
+  "nga-111633": {
+   "score": 2,
+   "why": "Castle on a hill above a valley."
+  },
+  "met-340923": {
+   "score": 2,
+   "why": "Castle on a hill above a valley."
+  },
+  "nga-169381": {
+   "score": 1,
+   "why": "Castle visible, but not on a hill."
+  },
+  "met-359882": {
+   "score": 1,
+   "why": "Missing castle element prominently."
+  },
+  "cle-157235": {
+   "score": 2,
+   "why": "Castle on a hill above a valley."
+  }
+ },
+ "q34": {
+  "nga-53151": {
+   "score": 2,
+   "why": "Clearly represents angel and saint interaction."
+  },
+  "met-342556": {
+   "score": 2,
+   "why": "Depicts an angel, fits the request well."
+  },
+  "nga-34800": {
+   "score": 1,
+   "why": "Saint present, no angel depicted."
+  },
+  "met-336226": {
+   "score": 2,
+   "why": "Clearly depicts an angel and a saint."
+  },
+  "nga-3835": {
+   "score": 1,
+   "why": "Angel present, but not announcing to a saint."
+  },
+  "nga-155383": {
+   "score": 2,
+   "why": "Depicts angel and saint interaction clearly."
+  },
+  "nga-4595": {
+   "score": 1,
+   "why": "Depicts an angel, but not announcing."
+  },
+  "met-459062": {
+   "score": 2,
+   "why": "Depicts angel and saint interaction clearly."
+  },
+  "cle-130334": {
+   "score": 1,
+   "why": "Angel present, but lacks specific announcement context."
+  },
+  "nga-3833": {
+   "score": 1,
+   "why": "Saint depicted, but no angel present."
+  },
+  "nga-4415": {
+   "score": 2,
+   "why": "Angel depicted, relevant to request."
+  },
+  "nga-33893": {
+   "score": 2,
+   "why": "Depicts angelic announcement clearly."
+  },
+  "aic-16327": {
+   "score": -1,
+   "why": "no img"
+  },
+  "nga-3313": {
+   "score": 2,
+   "why": "Angel announcing to a saint is depicted."
+  },
+  "nga-46": {
+   "score": 2,
+   "why": "Depicts angelic announcement clearly."
+  },
+  "nga-65747": {
+   "score": 2,
+   "why": "Clearly depicts an angel and a saint."
+  },
+  "cle-150962": {
+   "score": 2,
+   "why": "Clearly depicts angel delivering a message."
+  },
+  "nga-3764": {
+   "score": 0,
+   "why": "Does not depict an angel or saint."
+  },
+  "met-336188": {
+   "score": 2,
+   "why": "Depicts an angelic announcement scene clearly."
+  },
+  "met-436497": {
+   "score": 1,
+   "why": "Depicts religious figures, lacks clear angel."
+  },
+  "cle-142384": {
+   "score": 2,
+   "why": "Clearly depicts angel and saint interaction."
+  },
+  "cle-127572": {
+   "score": 2,
+   "why": "Clearly depicts an angel and a saint."
+  },
+  "cle-128829": {
+   "score": 2,
+   "why": "Clearly portrays an angel and a saint."
+  },
+  "nga-177670": {
+   "score": 2,
+   "why": "Clearly depicts angel and saint interaction."
+  },
+  "nga-143827": {
+   "score": 2,
+   "why": "Angel and saint depicted clearly."
+  }
+ },
+ "q35": {
+  "aic-518": {
+   "score": -1,
+   "why": "no thumb"
+  },
+  "cle-116276": {
+   "score": 0,
+   "why": "Not a portrait; just lace collar"
+  },
+  "met-436255": {
+   "score": 2,
+   "why": "Noblewoman in lace collar is clearly depicted."
+  },
+  "met-437917": {
+   "score": 2,
+   "why": "Fits description of noblewoman in lace collar."
+  },
+  "met-436630": {
+   "score": 2,
+   "why": "Clear portrait of noblewoman with lace collar."
+  },
+  "cle-124089": {
+   "score": 2,
+   "why": "Matches description and visual details."
+  },
+  "nga-573": {
+   "score": 2,
+   "why": "Clear depiction of a noblewoman in lace collar."
+  },
+  "met-643540": {
+   "score": 2,
+   "why": "Clearly shows a noblewoman with lace collar."
+  },
+  "met-437374": {
+   "score": 2,
+   "why": "Portrait of a noblewoman with lace collar."
+  },
+  "met-436739": {
+   "score": 2,
+   "why": "Clear depiction of a noblewoman with lace collar."
+  },
+  "cle-125029": {
+   "score": 2,
+   "why": "Lace collar and noblewoman depicted accurately."
+  },
+  "nga-12354": {
+   "score": 0,
+   "why": "Only a lace collar, no portrait"
+  },
+  "nga-46095": {
+   "score": 2,
+   "why": "Matches description well, clear lace collar."
+  },
+  "cle-153279": {
+   "score": 0,
+   "why": "Not a portrait or relevant subject."
+  },
+  "nga-13481": {
+   "score": 0,
+   "why": "Not a portrait, just a collar."
+  },
+  "cle-153281": {
+   "score": 0,
+   "why": "No portrait or noblewoman present."
+  },
+  "nga-13960": {
+   "score": 0,
+   "why": "Not a portrait; just a garment."
+  },
+  "nga-13532": {
+   "score": 1,
+   "why": "Misses the noblewoman aspect."
+  },
+  "nga-15026": {
+   "score": 0,
+   "why": "Lacks any portrayal of a noblewoman."
+  },
+  "nga-13821": {
+   "score": 0,
+   "why": "Not relevant to requested portrait."
+  }
+ },
+ "q36": {
+  "cle-79186": {
+   "score": 2,
+   "why": "Clearly depicts chickens in a farm setting."
+  },
+  "cle-149602": {
+   "score": 2,
+   "why": "Clearly depicts a farmyard with multiple chickens visible."
+  },
+  "nga-53606": {
+   "score": 1,
+   "why": "Missing chickens, but related farmyard scene."
+  },
+  "met-341907": {
+   "score": 0,
+   "why": "No chickens or farmyard elements."
+  },
+  "met-347694": {
+   "score": 1,
+   "why": "Contains relevant farmyard elements, lacks chickens."
+  },
+  "nga-53605": {
+   "score": 0,
+   "why": "No chickens or farmyard context visible."
+  },
+  "cle-102798": {
+   "score": 2,
+   "why": "Depicts chickens in a farmyard setting."
+  },
+  "cle-111042": {
+   "score": 1,
+   "why": "No chickens visible, but related theme."
+  },
+  "cle-102839": {
+   "score": 1,
+   "why": "Includes farmyard, but no chickens."
+  },
+  "cle-150805": {
+   "score": 0,
+   "why": "No chickens or relevant farmyard elements."
+  },
+  "nga-46074": {
+   "score": 1,
+   "why": "Focus on pigs, not chickens."
+  },
+  "nga-42496": {
+   "score": 2,
+   "why": "Chickens and farmyard clearly depicted."
+  },
+  "cle-150141": {
+   "score": 1,
+   "why": "Partially relevant; lacks chickens focus."
+  },
+  "nga-1191": {
+   "score": 1,
+   "why": "Includes farm animals, not just chickens."
+  },
+  "met-12855": {
+   "score": 2,
+   "why": "Includes chickens and farmyard scene."
+  },
+  "cle-149420": {
+   "score": 1,
+   "why": "Chickens not prominently featured."
+  },
+  "nga-178080": {
+   "score": 1,
+   "why": "Does not feature chickens prominently."
+  },
+  "nga-130914": {
+   "score": 1,
+   "why": "No visible chickens present."
+  },
+  "nga-1187": {
+   "score": 2,
+   "why": "Chickens present in a farmyard scene."
+  },
+  "cle-148965": {
+   "score": 1,
+   "why": "Shows a farm but lacks focus on chickens."
+  },
+  "cle-452866": {
+   "score": 1,
+   "why": "Missing clear focus on chickens."
+  }
+ },
+ "q37": {
+  "nga-156201": {
+   "score": 2,
+   "why": "Clearly shows a waterfall within a rocky, mountainous landscape."
+  },
+  "nga-136756": {
+   "score": 2,
+   "why": "Clearly depicts a waterfall in a gorge."
+  },
+  "nga-125190": {
+   "score": 2,
+   "why": "Depicts a waterfall in a rocky gorge."
+  },
+  "nga-180893": {
+   "score": 2,
+   "why": "Depicts a waterfall in a rocky gorge."
+  },
+  "nga-57002": {
+   "score": 2,
+   "why": "Depicts a waterfall in a rocky gorge."
+  },
+  "nga-57001": {
+   "score": 2,
+   "why": "Depicts a waterfall in rocks clearly."
+  },
+  "nga-152383": {
+   "score": 2,
+   "why": "Depicts a waterfall in a rocky gorge."
+  },
+  "nga-60768": {
+   "score": 2,
+   "why": "Depicts a waterfall in a rocky gorge."
+  },
+  "cle-151882": {
+   "score": 2,
+   "why": "Depicts a waterfall in a rocky gorge."
+  },
+  "met-437078": {
+   "score": 2,
+   "why": "Depicts a waterfall in a rocky gorge."
+  },
+  "cle-150986": {
+   "score": 2,
+   "why": "Clearly depicts a waterfall in a gorge."
+  },
+  "nga-154934": {
+   "score": 2,
+   "why": "Clearly depicts a waterfall within a rocky gorge."
+  },
+  "nga-196215": {
+   "score": 2,
+   "why": "Clearly depicts a waterfall in a gorge."
+  },
+  "nga-62536": {
+   "score": 2,
+   "why": "Clearly depicts a waterfall in a gorge."
+  },
+  "met-436023": {
+   "score": 2,
+   "why": "Depicts a waterfall in a rocky gorge."
+  },
+  "nga-130889": {
+   "score": 1,
+   "why": "Missing the waterfall element."
+  },
+  "cle-359246": {
+   "score": 2,
+   "why": "Features a waterfall in a rocky gorge."
+  }
+ },
+ "q38": {
+  "aic-883": {
+   "score": -1,
+   "why": "no thumb"
+  },
+  "nga-55520": {
+   "score": 1,
+   "why": "Features hunting but not trophies."
+  },
+  "nga-55518": {
+   "score": 2,
+   "why": "Depicts hunting trophies and game clearly."
+  },
+  "cle-150813": {
+   "score": 1,
+   "why": "Wildlife depicted but lacks trophies."
+  },
+  "cle-150790": {
+   "score": 1,
+   "why": "Animals present, lacks hunting theme."
+  },
+  "nga-55524": {
+   "score": 0,
+   "why": "Not related to hunting trophies."
+  },
+  "cle-150788": {
+   "score": 1,
+   "why": "Animals present, but no trophy theme."
+  },
+  "cle-150784": {
+   "score": 1,
+   "why": "Animals present, but not hunting trophies."
+  },
+  "nga-69753": {
+   "score": 2,
+   "why": "Depicts hunting trophies effectively."
+  },
+  "cle-150782": {
+   "score": 2,
+   "why": "Depicts animals, relevant to hunting trophies."
+  },
+  "cle-150765": {
+   "score": 0,
+   "why": "Not related to game or trophies."
+  },
+  "nga-67744": {
+   "score": 1,
+   "why": "Hunting theme, but no trophies depicted."
+  },
+  "met-436014": {
+   "score": 2,
+   "why": "Depicts hunting dogs with a dead animal."
+  },
+  "nga-219050": {
+   "score": 1,
+   "why": "Depicts deer, but lacks emphasis on trophies."
+  },
+  "met-12769": {
+   "score": 0,
+   "why": "Not about dead game or trophies."
+  },
+  "nga-55517": {
+   "score": 1,
+   "why": "Portrays hunting, but not trophies or death."
+  },
+  "cle-173656": {
+   "score": 0,
+   "why": "Focus on live animals, not trophies."
+  },
+  "nga-55539": {
+   "score": 1,
+   "why": "Hunting theme, but not trophies."
+  },
+  "cle-101528": {
+   "score": 1,
+   "why": "Involves animals but lacks hunting context."
+  }
+ },
+ "q39": {
+  "nga-42726": {
+   "score": 2,
+   "why": "Two lovers depicted in a garden setting."
+  },
+  "met-437096": {
+   "score": 1,
+   "why": "Lacks clear depiction of lovers."
+  },
+  "met-436177": {
+   "score": 1,
+   "why": "Lacks direct representation of lovers."
+  },
+  "nga-111487": {
+   "score": 1,
+   "why": "Not explicit; lacks clear depiction of lovers."
+  },
+  "nga-4360": {
+   "score": 2,
+   "why": "Depicts lovers in a garden setting."
+  },
+  "nga-224368": {
+   "score": 2,
+   "why": "Clearly depicts lovers in a garden setting."
+  },
+  "nga-111480": {
+   "score": 2,
+   "why": "Depicts lovers in a garden setting."
+  },
+  "nga-102478": {
+   "score": 2,
+   "why": "Clearly depicts lovers in a garden setting."
+  },
+  "cle-113164": {
+   "score": 2,
+   "why": "Two lovers clearly depicted in a garden."
+  },
+  "nga-70309": {
+   "score": 1,
+   "why": "Depicts a figure in a garden, not lovers."
+  },
+  "met-335539": {
+   "score": 2,
+   "why": "Depicts lovers in a garden setting."
+  },
+  "cle-145473": {
+   "score": 2,
+   "why": "Clearly depicts lovers in a garden setting."
+  },
+  "cle-79483": {
+   "score": 2,
+   "why": "Depicts lovers in a garden setting."
+  },
+  "nga-134324": {
+   "score": 2,
+   "why": "Depicts lovers in a garden setting."
+  },
+  "met-437211": {
+   "score": 1,
+   "why": "Depicts a couple, not specifically lovers."
+  },
+  "nga-58210": {
+   "score": 2,
+   "why": "Depicts lovers in a garden setting."
+  },
+  "cle-143221": {
+   "score": 0,
+   "why": "No lovers or garden present."
+  }
+ },
+ "q40": {
+  "met-435842": {
+   "score": 2,
+   "why": "Clearly depicts sailing ships in very calm water."
+  },
+  "nga-10344": {
+   "score": 2,
+   "why": "Sailing ships in calm water depicted clearly."
+  },
+  "nga-75217": {
+   "score": 2,
+   "why": "Sailing ships are present; water appears calm."
+  },
+  "nga-61366": {
+   "score": 2,
+   "why": "Sailing ships are present, water appears calm."
+  },
+  "met-10258": {
+   "score": 2,
+   "why": "Sailing ships in calm water, exactly as requested."
+  },
+  "cle-74601": {
+   "score": 2,
+   "why": "Clearly depicts sailing ships in calm water."
+  },
+  "nga-140376": {
+   "score": 2,
+   "why": "Clear depiction of sailing ships in calm water."
+  },
+  "cle-163420": {
+   "score": 2,
+   "why": "Depicts sailing ships in calm water."
+  },
+  "cle-132215": {
+   "score": 1,
+   "why": "Ships present but water not calm."
+  },
+  "cle-163456": {
+   "score": 2,
+   "why": "Depicts sailing ships in calm water."
+  },
+  "nga-148300": {
+   "score": 2,
+   "why": "Sailing ships in calm, reflective water. Perfect match."
+  },
+  "met-10507": {
+   "score": 1,
+   "why": "Ships present, but water isn't calm."
+  },
+  "nga-576": {
+   "score": 2,
+   "why": "Clearly depicts sailing ships in calm water."
+  },
+  "cle-163418": {
+   "score": 2,
+   "why": "Clearly depicts sailing ships in calm water."
+  },
+  "nga-148224": {
+   "score": 2,
+   "why": "Clearly depicts sailing ships in calm water."
+  },
+  "nga-52187": {
+   "score": 2,
+   "why": "Sailing ships in calm water depicted clearly."
+  },
+  "nga-52160": {
+   "score": 2,
+   "why": "Clear depiction of sailing ships in calm water."
+  },
+  "nga-194593": {
+   "score": 1,
+   "why": "Ships present, but not sailing."
+  },
+  "met-359581": {
+   "score": 2,
+   "why": "Depicts sailing ships in calm water."
+  },
+  "met-11305": {
+   "score": 2,
+   "why": "Clearly shows sailing ships in calm water."
+  }
+ },
+ "q41": {
+  "met-338169": {
+   "score": 0,
+   "why": "Contains human figures, not relevant."
+  },
+  "nga-107105": {
+   "score": 0,
+   "why": "Contains human figures, not relevant."
+  },
+  "nga-73858": {
+   "score": 0,
+   "why": "Contains multiple human figures, directly contradicting the query."
+  },
+  "met-340582": {
+   "score": 0,
+   "why": "Contains multiple human figures."
+  },
+  "cle-137153": {
+   "score": 0,
+   "why": "Contains multiple human figures."
+  },
+  "cle-128565": {
+   "score": 0,
+   "why": "Contains multiple human figures."
+  },
+  "cle-156682": {
+   "score": 0,
+   "why": "Includes multiple human figures."
+  },
+  "cle-153123": {
+   "score": 0,
+   "why": "Contains a clear human figure."
+  },
+  "cle-111391": {
+   "score": 0,
+   "why": "The image clearly depicts numerous human figures."
+  },
+  "cle-135774": {
+   "score": 0,
+   "why": "Human figure prominently featured."
+  },
+  "nga-54014": {
+   "score": 0,
+   "why": "Contains multiple human figures."
+  },
+  "nga-55653": {
+   "score": 0,
+   "why": "Contains human figures and horses."
+  },
+  "nga-8468": {
+   "score": 0,
+   "why": "Contains human figures, not relevant."
+  },
+  "nga-52461": {
+   "score": 1,
+   "why": "Human figure present; misses the request."
+  },
+  "nga-119019": {
+   "score": 2,
+   "why": "No human figures present, good composition."
+  },
+  "met-437880": {
+   "score": 0,
+   "why": "Contains a human figure."
+  },
+  "nga-225201": {
+   "score": 0,
+   "why": "Contains human figures, not relevant."
+  },
+  "nga-164936": {
+   "score": 2,
+   "why": "No human figures present, abstract composition."
+  },
+  "met-459085": {
+   "score": 0,
+   "why": "Contains human figures, not relevant."
+  },
+  "nga-1148": {
+   "score": 1,
+   "why": "Contains human figure, but relevant theme."
+  },
+  "cle-95212": {
+   "score": 1,
+   "why": "Contains animals, not human figures."
+  },
+  "nga-46615": {
+   "score": 0,
+   "why": "Contains multiple human figures."
+  },
+  "nga-100926": {
+   "score": 1,
+   "why": "Contains figures, not purely composition."
+  },
+  "cle-715339": {
+   "score": 2,
+   "why": "Abstract composition without human figures."
+  },
+  "nga-43686": {
+   "score": 0,
+   "why": "Contains human-like figures, not relevant."
+  },
+  "nga-57652": {
+   "score": 0,
+   "why": "Contains human figures, not relevant."
+  },
+  "nga-195800": {
+   "score": 0,
+   "why": "Contains human figures prominently."
+  },
+  "cle-150115": {
+   "score": 2,
+   "why": "No human figures present, relevant subject."
+  },
+  "nga-52247": {
+   "score": 1,
+   "why": "Contains figures, but mostly landscape."
+  },
+  "nga-7301": {
+   "score": 2,
+   "why": "No human figures present, clear composition."
+  },
+  "cle-159876": {
+   "score": 1,
+   "why": "Includes animals, not strictly human figures."
+  },
+  "nga-7027": {
+   "score": 0,
+   "why": "Includes a human figure, not relevant."
+  },
+  "cle-160083": {
+   "score": 0,
+   "why": "Too abstract, lacks substantial content."
+  }
+ },
+ "q42": {
+  "cle-154149": {
+   "score": 2,
+   "why": "Dominant blue colors throughout the painting."
+  },
+  "cle-106958": {
+   "score": 2,
+   "why": "Predominantly blue ocean scene."
+  },
+  "cle-543334": {
+   "score": 1,
+   "why": "Blue background with limited color contrast."
+  },
+  "met-291507": {
+   "score": 1,
+   "why": "blue background, unclear subject matter"
+  },
+  "cle-161383": {
+   "score": 2,
+   "why": "Dominant blue tones throughout the artwork."
+  },
+  "cle-166636": {
+   "score": 1,
+   "why": "Dominantly blue, but lacks clarity."
+  },
+  "met-291512": {
+   "score": 1,
+   "why": "Blue background, but not a painting."
+  },
+  "nga-144606": {
+   "score": 2,
+   "why": "Dominantly blue, fits the description well."
+  },
+  "met-291514": {
+   "score": 1,
+   "why": "Blue background, not a primarily blue painting."
+  },
+  "met-291573": {
+   "score": 1,
+   "why": "Blue dominates, but lacks painting elements."
+  },
+  "met-291567": {
+   "score": 2,
+   "why": "Dominantly blue, relevant to request."
+  },
+  "met-291515": {
+   "score": 1,
+   "why": "Blue dominates, but not a painting."
+  },
+  "aic-16564": {
+   "score": -1,
+   "why": "no img"
+  },
+  "nga-143795": {
+   "score": 1,
+   "why": "Contains blue, but not mostly."
+  },
+  "cle-135185": {
+   "score": 1,
+   "why": "Predominantly blue, but not mostly."
+  },
+  "cle-127667": {
+   "score": 2,
+   "why": "Dominantly blue with relevant floral design."
+  },
+  "nga-12887": {
+   "score": 2,
+   "why": "Predominantly blue with floral patterns."
+  }
+ },
+ "q43": {
+  "cle-124311": {
+   "score": 2,
+   "why": "Depicts clear mourning and grief scene."
+  },
+  "cle-104491": {
+   "score": 1,
+   "why": "Evokes somberness, lacks explicit mourning theme."
+  },
+  "nga-136199": {
+   "score": 2,
+   "why": "Powerful depiction of mourning and grief."
+  },
+  "nga-214173": {
+   "score": 2,
+   "why": "Powerful depiction of loss and mourning."
+  },
+  "cle-109460": {
+   "score": 2,
+   "why": "Evokes strong feelings of mourning and grief."
+  },
+  "cle-107963": {
+   "score": 2,
+   "why": "Strong depiction of mourning and grief."
+  },
+  "nga-42358": {
+   "score": 2,
+   "why": "Expresses deep emotional mourning clearly."
+  },
+  "nga-93716": {
+   "score": 2,
+   "why": "Depicts mourning and grief clearly."
+  },
+  "met-359757": {
+   "score": 2,
+   "why": "Strong depiction of mourning and grief."
+  },
+  "cle-104481": {
+   "score": 2,
+   "why": "Conveys strong themes of mourning and grief."
+  },
+  "cle-103895": {
+   "score": 1,
+   "why": "Lacks clear visual elements of mourning."
+  },
+  "cle-121452": {
+   "score": 2,
+   "why": "Powerful depiction of grief and loss."
+  },
+  "nga-42430": {
+   "score": 2,
+   "why": "Depicts mourning and grief clearly."
+  },
+  "nga-57651": {
+   "score": 2,
+   "why": "Evokes emotions of mourning and grief."
+  },
+  "nga-46632": {
+   "score": 0,
+   "why": "No mourning or grief depicted"
+  },
+  "met-437748": {
+   "score": 1,
+   "why": "Expresses emotion but lacks clear mourning."
+  },
+  "cle-148301": {
+   "score": 2,
+   "why": "Depicts mourning and grief clearly."
+  },
+  "nga-204": {
+   "score": 2,
+   "why": "Strong depiction of mourning and grief."
+  },
+  "nga-47182": {
+   "score": 0,
+   "why": "No mourning or grief depicted."
+  },
+  "met-438467": {
+   "score": 1,
+   "why": "Missing clear mourning or grief elements."
+  },
+  "cle-166508": {
+   "score": 2,
+   "why": "Clear depiction of mourning and grief."
+  },
+  "cle-97137": {
+   "score": 2,
+   "why": "Captures deep sorrow and reflection."
+  }
+ },
+ "q44": {
+  "nga-162308": {
+   "score": 2,
+   "why": "Depicts a celebratory victory scene."
+  },
+  "cle-160717": {
+   "score": 2,
+   "why": "Celebration theme with clear victory imagery."
+  },
+  "cle-161708": {
+   "score": 2,
+   "why": "Depicts a celebration of triumph."
+  },
+  "nga-45790": {
+   "score": 1,
+   "why": "Celebration theme, lacks explicit triumphal context."
+  },
+  "met-338889": {
+   "score": 1,
+   "why": "Depicts celebration but lacks clear triumph."
+  },
+  "met-437534": {
+   "score": 2,
+   "why": "Depicts a clear celebratory triumph."
+  },
+  "nga-133388": {
+   "score": 2,
+   "why": "Depicts celebration and victory themes clearly."
+  },
+  "nga-45783": {
+   "score": 2,
+   "why": "Depicts a celebratory and victorious scene."
+  },
+  "nga-126568": {
+   "score": 2,
+   "why": "Epic depiction of victory and celebration."
+  },
+  "cle-159420": {
+   "score": 1,
+   "why": "Ambiguous symbolism, lacks direct celebration imagery."
+  },
+  "nga-54071": {
+   "score": 2,
+   "why": "Depicts a celebratory gathering effectively."
+  },
+  "met-341959": {
+   "score": 2,
+   "why": "Depicts a celebratory victory scene."
+  },
+  "nga-45640": {
+   "score": 2,
+   "why": "Celebrates victory with a significant scene"
+  },
+  "cle-143769": {
+   "score": 2,
+   "why": "Depicts a celebratory scene effectively."
+  },
+  "nga-1612": {
+   "score": 2,
+   "why": "Depicts a celebratory scene with figures."
+  },
+  "met-437260": {
+   "score": 1,
+   "why": "Celebration context, lacks clear triumphal theme."
+  },
+  "met-436183": {
+   "score": 2,
+   "why": "Depicts a celebration of victory clearly."
+  },
+  "cle-150719": {
+   "score": 2,
+   "why": "Dynamic celebration, strong visual elements present."
+  },
+  "nga-151049": {
+   "score": 2,
+   "why": "Depicts celebration and victory themes clearly."
+  }
+ },
+ "q45": {
+  "nga-71369": {
+   "score": 2,
+   "why": "Clearly depicts a moonlit night scene."
+  },
+  "nga-10454": {
+   "score": 2,
+   "why": "Clearly depicts a moonlit night scene."
+  },
+  "met-437979": {
+   "score": 2,
+   "why": "Moonlit night scene with ship and waves."
+  },
+  "met-11305": {
+   "score": 2,
+   "why": "Clear moonlit night scene with ships."
+  },
+  "cle-152732": {
+   "score": 2,
+   "why": "clear moonlit night scene portrayed well"
+  },
+  "cle-147435": {
+   "score": 2,
+   "why": "Moonlit scene with figures and horse."
+  },
+  "nga-177627": {
+   "score": 2,
+   "why": "Clearly a night scene lit by moonlight."
+  },
+  "cle-168893": {
+   "score": 2,
+   "why": "Clear moonlit night scene with water."
+  },
+  "met-10183": {
+   "score": 2,
+   "why": "Captures a night scene with moonlight."
+  },
+  "cle-86510": {
+   "score": 2,
+   "why": "Captures moonlit night scene effectively."
+  },
+  "cle-123327": {
+   "score": 2,
+   "why": "Moonlit night scene depicted clearly."
+  },
+  "cle-120393": {
+   "score": 2,
+   "why": "Moonlit scene with trees and shadows."
+  },
+  "met-10191": {
+   "score": 2,
+   "why": "Clearly depicts a night scene with moonlight."
+  },
+  "cle-107971": {
+   "score": 2,
+   "why": "Clear moonlit night scene with dramatic lighting."
+  },
+  "cle-120077": {
+   "score": 2,
+   "why": "Moonlit scene with clear night elements."
+  },
+  "cle-125487": {
+   "score": 2,
+   "why": "Moonlit night scene depicted effectively."
+  },
+  "cle-144967": {
+   "score": 2,
+   "why": "Clear moonlit night scene depicted."
+  },
+  "nga-214332": {
+   "score": 2,
+   "why": "Moonlit night scene with clear relevance."
+  },
+  "nga-50585": {
+   "score": 2,
+   "why": "Clearly depicts a night scene with moonlight."
+  },
+  "nga-50528": {
+   "score": 2,
+   "why": "Clearly depicts a moonlit night scene."
+  }
+ },
+ "q46": {
+  "nga-57613": {
+   "score": 2,
+   "why": "Many small figures in crowded composition."
+  },
+  "nga-56580": {
+   "score": 2,
+   "why": "Many small figures in crowded composition."
+  },
+  "met-341804": {
+   "score": 2,
+   "why": "Many small figures are crowded together."
+  },
+  "nga-56578": {
+   "score": 1,
+   "why": "Contains some figures, lacks crowdedness."
+  },
+  "nga-65774": {
+   "score": 1,
+   "why": "Small figures present but not crowded."
+  },
+  "nga-125734": {
+   "score": 2,
+   "why": "Many small figures in crowded composition."
+  },
+  "cle-137153": {
+   "score": 2,
+   "why": "Many small figures in crowded scene."
+  },
+  "nga-54014": {
+   "score": 2,
+   "why": "Multiple small figures in a crowded setting."
+  },
+  "nga-73510": {
+   "score": 2,
+   "why": "Dynamic scene with multiple small figures."
+  },
+  "met-334568": {
+   "score": 2,
+   "why": "Many small figures in a crowded composition."
+  },
+  "nga-56579": {
+   "score": 2,
+   "why": "Many small figures in crowded scene."
+  },
+  "nga-55653": {
+   "score": 2,
+   "why": "Many small figures in crowded composition."
+  },
+  "aic-561": {
+   "score": -1,
+   "why": "no img"
+  },
+  "met-437260": {
+   "score": 2,
+   "why": "Many small figures in a crowded scene."
+  },
+  "nga-321": {
+   "score": 2,
+   "why": "Many small figures in a crowded scene."
+  },
+  "nga-46615": {
+   "score": 2,
+   "why": "Many small figures present in composition."
+  },
+  "nga-129283": {
+   "score": 2,
+   "why": "Many small figures in crowded composition."
+  },
+  "cle-87286": {
+   "score": 2,
+   "why": "Many small figures are clearly visible."
+  },
+  "nga-2886": {
+   "score": 1,
+   "why": "Some small figures, but not crowded."
+  },
+  "nga-50256": {
+   "score": 1,
+   "why": "Contains figures but not crowded composition."
+  },
+  "nga-34067": {
+   "score": 2,
+   "why": "Many small figures in crowded composition."
+  },
+  "cle-144302": {
+   "score": 2,
+   "why": "Many small figures present in composition."
+  },
+  "nga-76158": {
+   "score": 2,
+   "why": "Many small figures in crowded arrangement."
+  },
+  "met-435745": {
+   "score": 2,
+   "why": "Many small figures in crowded composition."
+  },
+  "nga-143719": {
+   "score": 2,
+   "why": "Many small figures in a crowded composition."
+  }
+ },
+ "q47": {
+  "met-10944": {
+   "score": 2,
+   "why": "Depicts an empty landscape effectively."
+  },
+  "cle-156677": {
+   "score": 2,
+   "why": "Empty landscape with clear sky features."
+  },
+  "met-11231": {
+   "score": 2,
+   "why": "Empty landscape with no people depicted."
+  },
+  "cle-144462": {
+   "score": 2,
+   "why": "No people, clearly an empty landscape."
+  },
+  "met-341075": {
+   "score": 2,
+   "why": "Empty landscape, no people present."
+  },
+  "met-10180": {
+   "score": 1,
+   "why": "Includes elements but not an empty landscape."
+  },
+  "cle-136362": {
+   "score": 1,
+   "why": "Landscape present, but not entirely empty."
+  },
+  "met-816791": {
+   "score": 1,
+   "why": "Includes minimal human presence; landscape focus is there."
+  },
+  "nga-52247": {
+   "score": 1,
+   "why": "Contains people and animals, not empty."
+  },
+  "met-335621": {
+   "score": 1,
+   "why": "Has landscape, but includes a figure."
+  },
+  "nga-50319": {
+   "score": 1,
+   "why": "Landscape present, but not empty."
+  },
+  "met-11515": {
+   "score": 2,
+   "why": "clearly depicts an empty landscape"
+  },
+  "cle-112831": {
+   "score": 2,
+   "why": "Clear empty landscape, no people present."
+  },
+  "cle-95284": {
+   "score": 1,
+   "why": "Person present, not completely empty."
+  },
+  "met-437323": {
+   "score": 0,
+   "why": "Contains people, not an empty landscape."
+  },
+  "nga-195138": {
+   "score": 2,
+   "why": "Empty landscape, no people present."
+  },
+  "met-437519": {
+   "score": 1,
+   "why": "Contains minimal presence of people."
+  },
+  "met-437079": {
+   "score": 1,
+   "why": "Has people, but features an empty landscape."
+  },
+  "nga-35094": {
+   "score": 1,
+   "why": "Contains a figure, not entirely empty."
+  },
+  "cle-98043": {
+   "score": 1,
+   "why": "Landscape, but not completely empty."
+  },
+  "cle-139816": {
+   "score": 1,
+   "why": "People are present in the landscape."
+  },
+  "met-437657": {
+   "score": 2,
+   "why": "depicts an empty landscape clearly"
+  },
+  "met-437102": {
+   "score": 1,
+   "why": "Has landscape but not entirely empty."
+  },
+  "nga-66765": {
+   "score": 2,
+   "why": "Describes an empty landscape effectively."
+  },
+  "cle-149088": {
+   "score": 2,
+   "why": "Clear empty landscape, no people present."
+  }
+ },
+ "q48": {
+  "nga-2872": {
+   "score": 2,
+   "why": "Depicts mythological lovers accurately."
+  },
+  "nga-115380": {
+   "score": 2,
+   "why": "Depicts Cupid and Psyche romantically."
+  },
+  "met-437268": {
+   "score": 2,
+   "why": "Depicts mythological lovers clearly."
+  },
+  "cle-136807": {
+   "score": 2,
+   "why": "Depicts Cupid, relevant theme."
+  },
+  "nga-143866": {
+   "score": 2,
+   "why": "Clearly depicts mythological lovers."
+  },
+  "cle-107243": {
+   "score": 2,
+   "why": "Depicts Cupid and Psyche intimately."
+  },
+  "cle-138464": {
+   "score": 2,
+   "why": "Depicts Cupid and Psyche clearly."
+  },
+  "nga-71253": {
+   "score": 1,
+   "why": "Not clearly representing both figures."
+  },
+  "met-340146": {
+   "score": 1,
+   "why": "Not directly depicting Cupid and Psyche."
+  },
+  "nga-224468": {
+   "score": 2,
+   "why": "Depicts Cupid and Psyche's mythological scene."
+  },
+  "nga-5960": {
+   "score": 2,
+   "why": "Clearly depicts Cupid and Psyche."
+  },
+  "cle-163041": {
+   "score": 2,
+   "why": "Depicts Cupid and Psyche clearly."
+  },
+  "nga-177432": {
+   "score": 2,
+   "why": "Depicts mythological lovers accurately."
+  },
+  "cle-153800": {
+   "score": 2,
+   "why": "Depicts Cupid and Psyche intimately."
+  },
+  "cle-162396": {
+   "score": 2,
+   "why": "Depicts Cupid and Psyche intimately together."
+  },
+  "met-16744": {
+   "score": 2,
+   "why": "Depicts Cupid and Psyche, mythological lovers."
+  }
+ },
+ "q49": {
+  "met-435663": {
+   "score": 1,
+   "why": "Missing skull, but still a vanitas theme."
+  },
+  "nga-93323": {
+   "score": 2,
+   "why": "Contains skull and floral symbolism effectively."
+  },
+  "met-436485": {
+   "score": 2,
+   "why": "Clear vanitas theme with a skull present."
+  },
+  "met-436637": {
+   "score": 1,
+   "why": "Lacks a skull, misses key element."
+  },
+  "met-359336": {
+   "score": 2,
+   "why": "Skull and flowers fit vanitas theme."
+  },
+  "nga-128671": {
+   "score": 2,
+   "why": "Clearly depicts a skull, true to vanitas themes."
+  },
+  "met-435904": {
+   "score": 2,
+   "why": "Depicts vanitas theme with skull prominently."
+  },
+  "cle-151555": {
+   "score": 1,
+   "why": "Lacks a skull, misses key element."
+  },
+  "nga-164870": {
+   "score": 2,
+   "why": "Depicts skull in still life context."
+  },
+  "met-435918": {
+   "score": 1,
+   "why": "Includes symbolic elements but lacks a skull."
+  },
+  "cle-150140": {
+   "score": 0,
+   "why": "Lacks a skull; not vanitas."
+  },
+  "met-436345": {
+   "score": 0,
+   "why": "No skull, not a vanitas theme."
+  },
+  "cle-138359": {
+   "score": 1,
+   "why": "No skull; misses key theme."
+  },
+  "cle-141641": {
+   "score": 2,
+   "why": "Classic vanitas elements clearly displayed."
+  },
+  "met-436291": {
+   "score": 0,
+   "why": "No skull present, irrelevant subject matter."
+  },
+  "nga-79349": {
+   "score": 2,
+   "why": "Directly depicts vanitas theme with skull."
+  },
+  "nga-119019": {
+   "score": 1,
+   "why": "Lacks clear skull representation."
+  },
+  "cle-96103": {
+   "score": 0,
+   "why": "No skull or vanitas elements present."
+  },
+  "cle-135080": {
+   "score": 0,
+   "why": "Not related to vanitas or still life."
+  },
+  "cle-97228": {
+   "score": 0,
+   "why": "Not related to vanitas themes."
+  },
+  "cle-97215": {
+   "score": 0,
+   "why": "Not related to vanitas or still life."
+  },
+  "cle-145100": {
+   "score": 0,
+   "why": "No skull or vanitas elements present."
+  },
+  "cle-96602": {
+   "score": 0,
+   "why": "No skull; not a vanitas still life."
+  },
+  "cle-96612": {
+   "score": 0,
+   "why": "No skull or vanitas theme present."
+  }
+ },
+ "q50": {
+  "nga-61228": {
+   "score": 2,
+   "why": "depicts architectural ruins effectively"
+  },
+  "nga-37065": {
+   "score": 2,
+   "why": "Depicts architectural ruins effectively."
+  },
+  "met-340541": {
+   "score": 2,
+   "why": "Depicts architectural ruins clearly."
+  },
+  "cle-160555": {
+   "score": 2,
+   "why": "Depicts architectural ruins effectively."
+  },
+  "cle-143848": {
+   "score": 2,
+   "why": "Depicts architectural ruins clearly."
+  },
+  "nga-91345": {
+   "score": 2,
+   "why": "Shows clear architectural ruins in etching form."
+  },
+  "cle-107270": {
+   "score": 2,
+   "why": "Clear depiction of architectural ruins."
+  },
+  "nga-61229": {
+   "score": 2,
+   "why": "Clearly depicts architectural ruins."
+  },
+  "cle-162009": {
+   "score": 2,
+   "why": "Depicts architectural ruins clearly."
+  },
+  "cle-99496": {
+   "score": 2,
+   "why": "Depicts architectural ruins clearly."
+  },
+  "nga-61144": {
+   "score": 2,
+   "why": "Clearly depicts architectural ruins."
+  },
+  "nga-91339": {
+   "score": 2,
+   "why": "Depicts architectural ruins effectively."
+  },
+  "nga-108658": {
+   "score": 2,
+   "why": "Features clear architectural ruins and etching style."
+  },
+  "nga-61147": {
+   "score": 2,
+   "why": "Depicts architectural ruins in detail."
+  },
+  "nga-208524": {
+   "score": 1,
+   "why": "Architectural elements present, lacks clear ruins."
+  },
+  "nga-61154": {
+   "score": 2,
+   "why": "Depicts architectural ruins effectively."
+  },
+  "cle-132107": {
+   "score": 2,
+   "why": "Clearly depicts architectural ruins in etching style."
+  },
+  "cle-455547": {
+   "score": 2,
+   "why": "Depicts architectural ruins clearly."
+  },
+  "nga-32877": {
+   "score": 2,
+   "why": "Clear depiction of architectural ruins."
+  },
+  "nga-128051": {
+   "score": 2,
+   "why": "Depicts architectural ruins clearly and effectively."
+  },
+  "cle-102522": {
+   "score": 2,
+   "why": "Depicts architectural ruins effectively."
+  },
+  "cle-104256": {
+   "score": 2,
+   "why": "Clearly depicts architectural ruins in etching."
+  },
+  "cle-109417": {
+   "score": 2,
+   "why": "Clearly depicts architectural ruins in detail."
+  },
+  "nga-61227": {
+   "score": 2,
+   "why": "Depicts architectural ruins clearly."
+  },
+  "nga-119881": {
+   "score": 2,
+   "why": "Depicts architectural ruins effectively."
+  },
+  "cle-518661": {
+   "score": 2,
+   "why": "Clearly depicts architectural ruins."
+  }
+ }
+}
