@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
 type Step = { step: string; detail: string; ms: number };
@@ -62,6 +62,13 @@ export default function BidRoom() {
   const [live, setLive] = useState(false);
   const [freeLots, setFreeLots] = useState<Lot[] | null>(null);
   const [freeNote, setFreeNote] = useState<{ text: string; err?: boolean } | null>(null);
+  const tapeEnd = useRef<HTMLDivElement>(null);
+
+  // the wire grows downward — keep the newest line in view so the payoff
+  // is never below the fold of the console's internal scroll
+  useEffect(() => {
+    tapeEnd.current?.scrollIntoView({ block: "nearest" });
+  }, [steps, res, freeNote, freeLots]);
 
   const bid = async () => {
     setBusy("bid");
@@ -241,6 +248,7 @@ export default function BidRoom() {
             {freeLots.map((l) => <LotCard l={l} key={l.id} />)}
           </motion.div>
         )}
+        <div ref={tapeEnd} />
       </div>
     </div>
   );
