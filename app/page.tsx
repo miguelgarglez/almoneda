@@ -3,14 +3,12 @@ import { salesCount, recentSales } from "@/lib/ledger";
 import BidRoom from "@/components/bid-room";
 import LiveStats from "@/components/live-stats";
 import FloorFeed from "@/components/floor-feed";
+import LotInspector from "@/components/lot-inspector";
+import LastLot from "@/components/last-lot";
+import SettleStrip from "@/components/settle-strip";
 import { SurfaceToggle, SurfaceClose, SheetA11y } from "@/components/surface-sheet";
 
 export const revalidate = 60;
-
-const TICKER = [
-  "public domain", "x402", "agents only", "per call", "no accounts", "no api keys",
-  "provenance in the json", "usdc · xlm", "the met", "cleveland", "art institute of chicago", "national gallery",
-];
 
 async function floorData() {
   const [size, total, recent] = await Promise.all([
@@ -95,6 +93,11 @@ export default async function Page() {
       <section className="deck">
         <div className="floorgrid">
           <div className="console-col">
+            {/* phones get the newest lot before the console — the first
+                viewport already shows a real artwork and the bid action */}
+            <div className="hero-lot">
+              <LastLot sale={recentWithThumbs[0] ?? null} listen />
+            </div>
             <BidRoom />
             <p className="fineprint" style={{ marginTop: 14 }}>
               A lot is one JSON object: the image, its catalogue title, artist, medium — and a provenance block
@@ -106,13 +109,7 @@ export default async function Page() {
         </div>
       </section>
 
-      <div className="ticker" aria-hidden="true">
-        <div className="rail">
-          {[...TICKER, ...TICKER].map((t, i) => (
-            <span key={i}>{t} —</span>
-          ))}
-        </div>
-      </div>
+      <SettleStrip initial={recentWithThumbs as any} />
 
       <div className="sheet">
         <SurfaceClose />
@@ -185,6 +182,7 @@ export default async function Page() {
           </div>
         </div>
       </footer>
+      <LotInspector />
     </main>
   );
 }

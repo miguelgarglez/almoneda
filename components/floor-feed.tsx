@@ -2,6 +2,8 @@
 
 import { Fragment, useEffect, useRef, useState } from "react";
 import { AnimatePresence, MotionConfig, motion } from "motion/react";
+import { inspect } from "@/components/lot-inspector";
+import LastLot from "@/components/last-lot";
 import "number-flow";
 
 declare global {
@@ -138,13 +140,33 @@ function SaleDetail({ s }: { s: Sale }) {
             {lots.length
               ? lots.map((l, i) => (
                   <Fragment key={i}>
+                    <button
+                      type="button"
+                      className="lotlink"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        inspect({
+                          title: l.title,
+                          artist: i === 0 ? s.lot_artist : null,
+                          museum: i === 0 ? s.lot_museum : null,
+                          img: i === 0 ? s.lot_img : null,
+                          evidence_url: l.object_url,
+                          hammer: railAmt(s),
+                          tx: s.tx,
+                          explorer_url: s.tx ? explorer(s) : null,
+                        });
+                      }}
+                    >
+                      {l.title}
+                    </button>
                     {l.object_url ? (
-                      <a href={l.object_url} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
-                        {l.title} ↗
-                      </a>
-                    ) : (
-                      l.title
-                    )}
+                      <>
+                        {" "}
+                        <a href={l.object_url} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+                          ↗
+                        </a>
+                      </>
+                    ) : null}
                     {i < lots.length - 1 ? <br /> : null}
                   </Fragment>
                 ))
@@ -180,6 +202,14 @@ function SaleDetail({ s }: { s: Sale }) {
           <span className="lab">hammer fell</span>
           <span className="mono">{new Date(s.created_at).toISOString().slice(0, 19).replace("T", " ")}Z</span>
         </div>
+        {s.tx && (
+          <div className="cell">
+            <span className="lab">receipt link</span>
+            <span className="mono">
+              {`${location.origin}/?sale=${s.tx.slice(0, 12)}…`}<Copy text={`${location.origin}/?sale=${s.tx}`} />
+            </span>
+          </div>
+        )}
       </div>
     </>
   );
@@ -254,7 +284,32 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
       document.getElementById("floor")?.scrollIntoView({ behavior: smooth(), block: "nearest" });
     };
     window.addEventListener("almoneda:open-latest", onOpenLatest);
-    return () => window.removeEventListener("almoneda:open-latest", onOpenLatest);
+    // the settlement strip names a specific sale — open its row and bring
+    // the floor into view so the promise "this receipt" resolves visibly
+    const onOpenSale = (e: Event) => {
+      const tx = (e as CustomEvent).detail?.tx;
+      const row = sales.find((s) => s.tx === tx);
+      if (!row) return;
+      setOpen(row.id);
+      setFlashTx(tx);
+      document.getElementById("floor")?.scrollIntoView({ behavior: smooth(), block: "nearest" });
+    };
+    window.addEventListener("almoneda:open-sale", onOpenSale);
+    return () => {
+      window.removeEventListener("almoneda:open-latest", onOpenLatest);
+      window.removeEventListener("almoneda:open-sale", onOpenSale);
+    };
+  }, [sales]);
+
+  useEffect(() => {
+    // stable receipt links: /?sale=<tx> opens that row once it is fetched
+    const tx = new URLSearchParams(location.search).get("sale");
+    if (!tx) return;
+    const row = sales.find((s) => s.tx === tx);
+    if (row) {
+      setOpen(row.id);
+      document.getElementById("floor")?.scrollIntoView({ behavior: "auto", block: "start" });
+    }
   }, [sales]);
 
   const newest = sales[0];
@@ -272,28 +327,7 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
         Every row is a settled on-chain payment — click one to open the catalogue entry. Testnet money, real protocol.
       </p>
 
-      {newest?.lot_img && (
-        <div className="lastlot">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={newest.lot_img} alt={newest.lot_title ?? ""} loading="lazy" />
-          <div className="ll-meta">
-            <span className="ll-tag">last lot through the door</span>
-            <span className="ll-t">{newest.lot_title ?? "Untitled"}</span>
-            {newest.lot_artist && <span className="ll-a">{newest.lot_artist}</span>}
-          </div>
-          <div className="ll-sold">
-            sold <Ago iso={newest.created_at} /> · <b>{railAmt(newest)}</b>
-            {newest.tx ? (
-              <>
-                {" "}·{" "}
-                <a href={explorer(newest)} target="_blank" rel="noreferrer">
-                  {short(newest.tx)} ↗
-                </a>
-              </>
-            ) : null}
-          </div>
-        </div>
-      )}
+      <LastLot sale={newest ?? null} />
 
       {sales.length === 0 ? (
         <div className="empty">
@@ -345,6 +379,20 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
                             alt=""
                             loading="lazy"
                             onError={() => setBrokenThumbs((b) => new Set(b).add(s.thumb!))}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              inspect({
+                                title: s.lot_title ?? s.query_hint ?? "Untitled",
+                                artist: s.lot_artist,
+                                museum: s.lot_museum,
+                                img: s.lot_img ?? s.thumb,
+                                evidence_url: s.lot_url,
+                                hammer: railAmt(s),
+                                tx: s.tx,
+                                explorer_url: s.tx ? explorer(s) : null,
+                              });
+                            }}
+                            style={{ cursor: "zoom-in" }}
                           />
                         ) : (
                           <span className="lthumb" style={{ display: "inline-block", background: "var(--paper-2)" }} />

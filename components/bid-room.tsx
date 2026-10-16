@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, MotionConfig, motion } from "motion/react";
 import { WebHaptics } from "web-haptics";
+import { inspect } from "@/components/lot-inspector";
 
 type Step = { step: string; detail: string; ms: number };
 type Lot = {
@@ -113,6 +114,27 @@ function GavelStrike({ onDone }: { onDone: () => void }) {
   );
 }
 
+function CopyBtn({ text, label }: { text: string; label: string }) {
+  const [state, setState] = useState<"idle" | "ok" | "err">("idle");
+  return (
+    <button
+      type="button"
+      className="copybtn"
+      onClick={async () => {
+        try {
+          await navigator.clipboard.writeText(text);
+          setState("ok");
+        } catch {
+          setState("err");
+        }
+        setTimeout(() => setState("idle"), 1200);
+      }}
+    >
+      {state === "ok" ? "copied" : state === "err" ? "failed" : label}
+    </button>
+  );
+}
+
 const tapeLine = (s: Step, i: number) => {
   const cls = i === 0 ? "" : i === 1 || i === 2 ? "pay" : "ok";
   return (
@@ -125,13 +147,14 @@ const tapeLine = (s: Step, i: number) => {
   );
 };
 
-const LotCard = ({ l, sold, slam }: { l: Lot; sold?: boolean; slam?: boolean }) => {
+const LotCard = ({ l, sold, slam, n }: { l: Lot; sold?: boolean; slam?: boolean; n?: number }) => {
   const [failed, setFailed] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [gavelGone, setGavelGone] = useState(false);
   const link = l.provenance?.evidence_url;
   return (
     <div className="lot" key={l.id}>
+      {n != null && <span className="lotno">lot {String(n).padStart(2, "0")}</span>}
       {sold && <div className={`stamp-sold${slam ? " slam" : ""}`}>SOLD</div>}
       {slam && !gavelGone && <GavelStrike onDone={() => setGavelGone(true)} />}
       {failed ? (
@@ -145,15 +168,34 @@ const LotCard = ({ l, sold, slam }: { l: Lot; sold?: boolean; slam?: boolean }) 
           )}
         </div>
       ) : (
-        /* eslint-disable-next-line @next/next/no-img-element */
-        <img
-          src={l.image.thumb}
-          alt={l.title}
-          loading="lazy"
-          className={loaded ? "in" : ""}
-          onLoad={() => setLoaded(true)}
-          onError={() => setFailed(true)}
-        />
+        <button
+          type="button"
+          className="lot-open"
+          aria-label={`inspect ${l.title}`}
+          onClick={() =>
+            inspect({
+              title: l.title,
+              artist: l.artist,
+              img: l.image.display || l.image.thumb,
+              accession: l.provenance?.accession,
+              rights: l.provenance?.rights,
+              verified: l.provenance?.verified,
+              evidence_url: link,
+              museum: l.provenance?.museum,
+            })
+          }
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={l.image.thumb}
+            alt={l.title}
+            loading="lazy"
+            className={loaded ? "in" : ""}
+            onLoad={() => setLoaded(true)}
+            onError={() => setFailed(true)}
+          />
+          <span className="lot-zoom" aria-hidden="true">inspect</span>
+        </button>
       )}
       <div className="d">
         <div className="t">{l.title}</div>
@@ -420,8 +462,22 @@ export default function BidRoom() {
                 <a href={res.explorer_url} target="_blank" rel="noreferrer">
                   {res.settlement.transaction.slice(0, 14)}… ↗
                 </a>
+                <CopyBtn label="copy tx" text={res.settlement.transaction} />
                 {res.lots?.[0] ? <> · won “{res.lots[0].title}”{res.lots.length > 1 ? ` +${res.lots.length - 1}` : ""}</> : null}
-                {" "}· {rowLanded ? "the new row is open on the floor →" : "landing on the floor…"}
+                {" "}·{" "}
+                {rowLanded ? (
+                  <button
+                    type="button"
+                    className="floorlink"
+                    onClick={() =>
+                      window.dispatchEvent(new CustomEvent("almoneda:open-sale", { detail: { tx: res.settlement!.transaction } }))
+                    }
+                  >
+                    the new row is open on the floor →
+                  </button>
+                ) : (
+                  "landing on the floor…"
+                )}
               </span>
             </motion.div>
           )}
@@ -477,14 +533,24 @@ export default function BidRoom() {
         </div>
 
         {res?.lots && done && (
-          <motion.div className={`results${slam ? " shook" : ""}`} key={`r${slam}`} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
-            {res.lots.map((l, i) => <LotCard l={l} sold={i === 0} slam={i === 0 && slam > 0} key={l.id} />)}
-          </motion.div>
+          <>
+            <div className="res-bar">
+              <span className="res-tag">{res.lots.length} {res.lots.length === 1 ? "lot" : "lots"} delivered</span>
+              <CopyBtn label="copy the call" text={`curl -sS "${location.origin}/v1/search?q=${encodeURIComponent(q.trim())}" -i\n# → HTTP 402, then sign and retry with PAYMENT-SIGNATURE`} />
+              <CopyBtn
+                label="copy what it got"
+                text={JSON.stringify({ lots: res.lots, settlement: res.settlement ?? null }, null, 2)}
+              />
+            </div>
+            <motion.div className={`results${slam ? " shook" : ""}`} key={`r${slam}`} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
+              {res.lots.map((l, i) => <LotCard l={l} sold={i === 0} slam={i === 0 && slam > 0} n={i + 1} key={l.id} />)}
+            </motion.div>
+          </>
         )}
 
         {freeLots && freeLots.length > 0 && (
           <motion.div className="results" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
-            {freeLots.map((l) => <LotCard l={l} key={l.id} />)}
+            {freeLots.map((l, i) => <LotCard l={l} n={i + 1} key={l.id} />)}
           </motion.div>
         )}
         <div ref={tapeEnd} />

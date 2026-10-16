@@ -79,6 +79,11 @@ export async function metaSearch(q: string, k = 40): Promise<MetaHit[]> {
   }
 }
 
+// Some source rows carry the string "[]" where an artist field was an empty
+// list — render it as unattributed instead of leaking it into receipts.
+export const cleanArtist = (a: string | null | undefined): string =>
+  !a || /^\[[\s"]*\]$/.test(a.trim()) ? "" : a;
+
 // Full rows for ids the FTS leg surfaced (they carry no distance).
 export async function artworksByIds(ids: string[]): Promise<Map<string, CorpusRow>> {
   const out = new Map<string, CorpusRow>();
@@ -88,7 +93,7 @@ export async function artworksByIds(ids: string[]): Promise<Map<string, CorpusRo
       `${env.supabaseUrl}/rest/v1/artworks?select=id,source,title,artist,date,medium,department,image_url,thumb_url,object_url,img_w,img_h&id=in.(${ids.map((i) => `"${i}"`).join(",")})`,
       { headers: { apikey: env.supabaseAnon, Authorization: `Bearer ${env.supabaseAnon}`, "Accept-Profile": "mellizo" } }
     );
-    if (res.ok) for (const r of await res.json()) out.set(r.id, r);
+    if (res.ok) for (const r of await res.json()) out.set(r.id, { ...r, artist: cleanArtist(r.artist) });
   } catch {}
   return out;
 }
@@ -105,7 +110,9 @@ export async function matchArtworks(embedding: number[], matchCount = 8): Promis
     body: JSON.stringify({ query_embedding: `[${embedding.join(",")}]`, match_count: matchCount }),
   });
   if (!res.ok) throw new Error(`corpus: ${res.status} ${(await res.text()).slice(0, 200)}`);
-  return res.json();
+  const rows: CorpusRow[] = await res.json();
+  for (const r of rows) r.artist = cleanArtist(r.artist);
+  return rows;
 }
 
 // CLIP distance alone is loose on long-tail queries — "storm at sea" can
@@ -163,7 +170,9 @@ export async function currentLot(windowMs = 120_000): Promise<CorpusRow | null> 
   );
   if (!res.ok) return null;
   const rows = await res.json();
-  return rows?.[0] ?? null;
+  const row = rows?.[0] ?? null;
+  if (row) row.artist = cleanArtist(row.artist);
+  return row;
 }
 
 // Lot lookup for ledger rows: thumb, title, and the museum's own record so
@@ -191,7 +200,7 @@ export async function saleThumbs(ids: string[]): Promise<Map<string, SaleLot>> {
           thumb: r.thumb_url || r.image_url,
           image: r.image_url || r.thumb_url,
           title: r.title,
-          artist: r.artist ?? "",
+          artist: cleanArtist(r.artist),
           museum: MUSEUMS[r.source]?.name ?? r.source,
           object_url: r.object_url ?? null,
         });
