@@ -12,6 +12,9 @@ type Lot = {
   lot_title?: string | null;
   lot_artist?: string | null;
   lot_museum?: string | null;
+  lot_rights?: string | null;
+  lot_date?: string | null;
+  lot_medium?: string | null;
   lot_img?: string | null;
   lot_url?: string | null;
 };
@@ -68,6 +71,9 @@ export default function LastLot({ sale, listen }: { sale: Lot | null; listen?: b
           title: s.lot_title ?? "Untitled",
           artist: s.lot_artist,
           museum: s.lot_museum,
+          rights: s.lot_rights,
+          date: s.lot_date,
+          medium: s.lot_medium,
           img: s.lot_img,
           evidence_url: s.lot_url,
           hammer: railAmt(s),

@@ -183,6 +183,10 @@ export type SaleLot = {
   title: string;
   artist: string;
   museum: string;
+  rights: string;
+  rights_url: string;
+  date: string | null;
+  medium: string | null;
   object_url: string | null;
 };
 
@@ -191,7 +195,7 @@ export async function saleThumbs(ids: string[]): Promise<Map<string, SaleLot>> {
   if (!ids.length) return out;
   try {
     const res = await fetch(
-      `${env.supabaseUrl}/rest/v1/artworks?select=id,title,artist,source,thumb_url,image_url,object_url&id=in.(${ids.map((i) => `"${i}"`).join(",")})`,
+      `${env.supabaseUrl}/rest/v1/artworks?select=id,title,artist,source,thumb_url,image_url,object_url,date,medium&id=in.(${ids.map((i) => `"${i}"`).join(",")})`,
       { headers: { apikey: env.supabaseAnon, Authorization: `Bearer ${env.supabaseAnon}`, "Accept-Profile": "mellizo" } }
     );
     if (res.ok)
@@ -202,6 +206,10 @@ export async function saleThumbs(ids: string[]): Promise<Map<string, SaleLot>> {
           title: r.title,
           artist: cleanArtist(r.artist),
           museum: MUSEUMS[r.source]?.name ?? r.source,
+          rights: MUSEUMS[r.source]?.rights ?? "",
+          rights_url: MUSEUMS[r.source]?.rights_url ?? "",
+          date: r.date ?? null,
+          medium: r.medium ?? null,
           object_url: r.object_url ?? null,
         });
   } catch {}

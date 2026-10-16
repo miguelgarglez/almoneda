@@ -10,6 +10,8 @@ export type InspectLot = {
   img?: string | null;
   accession?: string | null;
   rights?: string | null;
+  date?: string | null;
+  medium?: string | null;
   verified?: boolean;
   evidence_url?: string | null;
   hammer?: string | null;
@@ -103,8 +105,12 @@ export default function LotInspector() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="it-img">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={lot.img ?? ""} alt={lot.title} />
+                {lot.img ? (
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img src={lot.img} alt={lot.title} />
+                ) : (
+                  <div className="it-miss">the museum holds this image — the catalogue record has it</div>
+                )}
               </div>
               <div className="it-body">
                 <span className="it-tag">catalogue entry</span>
@@ -112,6 +118,18 @@ export default function LotInspector() {
                 {lot.artist && <div className="it-a">{lot.artist}</div>}
                 {lot.museum && <div className="it-m">{lot.museum}</div>}
                 <dl className="it-prov">
+                  {lot.date && (
+                    <>
+                      <dt>date</dt>
+                      <dd>{lot.date}</dd>
+                    </>
+                  )}
+                  {lot.medium && (
+                    <>
+                      <dt>medium</dt>
+                      <dd>{lot.medium}</dd>
+                    </>
+                  )}
                   {lot.accession && (
                     <>
                       <dt>accession</dt>

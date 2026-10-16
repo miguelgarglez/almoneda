@@ -45,10 +45,13 @@ export default async function Page() {
     lot_img: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.image ?? null) : null,
     lot_artist: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.artist ?? null) : null,
     lot_museum: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.museum ?? null) : null,
+    lot_rights: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.rights ?? null) : null,
+    lot_date: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.date ?? null) : null,
+    lot_medium: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.medium ?? null) : null,
     lots: (s.artwork_ids ?? [])
       .map((id) => thumbs.get(id))
       .filter(Boolean)
-      .map((l) => ({ title: l!.title, object_url: l!.object_url })),
+      .map((l) => ({ title: l!.title, artist: l!.artist, museum: l!.museum, rights: l!.rights, img: l!.image, object_url: l!.object_url })),
   }));
   const last = recent[0];
 

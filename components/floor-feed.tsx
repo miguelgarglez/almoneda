@@ -16,7 +16,7 @@ declare global {
   }
 }
 
-type SaleLotRef = { title: string; object_url: string | null };
+type SaleLotRef = { title: string; artist?: string | null; museum?: string | null; rights?: string | null; img?: string | null; object_url: string | null };
 
 type Sale = {
   id: number;
@@ -33,6 +33,9 @@ type Sale = {
   lot_img?: string | null;
   lot_artist?: string | null;
   lot_museum?: string | null;
+  lot_rights?: string | null;
+  lot_date?: string | null;
+  lot_medium?: string | null;
   lots?: SaleLotRef[];
   latency_ms?: number | null;
   created_at: string;
@@ -147,9 +150,10 @@ function SaleDetail({ s }: { s: Sale }) {
                         e.stopPropagation();
                         inspect({
                           title: l.title,
-                          artist: i === 0 ? s.lot_artist : null,
-                          museum: i === 0 ? s.lot_museum : null,
-                          img: i === 0 ? s.lot_img : null,
+                          artist: l.artist ?? s.lot_artist,
+                          museum: l.museum ?? s.lot_museum,
+                          rights: l.rights ?? s.lot_rights,
+                          img: l.img ?? s.lot_img,
                           evidence_url: l.object_url,
                           hammer: railAmt(s),
                           tx: s.tx,
@@ -385,6 +389,7 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
                                 title: s.lot_title ?? s.query_hint ?? "Untitled",
                                 artist: s.lot_artist,
                                 museum: s.lot_museum,
+                                rights: s.lot_rights,
                                 img: s.lot_img ?? s.thumb,
                                 evidence_url: s.lot_url,
                                 hammer: railAmt(s),
