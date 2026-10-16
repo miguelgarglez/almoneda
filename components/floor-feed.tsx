@@ -53,6 +53,14 @@ const ago = (iso: string) => {
   return `${Math.floor(s / 86400)}d ago`;
 };
 
+// Relative time only exists client-side; SSR renders the UTC timestamp.
+function Ago({ iso }: { iso: string }) {
+  const [rel, setRel] = useState<string | null>(null);
+  useEffect(() => setRel(ago(iso)), [iso]);
+  if (rel) return <>{rel}</>;
+  return <>{new Date(iso).toISOString().slice(11, 19)}Z</>;
+}
+
 export default function FloorFeed({ initial, total }: { initial: Sale[]; total: number }) {
   const [sales, setSales] = useState(initial);
   const [count, setCount] = useState(total);
@@ -112,7 +120,7 @@ export default function FloorFeed({ initial, total }: { initial: Sale[]; total: 
                   animate={{ opacity: 1, backgroundColor: "rgba(217,43,31,0)" }}
                   transition={{ duration: 1.4 }}
                 >
-                  <td className="mono" style={{ whiteSpace: "nowrap" }}>{ago(s.created_at)}</td>
+                  <td className="mono" style={{ whiteSpace: "nowrap" }}><Ago iso={s.created_at} /></td>
                   <td className="mono" title={s.payer}>{short(s.payer)}</td>
                   <td><span className={`pill ${s.network.startsWith("stellar") ? "xlm" : "usdc"}`}>{railName(s.network)}</span></td>
                   <td className="mono">{s.endpoint}</td>

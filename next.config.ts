@@ -12,7 +12,10 @@ const nextConfig: NextConfig = {
     ],
   },
   async rewrites() {
-    return [{ source: "/.well-known/x402", destination: "/x402-declaration" }];
+    return [
+      { source: "/.well-known/x402", destination: "/x402-declaration" },
+      { source: "/favicon.ico", destination: "/icon.svg" },
+    ];
   },
 };
 
