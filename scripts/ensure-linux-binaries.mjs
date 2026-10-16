@@ -11,6 +11,8 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const needed = [
   ["node_modules/@img/sharp-linux-arm64", "@img/sharp-linux-arm64", "0.35.5"],
   ["node_modules/@img/sharp-libvips-linux-arm64", "@img/sharp-libvips-linux-arm64", "1.3.4"],
+  ["node_modules/@img/sharp-linux-x64", "@img/sharp-linux-x64", "0.35.5"],
+  ["node_modules/@img/sharp-libvips-linux-x64", "@img/sharp-libvips-linux-x64", "1.3.4"],
   [
     "node_modules/@huggingface/transformers/node_modules/@img/sharp-linux-arm64",
     "@img/sharp-linux-arm64",
@@ -19,6 +21,16 @@ const needed = [
   [
     "node_modules/@huggingface/transformers/node_modules/@img/sharp-libvips-linux-arm64",
     "@img/sharp-libvips-linux-arm64",
+    "1.2.4",
+  ],
+  [
+    "node_modules/@huggingface/transformers/node_modules/@img/sharp-linux-x64",
+    "@img/sharp-linux-x64",
+    "0.34.5",
+  ],
+  [
+    "node_modules/@huggingface/transformers/node_modules/@img/sharp-libvips-linux-x64",
+    "@img/sharp-libvips-linux-x64",
     "1.2.4",
   ],
 ];
