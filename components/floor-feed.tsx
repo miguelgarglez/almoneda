@@ -174,7 +174,7 @@ export default function FloorFeed({ initial, total }: { initial: Sale[]; total: 
                   <td className="mono" title={s.payer}>{short(s.payer)}</td>
                   <td><span className={`pill ${s.network.startsWith("stellar") ? "xlm" : "usdc"}`}>{railName(s.network)}</span></td>
                   <td className="mono">{s.endpoint}</td>
-                  <td style={{ maxWidth: 220, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} title={s.query_hint}>
+                  <td style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} title={s.query_hint}>
                     {s.query_hint || "—"}
                   </td>
                   <td className="mono">{railAmt(s)}</td>
