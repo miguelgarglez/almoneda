@@ -16,19 +16,22 @@ type Lot = {
 
 // The work on the block. Rotates every two minutes — same lot for everyone
 // on the floor at the same moment.
+const lotNumber = (id: string) => {
+  let h = 0;
+  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) | 0;
+  return Math.abs(h) % 10000;
+};
+
 export default function LotStage({ initial }: { initial: Lot | null }) {
   const [lot, setLot] = useState(initial);
-  const [no, setNo] = useState(() => Math.floor(Date.now() / 120_000) % 10000);
+  const no = lot ? lotNumber(lot.id) : 0;
 
   useEffect(() => {
     const tick = async () => {
       try {
         const r = await fetch("/v1/floor", { cache: "no-store" });
         const j = await r.json();
-        if (j?.lot?.id && j.lot.id !== lot?.id) {
-          setLot(j.lot);
-          setNo(Math.floor(Date.now() / 120_000) % 10000);
-        }
+        if (j?.lot?.id && j.lot.id !== lot?.id) setLot(j.lot);
       } catch {}
     };
     const t = setInterval(tick, 20_000);

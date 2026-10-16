@@ -102,6 +102,8 @@ export default function BidRoom() {
       <div className="bd">
         <input
           type="text"
+          id="bid-query"
+          name="query"
           value={q}
           onChange={(e) => setQ(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && !busy && bid()}
