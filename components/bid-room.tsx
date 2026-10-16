@@ -36,6 +36,78 @@ const buzz = (preset: string) => {
   } catch {}
 };
 
+// The gavel strike's sound — a synthesized knock (noise burst over a falling
+// sine), tied to the same opt-out as haptics. The AudioContext unlocks on the
+// visitor's click, so the strike lands when settlement actually does.
+let actx: AudioContext | null = null;
+// The context must be created inside the click — settlement lands seconds
+// later, after transient activation has expired, and a context born in a
+// timer stays suspended forever.
+const wakeAudio = () => {
+  try {
+    if (!hapticsOn) return;
+    actx ??= new AudioContext();
+    if (actx.state === "suspended") void actx.resume();
+  } catch {}
+};
+const knock = () => {
+  try {
+    if (!hapticsOn || !actx || actx.state !== "running") return;
+    const t = actx.currentTime;
+    const osc = actx.createOscillator();
+    const og = actx.createGain();
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(160, t);
+    osc.frequency.exponentialRampToValueAtTime(52, t + 0.09);
+    og.gain.setValueAtTime(0.5, t);
+    og.gain.exponentialRampToValueAtTime(0.001, t + 0.16);
+    osc.connect(og).connect(actx.destination);
+    osc.start(t); osc.stop(t + 0.18);
+    const nb = actx.createBuffer(1, actx.sampleRate * 0.04, actx.sampleRate);
+    const d = nb.getChannelData(0);
+    for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / d.length) ** 2;
+    const ns = actx.createBufferSource();
+    const ng = actx.createGain();
+    const nf = actx.createBiquadFilter();
+    nf.type = "bandpass"; nf.frequency.value = 2600; nf.Q.value = 0.8;
+    ng.gain.setValueAtTime(0.22, t);
+    ng.gain.exponentialRampToValueAtTime(0.001, t + 0.05);
+    ns.buffer = nb;
+    ns.connect(nf).connect(ng).connect(actx.destination);
+    ns.start(t);
+  } catch {}
+};
+
+// The signature moment: an auction gavel swings down onto the winning lot at
+// the exact moment the facilitator confirms settlement — then the SOLD stamp
+// presses on and the receipt prints. Reduced-motion gets the stamp only.
+function GavelStrike({ onDone }: { onDone: () => void }) {
+  return (
+    <motion.div
+      className="gavel-overlay"
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      aria-hidden="true"
+    >
+      <motion.svg
+        viewBox="0 0 96 96"
+        className="gavel"
+        initial={{ rotate: -52, y: -26, opacity: 0 }}
+        animate={{ rotate: [-52, -52, 0, -7, 0], y: [-26, -26, 0, -4, 0], opacity: [0, 1, 1, 1, 0] }}
+        transition={{ duration: 0.9, times: [0, 0.28, 0.52, 0.68, 1], ease: ["easeOut", "easeIn", "easeOut", "easeIn"] }}
+        onAnimationComplete={onDone}
+      >
+        {/* head */}
+        <rect x="14" y="8" width="44" height="18" rx="3" fill="var(--ink)" />
+        <rect x="18" y="12" width="36" height="10" rx="2" fill="var(--sold)" />
+        {/* handle */}
+        <rect x="50" y="24" width="8" height="52" rx="3" fill="var(--ink)" transform="rotate(28 54 24)" />
+      </motion.svg>
+    </motion.div>
+  );
+}
+
 const tapeLine = (s: Step, i: number) => {
   const cls = i === 0 ? "" : i === 1 || i === 2 ? "pay" : "ok";
   return (
@@ -48,12 +120,14 @@ const tapeLine = (s: Step, i: number) => {
   );
 };
 
-const LotCard = ({ l, sold }: { l: Lot; sold?: boolean }) => {
+const LotCard = ({ l, sold, slam }: { l: Lot; sold?: boolean; slam?: boolean }) => {
   const [failed, setFailed] = useState(false);
+  const [gavelGone, setGavelGone] = useState(false);
   const link = l.provenance?.evidence_url;
   return (
     <div className="lot" key={l.id}>
-      {sold && <div className="stamp-sold">SOLD</div>}
+      {sold && <div className={`stamp-sold${slam ? " slam" : ""}`}>SOLD</div>}
+      {slam && !gavelGone && <GavelStrike onDone={() => setGavelGone(true)} />}
       {failed ? (
         <div className="lot-img-miss">
           the museum's CDN held this one back
@@ -96,6 +170,7 @@ export default function BidRoom() {
   const [live, setLive] = useState(false);
   const [freeLots, setFreeLots] = useState<Lot[] | null>(null);
   const [freeNote, setFreeNote] = useState<{ text: string; err?: boolean } | null>(null);
+  const [slam, setSlam] = useState(0);
   const [haptics, setHaptics] = useState(true);
   const [follow, setFollow] = useState(true);
   const tapeEnd = useRef<HTMLDivElement>(null);
@@ -155,6 +230,7 @@ export default function BidRoom() {
 
   const bid = async () => {
     buzz("medium");
+    wakeAudio();
     setBusy("bid");
     setRes(null);
     setSteps([]);
@@ -183,7 +259,11 @@ export default function BidRoom() {
             else if (m.type === "result") {
               setRes(m);
               if (m.settlement?.transaction) {
-                buzz("success");
+                // the gavel falls when the facilitator confirms — impact at
+                // ~470ms into the swing, then the floor learns the tx
+                setSlam((s) => s + 1);
+                setTimeout(() => { buzz("heavy"); knock(); }, 470);
+                setTimeout(() => buzz("success"), 900);
                 setTimeout(() => window.dispatchEvent(new CustomEvent("almoneda:sale", { detail: { tx: m.settlement.transaction } })), 1600);
               }
             } else if (m.type === "error") {
@@ -372,8 +452,8 @@ export default function BidRoom() {
         </div>
 
         {res?.lots && done && (
-          <motion.div className="results" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
-            {res.lots.map((l, i) => <LotCard l={l} sold={i === 0} key={l.id} />)}
+          <motion.div className={`results${slam ? " shook" : ""}`} key={`r${slam}`} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
+            {res.lots.map((l, i) => <LotCard l={l} sold={i === 0} slam={i === 0 && slam > 0} key={l.id} />)}
           </motion.div>
         )}
 

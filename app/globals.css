@@ -187,6 +187,28 @@ table.ledger tbody tr:active td { background: rgba(35, 26, 18, 0.07); }
   border: 3px solid var(--sold); color: var(--sold); padding: 3px 14px;
   font-size: 16px; font-weight: 700; letter-spacing: 0.28em; background: rgba(255,255,255,0.86);
 }
+/* the gavel falls on the winning lot the moment settlement lands — the stamp
+   presses in on impact (470ms into the swing) and the grid takes the shock */
+.lot .stamp-sold.slam { animation: stampSlam 0.16s 0.47s cubic-bezier(0.2, 0, 0.4, 1) backwards; }
+@keyframes stampSlam {
+  from { transform: translateX(-50%) rotate(-14deg) scale(2.6); opacity: 0; }
+  to { transform: translateX(-50%) rotate(-8deg) scale(1); opacity: 1; }
+}
+.gavel-overlay {
+  position: absolute; inset: 0; z-index: 4; display: grid; place-items: start center;
+  padding-top: 8%; pointer-events: none;
+}
+.gavel { width: 84px; filter: drop-shadow(0 8px 14px rgba(35, 26, 18, 0.35)); }
+.results.shook { animation: gridShake 0.22s 0.47s linear; }
+@keyframes gridShake {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(0, 2px); }
+  50% { transform: translate(1px, -1px); }
+  75% { transform: translate(-1px, 1px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lot .stamp-sold.slam, .results.shook { animation: none; }
+}
 
 /* ——— ticker ——— */
 .ticker { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); overflow: hidden; padding: 8px 0; }

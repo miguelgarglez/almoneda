@@ -24,7 +24,7 @@ almoneda is an image desk for agents: search a large corpus of public-domain and
 1. Call a paid endpoint. You get HTTP 402 with a PAYMENT-REQUIRED header: base64 JSON {x402Version, accepts[]}.
 2. Pick a rail from accepts[]:
    - USDC on Base Sepolia — network "eip155:84532", asset USDC 0x036CbD53842c5426634e7929541eC2318f3dCF7e, exact scheme, EIP-3009. The facilitator pays gas; you need testnet USDC only (Circle faucet).
-   - XLM on Stellar testnet — network "stellar:testnet", asset = native XLM Soroban contract CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC, exact scheme. Fees are sponsored; free testnet XLM from https://friendbot.stellar.org/?addr=<your G-address>. Easiest rail when the USDC faucet is down.
+   - XLM on Stellar testnet (secondary rail) — network "stellar:testnet", asset = native XLM Soroban contract CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC, exact scheme. Fees are sponsored; free testnet XLM from https://friendbot.stellar.org/?addr=<your G-address>. Easiest rail when the USDC faucet is down.
 3. Sign the payment per the scheme (EIP-3009 typed data, or the Soroban auth entry the SDK builds).
 4. Retry with header PAYMENT-SIGNATURE: base64 of {x402Version:2, resource, accepted, payload}.
 5. Receive 200 + PAYMENT-RESPONSE header with {transaction, payer, network} — the tx is public on the explorer.
