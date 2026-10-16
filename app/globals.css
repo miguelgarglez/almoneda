@@ -208,6 +208,11 @@ table.ledger .lthumb { width: 34px; height: 34px; object-fit: cover; border: 1px
 @keyframes replayIn { to { opacity: 1; transform: none; } }
 .tape .wire { color: var(--ink-3); font-style: italic; animation: wirePulse 1.1s var(--ease-in-out) infinite; }
 @keyframes wirePulse { 0%,100% { opacity: 0.45; } 50% { opacity: 1; } }
+.replaybtn {
+  border: 1px solid var(--line-2); background: var(--paper); color: var(--ink);
+  font: inherit; font-size: 11px; padding: 4px 10px; cursor: pointer; text-transform: none;
+}
+.replaybtn:hover { border-color: var(--ink); background: #fff; }
 
 /* ——— machine surface ——— */
 .mach { padding: 0 0 56px; }
@@ -325,6 +330,20 @@ footer.site .row { display: flex; justify-content: space-between; gap: 20px; fle
   /* narrower terminals shed chrome first — optional stats, tighter console */
   @media (max-width: 1280px) {
     .statbar .opt { display: none; }
+  }
+  /* short terminals (1024x600) compress the console so the action, the tape
+     and the honest fineprint all fit without reaching for the inner scroll */
+  @media (max-height: 700px) {
+    .console .bd { padding: 10px 12px; }
+    .console .hd { padding: 7px 12px; }
+    .console input[type=text] { padding: 8px 12px; font-size: 13px; }
+    .console .chips { margin-top: 8px; }
+    .console .actions { margin-top: 9px; }
+    .console .fineprint { font-size: 10.5px; margin-top: 8px; line-height: 1.45; }
+    .console-col > p.fineprint { display: none; }
+    .tape { font-size: 11px; }
+    .easel .plate h1 { -webkit-line-clamp: 1; }
+    .plate .meta { display: none; }
   }
   /* below 1400 the rail pill folds too — the bid column already names the
      asset ("0.01 XLM") — so settlement stays in frame down to 1024 */

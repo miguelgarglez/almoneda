@@ -195,8 +195,14 @@ export default function BidRoom() {
             {(res?.error === "demo_quota" || res?.error === "purse_empty") && (
               <div className="ln">
                 <span className="k">→</span>
-                <span style={{ color: "var(--ink-3)" }}>
-                  the purse rests — expand any sale on the floor to replay its receipt
+                <span>
+                  <button
+                    type="button"
+                    className="replaybtn"
+                    onClick={() => window.dispatchEvent(new CustomEvent("almoneda:open-latest"))}
+                  >
+                    replay the last settlement on the floor
+                  </button>
                 </span>
               </div>
             )}

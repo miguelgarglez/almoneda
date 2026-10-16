@@ -128,6 +128,17 @@ export default function FloorFeed({ initial, total }: { initial: Sale[]; total: 
     return () => window.removeEventListener("almoneda:sale", onSale);
   }, []);
 
+  useEffect(() => {
+    // quota-blocked visitors get a real replay path: the console can ask the
+    // floor to open the most recent sale's receipt
+    const onOpenLatest = () => {
+      if (sales[0]) setOpen(sales[0].id);
+      document.getElementById("floor")?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    };
+    window.addEventListener("almoneda:open-latest", onOpenLatest);
+    return () => window.removeEventListener("almoneda:open-latest", onOpenLatest);
+  }, [sales]);
+
   return (
     <section className="floor" id="floor">
       <h2>
