@@ -240,6 +240,7 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
   const [flashTx, setFlashTx] = useState<string | null>(null);
   const [brokenThumbs, setBrokenThumbs] = useState<Set<string>>(new Set());
 
+  const tickRef = useRef<() => void>(() => {});
   useEffect(() => {
     const tick = async () => {
       try {
@@ -257,6 +258,7 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
         setLive(false);
       }
     };
+    tickRef.current = tick;
     // the bidding console announces its settlement so the new row lands
     // immediately instead of waiting for the next poll — first as a pending
     // row built from the wire's own detail, then reconciled against the ledger
@@ -293,6 +295,15 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
       clearInterval(t);
     };
   }, []);
+
+  // while a sale is in transit the ledger is asked every couple of seconds —
+  // the wire's beat lands the row and ticks the count at one decisive instant,
+  // not whenever the next idle poll happens to run
+  useEffect(() => {
+    if (pending.length === 0) return;
+    const t = setInterval(() => tickRef.current(), 2500);
+    return () => clearInterval(t);
+  }, [pending.length]);
 
   useEffect(() => {
     // flash the row matching the console's settlement once it appears —
