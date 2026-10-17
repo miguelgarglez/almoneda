@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { inspect } from "@/components/lot-inspector";
 
 type Lot = {
-  id: number;
+  id: number | string;
   tx?: string;
   network: string;
   amount: string;

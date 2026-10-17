@@ -330,7 +330,21 @@ export default function BidRoom() {
                 setTimeout(() => { buzz("heavy"); knock(); }, 470);
                 setTimeout(() => buzz("success"), 900);
                 setTimeout(() => {
-                  window.dispatchEvent(new CustomEvent("almoneda:sale", { detail: { tx: m.settlement.transaction } }));
+                  // the floor inserts a pending row from this detail the
+                  // moment the hammer lands — then reconciles it against the
+                  // real ledger row when the fetch returns it
+                  window.dispatchEvent(
+                    new CustomEvent("almoneda:sale", {
+                      detail: {
+                        tx: m.settlement.transaction,
+                        network: m.settlement.network,
+                        amount: m.amount ?? null,
+                        query: q.trim() || null,
+                        titles: (m.lots ?? []).map((l: Lot) => l.title),
+                        thumb: m.lots?.[0]?.image?.thumb ?? null,
+                      },
+                    })
+                  );
                 }, 1600);
               }
             } else if (m.type === "error") {
@@ -404,8 +418,8 @@ export default function BidRoom() {
       </div>
       <div className="bd">
         <p className="console-lede">
-          House-funded testnet demonstration — the purse pays, no wallet needed. Three bids a day.
-          Your agent buys the search itself: the works it wins appear below, and the sale lands on the floor.
+          Try a house-funded search — the purse pays, no wallet needed. Your agent buys one paid
+          API response: artworks, provenance, and an on-chain receipt that lands on the floor.
         </p>
         <label className="f-label" htmlFor="bid-query">what your agent needs</label>
         <input
@@ -440,8 +454,9 @@ export default function BidRoom() {
           </button>
         </div>
         <p className="fineprint">
-          The agent buys <b>one API response</b>, not exclusive ownership — the works are public domain for
-          everyone.{" "}
+          One call buys <b>one API response</b>, not exclusive ownership — the works are public domain for
+          everyone. Sticker price $0.01; the house settles it on whichever testnet rail is funded (usually
+          Stellar XLM).{" "}
           <button type="button" className="hapt" onClick={toggleHaptics} aria-pressed={haptics}>
             haptics {haptics ? "on" : "off"}
           </button>

@@ -19,7 +19,8 @@ declare global {
 type SaleLotRef = { title: string; artist?: string | null; museum?: string | null; rights?: string | null; img?: string | null; object_url: string | null };
 
 type Sale = {
-  id: number;
+  id: number | string;
+  pending?: boolean;
   payer: string;
   tx: string;
   network: string;
@@ -219,7 +220,7 @@ function SaleDetail({ s }: { s: Sale }) {
   );
 }
 
-const INITIAL_ROWS = 8;
+const INITIAL_ROWS = 5;
 const rowKey = (e: React.KeyboardEvent, toggle: () => void) => {
   if (e.key === "Enter" || e.key === " ") {
     e.preventDefault();
@@ -229,9 +230,10 @@ const rowKey = (e: React.KeyboardEvent, toggle: () => void) => {
 
 export default function FloorFeed({ initial, total, corpusDown }: { initial: Sale[]; total: number; corpusDown?: boolean }) {
   const [sales, setSales] = useState(initial);
+  const [pending, setPending] = useState<Sale[]>([]);
   const [count, setCount] = useState(total);
   const [live, setLive] = useState(true);
-  const [open, setOpen] = useState<number | null>(null);
+  const [open, setOpen] = useState<number | string | null>(null);
   const [showAll, setShowAll] = useState(false);
   const [flashTx, setFlashTx] = useState<string | null>(null);
   const [brokenThumbs, setBrokenThumbs] = useState<Set<string>>(new Set());
@@ -245,14 +247,42 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
           setSales(j.sales.recent);
           setCount(j.sales.total ?? 0);
           setLive(true);
+          // reconcile: a fetched row with the same tx replaces the pending one
+          setPending((p) => p.filter((s) => !j.sales.recent.some((r: Sale) => r.tx === s.tx) && Date.now() - new Date(s.created_at).getTime() < 120_000));
         }
       } catch {
         setLive(false);
       }
     };
     // the bidding console announces its settlement so the new row lands
-    // immediately instead of waiting for the next poll
-    const onSale = () => tick();
+    // immediately instead of waiting for the next poll — first as a pending
+    // row built from the wire's own detail, then reconciled against the ledger
+    const onSale = (e: Event) => {
+      const d = (e as CustomEvent).detail ?? {};
+      if (d.tx) {
+        setPending((p) =>
+          p.some((s) => s.tx === d.tx)
+            ? p
+            : [
+                {
+                  id: `pending-${d.tx.slice(0, 10)}`,
+                  pending: true,
+                  payer: "…",
+                  tx: d.tx,
+                  network: d.network ?? "stellar:testnet",
+                  amount: d.amount ?? (d.network?.startsWith?.("eip155") ? "10000" : "100000"),
+                  endpoint: "text",
+                  query_hint: d.query ?? "",
+                  thumb: d.thumb ?? null,
+                  lot_title: d.titles?.[0] ?? null,
+                  created_at: new Date().toISOString(),
+                },
+                ...p,
+              ]
+        );
+      }
+      tick();
+    };
     window.addEventListener("almoneda:sale", onSale);
     const t = setInterval(tick, 15_000);
     return () => {
@@ -317,8 +347,9 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
   }, [sales]);
 
   const newest = sales[0];
-  const visible = showAll ? sales : sales.slice(0, INITIAL_ROWS);
-  const toggle = (id: number) => setOpen((o) => (o === id ? null : id));
+  const all = [...pending, ...sales];
+  const visible = showAll ? all : all.slice(0, INITIAL_ROWS);
+  const toggle = (id: number | string) => setOpen((o) => (o === id ? null : id));
 
   return (
     <MotionConfig reducedMotion="user">
@@ -367,11 +398,12 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
                 {visible.map((s) => (
                   <Fragment key={s.id}>
                     <tr
-                      onClick={() => toggle(s.id)}
-                      onKeyDown={(e) => rowKey(e, () => toggle(s.id))}
+                      onClick={() => !s.pending && toggle(s.id)}
+                      onKeyDown={(e) => rowKey(e, () => !s.pending && toggle(s.id))}
                       role="button"
-                      tabIndex={0}
+                      tabIndex={s.pending ? -1 : 0}
                       aria-expanded={open === s.id}
+                      className={s.pending ? "pending" : undefined}
                       style={flashTx === s.tx ? { backgroundColor: "rgba(160,35,24,0.06)" } : undefined}
                     >
                       <td>
@@ -402,6 +434,7 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
                         ) : (
                           <span className="lthumb" style={{ display: "inline-block", background: "var(--paper-2)" }} />
                         )}
+                        {typeof s.id === "number" && <div className="lotnum">№{s.id}</div>}
                       </td>
                       <td className="mono" style={{ whiteSpace: "nowrap" }}><Ago iso={s.created_at} /></td>
                       <td className="mono" title={s.payer}>{short(s.payer)}</td>
@@ -412,15 +445,18 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
                       </td>
                       <td className="mono">{railAmt(s)}</td>
                       <td className="mono">
-                        {s.tx ? (
+                        {s.pending ? (
+                          <span className="confirming">confirming…</span>
+                        ) : s.tx ? (
                           <a href={explorer(s)} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} style={{ color: "var(--usdc)", textDecoration: "none" }}>
                             {short(s.tx)} ↗
                           </a>
                         ) : "—"}
+                        {!s.pending && <span className="disc" aria-hidden="true">{open === s.id ? "−" : "+"}</span>}
                       </td>
                     </tr>
                     <AnimatePresence initial={false}>
-                      {open === s.id && (
+                      {open === s.id && !s.pending && (
                         <motion.tr className="detail" key={`d-${s.id}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                           <td colSpan={8}>
                             <motion.div
@@ -448,9 +484,10 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
               <div className="salecard" key={s.id}>
                 <button
                   type="button"
-                  className="sc-head"
-                  onClick={() => toggle(s.id)}
+                  className={`sc-head${s.pending ? " pending" : ""}`}
+                  onClick={() => !s.pending && toggle(s.id)}
                   aria-expanded={open === s.id}
+                  disabled={s.pending}
                 >
                   {s.thumb ? (
                     // eslint-disable-next-line @next/next/no-img-element
@@ -460,9 +497,11 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
                   )}
                   <span className="sc-main">
                     <span className="sc-t">{s.lot_title || s.query_hint || s.endpoint}</span>
-                    <span className="sc-sub">{railAmt(s)} · <Ago iso={s.created_at} /> · {railName(s.network)}</span>
+                    <span className="sc-sub">
+                      {s.pending ? "confirming on-chain…" : <>{railAmt(s)} · <Ago iso={s.created_at} /> · {railName(s.network)}</>}
+                    </span>
                   </span>
-                  <span className="sc-chev" aria-hidden="true">{open === s.id ? "−" : "+"}</span>
+                  {!s.pending && <span className="sc-chev" aria-hidden="true">{open === s.id ? "−" : "+"}</span>}
                 </button>
                 <AnimatePresence initial={false}>
                   {open === s.id && (

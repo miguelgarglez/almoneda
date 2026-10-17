@@ -29,6 +29,7 @@ const ago = (iso: string) => {
 // under the pointer so it can actually be aimed at.
 export default function SettleStrip({ initial }: { initial: StripSale[] }) {
   const [sales, setSales] = useState(initial);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     const tick = async () => {
@@ -38,12 +39,21 @@ export default function SettleStrip({ initial }: { initial: StripSale[] }) {
         if (Array.isArray(j?.sales?.recent)) setSales(j.sales.recent);
       } catch {}
     };
-    const onSale = () => tick();
+    let resume: ReturnType<typeof setTimeout> | null = null;
+    const onSale = () => {
+      tick();
+      // when the hammer falls the strip stands down — ambient motion stops
+      // competing with the settlement moment, then resumes
+      setPaused(true);
+      if (resume) clearTimeout(resume);
+      resume = setTimeout(() => setPaused(false), 5000);
+    };
     window.addEventListener("almoneda:sale", onSale);
     const t = setInterval(tick, 15_000);
     return () => {
       window.removeEventListener("almoneda:sale", onSale);
       clearInterval(t);
+      if (resume) clearTimeout(resume);
     };
   }, []);
 
@@ -57,7 +67,7 @@ export default function SettleStrip({ initial }: { initial: StripSale[] }) {
   const label = (s: StripSale) => `${railAmt(s)} — ${s.lot_title || s.query_hint || s.endpoint || "a lot"} — ${ago(s.created_at)} ago`;
 
   return (
-    <div className="ticker live" role="navigation" aria-label="recent settlements — pick one to open its receipt">
+    <div className={`ticker live${paused ? " paused" : ""}`} role="navigation" aria-label="recent settlements — pick one to open its receipt">
       <div className="rail">
         {[...items, ...items].map((s, i) => (
           <button type="button" key={`${s.id}-${i}`} className="tick-item" onClick={() => open(s)} tabIndex={i < items.length ? 0 : -1}>

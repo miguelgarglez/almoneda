@@ -104,6 +104,9 @@ export default function LotInspector() {
               transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
               onClick={(e) => e.stopPropagation()}
             >
+              <button type="button" className="it-x" onClick={() => setLot(null)} aria-label="close the catalogue tray">
+                ×
+              </button>
               <div className="it-img">
                 {lot.img ? (
                   /* eslint-disable-next-line @next/next/no-img-element */
@@ -167,8 +170,8 @@ export default function LotInspector() {
                   )}
                   <CopyBtn text={json} />
                 </div>
-                <button type="button" className="it-close" onClick={() => setLot(null)} aria-label="close">
-                  esc to close
+                <button type="button" className="it-close" onClick={() => setLot(null)}>
+                  close — esc works too
                 </button>
               </div>
             </motion.div>
