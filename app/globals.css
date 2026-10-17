@@ -662,6 +662,8 @@ footer.site .row { display: flex; justify-content: space-between; gap: 20px; fle
   /* the hero lot is the first artwork a phone sees — a 48px stamp can't
      carry it; give it a real plate with the meta beside it */
   .hero-lot .lastlot img { width: 88px; height: 88px; }
+  .hero-lot .lastlot .ll-t { white-space: normal; }
+  .hero-lot .lastlot .ll-tag { font-size: 9px; }
   .lastlot .ll-meta { flex: 1; }
   .lastlot .ll-sold { flex-basis: 100%; margin-left: 0; text-align: left; font-size: 10px; white-space: normal; }
   .console-lede { font-size: 12.5px; }
