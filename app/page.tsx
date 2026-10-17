@@ -54,6 +54,9 @@ export default async function Page() {
       .map((l) => ({ title: l!.title, artist: l!.artist, museum: l!.museum, rights: l!.rights, img: l!.image, object_url: l!.object_url })),
   }));
   const last = recent[0];
+  // a flaky corpus-size answer must not flip the house to "closed" — the
+  // ledger answering is itself proof the floor is open
+  const open = size != null || total > 0 || recent.length > 0;
 
   return (
     <main>
@@ -67,8 +70,8 @@ export default async function Page() {
               <div className="sub">an auction house where machines are the only bidders</div>
             </div>
             <div className="live">
-              <span className={`dot ${size ? "on" : ""}`} />
-              <span>{size ? "floor open" : "floor closed"}</span>
+              <span className={`dot ${open ? "on" : ""}`} />
+              <span>{open ? "floor open" : "floor closed"}</span>
             </div>
           </div>
           <p className="what">
@@ -108,7 +111,7 @@ export default async function Page() {
               could not be run, the lot says so.
             </p>
           </div>
-          <FloorFeed initial={recentWithThumbs as any} total={total} corpusDown={!size} />
+          <FloorFeed initial={recentWithThumbs as any} total={total} corpusDown={!open} />
         </div>
       </section>
 

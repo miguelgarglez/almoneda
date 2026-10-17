@@ -246,9 +246,10 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
         if (Array.isArray(j?.sales?.recent)) {
           setSales(j.sales.recent);
           setCount(j.sales.total ?? 0);
-          setLive(true);
-          // reconcile: a fetched row with the same tx replaces the pending one
+          // the CDN can still serve a pre-sale response at this point; the
+          // pending row keeps the display truthful until a fetch sees the tx
           setPending((p) => p.filter((s) => !j.sales.recent.some((r: Sale) => r.tx === s.tx) && Date.now() - new Date(s.created_at).getTime() < 120_000));
+          setLive(true);
         }
       } catch {
         setLive(false);
@@ -355,7 +356,7 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
     <MotionConfig reducedMotion="user">
     <section className="floor" id="floor">
       <h2>
-        The floor · <Count value={count} /> {count === 1 ? "lot" : "lots"} sold
+        The floor · <Count value={count + pending.length} /> {count + pending.length === 1 ? "lot" : "lots"} sold
       </h2>
       <p className="sub">
         <span className={`dot ${live ? "on" : ""}`} style={{ display: "inline-block", marginRight: 8 }} />
@@ -446,7 +447,7 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
                       <td className="mono">{railAmt(s)}</td>
                       <td className="mono">
                         {s.pending ? (
-                          <span className="confirming">confirming…</span>
+                          <span className="confirming">landing on the floor…</span>
                         ) : s.tx ? (
                           <a href={explorer(s)} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} style={{ color: "var(--usdc)", textDecoration: "none" }}>
                             {short(s.tx)} ↗
@@ -498,7 +499,7 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
                   <span className="sc-main">
                     <span className="sc-t">{s.lot_title || s.query_hint || s.endpoint}</span>
                     <span className="sc-sub">
-                      {s.pending ? "confirming on-chain…" : <>{railAmt(s)} · <Ago iso={s.created_at} /> · {railName(s.network)}</>}
+                      {s.pending ? "landing on the floor…" : <>{railAmt(s)} · <Ago iso={s.created_at} /> · {railName(s.network)}</>}
                     </span>
                   </span>
                   {!s.pending && <span className="sc-chev" aria-hidden="true">{open === s.id ? "−" : "+"}</span>}

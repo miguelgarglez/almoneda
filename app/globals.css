@@ -119,7 +119,11 @@ img { display: block; max-width: 100%; }
 
 /* pending rows: the wire reports settlement before the ledger's fetch
    returns — the row holds the table's shape until the real one replaces it */
+@keyframes rowArrive { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: none; } }
 tr.pending td { color: var(--ink-3); font-style: italic; }
+tr.pending td:first-child { border-left: 2px solid var(--sold); padding-left: 8px; }
+tr.pending { animation: rowArrive 0.45s var(--ease-out, ease-out) both; }
+.sc-head.pending { border-left: 2px solid var(--sold); animation: rowArrive 0.45s var(--ease-out, ease-out) both; }
 tr.pending .confirming { color: var(--gilt); animation: wirePulse 1.1s var(--ease-in-out) infinite; }
 .sc-head.pending { opacity: 0.75; cursor: wait; }
 table.ledger .disc { margin-left: 8px; color: var(--ink-3); font-size: 12px; }
@@ -548,9 +552,17 @@ footer.site .row { display: flex; justify-content: space-between; gap: 20px; fle
   .floor .lastlot { align-items: stretch; padding: 12px; }
   .floor .lastlot img { width: 228px; height: 168px; }
   .floor .lastlot .ll-meta { align-self: center; }
-  .floor .lastlot .ll-t { font-size: 20px; white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .floor .lastlot .ll-t { font-size: 20px; white-space: normal; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
   .floor .lastlot .ll-a { font-size: 13.5px; }
   .floor .lastlot .ll-sold { align-self: center; }
+  /* 1024–1280: plate left, identity to its right, settlement under the
+     identity — the catalogue label composition, no dead space beside art */
+  @media (max-width: 1280px) {
+    .floor .lastlot { display: grid; grid-template-columns: 200px 1fr; gap: 2px 16px; align-items: center; }
+    .floor .lastlot img { width: 200px; height: 148px; grid-row: 1 / 3; }
+    .floor .lastlot .ll-meta { align-self: end; }
+    .floor .lastlot .ll-sold { grid-column: 2; flex-basis: auto; margin-left: 0; padding-left: 0; align-self: start; text-align: left; white-space: normal; }
+  }
   .ledger-wrap { flex: 1; min-height: 0; overflow: auto; border: 1px solid var(--line-2); background: #fff; }
   /* the ledger keeps thumb · time · rail · looking-for · bid · settlement in
      frame at every desktop width; paddle and call live in the detail row */
@@ -617,6 +629,9 @@ footer.site .row { display: flex; justify-content: space-between; gap: 20px; fle
 /* short phones: the whole console must clear the first viewport — the bid
    is the product, it can't sit half-folded */
 @media (max-width: 1023px) {
+  /* the hero-lot already carries the newest lot above the console — the
+     floor's own copy would read the same work twice */
+  .floor .lastlot { display: none; }
   .console .bd { padding: 12px; }
   .console input[type=text] { padding: 10px 12px; font-size: 13px; }
   .console .chips { margin-top: 8px; }
