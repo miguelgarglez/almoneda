@@ -3,7 +3,9 @@ import { withX402 } from "@x402/next";
 import { declareDiscoveryExtension } from "@x402/extensions/bazaar";
 import { x402Server, stashSale, acceptsFor } from "@/lib/x402";
 import { embedImage, decodeImage } from "@/lib/clip";
-import { matchArtworks, corpusSize } from "@/lib/corpus";
+import { fetchPublicImage, MAX_IMAGE_BYTES } from "@/lib/images";
+import { matchArtworks, corpusSize, corpusModel } from "@/lib/corpus";
+import { vecRel } from "@/lib/retrieval";
 import { enrich } from "@/lib/provenance";
 import { PRICE_IMAGE, PRICE_IMAGE_XLM } from "@/lib/env";
 
@@ -20,29 +22,28 @@ const handler = async (req: NextRequest): Promise<NextResponse> => {
   }
   const n = Math.min(Math.max(parseInt(body.n ?? "5", 10) || 5, 1), 12);
   try {
-    let buf: ArrayBuffer;
+    let buf: Buffer;
+    let hint: string;
     if (body.image_url && /^https?:\/\//.test(body.image_url)) {
-      const r = await fetch(body.image_url, { signal: AbortSignal.timeout(8000) });
-      if (!r.ok) throw new Error(`image fetch ${r.status}`);
-      const ct = r.headers.get("content-type") || "";
-      if (!ct.startsWith("image/")) throw new Error(`not an image: ${ct}`);
-      buf = await r.arrayBuffer();
-      if (buf.byteLength > 8_000_000) throw new Error("image too large (max 8 MB)");
+      buf = await fetchPublicImage(String(body.image_url));
+      hint = `img:${new URL(String(body.image_url)).hostname}`;
     } else if (body.image_base64) {
-      const raw = Buffer.from(body.image_base64, "base64");
-      if (raw.byteLength > 8_000_000) throw new Error("image too large (max 8 MB)");
-      buf = raw.buffer.slice(raw.byteOffset, raw.byteOffset + raw.byteLength) as ArrayBuffer;
+      // bound the encoded size before decoding — a 12 MB base64 string is ~9 MB raw
+      if (String(body.image_base64).length > MAX_IMAGE_BYTES * 1.4) throw new Error("image too large (max 8 MB)");
+      buf = Buffer.from(body.image_base64, "base64");
+      if (buf.byteLength > MAX_IMAGE_BYTES) throw new Error("image too large (max 8 MB)");
+      hint = "base64 upload";
     } else {
       return NextResponse.json({ error: "missing_image", message: "JSON body: { image_url } or { image_base64 }" }, { status: 400 });
     }
     const img = await decodeImage(buf);
-    const emb = await embedImage(img);
+    const emb = await embedImage(img, await corpusModel());
     const rows = await matchArtworks(emb, n);
-    const works = await enrich(rows);
+    const works = (await enrich(rows)).filter((w) => w.provenance.rights_check !== "refuted");
     const size = await corpusSize();
     stashSale(req.headers.get("payment-signature"), {
       endpoint: "image",
-      query_hint: body.image_url ? String(body.image_url).slice(0, 120) : "base64 upload",
+      query_hint: hint,
       artwork_ids: works.map((w) => w.id),
       latency_ms: Date.now() - t0,
     });
@@ -55,7 +56,7 @@ const handler = async (req: NextRequest): Promise<NextResponse> => {
         medium: w.medium,
         department: w.department,
         image: { display: w.image_url, thumb: w.thumb_url || w.image_url, width: w.img_w ?? null, height: w.img_h ?? null },
-        match: { distance: w.distance ?? null },
+        match: { distance: w.distance ?? null, relevance: Math.round(vecRel(w.distance) * 1000) / 1000, why: w.distance != null ? [`visual similarity ${(Math.max(0, 1 - w.distance) * 100).toFixed(0)}%`] : [] },
         provenance: w.provenance,
       })),
       corpus: { size, sources: ["met", "cle", "aic", "nga"] },

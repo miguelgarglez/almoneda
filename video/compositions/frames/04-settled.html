@@ -1,0 +1,272 @@
+<template>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+  /* Only the two files that actually carry Latin glyphs ship in assets/fonts/.
+     Mono Medium (500) and serif 400/600 exist only as non-Latin subsets — the
+     Latin mono resolves at 400, the Latin serif resolves as italic 500. */
+  @font-face{font-family:IBM Plex Mono;font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/captured-99e609270109b47d-s.p.40sczeszzbjw1.woff2")format("woff2")}
+  @font-face{font-family:IBM Plex Serif;font-style:italic;font-weight:500;font-display:swap;src:url("assets/fonts/captured-b02a479d288d97d4-s.p.0mib0lja7x326.woff2")format("woff2")}
+
+  #root{
+    position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;
+    container-type:size;background:transparent;
+    font-family:"IBM Plex Mono",monospace;color:#231A12;
+    -webkit-font-smoothing:antialiased;
+  }
+  #root *{box-sizing:border-box;margin:0;padding:0;}
+
+  /* full-bleed ground rides on its own clip layer, never on #root */
+  .settled-bg{position:absolute;inset:0;background:#F1EAD9;}
+
+  /* the focal wire footage — declared host geometry mirrors data-frame-video-* */
+  .settled-video{position:absolute;left:124px;top:234px;width:896px;height:560px;object-fit:cover;}
+
+  /* ink cover over the console screen until the wire lands */
+  .settled-vflash{position:absolute;left:124px;top:234px;width:896px;height:560px;background:#231A12;}
+
+  /* ——— topbar (the system's spine) ——— */
+  .settled-top{position:absolute;left:96px;top:46px;width:1728px;height:40px;display:flex;justify-content:space-between;align-items:center;font-size:26px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;}
+  .settled-top-l{color:#231A12;}
+  .settled-top-l .settled-g{color:#8A6410;}
+  .settled-top-r{color:#6B4E0C;font-size:22px;display:flex;align-items:center;}
+  .settled-dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:#8A6410;margin-right:12px;}
+  .settled-toprule{position:absolute;left:96px;top:104px;width:1728px;height:2px;background:#8A6410;}
+
+  /* ——— console: an ink bezel of 4 rects around the footage hole ——— */
+  .settled-frame{position:absolute;left:96px;top:168px;width:952px;height:702px;}
+  .settled-ft{position:absolute;left:0;top:0;width:952px;height:66px;background:#231A12;border-radius:6px 6px 0 0;}
+  .settled-fl{position:absolute;left:0;top:66px;width:28px;height:560px;background:#231A12;}
+  .settled-fr{position:absolute;right:0;top:66px;width:28px;height:560px;background:#231A12;}
+  .settled-fb{position:absolute;left:0;top:626px;width:952px;height:76px;background:#E8DFCA;border:2px solid #8A6410;border-radius:0 0 6px 6px;}
+  .settled-hd-l{position:absolute;left:28px;top:21px;font-size:20px;font-weight:400;letter-spacing:.14em;color:#F1EAD9;}
+  .settled-hd-r{position:absolute;right:28px;top:21px;font-size:20px;font-weight:400;letter-spacing:.14em;color:#C9A25A;}
+  .settled-hd-rule{position:absolute;left:28px;right:28px;top:64px;height:2px;background:#6B4E0C;}
+
+  /* the tape — two terminal lines the settlement types onto */
+  .settled-tl{position:absolute;left:28px;top:640px;font-size:21px;font-weight:400;letter-spacing:.03em;color:#231A12;white-space:nowrap;line-height:26px;}
+  .settled-tl2{top:666px;}
+  .settled-tc{display:none;}
+  .settled-tc.on{display:inline;}
+  .settled-tc.acc{color:#6B4E0C;font-weight:400;}
+  .settled-caret{display:inline-block;width:13px;height:22px;background:#231A12;margin-left:4px;vertical-align:-3px;opacity:0;}
+
+  /* pre-signal label inside the footage hole */
+
+  /* ——— the sold-red stamp (the only pink/red in the film) ——— */
+  .settled-stamp{position:absolute;left:896px;top:801px;border:2px solid #A02318;padding:3px;border-radius:2px;background:#F1EAD9;}
+  .settled-stamp-in{border:2px solid #A02318;padding:4px 14px 5px;text-align:center;}
+  .settled-stamp-w{font-size:26px;font-weight:400;letter-spacing:.14em;color:#A02318;line-height:1;}
+  .settled-stamp-s{margin-top:3px;font-size:11px;font-weight:400;letter-spacing:.2em;color:#A02318;line-height:1;}
+
+  /* ——— proof card 1: the delivered lot, as JSON-grade metadata ——— */
+  .settled-lot{position:absolute;left:1104px;top:196px;width:720px;height:310px;background:#E8DFCA;border:2px solid #8A6410;border-radius:6px;}
+  .settled-eyebrow{position:absolute;left:24px;top:18px;font-size:16px;font-weight:400;letter-spacing:.16em;color:#6B4E0C;}
+  .settled-title{position:absolute;left:24px;top:42px;font-family:"IBM Plex Serif",serif;font-style:normal;font-weight:500;font-size:2.8125cqw;line-height:1;letter-spacing:-0.01em;color:#8A6410;white-space:nowrap;}
+  .settled-meta{position:absolute;left:24px;top:118px;}
+  .settled-mline{font-size:19px;line-height:30px;letter-spacing:.02em;color:#231A12;white-space:nowrap;}
+  .settled-mline .settled-lab{color:#6B4E0C;font-weight:400;}
+  .settled-acc{position:relative;color:#8A6410;font-weight:400;}
+  .settled-acc-u{position:absolute;left:0;bottom:-4px;display:block;width:100%;height:2px;background:#8A6410;font-style:normal;}
+  .settled-chips{position:absolute;left:24px;top:244px;display:flex;align-items:center;gap:10px;}
+  .settled-chiplab{font-size:15px;font-weight:400;letter-spacing:.14em;color:#6B4E0C;margin-right:2px;}
+  .settled-chip{font-size:15px;font-weight:400;letter-spacing:.08em;color:#231A12;background:#F1EAD9;border:2px solid #8A6410;border-radius:6px;padding:3px 9px;}
+
+  /* authored caption chips — ink pills pasted on the card edge */
+  .settled-cap{position:absolute;right:16px;bottom:-16px;background:#231A12;color:#E8DFCA;font-size:19px;font-weight:400;letter-spacing:.14em;padding:6px 14px;border-radius:6px;white-space:nowrap;}
+
+  /* ——— proof card 2: the floor ledger ——— */
+  .settled-ledger{position:absolute;left:1104px;top:552px;width:720px;height:320px;background:#E8DFCA;border:2px solid #8A6410;border-radius:6px;}
+  .settled-lhead{position:absolute;left:22px;top:12px;width:676px;display:flex;justify-content:space-between;align-items:baseline;}
+  .settled-lserif{font-family:"IBM Plex Serif",serif;font-style:normal;font-weight:500;font-size:1.77cqw;line-height:1;color:#8A6410;}
+  .settled-llive{font-size:14px;font-weight:400;letter-spacing:.14em;color:#6B4E0C;display:flex;align-items:center;}
+  .settled-live{display:inline-block;width:10px;height:10px;border-radius:50%;background:#8A6410;margin-right:8px;}
+  .settled-lrule{position:absolute;left:22px;top:54px;width:676px;height:2px;background:#8A6410;}
+  .settled-colh{position:absolute;left:22px;top:62px;width:676px;display:flex;font-size:13px;font-weight:400;letter-spacing:.12em;color:#6B4E0C;}
+  .settled-c1{width:92px;flex:none;padding-left:10px;}
+  .settled-c2{width:330px;flex:none;}
+  .settled-c3{width:90px;flex:none;}
+  .settled-c4{flex:1;}
+  .settled-newrow{position:absolute;left:22px;top:84px;width:676px;height:36px;background:#F1EAD9;border:2px solid #8A6410;border-radius:6px;display:flex;align-items:center;font-size:16px;color:#231A12;overflow:hidden;white-space:nowrap;}
+  .settled-newrow .settled-c1{color:#6B4E0C;font-weight:400;padding-left:8px;}
+  .settled-newrow .settled-c4{color:#6B4E0C;font-weight:400;}
+  .settled-receipt{position:absolute;left:22px;top:122px;width:676px;height:0;overflow:hidden;}
+  .settled-rcpt{background:#231A12;border-radius:6px;padding:9px 14px;font-size:15px;line-height:21px;letter-spacing:.02em;color:#E8DFCA;white-space:pre;}
+  .settled-rcpt .settled-rl{color:#896310;}
+  .settled-oldrows{position:absolute;left:22px;top:84px;width:676px;}
+  .settled-orow{display:flex;align-items:center;height:32px;font-size:16px;color:#231A12;white-space:nowrap;}
+  .settled-orow + .settled-orow{border-top:2px solid #F1EAD9;}
+  .settled-orow .settled-c4{color:#6B4E0C;font-weight:400;}
+@font-face{font-family:IBM Plex Serif;font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/ef7be03ed7e60a63-s.p.3v7282xeqat89.woff2")format("woff2")}
+@font-face{font-family:IBM Plex Serif;font-style:normal;font-weight:500;font-display:swap;src:url("assets/fonts/522cd826f2dc0be6-s.p.1-0iuabceimri.woff2")format("woff2")}
+@font-face{font-family:IBM Plex Serif;font-style:normal;font-weight:600;font-display:swap;src:url("assets/fonts/713e82fa9fe87496-s.p.0rayo0436sl6u.woff2")format("woff2")}
+@font-face{font-family:IBM Plex Mono;font-style:normal;font-weight:500;font-display:swap;src:url("assets/fonts/effe91970fc4db64-s.p.0oace-s_gkfks.woff2")format("woff2")}
+</style>
+
+<div id="root" data-composition-id="04-settled" data-timeline-locked data-start="0" data-duration="8.5" data-fps="30" data-width="1920" data-height="1080">
+
+  <div class="clip settled-bg" data-start="0" data-duration="8.5" data-track-index="0"></div>
+
+  <!-- approved frame video hoisted by assemble-index -->
+
+  <div class="settled-top">
+    <div class="settled-top-l">ALMONEDA <span class="settled-g">· THE FLOOR</span></div>
+    <div class="settled-top-r"><span class="settled-dot"></span>FLOOR OPEN · 04</div>
+  </div>
+  <div class="settled-toprule"></div>
+
+  <div class="settled-frame">
+    <div class="settled-fl"></div>
+    <div class="settled-fr"></div>
+    <div class="settled-ft"></div>
+    <div class="settled-fb"></div>
+    <div class="settled-hd-l">THE BIDDING CONSOLE</div>
+    <div class="settled-hd-r">X402 · STELLAR TESTNET</div>
+    <div class="settled-hd-rule"></div>
+    <div class="settled-tl" id="settled-tl1"></div>
+    <div class="settled-tl settled-tl2" id="settled-tl2"></div>
+  </div>
+
+  <div class="settled-vflash"></div>
+
+  <div class="settled-stamp">
+    <div class="settled-stamp-in">
+      <div class="settled-stamp-w">SETTLED</div>
+      <div class="settled-stamp-s">PAID · 0.01 XLM</div>
+    </div>
+  </div>
+
+  <div class="settled-lot">
+    <div class="settled-eyebrow">DELIVERED · LOT 3373 — ONE JSON OBJECT</div>
+    <div class="settled-title">Les Plaisirs Parisiens</div>
+    <div class="settled-meta">
+      <div class="settled-mline"><span class="settled-lab">ARTIST —</span> C. J. TRAVIÈS DE VILLERS · C. 1830–45</div>
+      <div class="settled-mline"><span class="settled-lab">MEDIUM —</span> LITHOGRAPH · CLEVELAND MUSEUM OF ART</div>
+      <div class="settled-mline"><span class="settled-lab">ACCESSION —</span> <span class="settled-acc">1943.479<i class="settled-acc-u"></i></span></div>
+      <div class="settled-mline"><span class="settled-lab">RIGHTS —</span> CC0 1.0 · PUBLIC DOMAIN · OPEN ACCESS</div>
+    </div>
+    <div class="settled-chips">
+      <span class="settled-chiplab">ALSO SETTLED — ACCESSIONS</span>
+      <span class="settled-chip">1925.1237</span>
+      <span class="settled-chip">2007.258</span>
+      <span class="settled-chip">2022.58.1</span>
+    </div>
+    <div class="settled-cap">PROVENANCE IN THE JSON</div>
+  </div>
+
+  <div class="settled-ledger">
+    <div class="settled-lhead">
+      <span class="settled-lserif">the floor</span>
+      <span class="settled-llive"><i class="settled-live"></i>LIVE · XLM</span>
+    </div>
+    <div class="settled-lrule"></div>
+    <div class="settled-colh">
+      <span class="settled-c1">TIME</span><span class="settled-c2">LOOKING FOR</span><span class="settled-c3">BID</span><span class="settled-c4">SETTLEMENT</span>
+    </div>
+    <div class="settled-oldrows">
+      <div class="settled-orow"><span class="settled-c1">8m ago</span><span class="settled-c2">a saint in gold</span><span class="settled-c3">0.01 XLM</span><span class="settled-c4">a44b56…2310</span></div>
+      <div class="settled-orow"><span class="settled-c1">9m ago</span><span class="settled-c2">storm at sea</span><span class="settled-c3">0.01 XLM</span><span class="settled-c4">ce765c…d3c6</span></div>
+      <div class="settled-orow"><span class="settled-c1">10m ago</span><span class="settled-c2">a winter landscape</span><span class="settled-c3">0.01 XLM</span><span class="settled-c4">f5a4df…97cb</span></div>
+    </div>
+    <div class="settled-newrow">
+      <span class="settled-c1">just now</span><span class="settled-c2">les plaisirs parisiens</span><span class="settled-c3">0.01 XLM</span><span class="settled-c4">c45f70…1c75</span>
+    </div>
+    <div class="settled-receipt"><div class="settled-rcpt"><span class="settled-rl">PAYMENT-RESPONSE</span>  { "success": <span class="settled-rl">true</span>,
+  "transaction": "c45f702a…071c75",
+  "network": "stellar:testnet" }</div></div>
+    <div class="settled-cap">EVERY ROW IS PUBLIC</div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  window.__timelines = window.__timelines || {};
+  var tl = gsap.timeline({ paused: true });
+  var D = document;
+
+  /* ——— character-stream typing: chars exist in DOM from setup (deterministic,
+     seek-safe) and flip on via className sets, exactly like the caption skin ——— */
+  function buildLine(el, runs) {
+    var out = [];
+    runs.forEach(function (r) {
+      var base = 'settled-tc' + (r.c ? ' ' + r.c : '');
+      for (var i = 0; i < r.t.length; i++) {
+        var s = D.createElement('span');
+        s.setAttribute('data-base', base);
+        s.className = base;
+        s.textContent = r.t.charAt(i);
+        el.appendChild(s);
+        out.push(s);
+      }
+    });
+    var c = D.createElement('span');
+    c.className = 'settled-caret';
+    el.appendChild(c);
+    return { ch: out, caret: c };
+  }
+
+  var L1 = buildLine(D.getElementById('settled-tl1'),
+    [{ t: '> WIRE SENT · 0.01 XLM · X402 EXACT — AWAITING SETTLEMENT' }]);
+  var L2 = buildLine(D.getElementById('settled-tl2'),
+    [{ t: '> SETTLED ON-CHAIN · TX ' }, { t: 'C45F70…1C75', c: 'acc' }]);
+
+  function stream(line, t0, dt, caretOff) {
+    line.ch.forEach(function (s, i) {
+      tl.set(s, { className: s.getAttribute('data-base') + ' on' }, t0 + i * dt);
+    });
+    tl.set(line.caret, { opacity: 1 }, t0 - 0.34);
+    tl.set(line.caret, { opacity: 0 }, t0 - 0.2);
+    tl.set(line.caret, { opacity: 1 }, t0 - 0.06);
+    tl.set(line.caret, { opacity: 0 }, caretOff);
+  }
+
+  /* ——— Scene 1 (0.0–2.5): chrome up, wire lands on the tape, stamp presses ——— */
+  tl.fromTo('.settled-top', { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power1.out' }, 0);
+  tl.fromTo('.settled-toprule', { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: 'power2.out', transformOrigin: '0 50%' }, 0.05);
+  tl.fromTo('.settled-frame', { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power1.out' }, 0);
+  tl.fromTo('.settled-vflash', { opacity: 1 }, { opacity: 0, duration: 0.35, ease: 'power1.out' }, 0.45);
+
+  stream(L1, 0.72, 0.017, 1.78);
+  stream(L2, 1.70, 0.016, 2.62);
+
+  /* the sold-red press — the only red in the film */
+  tl.fromTo('.settled-stamp',
+    { scale: 2.6, rotation: -16, opacity: 0 },
+    { scale: 1, rotation: -7, opacity: 1, duration: 0.26, ease: 'power3.in' }, 2.12);
+  tl.to('.settled-stamp', { scale: 0.96, duration: 0.07, ease: 'power1.out' }, 2.38);
+  tl.to('.settled-stamp', { scale: 1, duration: 0.12, ease: 'power2.out' }, 2.45);
+
+  /* ——— Scene 2 (2.5–5.0): the delivered lot resolves, provenance in the JSON ——— */
+  tl.fromTo('.settled-lot', { x: 56, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: 'power3.out' }, 2.6);
+  tl.fromTo('.settled-eyebrow', { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: 'power1.out' }, 3.05);
+  tl.fromTo('.settled-title', { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' }, 3.2);
+  tl.fromTo('.settled-mline', { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, stagger: 0.16, ease: 'power1.out' }, 3.6);
+  tl.fromTo('.settled-acc-u', { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: 'power2.out', transformOrigin: '0 50%' }, 4.05);
+  tl.fromTo('.settled-chips > *', { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.25, stagger: 0.07, ease: 'power1.out' }, 4.4);
+  tl.fromTo('.settled-lot .settled-cap', { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: 'power2.out' }, 4.6);
+
+  /* ——— Scene 3 (5.0–8.0): the new sale slides to the top, receipt opens ——— */
+  tl.fromTo('.settled-ledger', { x: 56, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: 'power3.out' }, 5.0);
+  tl.fromTo('.settled-lhead', { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: 'power1.out' }, 5.15);
+  tl.fromTo('.settled-lrule', { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: 'power2.out', transformOrigin: '0 50%' }, 5.2);
+  tl.fromTo('.settled-colh', { opacity: 0 }, { opacity: 1, duration: 0.3 }, 5.25);
+  tl.fromTo('.settled-orow', { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.28, stagger: 0.08, ease: 'power1.out' }, 5.24);
+
+  /* the fresh row slides to the top of the ledger; the floor parts beneath it */
+  tl.fromTo('.settled-newrow', { x: 72, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: 'power3.out' }, 5.7);
+  tl.to('.settled-oldrows', { y: 36, duration: 0.42, ease: 'power2.inOut' }, 5.7);
+
+  /* its receipt opens — the real PAYMENT-RESPONSE body */
+  tl.to('.settled-oldrows', { y: 122, duration: 0.45, ease: 'power2.inOut' }, 6.15);
+  tl.to('.settled-receipt', { height: 84, duration: 0.45, ease: 'power2.inOut' }, 6.15);
+  tl.fromTo('.settled-rcpt', { opacity: 0 }, { opacity: 1, duration: 0.3, ease: 'power1.out' }, 6.35);
+
+  tl.fromTo('.settled-ledger .settled-cap', { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: 'power2.out' }, 6.95);
+
+  /* hold on the landed state through 8.0 */
+  tl.to({}, { duration: 8 }, 0);
+
+  window.__timelines['04-settled'] = tl;
+})();
+</script>
+</template>

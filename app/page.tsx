@@ -1,24 +1,22 @@
-import { corpusSize, currentLot, MUSEUMS } from "@/lib/corpus";
+import { corpusSize, saleThumbs } from "@/lib/corpus";
 import { salesCount, recentSales } from "@/lib/ledger";
-import LotStage from "@/components/lot-stage";
 import BidRoom from "@/components/bid-room";
+import LiveStats from "@/components/live-stats";
 import FloorFeed from "@/components/floor-feed";
+import LotInspector from "@/components/lot-inspector";
+import LastLot from "@/components/last-lot";
+import SettleStrip from "@/components/settle-strip";
+import { SurfaceToggle, SurfaceClose, SheetA11y } from "@/components/surface-sheet";
 
 export const revalidate = 60;
 
-const TICKER = [
-  "public domain", "x402", "agents only", "per call", "no accounts", "no api keys",
-  "provenance in the json", "usdc · xlm", "sold", "sold", "sold",
-];
-
 async function floorData() {
-  const [size, total, recent, lot] = await Promise.all([
+  const [size, total, recent] = await Promise.all([
     corpusSize(),
     salesCount(),
     recentSales(20),
-    currentLot(),
   ]);
-  return { size, total, recent, lot };
+  return { size, total, recent };
 }
 
 const RECEIPT = `# GET /v1/search?q=storm%20at%20sea
@@ -36,10 +34,34 @@ PAYMENT-RESPONSE: {"success":true,
   "transaction":"c45f702a…071c75","network":"stellar:testnet"}`;
 
 export default async function Page() {
-  const { size, total, recent, lot } = await floorData();
+  const { size, total, recent } = await floorData();
+  // join every delivered work — receipts name all the lots a sale carried
+  const thumbs = await saleThumbs([...new Set(recent.flatMap((s) => s.artwork_ids ?? []))]);
+  const recentWithThumbs = recent.map((s) => ({
+    ...s,
+    thumb: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.thumb ?? null) : null,
+    lot_title: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.title ?? null) : null,
+    lot_url: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.object_url ?? null) : null,
+    lot_img: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.image ?? null) : null,
+    lot_artist: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.artist ?? null) : null,
+    lot_museum: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.museum ?? null) : null,
+    lot_rights: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.rights ?? null) : null,
+    lot_date: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.date ?? null) : null,
+    lot_medium: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.medium ?? null) : null,
+    lots: (s.artwork_ids ?? [])
+      .map((id) => thumbs.get(id))
+      .filter(Boolean)
+      .map((l) => ({ title: l!.title, artist: l!.artist, museum: l!.museum, rights: l!.rights, img: l!.image, object_url: l!.object_url })),
+  }));
+  const last = recent[0];
+  // a flaky corpus-size answer must not flip the house to "closed" — the
+  // ledger answering is itself proof the floor is open
+  const open = size != null || total > 0 || recent.length > 0;
 
   return (
     <main>
+      <input type="checkbox" id="sheet-t" className="sheet-t" aria-label="show the machine surface" />
+      <SheetA11y />
       <header className="mast">
         <div className="wrap">
           <div className="row">
@@ -48,10 +70,14 @@ export default async function Page() {
               <div className="sub">an auction house where machines are the only bidders</div>
             </div>
             <div className="live">
-              <span className={`dot ${size ? "on" : ""}`} />
-              <span>{size ? "floor open" : "floor closed"}</span>
+              <span className={`dot ${open ? "on" : ""}`} />
+              <span>{open ? "floor open" : "floor closed"}</span>
             </div>
           </div>
+          <p className="what">
+            Agents pay a cent or two per search and leave with an image, its catalogue data, and license proof.
+            Every settled payment lands on the public floor below.
+          </p>
         </div>
       </header>
 
@@ -59,64 +85,41 @@ export default async function Page() {
         <div className="wrap">
           <div className="row">
             <span>corpus <b>{size?.toLocaleString("en") ?? "—"}</b> works</span>
-            <span><b>4</b> museums</span>
-            <span><b>{total}</b> lots sold</span>
-            <span>text search <b>$0.01</b>/call</span>
-            <span>image search <b>$0.02</b>/call</span>
-            <span>protocol <b>x402 v2</b></span>
+            <LiveStats
+              initialTotal={total}
+              initialLast={last ? { query_hint: last.query_hint, endpoint: last.endpoint, amount: last.amount, network: last.network } : null}
+            />
+            <span className="opt"><b>4</b> museums</span>
+            <span className="opt">text <b>$0.01</b> · image <b>$0.02</b></span>
+            <span className="opt">protocol <b>x402 v2</b></span>
           </div>
         </div>
       </div>
 
-      <section className="wrap">
-        <div className="block">
-          <LotStage
-            initial={
-              lot
-                ? {
-                    id: lot.id,
-                    title: lot.title,
-                    artist: lot.artist,
-                    date: lot.date,
-                    medium: lot.medium,
-                    image: { display: lot.image_url, thumb: lot.thumb_url || lot.image_url, width: lot.img_w ?? null, height: lot.img_h ?? null },
-                    museum: MUSEUMS[lot.source]?.name ?? lot.source,
-                    object_url: lot.object_url,
-                  }
-                : null
-            }
-          />
-          <div>
+      <section className="deck">
+        <div className="floorgrid">
+          <div className="console-col">
+            {/* phones get the newest lot before the console — the first
+                viewport already shows a real artwork and the bid action */}
+            <div className="hero-lot">
+              <LastLot sale={recentWithThumbs[0] ?? null} listen />
+            </div>
             <BidRoom />
-            <section className="prov" style={{ padding: "26px 0 0" }}>
-              <div className="grid" style={{ gridTemplateColumns: "1fr" }}>
-                <div className="museum" style={{ borderStyle: "dashed" }}>
-                  <h3>what a lot is</h3>
-                  <p>
-                    One JSON object: the image, its catalogue title, artist, medium — and a provenance block with the
-                    museum's accession number, a rights statement, and the URL that proves it. If a check could not be
-                    run, the lot says so. Nothing is sold as verified that was not verified.
-                  </p>
-                </div>
-              </div>
-            </section>
+            <p className="fineprint" style={{ marginTop: 14 }}>
+              A lot is one JSON object: the image, its catalogue title, artist, medium — and a provenance block
+              with the museum's accession number, a rights statement, and the URL that proves it. If a check
+              could not be run, the lot says so.
+            </p>
           </div>
+          <FloorFeed initial={recentWithThumbs as any} total={total} corpusDown={!open} />
         </div>
       </section>
 
-      <div className="ticker" aria-hidden="true">
-        <div className="rail">
-          {[...TICKER, ...TICKER].map((t, i) => (
-            <span key={i}>{t === "sold" ? <b>SOLD —</b> : `${t} —`}</span>
-          ))}
-        </div>
-      </div>
+      <SettleStrip initial={recentWithThumbs as any} />
 
-      <div className="wrap">
-        <FloorFeed initial={recent as any} total={total} />
-      </div>
-
-      <div className="wrap">
+      <div className="sheet">
+        <SurfaceClose />
+        <div className="wrap">
         <section className="mach">
           <h2>The machine surface</h2>
           <p className="sub">An agent finds this service through the discovery document, pays per call, and leaves with the receipt on-chain.</p>
@@ -170,6 +173,7 @@ export default async function Page() {
             </div>
           </div>
         </section>
+        </div>
       </div>
 
       <footer className="site">
@@ -177,13 +181,14 @@ export default async function Page() {
           <div className="row">
             <span>almoneda — an auction house where machines are the only bidders</span>
             <span>
-              testnet only ·{" "}
+              <SurfaceToggle /> · testnet only ·{" "}
               <a href="https://github.com/miguelgarglez/almoneda" style={{ color: "var(--usdc)" }}>github</a> · built in{" "}
               <a href="https://github.com/miguelgarglez" style={{ color: "var(--usdc)" }}>the lab</a>
             </span>
           </div>
         </div>
       </footer>
+      <LotInspector />
     </main>
   );
 }

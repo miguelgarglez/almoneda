@@ -1,0 +1,268 @@
+<template>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:IBM Plex Mono;font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/captured-e390973e931a41c5-s.0rgnxg2b64rzs.woff2")format("woff2");unicode-range:U+460-52F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}
+@font-face{font-family:IBM Plex Mono;font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/captured-59b15b4bcd7b1eb5-s.2vemzm0itqzfy.woff2")format("woff2");unicode-range:U+301,U+400-45F,U+490-491,U+4B0-4B1,U+2116}
+@font-face{font-family:IBM Plex Mono;font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/captured-e532fa1b9921e1cd-s.3cb5lpr2l6xud.woff2")format("woff2");unicode-range:U+102-103,U+110-111,U+128-129,U+168-169,U+1A0-1A1,U+1AF-1B0,U+300-301,U+303-304,U+308-309,U+323,U+329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:IBM Plex Mono;font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/captured-2fe89d53234c61d4-s.1u30mmyq6lnsd.woff2")format("woff2");unicode-range:U+100-2BA,U+2BD-2C5,U+2C7-2CC,U+2CE-2D7,U+2DD-2FF,U+304,U+308,U+329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:IBM Plex Mono;font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/captured-99e609270109b47d-s.p.40sczeszzbjw1.woff2")format("woff2");unicode-range:U+??,U+131,U+152-153,U+2BB-2BC,U+2C6,U+2DA,U+2DC,U+304,U+308,U+329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:IBM Plex Mono;font-style:normal;font-weight:500;font-display:swap;src:url("assets/fonts/captured-a7afbb44bec2bb18-s.1qc6dx89jd2qv.woff2")format("woff2");unicode-range:U+301,U+400-45F,U+490-491,U+4B0-4B1,U+2116}
+@font-face{font-family:IBM Plex Serif;font-style:italic;font-weight:400;font-display:swap;src:url("assets/fonts/captured-6308822089fd3411-s.1g4p5h7qohzvf.woff2")format("woff2");unicode-range:U+102-103,U+110-111,U+128-129,U+168-169,U+1A0-1A1,U+1AF-1B0,U+300-301,U+303-304,U+308-309,U+323,U+329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:IBM Plex Serif;font-style:italic;font-weight:400;font-display:swap;src:url("assets/fonts/captured-ff4d9f8b7294524b-s.0o02v0n75imht.woff2")format("woff2");unicode-range:U+100-2BA,U+2BD-2C5,U+2C7-2CC,U+2CE-2D7,U+2DD-2FF,U+304,U+308,U+329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:IBM Plex Serif;font-style:italic;font-weight:500;font-display:swap;src:url("assets/fonts/captured-221a7ef2b9efbaad-s.3y_2a9syrf1t9.woff2")format("woff2");unicode-range:U+102-103,U+110-111,U+128-129,U+168-169,U+1A0-1A1,U+1AF-1B0,U+300-301,U+303-304,U+308-309,U+323,U+329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:IBM Plex Serif;font-style:italic;font-weight:500;font-display:swap;src:url("assets/fonts/captured-730055c84ed23e9d-s.11rdqt5t05d4j.woff2")format("woff2");unicode-range:U+100-2BA,U+2BD-2C5,U+2C7-2CC,U+2CE-2D7,U+2DD-2FF,U+304,U+308,U+329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:IBM Plex Serif;font-style:italic;font-weight:500;font-display:swap;src:url("assets/fonts/captured-b02a479d288d97d4-s.p.0mib0lja7x326.woff2")format("woff2");unicode-range:U+??,U+131,U+152-153,U+2BB-2BC,U+2C6,U+2DA,U+2DC,U+304,U+308,U+329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:IBM Plex Serif;font-style:italic;font-weight:600;font-display:swap;src:url("assets/fonts/captured-15c09482df909879-s.3u3lylzphf4wx.woff2")format("woff2");unicode-range:U+460-52F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}
+
+  #root {
+    position: absolute;
+    inset: 0;
+    width: 1920px;
+    height: 1080px;
+    container-type: size;
+    overflow: hidden;
+  }
+
+  /* full-bleed paper ground — the clip layer */
+  .f02-bg {
+    position: absolute;
+    inset: 0;
+    background: #F1EAD9;
+  }
+
+  /* ---------- topbar (mono label left, counter right) ---------- */
+  .f02-topbar {
+    position: absolute;
+    top: 32px;
+    left: 96px;
+    right: 96px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .f02-top-label,
+  .f02-top-count {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #896310;
+  }
+  .f02-toprule {
+    position: absolute;
+    top: 70px;
+    left: 96px;
+    right: 96px;
+    height: 2px;
+    background: #8A6410;
+  }
+
+  /* ---------- the framed terminal window ---------- */
+  .f02-window {
+    position: absolute;
+    left: 380px;
+    top: 88px;
+    width: 1100px;
+    height: 735px;
+    border: 2px solid #231A12;
+    border-radius: 6px;
+    background: #E8DFCA;
+    overflow: hidden;
+  }
+  .f02-tabbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 22px;
+    background: #E8DFCA;
+    border-bottom: 2px solid #231A12;
+    box-sizing: border-box;
+  }
+  .f02-tab-swatch {
+    width: 12px;
+    height: 12px;
+    background: #8A6410;
+    flex: none;
+  }
+  .f02-tab-title {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #231A12;
+  }
+  .f02-tab-right {
+    margin-left: auto;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6B4E0C;
+  }
+  /* footage — hoisted to host root at assembly via data-frame-video;
+     inline geometry below only serves the standalone preview */
+  .f02-video {
+    position: absolute;
+    left: 2px;
+    top: 48px;
+    width: 1096px;
+    height: 685px;
+    object-fit: cover;
+    background: #E8DFCA;
+    display: block;
+  }
+
+  /* ---------- column chips (pinned annotations) ---------- */
+  .f02-chip {
+    position: absolute;
+    top: 826px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .f02-chip-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #231A12;
+    background: #F1EAD9;
+    border: 2px solid #231A12;
+    border-radius: 6px;
+    padding: 8px 16px;
+    white-space: nowrap;
+  }
+
+
+  /* ---------- caption line under the frame ---------- */
+  .f02-caption {
+    position: absolute;
+    top: 868px;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  .f02-cap-word {
+    display: inline-block;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 500;
+    font-size: 21px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #231A12;
+    padding: 0 0.16em;
+  }
+  .f02-cap-word.f02-cap-accent {
+    color: #A02318;
+  }
+  .f02-caprule {
+    position: absolute;
+    top: 894px;
+    left: 880px;
+    width: 160px;
+    height: 2px;
+    background: #8A6410;
+  }
+@font-face{font-family:IBM Plex Serif;font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/ef7be03ed7e60a63-s.p.3v7282xeqat89.woff2")format("woff2")}
+@font-face{font-family:IBM Plex Serif;font-style:normal;font-weight:500;font-display:swap;src:url("assets/fonts/522cd826f2dc0be6-s.p.1-0iuabceimri.woff2")format("woff2")}
+@font-face{font-family:IBM Plex Serif;font-style:normal;font-weight:600;font-display:swap;src:url("assets/fonts/713e82fa9fe87496-s.p.0rayo0436sl6u.woff2")format("woff2")}
+@font-face{font-family:IBM Plex Mono;font-style:normal;font-weight:500;font-display:swap;src:url("assets/fonts/effe91970fc4db64-s.p.0oace-s_gkfks.woff2")format("woff2")}
+</style>
+
+<div id="root" data-composition-id="02-floor" data-start="0" data-duration="5" data-fps="30" data-width="1920" data-height="1080">
+  <!-- full-bleed ground -->
+  <div class="clip f02-bg" data-start="0" data-duration="5" data-track-index="0"></div>
+
+  <!-- topbar -->
+  <div class="f02-topbar">
+    <span class="f02-top-label">Almoneda — Machine Auction</span>
+    <span class="f02-top-count">02 · The Floor</span>
+  </div>
+  <div class="f02-toprule" id="f02-toprule"></div>
+
+  <!-- framed terminal window: lot card -->
+  <div class="f02-window" id="f02-window">
+    <div class="f02-tabbar">
+      <span class="f02-tab-swatch"></span>
+      <span class="f02-tab-title">The Floor</span>
+      <span class="f02-tab-right">First Load — Live</span>
+    </div>
+    <!-- approved frame video hoisted by assemble-index -->
+
+    <!-- column chips: the lot / the console / the ledger -->
+  </div>
+
+  <!-- column chips pinned under the frame: the lot / the console / the ledger -->
+  <div class="f02-chip" id="f02-chip-lot"><div class="f02-chip-label">The Lot</div></div>
+  <div class="f02-chip" id="f02-chip-console"><div class="f02-chip-label">The Console</div></div>
+  <div class="f02-chip" id="f02-chip-ledger"><div class="f02-chip-label">The Ledger</div></div>
+
+  <!-- caption under the frame -->
+  <div class="f02-caption" id="f02-caption">
+    <span class="f02-cap-word">every</span><span class="f02-cap-word">row</span><span class="f02-cap-word">is</span><span class="f02-cap-word">a</span><span class="f02-cap-word f02-cap-accent">settled</span><span class="f02-cap-word">on-chain</span><span class="f02-cap-word">payment</span>
+  </div>
+  <div class="f02-caprule" id="f02-caprule"></div>
+</div>
+
+<script>
+  (function () {
+    // chip column anchors — thirds of the footage area, relative to the window box
+    gsap.set("#f02-chip-lot",     { x: 565, xPercent: -50 });
+    gsap.set("#f02-chip-console", { x: 930, xPercent: -50 });
+    gsap.set("#f02-chip-ledger",  { x: 1295, xPercent: -50 });
+
+    window.__timelines = window.__timelines || {};
+    var tl = gsap.timeline({ paused: true });
+
+    /* Scene 1 (0.0–1.2s) — the framed terminal lands center.
+       The footage itself is already live (hoisted clip); the lot-card
+       chrome scales in around it, topbar draws above. */
+    tl.fromTo("#f02-window",
+      { scale: 0.93, y: 26, autoAlpha: 0 },
+      { scale: 1, y: 0, autoAlpha: 1, duration: 0.9, ease: "power3.out" }, 0.05);
+    tl.fromTo(".f02-top-label",
+      { y: -8, autoAlpha: 0 },
+      { y: 0, autoAlpha: 1, duration: 0.55, ease: "power2.out" }, 0.15);
+    tl.fromTo(".f02-top-count",
+      { y: -8, autoAlpha: 0 },
+      { y: 0, autoAlpha: 1, duration: 0.55, ease: "power2.out" }, 0.25);
+    tl.fromTo("#f02-toprule",
+      { scaleX: 0 },
+      { scaleX: 1, duration: 0.7, ease: "power2.inOut", transformOrigin: "left center" }, 0.2);
+
+    /* Scene 2 (1.2–3.0s) — three mono chips pin in sequence:
+       the lot (artwork column) → the console (center) → the ledger (right). */
+    [["#f02-chip-lot", 1.25], ["#f02-chip-console", 1.7], ["#f02-chip-ledger", 2.15]]
+      .forEach(function (pair) {
+        var sel = pair[0], at = pair[1];
+        tl.fromTo(sel + " .f02-chip-label",
+          { y: -16, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, duration: 0.5, ease: "back.out(1.7)" }, at);
+      });
+
+    /* Scene 3 (3.0–5.0s) — the caption settles under the frame, word by word,
+       then its hairline seals. Hold to end. */
+    tl.fromTo("#f02-caption .f02-cap-word",
+      { y: 10, autoAlpha: 0 },
+      { y: 0, autoAlpha: 1, duration: 0.4, ease: "power2.out", stagger: 0.08 }, 3.0);
+    tl.fromTo("#f02-caprule",
+      { scaleX: 0 },
+      { scaleX: 1, duration: 0.6, ease: "power2.inOut", transformOrigin: "center center" }, 3.95);
+
+    // full-span anchor — the timeline covers the whole 5s window
+    tl.to({}, { duration: 5 }, 0);
+
+    window.__timelines["02-floor"] = tl;
+  })();
+</script>
+</template>

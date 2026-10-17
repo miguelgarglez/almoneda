@@ -1,0 +1,309 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - checkbox "show the machine surface" [ref=e3]
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - generic [ref=e8]: almoneda
+          - generic [ref=e9]: an auction house where machines are the only bidders
+        - generic [ref=e10]: floor closed
+      - paragraph [ref=e13]: Agents pay a cent or two per search and leave with an image, its catalogue data, and license proof. Every settled payment lands on the public floor below.
+    - generic [ref=e16]:
+      - generic [ref=e17]: corpus — works
+      - generic [ref=e18]: 18 lots sold
+      - generic [ref=e19]:
+        - text: last hammer —
+        - generic [ref=e20]: “storm at sea”
+        - text: · 0.01 XLM
+    - generic [ref=e22]:
+      - generic [ref=e23]: no lot on the block — corpus unreachable
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - generic [ref=e28]: the bidding console
+          - generic [ref=e29]: x402 · testnet
+        - generic [ref=e30]:
+          - generic [ref=e31]: what your agent needs
+          - textbox "search query" [ref=e32]:
+            - /placeholder: describe the work — e.g. "a storm at sea"
+          - generic "example queries" [ref=e33]:
+            - button "a storm at sea" [ref=e34] [cursor=pointer]
+            - button "gold and grief" [ref=e35] [cursor=pointer]
+            - button "a sleeping child" [ref=e36] [cursor=pointer]
+            - button "winter light" [ref=e37] [cursor=pointer]
+          - generic [ref=e38]:
+            - button "send an agent to bid — $0.01" [ref=e39] [cursor=pointer]
+            - button "browse free" [ref=e40] [cursor=pointer]
+          - paragraph [ref=e41]: "Fixed-price sale: testnet money, no wallet needed — the house purse pays so you can watch a real x402 payment settle on-chain. The agent buys one API response, not exclusive ownership: the works are public domain for everyone."
+      - generic [ref=e42]:
+        - heading "The floor · 18 lots sold" [level=2] [ref=e43]:
+          - text: The floor ·
+          - generic "18"
+          - text: lots sold
+        - paragraph [ref=e44]: Every row is a settled on-chain payment — click one to open the catalogue entry. Testnet money, real protocol.
+        - table [ref=e47]:
+          - rowgroup [ref=e48]:
+            - row [ref=e49]:
+              - columnheader [ref=e50]
+              - columnheader "time" [ref=e51]
+              - columnheader "looking for" [ref=e52]
+              - columnheader "bid" [ref=e53]
+              - columnheader "settlement" [ref=e54]
+          - rowgroup [ref=e55]:
+            - row [ref=e56] [cursor=pointer]:
+              - cell [ref=e57]
+              - cell "39m ago" [ref=e58]
+              - cell "storm at sea" [ref=e59]
+              - cell "0.01 XLM" [ref=e60]
+              - cell [ref=e61]:
+                - link "17084c…71f2 ↗" [ref=e62]:
+                  - /url: https://stellar.expert/explorer/testnet/tx/17084cd1e5ae1f1bb84afcfba73e1bd1a1b035914bcf775aa6b95bae840c71f2
+            - row [ref=e63] [cursor=pointer]:
+              - cell [ref=e64]
+              - cell "40m ago" [ref=e65]
+              - cell "storm at sea" [ref=e66]
+              - cell "0.01 XLM" [ref=e67]
+              - cell [ref=e68]:
+                - link "93b892…c3ab ↗" [ref=e69]:
+                  - /url: https://stellar.expert/explorer/testnet/tx/93b892f0093118a5b9ff25eaa0e45dbe04526949f2f84cb21abe149760abc3ab
+            - row [ref=e70] [cursor=pointer]:
+              - cell [ref=e71]
+              - cell "41m ago" [ref=e72]
+              - cell "a quiet harbor" [ref=e73]
+              - cell "0.01 XLM" [ref=e74]
+              - cell [ref=e75]:
+                - link "9d9710…361b ↗" [ref=e76]:
+                  - /url: https://stellar.expert/explorer/testnet/tx/9d97106f4bdde07d6fede3602a0cb784db361c31c85b004d6e9c2f5c767e361b
+            - row [ref=e77] [cursor=pointer]:
+              - cell [ref=e78]
+              - cell "1h ago" [ref=e79]
+              - cell "storm at sea" [ref=e80]
+              - cell "0.01 XLM" [ref=e81]
+              - cell [ref=e82]:
+                - link "c34c98…9b6a ↗" [ref=e83]:
+                  - /url: https://stellar.expert/explorer/testnet/tx/c34c9896158dbf2ded34c8ed30fb867117024a82d36f3a94ad715777cc089b6a
+            - row [ref=e84] [cursor=pointer]:
+              - cell [ref=e85]
+              - cell "1h ago" [ref=e86]
+              - cell "a saint in gold" [ref=e87]
+              - cell "0.01 XLM" [ref=e88]
+              - cell [ref=e89]:
+                - link "bc2f45…0b8e ↗" [ref=e90]:
+                  - /url: https://stellar.expert/explorer/testnet/tx/bc2f45297558f85f9adbcf7514be9ca162885493159f453511665d0d2d400b8e
+            - row [ref=e91] [cursor=pointer]:
+              - cell [ref=e92]
+              - cell "1h ago" [ref=e93]
+              - cell "portrait of a dog" [ref=e94]
+              - cell "0.01 XLM" [ref=e95]
+              - cell [ref=e96]:
+                - link "032277…935b ↗" [ref=e97]:
+                  - /url: https://stellar.expert/explorer/testnet/tx/032277c5dc6e9f8196f18d21b8331ff9412b0cdc2a3d36125e3ae2f0254a935b
+            - row [ref=e98] [cursor=pointer]:
+              - cell [ref=e99]
+              - cell "1h ago" [ref=e100]
+              - cell "a saint in gold" [ref=e101]
+              - cell "0.01 XLM" [ref=e102]
+              - cell [ref=e103]:
+                - link "a44b56…2310 ↗" [ref=e104]:
+                  - /url: https://stellar.expert/explorer/testnet/tx/a44b564cc4d2e8f6954438a4b6cc3717de6fad4480e236015f36d2ecd5722310
+            - row [ref=e105] [cursor=pointer]:
+              - cell [ref=e106]
+              - cell "1h ago" [ref=e107]
+              - cell "storm at sea" [ref=e108]
+              - cell "0.01 XLM" [ref=e109]
+              - cell [ref=e110]:
+                - link "ce765c…d3c6 ↗" [ref=e111]:
+                  - /url: https://stellar.expert/explorer/testnet/tx/ce765c09e02d00b6db10b7f6d848724284d85ad53b20189cd78b60828973d3c6
+            - row [ref=e112] [cursor=pointer]:
+              - cell [ref=e113]
+              - cell "1h ago" [ref=e114]
+              - cell "a winter landscape" [ref=e115]
+              - cell "0.01 XLM" [ref=e116]
+              - cell [ref=e117]:
+                - link "f5a4df…97cb ↗" [ref=e118]:
+                  - /url: https://stellar.expert/explorer/testnet/tx/f5a4dfbf8177292eaaf017f970f320f717cbbd757b5b513ba0ea19b6490597cb
+            - row [ref=e119] [cursor=pointer]:
+              - cell [ref=e120]
+              - cell "1h ago" [ref=e121]
+              - cell "a saint in gold" [ref=e122]
+              - cell "0.01 XLM" [ref=e123]
+              - cell [ref=e124]:
+                - link "02c8df…fccd ↗" [ref=e125]:
+                  - /url: https://stellar.expert/explorer/testnet/tx/02c8dff27c7cdd10c1d7c14b8ebfa911ae5821df52f6e9a678032e6fa767fccd
+            - row [ref=e126] [cursor=pointer]:
+              - cell [ref=e127]
+              - cell "1h ago" [ref=e128]
+              - cell "a storm at sea" [ref=e129]
+              - cell "0.01 XLM" [ref=e130]
+              - cell [ref=e131]:
+                - link "cb26da…2b26 ↗" [ref=e132]:
+                  - /url: https://stellar.expert/explorer/testnet/tx/cb26da27945c98b930039420db2fd96dc7a6618863414c78f38cfbd5d4c52b26
+            - row [ref=e133] [cursor=pointer]:
+              - cell [ref=e134]
+              - cell "2h ago" [ref=e135]
+              - cell "storm at sea" [ref=e136]
+              - cell "0.01 XLM" [ref=e137]
+              - cell [ref=e138]:
+                - link "2db997…d019 ↗" [ref=e139]:
+                  - /url: https://stellar.expert/explorer/testnet/tx/2db997be1d6968b001b3d2cf9a9b60c3f48c5331cad2a95ccd96577283c1d019
+            - row [ref=e140] [cursor=pointer]:
+              - cell [ref=e141]
+              - cell "2h ago" [ref=e142]
+              - 'cell "image: images.metmuseum.org" [ref=e143]'
+              - cell "0.02 XLM" [ref=e144]
+              - cell [ref=e145]:
+                - link "e7236a…44d0 ↗" [ref=e146]:
+                  - /url: https://stellar.expert/explorer/testnet/tx/e7236a4b60810f6f5c06c9201ce63561391797dd5fea4d844a906ba0639044d0
+            - row [ref=e147] [cursor=pointer]:
+              - cell [ref=e148]
+              - cell "2h ago" [ref=e149]
+              - cell "the harvest" [ref=e150]
+              - cell "0.01 XLM" [ref=e151]
+              - cell [ref=e152]:
+                - link "a7b9fa…694d ↗" [ref=e153]:
+                  - /url: https://stellar.expert/explorer/testnet/tx/a7b9fa0c57d71f368d02307d5599fa53b397138d5e405799422cfe0aaa07694d
+            - row [ref=e154] [cursor=pointer]:
+              - cell [ref=e155]
+              - cell "3h ago" [ref=e156]
+              - cell "a winter landscape" [ref=e157]
+              - cell "0.01 XLM" [ref=e158]
+              - cell [ref=e159]:
+                - link "418276…649e ↗" [ref=e160]:
+                  - /url: https://stellar.expert/explorer/testnet/tx/418276cf62048cd461f61e3753544059dc201de962467c92d120da5cc7f7649e
+            - row [ref=e161] [cursor=pointer]:
+              - cell [ref=e162]
+              - cell "3h ago" [ref=e163]
+              - cell "a winter landscape" [ref=e164]
+              - cell "0.01 XLM" [ref=e165]
+              - cell [ref=e166]:
+                - link "db4d3c…336a ↗" [ref=e167]:
+                  - /url: https://stellar.expert/explorer/testnet/tx/db4d3c8b6a0d4edcd7483dd9d2ac4ed4eafb0a8ed9f23f1ec73e6ae2cf2d336a
+            - row [ref=e168] [cursor=pointer]:
+              - cell [ref=e169]
+              - cell "3h ago" [ref=e170]
+              - cell "a saint in gold" [ref=e171]
+              - cell "0.01 XLM" [ref=e172]
+              - cell [ref=e173]:
+                - link "de187e…2489 ↗" [ref=e174]:
+                  - /url: https://stellar.expert/explorer/testnet/tx/de187e01ebed6f1e8ec04a07e955be0c31900cf7757be16e5038893ea9112489
+            - row [ref=e175] [cursor=pointer]:
+              - cell [ref=e176]
+              - cell "3h ago" [ref=e178]
+              - cell "—" [ref=e179]
+              - cell "0.01 XLM" [ref=e180]
+              - cell [ref=e181]:
+                - link "c45f70…1c75 ↗" [ref=e182]:
+                  - /url: https://stellar.expert/explorer/testnet/tx/c45f702ab519ddbb183f1a9b3e0d2f5e3bbf30911e5283bc4c9662c841071c75
+    - generic [ref=e184]:
+      - generic [ref=e185]: public domain —
+      - generic [ref=e186]: x402 —
+      - generic [ref=e187]: agents only —
+      - generic [ref=e188]: per call —
+      - generic [ref=e189]: no accounts —
+      - generic [ref=e190]: no api keys —
+      - generic [ref=e191]: provenance in the json —
+      - generic [ref=e192]: usdc · xlm —
+      - generic [ref=e193]: the met —
+      - generic [ref=e194]: cleveland —
+      - generic [ref=e195]: art institute of chicago —
+      - generic [ref=e196]: national gallery —
+      - generic [ref=e197]: public domain —
+      - generic [ref=e198]: x402 —
+      - generic [ref=e199]: agents only —
+      - generic [ref=e200]: per call —
+      - generic [ref=e201]: no accounts —
+      - generic [ref=e202]: no api keys —
+      - generic [ref=e203]: provenance in the json —
+      - generic [ref=e204]: usdc · xlm —
+      - generic [ref=e205]: the met —
+      - generic [ref=e206]: cleveland —
+      - generic [ref=e207]: art institute of chicago —
+      - generic [ref=e208]: national gallery —
+    - generic [ref=e209]:
+      - button "close the machine surface" [ref=e210] [cursor=pointer]: close ✕
+      - generic [ref=e211]:
+        - generic [ref=e212]:
+          - heading "The machine surface" [level=2] [ref=e213]
+          - paragraph [ref=e214]: An agent finds this service through the discovery document, pays per call, and leaves with the receipt on-chain.
+          - generic [ref=e215]:
+            - generic [ref=e216]: "# GET /v1/search?q=storm%20at%20sea HTTP/1.1 402 Payment Required PAYMENT-REQUIRED: {\"x402Version\":2,\"accepts\":[ {\"scheme\":\"exact\",\"network\":\"eip155:84532\", \"asset\":\"0x036CbD…f7e\",\"amount\":\"10000\", \"payTo\":\"0x0706…6119\"}, {\"scheme\":\"exact\",\"network\":\"stellar:testnet\", \"asset\":\"CDLZFC…YSC\",\"amount\":\"100000\", \"payTo\":\"GCQUYY…PLZD\",\"extra\":{\"areFeesSponsored\":true}}]} # sign → retry with PAYMENT-SIGNATURE → 200 PAYMENT-RESPONSE: {\"success\":true, \"transaction\":\"c45f702a…071c75\",\"network\":\"stellar:testnet\"}"
+            - generic [ref=e217]:
+              - table [ref=e218]:
+                - rowgroup [ref=e219]:
+                  - row [ref=e220]:
+                    - cell [ref=e221]:
+                      - code [ref=e222]: GET /v1/search?q=…&n=5
+                    - cell "$0.01" [ref=e223]
+                  - row [ref=e224]:
+                    - cell [ref=e225]:
+                      - code [ref=e226]: POST /v1/search/image
+                    - cell "$0.02" [ref=e227]
+                  - row [ref=e228]:
+                    - cell [ref=e229]:
+                      - code [ref=e230]: POST /mcp
+                      - text: paid MCP tools
+                    - cell "$0.01–0.02" [ref=e231]
+                  - row [ref=e232]:
+                    - cell [ref=e233]:
+                      - code [ref=e234]: GET /v1/demo/search
+                      - text: unpaid preview
+                    - cell "free ×3/day" [ref=e235]
+                  - row [ref=e236]:
+                    - cell [ref=e237]:
+                      - code [ref=e238]: GET /v1/floor
+                      - text: the sales ledger
+                    - cell "free" [ref=e239]
+                  - row [ref=e240]:
+                    - cell [ref=e241]:
+                      - code [ref=e242]: GET /v1/status
+                    - cell "free" [ref=e243]
+                  - row [ref=e244]:
+                    - cell [ref=e245]:
+                      - code [ref=e246]: GET /llms.txt
+                      - text: the agent guide
+                    - cell "free" [ref=e247]
+              - list [ref=e248]:
+                - listitem [ref=e249]:
+                  - link "llms.txt — how an agent uses this house" [ref=e250] [cursor=pointer]:
+                    - /url: /llms.txt
+                - listitem [ref=e251]:
+                  - link "openapi.json — the contract" [ref=e252] [cursor=pointer]:
+                    - /url: /openapi.json
+                - listitem [ref=e253]:
+                  - link "x402 discovery declaration (Bazaar)" [ref=e254] [cursor=pointer]:
+                    - /url: /.well-known/x402
+                - listitem [ref=e255]:
+                  - link "/v1/floor — the ledger, as JSON" [ref=e256] [cursor=pointer]:
+                    - /url: /v1/floor
+        - generic [ref=e257]:
+          - heading "Provenance, not vibes" [level=2] [ref=e258]
+          - paragraph [ref=e259]: Every lot carries the museum's own accession number and a rights statement with evidence — the part agents usually have to guess.
+          - generic [ref=e260]:
+            - generic [ref=e261]:
+              - heading "The Metropolitan Museum of Art" [level=3] [ref=e262]
+              - text: CC0 1.0 · open access
+              - paragraph [ref=e263]: Accession numbers seeded from the Met's published object data; Commons-hosted works re-checked against their file pages.
+            - generic [ref=e264]:
+              - heading "Cleveland Museum of Art" [level=3] [ref=e265]
+              - text: CC0 1.0 · open access
+              - paragraph [ref=e266]: Rights re-checked against the open-access API per object, lazily, then cached.
+            - generic [ref=e267]:
+              - heading "Art Institute of Chicago" [level=3] [ref=e268]
+              - text: CC0 1.0 · public domain
+              - paragraph [ref=e269]:
+                - code [ref=e270]: is_public_domain
+                - text: verified per object via the artic.edu API.
+            - generic [ref=e271]:
+              - heading "National Gallery of Art" [level=3] [ref=e272]
+              - text: open access images
+              - paragraph [ref=e273]: NGA's published open-access policy; object pages linked as evidence.
+    - generic [ref=e276]:
+      - generic [ref=e277]: almoneda — an auction house where machines are the only bidders
+      - generic [ref=e278]:
+        - button "the machine surface" [ref=e279] [cursor=pointer]
+        - text: · testnet only ·
+        - link "github" [ref=e280] [cursor=pointer]:
+          - /url: https://github.com/miguelgarglez/almoneda
+        - text: · built in
+        - link "the lab" [ref=e281] [cursor=pointer]:
+          - /url: https://github.com/miguelgarglez
+  - alert [ref=e282]

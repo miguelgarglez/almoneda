@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { corpusSize, currentLot, MUSEUMS } from "@/lib/corpus";
+import { corpusSize, currentLot, saleThumbs, MUSEUMS } from "@/lib/corpus";
 import { salesCount, recentSales } from "@/lib/ledger";
 
 export const dynamic = "force-dynamic";
@@ -14,6 +14,7 @@ export async function GET() {
     recentSales(20),
     currentLot(),
   ]);
+  const thumbs = await saleThumbs([...new Set(recent.flatMap((s) => s.artwork_ids ?? []))]);
   return NextResponse.json(
     {
       corpus: { size, sources: ["met", "cle", "aic", "nga"] },
@@ -27,6 +28,21 @@ export async function GET() {
           amount: s.amount,
           endpoint: s.endpoint,
           query_hint: s.query_hint,
+          artwork_ids: s.artwork_ids,
+          thumb: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.thumb ?? null) : null,
+          lot_title: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.title ?? null) : null,
+          lot_url: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.object_url ?? null) : null,
+          lot_img: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.image ?? null) : null,
+          lot_artist: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.artist ?? null) : null,
+          lot_museum: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.museum ?? null) : null,
+          lot_rights: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.rights ?? null) : null,
+          lot_date: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.date ?? null) : null,
+          lot_medium: s.artwork_ids?.[0] ? (thumbs.get(s.artwork_ids[0])?.medium ?? null) : null,
+          lots: (s.artwork_ids ?? [])
+            .map((id) => thumbs.get(id))
+            .filter(Boolean)
+            .map((l) => ({ title: l!.title, artist: l!.artist, museum: l!.museum, rights: l!.rights, img: l!.image, object_url: l!.object_url })),
+          latency_ms: s.latency_ms,
           created_at: s.created_at,
         })),
       },

@@ -24,14 +24,21 @@ const svc = {
 };
 
 export async function insertSale(s: Omit<Sale, "id" | "created_at">): Promise<void> {
-  try {
-    await fetch(`${env.supabaseUrl}/rest/v1/sales`, {
-      method: "POST",
-      headers: { ...svc, Prefer: "return=minimal" },
-      body: JSON.stringify(s),
-    });
-  } catch {
-    // ledger failure must never break a paid response
+  // One retry, bounded latency — bookkeeping must never hang a paid response,
+  // but a settled sale should not silently vanish either.
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const res = await fetch(`${env.supabaseUrl}/rest/v1/sales`, {
+        method: "POST",
+        headers: { ...svc, Prefer: "return=minimal" },
+        body: JSON.stringify(s),
+        signal: AbortSignal.timeout(4000),
+      });
+      if (res.ok) return;
+      console.warn(`ledger insert ${res.status}: ${(await res.text()).slice(0, 200)}`);
+    } catch (e: any) {
+      console.warn(`ledger insert failed: ${e?.message ?? e}`);
+    }
   }
 }
 

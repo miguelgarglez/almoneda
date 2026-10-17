@@ -1,15 +1,17 @@
+/* catalogue paper — cooler than the museum cream of our other houses,
+   harder ink, vermilion reserved for settlement */
 :root {
-  --paper: #f2f0ec;
-  --paper-2: #eae7e1;
-  --ink: #14161a;
-  --ink-2: #565b63;
-  --ink-3: #8b8f96;
-  --sold: #d92b1f;
-  --usdc: #2775ca;
-  --xlm: #4a4f55;
-  --line: #d8d4cb;
-  --line-2: #c6c1b6;
-  --gilt: #a5771f;
+  --paper: #eceee8;
+  --paper-2: #e0e2d8;
+  --ink: #1e201a;
+  --ink-2: #4c5044;
+  --ink-3: #676c5d;
+  --sold: #a02318;
+  --usdc: #1f5fa8;
+  --xlm: #4a4438;
+  --line: #d0d3c4;
+  --line-2: #b6bba6;
+  --gilt: #8a6410;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
@@ -33,75 +35,219 @@ img { display: block; max-width: 100%; }
 .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 
 /* ——— masthead ——— */
-.mast { border-bottom: 1px solid var(--ink); padding: 18px 0 14px; }
+.mast { border-bottom: 2px solid var(--ink); padding: 18px 0 14px; }
 .mast .row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .wordmark {
   font-family: var(--font-serif), serif;
   font-size: 44px; font-weight: 700; letter-spacing: -0.02em; line-height: 1;
 }
+.wordmark .de { font-weight: 400; font-style: italic; }
 .mast .sub { font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink-2); }
+.mast .what {
+  font-family: var(--font-serif), serif; font-size: 14.5px; line-height: 1.5;
+  color: var(--ink-2); max-width: 560px; margin-top: 8px;
+}
 .mast .live { display: flex; gap: 10px; align-items: center; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; }
 .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sold); }
 .dot.on { animation: pulse 2.4s var(--ease-out) infinite; background: #1f9d4d; }
 @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
 
 .statbar { border-bottom: 1px solid var(--line-2); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-2); }
-.statbar .row { display: flex; gap: 28px; flex-wrap: wrap; padding: 9px 0; }
+.statbar .row { display: flex; gap: 28px; flex-wrap: nowrap; overflow: hidden; padding: 9px 0; white-space: nowrap; }
+.statbar .row > span { flex: none; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.statbar .row .hammer { flex: 1 1 auto; }
 .statbar b { color: var(--ink); font-weight: 600; }
+.statbar .hammer { color: var(--sold); }
+@media (max-width: 1280px) {
+  .statbar .opt { display: none; }
+  .statbar .row { gap: 18px; }
+}
+/* phones drop the hammer readout entirely rather than clipping it mid-word */
+@media (max-width: 760px) {
+  .statbar .hammer { display: none; }
+  /* touch targets: chips, toggles, copy and strip items earn 44px */
+  .chips button { padding: 10px 14px; font-size: 12px; min-height: 44px; }
+  .hapt { padding: 8px 12px; font-size: 11px; }
+  .copybtn { padding: 8px 12px; }
+  .tick-item { padding: 10px 0; }
+  .tick-item b { display: inline-block; }
+  .it-x { width: 40px; height: 40px; }
+}
 
 /* ——— auction block ——— */
-.block { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; padding: 48px 0 40px; align-items: start; }
-@media (max-width: 860px) { .block { grid-template-columns: 1fr; gap: 28px; padding: 28px 0; } }
+/* mobile-first: the deck is a normal stacked document (console first,
+   then the lot, then the ledger). At ≥1024px it locks into a viewport-fit
+   floor terminal — see the media query at the bottom of this file. */
+.deck { padding: 24px 0; }
+.floorgrid { display: flex; flex-direction: column; gap: 24px; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+.floorgrid .console-col { order: -1; }
 
-.easel { position: relative; }
-.easel .frame {
-  border: 1px solid var(--ink);
-  background: #fff;
-  padding: 18px;
-  box-shadow: 0 1px 0 var(--line-2), 0 18px 40px -24px rgba(20, 22, 26, 0.45);
+/* ——— the last lot through the door ——— */
+/* the strip shows the most recent sale's artwork — live state, not décor:
+   it updates when the floor does, and the whole card opens the inspector */
+.lastlot {
+  display: flex; align-items: center; gap: 14px; width: 100%;
+  border: 1px solid var(--line-2); background: #fff; padding: 10px 12px;
+  margin-bottom: 12px; font: inherit; color: inherit; text-align: left; cursor: pointer;
 }
-.easel img {
-  width: 100%; height: auto; max-height: 520px; object-fit: contain;
-  background: repeating-conic-gradient(#f6f5f3 0% 25%, #eceae5 0% 50%) 0 0 / 18px 18px;
+.lastlot:hover { border-color: var(--ink); }
+.lastlot img { width: 64px; height: 64px; object-fit: cover; border: 1px solid var(--line-2); flex: none; }
+.lastlot .ll-meta { display: grid; gap: 1px; min-width: 0; }
+.lastlot .ll-tag { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--gilt); }
+.lastlot .ll-t {
+  font-family: var(--font-serif), serif; font-size: 15px; font-weight: 600; line-height: 1.25;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.lotno { position: absolute; top: -13px; left: 16px; background: var(--ink); color: var(--paper); font-size: 11px; letter-spacing: 0.2em; padding: 5px 12px; text-transform: uppercase; }
+.lastlot .ll-a { font-family: var(--font-serif), serif; font-style: italic; font-size: 12px; color: var(--ink-2); }
+.lastlot .ll-m { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-3); }
+.lastlot .ll-sold { margin-left: auto; font-size: 10.5px; color: var(--ink-3); text-align: right; white-space: nowrap; }
+.lastlot .ll-sold b { color: var(--sold); font-weight: 600; }
+.lastlot .ll-sold a { color: var(--usdc); text-decoration: none; }
+.lastlot .ll-cue { display: block; font-size: 9px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); margin-top: 2px; }
+.lastlot:hover .ll-cue { color: var(--usdc); }
+/* phones get the newest lot above the console — the first viewport shows a
+   real artwork next to the bid action; on the desktop terminal the floor
+   column carries it instead */
+@media (min-width: 1024px) { .hero-lot { display: none; } }
+/* narrower terminals stack the sold block under the artwork's identity
+   instead of squeezing it beside the meta */
+@media (max-width: 1280px) {
+  .lastlot { flex-wrap: wrap; }
+  .lastlot .ll-sold { flex-basis: 100%; margin-left: 0; text-align: left; padding-left: 78px; }
+}
+/* pending rows: the wire reports settlement before the ledger's fetch
+   returns — the row holds the table's shape until the real one replaces it */
+@keyframes rowArrive { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: none; } }
+tr.pending td { color: var(--ink-3); font-style: italic; }
+tr.pending td:first-child { border-left: 2px solid var(--sold); padding-left: 8px; }
+tr.pending { animation: rowArrive 0.45s var(--ease-out, ease-out) both; }
+.sc-head.pending { border-left: 2px solid var(--sold); animation: rowArrive 0.45s var(--ease-out, ease-out) both; }
+tr.pending .confirming { color: var(--gilt); animation: wirePulse 1.1s var(--ease-in-out) infinite; }
+/* the pending row's artwork stays ghosted while it is in transit — it
+   resolves to full colour at the same instant the ledger confirms it */
+tr.pending .lthumb { opacity: 0.35; filter: saturate(0.45); }
+@keyframes thumbIn { from { opacity: 0.15; filter: saturate(0.4); } to { opacity: 1; filter: none; } }
+tr.landed .lthumb { animation: thumbIn 0.8s ease-out both; }
+.sc-head.pending { opacity: 0.75; cursor: wait; }
+table.ledger .disc { margin-left: 8px; color: var(--ink-3); font-size: 12px; }
+table.ledger tbody tr:hover .disc { color: var(--ink); }
 
-.plate { border-top: 3px solid var(--ink); padding-top: 20px; }
-.plate h1 { font-family: var(--font-serif), serif; font-size: 34px; font-weight: 600; line-height: 1.15; letter-spacing: -0.01em; }
-.plate .artist { font-family: var(--font-serif), serif; font-style: italic; font-size: 18px; color: var(--ink-2); margin-top: 8px; }
-.plate .meta { margin-top: 18px; font-size: 12px; color: var(--ink-2); display: grid; gap: 4px; }
-.plate .meta b { color: var(--ink); font-weight: 500; }
-.stamp {
-  display: inline-block; margin-top: 18px; padding: 5px 10px;
-  border: 2px solid var(--gilt); color: var(--gilt);
-  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
-  transform: rotate(-2deg);
+/* delivered artwork carries an intentional loading plate until the museum's
+   image lands — never a blank card under the stamp */
+.lot-open { aspect-ratio: 1; }
+.lot-open:has(img:not(.in))::after {
+  content: "plate in transit";
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3);
+  background: linear-gradient(110deg, var(--paper-2) 30%, #f7f7f2 45%, var(--paper-2) 60%);
+  background-size: 200% 100%; animation: plateShimmer 1.6s linear infinite;
 }
-.stamp.sold { border-color: var(--sold); color: var(--sold); }
+@keyframes plateShimmer { from { background-position: 100% 0; } to { background-position: -100% 0; } }
 
 /* ——— bid console ——— */
-.console { margin-top: 26px; border: 1px solid var(--ink); background: #fff; }
-.console .hd { display: flex; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid var(--line); font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-2); }
+.console { margin-top: 0; border: 1px solid var(--ink); background: #fff; }
+.console .hd { display: flex; justify-content: space-between; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--line); font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-2); }
+.console .hd span { white-space: nowrap; }
 .console .bd { padding: 14px; }
+.console label.f-label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-2); margin-bottom: 6px; }
 .console input[type=text] {
   width: 100%; border: 1px solid var(--line-2); background: var(--paper);
   padding: 12px 14px; font: inherit; font-size: 14px; color: var(--ink);
 }
 .console input[type=text]:focus { outline: none; border-color: var(--ink); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.chips button {
+  border: 1px solid var(--line-2); background: transparent; color: var(--ink-2);
+  font-size: 11px; padding: 4px 10px; font-family: var(--font-serif), serif; font-style: italic;
+  transition: border-color 0.15s, color 0.15s;
+}
+.chips button:hover { border-color: var(--ink); color: var(--ink); }
 .console .actions { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
 .btn {
   border: 1px solid var(--ink); background: var(--ink); color: var(--paper);
   padding: 11px 18px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
-  transition: transform 0.12s var(--ease-out), background 0.15s;
+  transition: transform 0.12s var(--ease-out), background 0.15s, box-shadow 0.12s;
 }
 .btn:hover { background: #000; }
-.btn:active { transform: scale(0.97); }
-.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn:active { transform: scale(0.97); box-shadow: inset 0 2px 4px rgba(0,0,0,0.35); }
+.btn:disabled { opacity: 0.55; cursor: wait; }
+.btn.busy { animation: busyPulse 1.1s var(--ease-in-out) infinite; }
+@keyframes busyPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.62; } }
 .btn.ghost { background: transparent; color: var(--ink); }
 .btn.ghost:hover { background: var(--paper-2); }
-.fineprint { margin-top: 10px; font-size: 11px; color: var(--ink-3); }
+.chips button:active { transform: scale(0.94); }
+.copybtn:active { transform: scale(0.92); color: var(--ink); }
+.sheet-open:active { opacity: 0.6; }
+.sheet-close:active { transform: scale(0.96); }
+table.ledger tbody tr:active td { background: rgba(35, 26, 18, 0.07); }
+.replaybtn:active { transform: scale(0.95); }
+.console-lede { font-family: var(--font-serif), serif; font-size: 13.5px; line-height: 1.5; color: var(--ink-2); margin-bottom: 14px; }
+.fineprint { margin-top: 10px; font-size: 12.5px; color: var(--ink-2); font-family: var(--font-serif), serif; line-height: 1.5; }
+.fineprint b { color: var(--ink); }
+.chips button.sel { border-color: var(--ink); color: var(--ink); background: var(--paper-2); }
+.chips button.sel::after { content: " ✓"; }
+.hapt {
+  border: 1px solid var(--line-2); background: transparent; color: var(--ink-3);
+  font: inherit; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 1px 8px; margin-left: 4px; font-family: var(--font-mono), monospace;
+}
+.hapt:hover { border-color: var(--ink); color: var(--ink); }
+.hapt:active { transform: scale(0.94); }
 
-.tape { margin-top: 14px; border-top: 1px dashed var(--line-2); padding-top: 12px; display: grid; gap: 6px; font-size: 12px; }
+/* the settled sale pins above the tape — the payoff never scrolls away
+   while the wire and the result cards grow below it */
+.settle-pin {
+  position: sticky; top: 0; z-index: 3;
+  display: flex; gap: 10px; align-items: baseline;
+  margin-top: 12px; padding: 9px 12px;
+  border: 1px solid var(--sold); background: #fff;
+  font-size: 12px; box-shadow: 0 6px 18px -10px rgba(35, 26, 18, 0.4);
+}
+.settle-pin a { color: var(--usdc); text-decoration: none; }
+.settle-pin .sp-stamp {
+  color: var(--sold); border: 1.5px solid var(--sold); padding: 0 7px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.22em; transform: rotate(-2deg);
+  flex: none;
+}
+.followbtn {
+  justify-self: end; border: 1px solid var(--ink); background: var(--ink); color: var(--paper);
+  font: inherit; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 4px 10px; margin-top: 4px;
+}
+.followbtn:hover { background: #000; }
+.lot-img-miss {
+  aspect-ratio: 1; display: grid; place-items: center; text-align: center;
+  background: var(--paper-2); font-size: 10.5px; color: var(--ink-3); padding: 12px; line-height: 1.5;
+}
+.lot-img-miss a { color: var(--usdc); }
+
+/* the stage: one plain-language status carries the wait while the wire is
+   open — the tape underneath stays as the technical record */
+.tape .stage {
+  display: flex; align-items: baseline; gap: 10px; margin: -4px 0 8px;
+  padding: 10px 12px; border: 1px solid var(--line-2); background: var(--paper);
+  font-family: var(--font-serif), serif; font-size: 15px; color: var(--ink);
+}
+.tape .stage .st-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--gilt);
+  align-self: center; animation: wirePulse 1.1s var(--ease-in-out) infinite;
+}
+.tape .stage .st-elapsed {
+  margin-left: auto; font-family: var(--font-mono), monospace; font-size: 11px;
+  color: var(--ink-3); font-style: normal;
+}
+details.about { margin-top: 12px; }
+details.about summary {
+  cursor: pointer; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--ink-3); list-style: none;
+}
+details.about summary::before { content: "+ "; color: var(--ink-3); }
+details.about[open] summary::before { content: "− "; }
+details.about summary:hover { color: var(--ink); }
+details.about .fineprint { margin-top: 8px; }
+/* the trace is a bounded region — it scrolls inside its own frame as events
+   arrive instead of pushing the console's heading and input out of view */
+.tape { margin-top: 14px; border-top: 1px dashed var(--line-2); padding-top: 12px; display: grid; gap: 6px; font-size: 12px; max-height: 260px; overflow-y: auto; }
 .tape .ln { display: flex; gap: 10px; align-items: baseline; }
 .tape .ln .k { color: var(--ink-3); min-width: 60px; }
 .tape .ok { color: #1f7a3d; }
@@ -109,9 +255,26 @@ img { display: block; max-width: 100%; }
 .tape .err { color: var(--sold); }
 
 /* ——— results ——— */
-.results { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; margin-top: 14px; }
+.results { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; margin-top: 10px; }
+.res-bar { display: flex; gap: 14px; align-items: baseline; margin-top: 14px; flex-wrap: wrap; }
+.res-bar .res-tag { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--gilt); }
 .lot { border: 1px solid var(--line-2); background: #fff; position: relative; }
-.lot img { width: 100%; aspect-ratio: 1; object-fit: cover; background: var(--paper-2); }
+.lot .lotno {
+  position: absolute; top: 0; left: 0; z-index: 2;
+  background: var(--ink); color: var(--paper); padding: 3px 8px;
+  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+}
+.lot-open { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; position: relative; }
+.lot-open img { display: block; }
+.lot-zoom {
+  position: absolute; right: 6px; bottom: 6px;
+  background: rgba(255,255,255,0.9); border: 1px solid var(--line-2);
+  font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2);
+  padding: 2px 7px; opacity: 0; transition: opacity 0.15s;
+}
+.lot-open:hover .lot-zoom, .lot-open:focus-visible .lot-zoom { opacity: 1; }
+.lot img { width: 100%; aspect-ratio: 1; object-fit: cover; background: var(--paper-2); opacity: 0; transition: opacity 0.4s ease; }
+.lot img.in { opacity: 1; }
 .lot .d { padding: 10px 12px; font-size: 11px; line-height: 1.5; }
 .lot .t { font-family: var(--font-serif), serif; font-size: 13px; font-weight: 600; line-height: 1.3; }
 .lot .a { color: var(--ink-2); font-style: italic; font-family: var(--font-serif), serif; }
@@ -122,37 +285,239 @@ img { display: block; max-width: 100%; }
   border: 3px solid var(--sold); color: var(--sold); padding: 3px 14px;
   font-size: 16px; font-weight: 700; letter-spacing: 0.28em; background: rgba(255,255,255,0.86);
 }
+/* the gavel falls on the winning lot the moment settlement lands — the stamp
+   presses in on impact (470ms into the swing) and the grid takes the shock */
+.lot .stamp-sold.slam { animation: stampSlam 0.16s 0.47s cubic-bezier(0.2, 0, 0.4, 1) backwards; }
+@keyframes stampSlam {
+  from { transform: translateX(-50%) rotate(-14deg) scale(2.6); opacity: 0; }
+  to { transform: translateX(-50%) rotate(-8deg) scale(1); opacity: 1; }
+}
+.gavel-overlay {
+  position: absolute; inset: 0; z-index: 4; display: grid; place-items: start center;
+  padding-top: 0; pointer-events: none;
+}
+/* the gavel lands on the lot's top edge — the catalogue seal it strikes —
+   not adrift over the painting; the head's flat edge meets the border */
+.gavel { width: 120px; margin-top: -46px; filter: drop-shadow(0 10px 16px rgba(35, 26, 18, 0.4)); }
+.impact-seal {
+  position: absolute; top: -6px; left: 50%; width: 16px; height: 14px; margin-left: -8px;
+  background: var(--ink); box-shadow: 0 1px 0 var(--line-2) inset;
+}
+.impact-ring {
+  position: absolute; top: 0; left: 50%; width: 12px; height: 12px; margin-left: -6px;
+  border: 2px solid var(--ink); border-radius: 50%;
+  animation: ringOut 0.55s 0.47s ease-out backwards;
+}
+@keyframes ringOut { from { transform: scale(0.3); opacity: 0.7; } to { transform: scale(9); opacity: 0; } }
+/* the seal the gavel struck stays on the card's edge — a pressed mark in
+   the house's ink, the strike's permanent consequence on the object */
+.lot .lot-seal {
+  position: absolute; top: -5px; left: 50%; margin-left: -7px; z-index: 3;
+  width: 14px; height: 12px; background: var(--ink);
+  border-bottom: 2px solid var(--sold);
+}
+.lot .lot-seal.slam { animation: sealPress 0.4s 0.47s var(--ease-out) backwards; }
+@keyframes sealPress {
+  from { transform: scale(1.6); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+.results.shook { animation: gridShake 0.22s 0.47s linear; }
+/* the winner lifts to meet the strike; siblings sink back and hold until
+   the flight lands — the settlement moment has one focal object */
+.results.shook .lot:first-child { animation: lotLift 1.5s 0.47s ease-out; }
+@keyframes lotLift {
+  0%, 100% { transform: none; }
+  18% { transform: translateY(-2px) scale(1.015); }
+  45% { transform: translateY(-1px) scale(1.008); }
+}
+.results.shook .lot:not(:first-child) { animation: sinkBack 1.6s 0.47s ease-out; }
+@keyframes sinkBack {
+  0%, 100% { transform: none; opacity: 1; }
+  20%, 70% { transform: translateY(3px) scale(0.985); opacity: 0.55; }
+}
+@keyframes gridShake {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(0, 2px); }
+  50% { transform: translate(1px, -1px); }
+  75% { transform: translate(-1px, 1px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lot .stamp-sold.slam, .results.shook, .results.shook .lot:not(:first-child), .impact-ring { animation: none; }
+  .lot img { transition: none; opacity: 1; }
+}
 
-/* ——— ticker ——— */
+/* ——— ticker: a working strip of recent settlements, not a slogan ——— */
 .ticker { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); overflow: hidden; padding: 8px 0; }
 .ticker .rail { display: flex; gap: 48px; white-space: nowrap; animation: rail 40s linear infinite; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-2); }
 .ticker .rail b { color: var(--sold); font-weight: 600; }
+.ticker.live .rail { animation-duration: 70s; }
+/* it pauses under the pointer so a sale can actually be picked, and stands
+   down while the gavel is falling so the strike owns the screen */
+.ticker.live:hover .rail, .ticker.live:focus-within .rail, .ticker.live.paused .rail { animation-play-state: paused; }
+.tick-item {
+  border: 0; background: none; padding: 0; font: inherit; letter-spacing: inherit;
+  text-transform: inherit; color: inherit; cursor: pointer; white-space: nowrap;
+}
+.tick-item:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 @keyframes rail { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
+/* ——— the inspector: every artwork opens a catalogue tray in place ——— */
+.inspect-overlay {
+  position: fixed; inset: 0; z-index: 50; display: grid; place-items: center;
+  background: rgba(30, 32, 26, 0.3); backdrop-filter: blur(2px); padding: 20px;
+}
+.inspect-tray {
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  max-width: 760px; width: 100%; max-height: min(86dvh, 640px);
+  background: #fff; border: 1px solid var(--ink); box-shadow: 10px 10px 0 -2px rgba(35, 26, 18, 0.25);
+  overflow: hidden;
+}
+.inspect-tray .it-img { background: var(--paper-2); display: grid; place-items: center; min-height: 0; }
+.inspect-tray .it-img img { width: 100%; height: 100%; object-fit: contain; max-height: inherit; display: block; }
+.inspect-tray .it-miss { font-size: 11px; color: var(--ink-3); padding: 24px; text-align: center; line-height: 1.6; }
+.inspect-tray .it-body { padding: 18px 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; }
+.it-tag { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--gilt); }
+.it-t { font-family: var(--font-serif), serif; font-size: 20px; font-weight: 600; line-height: 1.25; }
+.it-a { font-family: var(--font-serif), serif; font-style: italic; font-size: 14px; color: var(--ink-2); }
+.it-m { font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); margin-bottom: 6px; }
+.it-prov { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; font-size: 12px; margin: 4px 0 8px; }
+.it-prov dt { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); align-self: center; }
+.it-prov dd { margin: 0; }
+.it-prov .ok { color: #1f7a3d; }
+.it-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: auto; }
+.it-actions .btn { padding: 8px 12px; font-size: 10px; }
+.it-close {
+  margin-top: 10px; align-self: flex-start; border: 0; background: none; padding: 0;
+  font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); cursor: pointer;
+}
+.it-close:hover { color: var(--ink); }
+.it-x {
+  position: absolute; top: 10px; right: 10px; z-index: 2; width: 34px; height: 34px;
+  border: 1px solid var(--line-2); background: #fff; color: var(--ink-2); font-size: 16px;
+  line-height: 1; display: grid; place-items: center; cursor: pointer;
+}
+.it-x:hover { border-color: var(--ink); color: var(--ink); }
+.inspect-tray { position: relative; }
+@media (max-width: 640px) {
+  .inspect-tray { grid-template-columns: 1fr; max-height: 90dvh; overflow-y: auto; }
+  .inspect-tray .it-img { max-height: 42dvh; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker .rail { animation: none; }
+  .ticker { overflow-x: auto; }
+}
+
+.lotlink {
+  border: 0; background: none; padding: 0; font: inherit; color: var(--ink);
+  text-align: left; cursor: pointer; text-decoration: underline dotted var(--line-2); text-underline-offset: 3px;
+}
+.lotlink:hover { color: var(--usdc); text-decoration-color: var(--usdc); }
+.floorlink {
+  border: 0; background: none; padding: 0; font: inherit; color: var(--usdc);
+  cursor: pointer; text-decoration: underline; text-underline-offset: 3px;
+}
+.floorlink:hover { color: var(--ink); }
+
 /* ——— floor ——— */
-.floor { padding: 56px 0 48px; }
+.floor { padding: 56px 0 48px; min-width: 0; }
+table.ledger .lotnum { font-size: 8.5px; letter-spacing: 0.14em; color: var(--ink-3); margin-top: 2px; }
 .floor h2, .mach h2, .prov h2 { font-family: var(--font-serif), serif; font-size: 26px; font-weight: 600; margin-bottom: 6px; }
-.floor .sub, .mach .sub, .prov .sub { font-size: 12px; color: var(--ink-2); margin-bottom: 24px; }
+.floor .sub, .mach .sub, .prov .sub { font-size: 13.5px; color: var(--ink-2); margin-bottom: 24px; font-family: var(--font-serif), serif; }
 .ledger-wrap { overflow-x: auto; }
 table.ledger { width: 100%; min-width: 680px; border-collapse: collapse; font-size: 12px; }
 table.ledger th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-3); font-weight: 500; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--ink); }
-table.ledger td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.ledger td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--line); vertical-align: middle; }
+table.ledger tbody tr { cursor: pointer; }
+table.ledger tbody tr:hover td { background: rgba(35, 26, 18, 0.03); }
 table.ledger tr:first-child td { border-top: none; }
 table.ledger .mono { font-variant-numeric: tabular-nums; }
+table.ledger tr.detail td { cursor: default; background: #fff; }
+table.ledger tr.detail td:hover { background: #fff; }
+table.ledger .lthumb { width: 34px; height: 34px; object-fit: cover; border: 1px solid var(--line-2); }
+.sale-detail { display: flex; gap: 28px; flex-wrap: wrap; padding: 8px 0 12px; font-size: 12.5px; }
+.sale-detail .cell { display: grid; gap: 2px; }
+.sale-detail .lab { font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); }
+.sale-detail a { color: var(--usdc); }
 .pill { display: inline-block; padding: 1px 8px; font-size: 10px; letter-spacing: 0.08em; border: 1px solid var(--line-2); }
 .pill.usdc { color: var(--usdc); border-color: var(--usdc); }
 .pill.xlm { color: var(--ink); border-color: var(--ink-2); }
 .floor .empty { border: 1px dashed var(--line-2); padding: 36px; text-align: center; color: var(--ink-3); font-size: 12px; }
+.copybtn {
+  background: var(--paper); color: var(--ink-2); font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 4px 10px; margin-left: 6px; border: 1px solid var(--line-2);
+  min-width: 52px; text-align: center; cursor: pointer;
+}
+.copybtn:hover { color: var(--ink); border-color: var(--ink); background: #fff; }
+
+/* phones: the ledger becomes receipt cards — readable summaries that open
+   to the same receipt, not a compressed table */
+.salecards { display: none; }
+.salecard { border: 1px solid var(--line-2); background: #fff; margin-bottom: 10px; }
+.salecard .sc-head {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  background: none; border: none; padding: 10px 12px; text-align: left; font: inherit;
+  min-height: 56px;
+}
+.salecard .sc-head:active { background: rgba(35, 26, 18, 0.05); }
+.salecard .sc-head img, .salecard .sc-thumb { width: 40px; height: 40px; object-fit: cover; border: 1px solid var(--line-2); flex: none; background: var(--paper-2); }
+.salecard .sc-main { display: grid; gap: 1px; min-width: 0; flex: 1; }
+.salecard .sc-t {
+  font-family: var(--font-serif), serif; font-size: 13px; font-weight: 600; line-height: 1.3;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.salecard .sc-sub { font-size: 10.5px; color: var(--ink-3); }
+.salecard .sc-chev { font-size: 15px; color: var(--ink-3); flex: none; padding: 0 4px; }
+.salecard .sc-body { padding: 2px 12px 12px; border-top: 1px dashed var(--line-2); }
+.showall {
+  display: block; width: 100%; margin-top: 10px; padding: 10px;
+  border: 1px dashed var(--line-2); background: transparent; color: var(--ink-2);
+  font: inherit; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.showall:hover { border-color: var(--ink); color: var(--ink); background: #fff; }
+
+/* ——— 404 ——— */
+.nf { min-height: 60dvh; display: grid; place-items: center; padding: 60px 0; }
+.nf .wordmark { font-size: 40px; }
+.nf .sub { font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink-2); margin-top: 6px; }
+.nf-card { border: 1px solid var(--ink); background: #fff; padding: 28px; margin-top: 26px; max-width: 560px; position: relative; }
+.nf-lot {
+  position: absolute; top: -13px; left: 20px; background: var(--ink); color: var(--paper);
+  font-size: 11px; letter-spacing: 0.2em; padding: 5px 12px; text-transform: uppercase;
+}
+.nf-card h1 { font-family: var(--font-serif), serif; font-size: 24px; font-weight: 600; margin: 6px 0 10px; }
+.nf-card p { font-family: var(--font-serif), serif; font-size: 14px; color: var(--ink-2); line-height: 1.55; margin-bottom: 18px; }
+.nf-card .btn { text-decoration: none; display: inline-block; }
+
+/* receipt replay: the expanded ledger row re-runs its settlement from the
+   recorded fields — a replay of what actually happened, labeled as such */
+.replay { border-top: 1px dashed var(--line-2); margin-bottom: 8px; padding: 8px 0 2px; font-size: 12.5px; }
+.replay .rlab { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--gilt); margin-bottom: 4px; }
+.replay .rl { opacity: 0; transform: translateY(4px); animation: replayIn 0.35s var(--ease-out) forwards; color: var(--ink-2); }
+.replay .rl::before { content: "› "; color: var(--ink-3); }
+@keyframes replayIn { to { opacity: 1; transform: none; } }
+.tape .wire { color: var(--ink-3); font-style: italic; animation: wirePulse 1.1s var(--ease-in-out) infinite; }
+@keyframes wirePulse { 0%,100% { opacity: 0.45; } 50% { opacity: 1; } }
+.replaybtn {
+  border: 1px solid var(--line-2); background: var(--paper); color: var(--ink);
+  font: inherit; font-size: 11px; padding: 4px 10px; cursor: pointer; text-transform: none;
+}
+.replaybtn:hover { border-color: var(--ink); background: #fff; }
+
+/* the receipt row grows open and collapses shut — motion drives the height
+   both ways so the transition is interruptible and symmetric */
+.expand { overflow: hidden; }
+
+number-flow { font-variant-numeric: tabular-nums; }
 
 /* ——— machine surface ——— */
 .mach { padding: 0 0 56px; }
 .mach .grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: start; }
 @media (max-width: 860px) { .mach .grid { grid-template-columns: 1fr; } }
 pre.receipt {
-  background: var(--ink); color: #c9e6c9; padding: 18px; font-size: 11.5px; line-height: 1.6;
+  background: var(--ink); color: #d8e4c8; padding: 18px; font-size: 11.5px; line-height: 1.6;
   overflow-x: auto; border: 1px solid var(--ink);
 }
-pre.receipt .cm { color: #7d8691; }
+pre.receipt .cm { color: #8b8069; }
 pre.receipt .hl { color: #fff; }
 .endpoints { font-size: 12px; width: 100%; border-collapse: collapse; }
 .endpoints td { padding: 8px 12px 8px 0; border-bottom: 1px solid var(--line); }
@@ -168,11 +533,198 @@ pre.receipt .hl { color: #fff; }
 .museum { border: 1px solid var(--line-2); background: #fff; padding: 18px; font-size: 12px; }
 .museum h3 { font-family: var(--font-serif), serif; font-size: 16px; font-weight: 600; margin-bottom: 8px; }
 .museum .r { color: #1f7a3d; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
-.museum p { color: var(--ink-2); margin-top: 8px; }
+.museum p { color: var(--ink-2); margin-top: 8px; font-family: var(--font-serif), serif; font-size: 13.5px; line-height: 1.5; }
 
-footer.site { border-top: 1px solid var(--ink); padding: 20px 0 60px; font-size: 11px; color: var(--ink-2); }
+footer.site { border-top: 2px solid var(--ink); padding: 20px 0 60px; font-size: 11px; color: var(--ink-2); }
 footer.site .row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+/* ——— machine-surface sheet ——— */
+/* mobile: the sheet is just in-flow content; the toggle is a desktop concern. */
+.sheet-t { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.sheet-open { display: none; }
+.sheet-close { display: none; }
+
+@media (min-width: 1024px) {
+  .sheet-open {
+    display: inline; color: var(--usdc); cursor: pointer;
+    border-bottom: 1px solid transparent;
+  }
+  .sheet-open:hover { border-bottom-color: var(--usdc); }
+  .sheet {
+    position: fixed; left: 0; right: 0; bottom: 0; top: 10dvh;
+    background: var(--paper); border-top: 2px solid var(--ink);
+    box-shadow: 0 -24px 60px -24px rgba(35, 26, 18, 0.55);
+    transform: translateY(103%);
+    /* hidden while closed: keeps the drawer's contents out of the tab
+       order and the accessibility tree, not just off-screen */
+    visibility: hidden;
+    transition: transform 0.45s var(--ease-out), visibility 0s 0.45s;
+    overflow-y: auto; padding: 30px 0 56px; z-index: 30;
+  }
+  .sheet-t:checked ~ .sheet { transform: none; visibility: visible; transition: transform 0.45s var(--ease-out); }
+  .sheet-close {
+    display: block; position: sticky; top: 0; float: right; z-index: 2;
+    margin: 0 24px 0 0; padding: 6px 12px; cursor: pointer;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--ink-2); border: 1px solid var(--line-2); background: var(--paper);
+  }
+  .sheet-close:hover { color: var(--ink); border-color: var(--ink); }
+}
+
+/* ——— the floor terminal: viewport-locked on desktop ——— */
+/* the whole core experience — the lot, the console, the ledger — fits one
+   screen; the ledger and the console tape scroll internally, the page never
+   does. Below 1024px it stays a normal stacked document. */
+@media (min-width: 1024px) {
+  html, body { height: 100dvh; overflow: hidden; }
+  body > main { height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
+  /* masthead, statbar, deck and footer share the floor terminal's grid —
+     one page system, not three page systems */
+  .wrap { max-width: 1500px; }
+  .mast { padding: 10px 0 8px; }
+  .mast .wordmark { font-size: 30px; }
+  .mast .what { margin-top: 4px; font-size: 12.5px; }
+  .statbar .row { padding: 7px 0; gap: 24px; }
+
+  .deck { flex: 1; min-height: 0; padding: 14px 0 12px; overflow: hidden; }
+  /* the terminal is two instruments: the console you act through and the
+     ledger that records it. The console leads. */
+  .floorgrid {
+    display: grid; height: 100%; min-height: 0; gap: 24px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    max-width: 1500px;
+  }
+  .floorgrid > * { min-height: 0; min-width: 0; }
+  .floorgrid .console-col {
+    order: 0; display: flex; flex-direction: column;
+    min-height: 0; overflow-y: auto; padding-top: 79px;
+    /* the console's gilt edge aligns with the featured plate's top edge —
+       the two instruments share one baseline grid, no floating gap */
+  }
+  /* the console is the one live instrument on the floor — the gilt rule and
+     lifted edge mark it as the thing to touch first */
+  .console { border-top: 3px solid var(--gilt); box-shadow: 8px 8px 0 -2px rgba(35, 26, 18, 0.14); }
+
+  .floor { display: flex; flex-direction: column; height: 100%; min-height: 0; padding: 13px 0 0; overflow: hidden; }
+  .floor h2 { font-size: 20px; }
+  .floor .sub { font-size: 12px; margin-bottom: 10px; }
+  .floor .lastlot { flex: none; }
+  /* the opening focal point: the newest lot reads as a catalogue label —
+     plate left at real scale, title set like a heading, settlement under
+     the identity — at every terminal width */
+  .floor .lastlot { display: grid; grid-template-columns: 340px 1fr; gap: 2px 18px; align-items: center; padding: 14px; }
+  .floor .lastlot img { width: 340px; height: 252px; grid-row: 1 / 3; }
+  .floor .lastlot .ll-meta { align-self: end; }
+  .floor .lastlot .ll-t { font-size: 24px; white-space: normal; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+  .floor .lastlot .ll-a { font-size: 14px; }
+  .floor .lastlot .ll-sold { grid-column: 2; flex-basis: auto; margin-left: 0; padding-left: 0; align-self: start; text-align: left; white-space: normal; }
+  /* 1024–1280: the same label composition with a tighter plate */
+  @media (max-width: 1280px) {
+    .floor .lastlot { grid-template-columns: 200px 1fr; gap: 2px 16px; padding: 12px; }
+    .floor .lastlot img { width: 200px; height: 148px; }
+    .floor .lastlot .ll-t { font-size: 20px; }
+  }
+  .ledger-wrap { flex: 1; min-height: 0; overflow: auto; border: 1px solid var(--line-2); background: #fff; }
+  /* the ledger keeps thumb · time · rail · looking-for · bid · settlement in
+     frame at every desktop width; paddle and call live in the detail row */
+  table.ledger { min-width: 0; font-size: 11px; }
+  table.ledger thead th { position: sticky; top: 0; background: #fff; z-index: 1; padding: 8px 8px 8px 10px; }
+  table.ledger td { padding: 8px 8px 8px 10px; }
+  table.ledger td:nth-child(6) { max-width: 150px; }
+  table.ledger th:nth-child(3), table.ledger td:nth-child(3),
+  table.ledger th:nth-child(5), table.ledger td:nth-child(5) { display: none; }
+
+  .ticker { flex: none; }
+  footer.site { flex: none; padding: 9px 0; }
+  table.ledger td { white-space: nowrap; }
+  table.ledger tr.detail td { white-space: normal; }
+  .sale-detail span { white-space: normal; }
+
+  /* narrower terminals shed chrome first — optional stats, tighter console */
+  @media (max-width: 1280px) {
+    .statbar .opt { display: none; }
+  }
+  /* short terminals (1024x600) compress the console so the action, the tape
+     and the honest fineprint all fit without reaching for the inner scroll */
+  @media (max-height: 700px) {
+    .console .bd { padding: 10px 12px; }
+    .console .hd { padding: 7px 12px; }
+    .console input[type=text] { padding: 8px 12px; font-size: 13px; }
+    .console .chips { margin-top: 8px; }
+    .console .actions { margin-top: 9px; }
+    .console .fineprint { font-size: 10.5px; margin-top: 8px; line-height: 1.45; }
+    .console-col > p.fineprint { display: none; }
+    .floorgrid .console-col { padding-top: 34px; }
+    .tape { font-size: 11px; max-height: 170px; }
+    .lastlot { padding: 8px 10px; margin-bottom: 8px; }
+    .lastlot img { width: 44px; height: 44px; }
+    .lastlot .ll-t { font-size: 13px; }
+  }
+  /* below 1400 the rail pill folds too — the bid column already names the
+     asset ("0.01 XLM") — so settlement stays in frame down to 1024 */
+  @media (max-width: 1400px) {
+    table.ledger th:nth-child(4), table.ledger td:nth-child(4) { display: none; }
+    table.ledger td:nth-child(6) { max-width: 110px; }
+  }
+  @media (max-width: 1560px) {
+    .floor .sub { font-size: 11px; }
+    .console .hd { font-size: 9.5px; letter-spacing: 0.1em; gap: 6px; }
+    .btn { padding: 10px 12px; font-size: 11px; }
+    .console input[type=text] { padding: 10px 12px; font-size: 13px; }
+    .console .bd { padding: 12px; }
+  }
+}
+
+@media (max-width: 720px) {
+  .wordmark { font-size: 36px; }
+  /* phones read receipts, not a compressed ledger table */
+  .ledger-wrap { display: none; }
+  .salecards { display: block; }
+  .sale-detail { gap: 14px; }
+  .lastlot { flex-wrap: wrap; gap: 10px 12px; }
+  .lastlot img { width: 48px; height: 48px; }
+  /* the hero lot is the first artwork a phone sees — a 48px stamp can't
+     carry it; give it a real plate with the meta beside it */
+  .hero-lot .lastlot img { width: 88px; height: 88px; }
+  .hero-lot .lastlot .ll-t { white-space: normal; }
+  .hero-lot .lastlot .ll-tag { font-size: 9px; }
+  .lastlot .ll-meta { flex: 1; }
+  .lastlot .ll-sold { flex-basis: 100%; margin-left: 0; text-align: left; font-size: 10px; white-space: normal; }
+  .console-lede { font-size: 12.5px; }
+  /* four suggestions, two by two — no stranded chip */
+  .chips { display: grid; grid-template-columns: 1fr 1fr; }
+}
+
+/* short phones: the whole console must clear the first viewport — the bid
+   is the product, it can't sit half-folded */
+@media (max-width: 1023px) {
+  /* the hero-lot already carries the newest lot above the console — the
+     floor's own copy would read the same work twice */
+  .floor .lastlot { display: none; }
+  .console .bd { padding: 12px; }
+  .console input[type=text] { padding: 10px 12px; font-size: 13px; }
+  .console .chips { margin-top: 8px; }
+  .console .actions { margin-top: 10px; }
+  .console .fineprint { font-size: 11.5px; margin-top: 8px; }
+}
+
+/* on phones the pitch line and optional stats yield their pixels to the
+   console — the action must fit the first screen */
+@media (max-width: 700px) {
+  .mast { padding: 10px 0 8px; }
+  .mast .wordmark { font-size: 30px; }
+  .statbar .row { padding: 6px 0; }
+  .hero-lot { margin-bottom: 10px; }
+  .mast .what { display: none; }
+  .statbar .opt { display: none; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.001s !important; transition-duration: 0.001s !important; }
+  /* staged reveals show their content immediately — delays are motion too */
+  .replay .rl { animation: none !important; opacity: 1; transform: none; }
+  .expand { animation: none !important; }
+  .btn.busy { animation: none !important; }
+  .tape .wire { animation: none !important; }
+  .ticker .rail { animation: none !important; flex-wrap: wrap; white-space: normal; gap: 6px 40px; }
 }
