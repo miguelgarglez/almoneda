@@ -525,7 +525,7 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
 
           {!showAll && sales.length > INITIAL_ROWS && (
             <button type="button" className="showall" onClick={() => setShowAll(true)}>
-              view all {count} sales ↓
+              view all {count + pending.length} sales ↓
             </button>
           )}
         </>
