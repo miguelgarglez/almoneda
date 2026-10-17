@@ -350,7 +350,14 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
   const newest = sales[0];
   const all = [...pending, ...sales];
   const visible = showAll ? all : all.slice(0, INITIAL_ROWS);
-  const toggle = (id: number | string) => setOpen((o) => (o === id ? null : id));
+  const toggle = (id: number | string) => {
+    const opening = open !== id;
+    setOpen((o) => (o === id ? null : id));
+    // the expanded receipt is taller than the ledger viewport often is —
+    // bring it into frame instead of clipping it at the boundary
+    if (opening)
+      setTimeout(() => document.querySelector("tr.detail, .salecard .sc-detail")?.scrollIntoView({ block: "nearest", behavior: "smooth" }), 380);
+  };
 
   return (
     <MotionConfig reducedMotion="user">

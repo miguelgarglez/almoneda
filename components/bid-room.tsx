@@ -79,9 +79,9 @@ const knock = () => {
   } catch {}
 };
 
-// The signature moment: an auction gavel swings down onto the winning lot at
-// the exact moment the facilitator confirms settlement — then the SOLD stamp
-// presses on and the receipt prints. Reduced-motion gets the stamp only.
+// The signature moment: an auction gavel swings down onto the winning lot's
+// edge — the house seal it strikes — the moment the facilitator confirms
+// settlement, then the SOLD stamp presses on. Reduced-motion gets the stamp.
 function GavelStrike({ onDone }: { onDone: () => void }) {
   return (
     <motion.div
@@ -91,6 +91,8 @@ function GavelStrike({ onDone }: { onDone: () => void }) {
       exit={{ opacity: 0 }}
       aria-hidden="true"
     >
+      <span className="impact-seal" />
+      <span className="impact-ring" />
       <motion.svg
         viewBox="0 0 96 96"
         className="gavel"
@@ -158,6 +160,19 @@ const tapeLine = (s: Step, i: number) => {
       </span>
     </div>
   );
+};
+
+// One plain-language stage for the whole settlement arc — the NDJSON tape
+// stays as the record underneath, but the visitor watches a status, not a log.
+const stageOf = (steps: Step[]) => {
+  const last = steps[steps.length - 1]?.step ?? "";
+  if (/delivered|recovered/.test(last)) return "sold — the lot is on its way to the floor";
+  if (/settled/.test(last)) return "the hammer fell — settling";
+  if (/hiccup/.test(last)) return "the rail hiccuped — the house runs the bid again";
+  if (/PAYMENT-SIGNATURE/.test(last)) return "awaiting settlement";
+  if (/signing/.test(last)) return "the agent signs the bid";
+  if (/402/.test(last)) return "the house named its price";
+  return "asking the house";
 };
 
 const LotCard = ({ l, sold, slam, n }: { l: Lot; sold?: boolean; slam?: boolean; n?: number }) => {
@@ -244,6 +259,15 @@ export default function BidRoom() {
   const [follow, setFollow] = useState(true);
   const tapeEnd = useRef<HTMLDivElement>(null);
   const consoleCol = useRef<HTMLElement | null>(null);
+  const wireStart = useRef<number>(0);
+  const [now, setNow] = useState(0);
+
+  // the stage line carries an honest elapsed clock while the wire is open
+  useEffect(() => {
+    if (!live) return;
+    const t = setInterval(() => setNow(Date.now()), 250);
+    return () => clearInterval(t);
+  }, [live]);
 
   // the haptics preference persists — stored once, honoured by every buzz
   useEffect(() => {
@@ -356,6 +380,8 @@ export default function BidRoom() {
       // event actually happens, not on a replay timer
       if (r.ok && (r.headers.get("content-type") || "").includes("ndjson") && r.body) {
         setLive(true);
+        wireStart.current = Date.now();
+        setNow(Date.now());
         const reader = r.body.getReader();
         const dec = new TextDecoder();
         let buf = "";
@@ -460,8 +486,7 @@ export default function BidRoom() {
       </div>
       <div className="bd">
         <p className="console-lede">
-          Try a house-funded search — the purse pays, no wallet needed. Your agent buys one paid
-          API response: artworks, provenance, and an on-chain receipt that lands on the floor.
+          Try a house-funded search — the purse pays, no wallet needed.
         </p>
         <label className="f-label" htmlFor="bid-query">what your agent needs</label>
         <input
@@ -495,14 +520,18 @@ export default function BidRoom() {
             browse free
           </button>
         </div>
-        <p className="fineprint">
-          One call buys <b>one API response</b>, not exclusive ownership — the works are public domain for
-          everyone. Sticker price $0.01; the house settles it on whichever testnet rail is funded (usually
-          Stellar XLM).{" "}
-          <button type="button" className="hapt" onClick={toggleHaptics} aria-pressed={haptics}>
-            haptics {haptics ? "on" : "off"}
-          </button>
-        </p>
+        <details className="about">
+          <summary>what the call buys · rails · haptics</summary>
+          <p className="fineprint">
+            One call buys <b>one paid API response</b> — artworks, provenance, and an on-chain receipt
+            that lands on the floor. Not exclusive ownership: the works are public domain for everyone.
+            Sticker price $0.01; the house settles it on whichever testnet rail is funded (usually
+            Stellar XLM).{" "}
+            <button type="button" className="hapt" onClick={toggleHaptics} aria-pressed={haptics}>
+              haptics {haptics ? "on" : "off"}
+            </button>
+          </p>
+        </details>
 
         <AnimatePresence>
           {res?.settlement && res.explorer_url && (
@@ -543,6 +572,13 @@ export default function BidRoom() {
         <div aria-live="polite">
         {(steps.length > 0 || res || freeLots || freeNote) && (
           <div className="tape">
+            {live && steps.length > 0 && (
+              <div className="stage" role="status">
+                <span className="st-dot" aria-hidden="true" />
+                <span className="st-word">{stageOf(steps)}</span>
+                <span className="st-elapsed">{((now - wireStart.current) / 1000).toFixed(0)}s on the wire</span>
+              </div>
+            )}
             {steps.map(tapeLine)}
             {live && <div className="ln"><span className="k">···</span><span className="wire">on the wire</span></div>}
             {res?.error && (
