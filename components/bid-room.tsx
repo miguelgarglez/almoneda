@@ -166,13 +166,20 @@ const tapeLine = (s: Step, i: number) => {
 // stays as the record underneath, but the visitor watches a status, not a log.
 const stageOf = (steps: Step[]) => {
   const last = steps[steps.length - 1]?.step ?? "";
+  const retried = steps.slice(0, -1).some((s) => /hiccup/.test(s.step));
   if (/delivered|recovered/.test(last)) return "sold — the lot is on its way to the floor";
   if (/settled/.test(last)) return "the hammer fell — settling";
   if (/hiccup/.test(last)) return "the rail hiccuped — the house runs the bid again";
-  if (/PAYMENT-SIGNATURE/.test(last)) return "awaiting settlement";
-  if (/signing/.test(last)) return "the agent signs the bid";
-  if (/402/.test(last)) return "the house named its price";
-  return "asking the house";
+  const phase = /PAYMENT-SIGNATURE/.test(last)
+    ? "awaiting settlement"
+    : /signing/.test(last)
+      ? "the agent signs the bid"
+      : /402/.test(last)
+        ? "the house named its price"
+        : "asking the house";
+  // after a hiccup the tape cycles through the early steps again — keep the
+  // visitor oriented: it's the same bid, second attempt
+  return retried ? `second attempt — ${phase}` : phase;
 };
 
 const LotCard = ({ l, sold, slam, n }: { l: Lot; sold?: boolean; slam?: boolean; n?: number }) => {
@@ -184,6 +191,9 @@ const LotCard = ({ l, sold, slam, n }: { l: Lot; sold?: boolean; slam?: boolean;
     <div className="lot" key={l.id}>
       {n != null && <span className="lotno">lot {String(n).padStart(2, "0")}</span>}
       {sold && <div className={`stamp-sold${slam ? " slam" : ""}`}>SOLD</div>}
+      {/* the seal the gavel struck stays pressed on the card's edge — the
+          strike leaves a mark on the catalogue object, not just a flash */}
+      {sold && <span className={`lot-seal${slam ? " slam" : ""}`} aria-hidden="true" />}
       {slam && !gavelGone && <GavelStrike onDone={() => setGavelGone(true)} />}
       {failed ? (
         <div className="lot-img-miss">

@@ -129,14 +129,8 @@ function SaleDetail({ s }: { s: Sale }) {
   const lots = s.lots?.length ? s.lots : s.lot_title ? [{ title: s.lot_title, object_url: s.lot_url ?? null }] : [];
   return (
     <>
-      <div className="replay">
-        <span className="rlab">receipt replay</span>
-        <div className="rl" style={{ animationDelay: "0.1s" }}>agent asked for “{s.query_hint || s.endpoint}”</div>
-        <div className="rl" style={{ animationDelay: "0.55s" }}>the desk answered 402 — payment required</div>
-        <div className="rl" style={{ animationDelay: "1.0s" }}>paddle {short(s.payer)} signed · paid {railAmt(s)}</div>
-        <div className="rl" style={{ animationDelay: "1.45s" }}>settled on {s.network}{s.tx ? ` — tx ${short(s.tx)}` : ""}</div>
-        <div className="rl" style={{ animationDelay: "1.9s" }}>delivered{s.latency_ms != null ? ` in ${(s.latency_ms / 1000).toFixed(1)}s` : ""}{s.artwork_ids?.length ? ` · ${s.artwork_ids.length} lot${s.artwork_ids.length === 1 ? "" : "s"}` : ""}</div>
-      </div>
+      {/* the audit fields come first — tx, duration and hammer time read
+          together before the replay's supplementary trace */}
       <div className="sale-detail">
         <div className="cell">
           <span className="lab">{lots.length === 1 ? "lot won" : `lots won · ${lots.length}`}</span>
@@ -215,6 +209,14 @@ function SaleDetail({ s }: { s: Sale }) {
             </span>
           </div>
         )}
+      </div>
+      <div className="replay">
+        <span className="rlab">receipt replay</span>
+        <div className="rl" style={{ animationDelay: "0.1s" }}>agent asked for “{s.query_hint || s.endpoint}”</div>
+        <div className="rl" style={{ animationDelay: "0.55s" }}>the desk answered 402 — payment required</div>
+        <div className="rl" style={{ animationDelay: "1.0s" }}>paddle {short(s.payer)} signed · paid {railAmt(s)}</div>
+        <div className="rl" style={{ animationDelay: "1.45s" }}>settled on {s.network}{s.tx ? ` — tx ${short(s.tx)}` : ""}</div>
+        <div className="rl" style={{ animationDelay: "1.9s" }}>delivered{s.latency_ms != null ? ` in ${(s.latency_ms / 1000).toFixed(1)}s` : ""}{s.artwork_ids?.length ? ` · ${s.artwork_ids.length} lot${s.artwork_ids.length === 1 ? "" : "s"}` : ""}</div>
       </div>
     </>
   );
@@ -356,18 +358,18 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
     // the expanded receipt is taller than the ledger viewport often is —
     // bring it into frame instead of clipping it at the boundary
     if (opening)
-      setTimeout(() => document.querySelector("tr.detail, .salecard .sc-detail")?.scrollIntoView({ block: "nearest", behavior: "smooth" }), 380);
+      setTimeout(() => document.querySelector("tr.detail, .salecard .sc-detail")?.scrollIntoView({ block: "nearest", behavior: "smooth" }), 150);
   };
 
   return (
     <MotionConfig reducedMotion="user">
     <section className="floor" id="floor">
       <h2>
-        The floor · <Count value={count + pending.length} /> {count + pending.length === 1 ? "lot" : "lots"} sold
+        The floor · <Count value={count} /> {count === 1 ? "sale" : "sales"}
       </h2>
       <p className="sub">
         <span className={`dot ${live ? "on" : ""}`} style={{ display: "inline-block", marginRight: 8 }} />
-        Every row is a settled on-chain payment — click one to open the catalogue entry. Testnet money, real protocol.
+        Each row is one settled call — a call can carry several lots. Click a row for its catalogue entry. Testnet money, real protocol.
       </p>
 
       <LastLot sale={newest ?? null} />
@@ -411,7 +413,7 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
                       role="button"
                       tabIndex={s.pending ? -1 : 0}
                       aria-expanded={open === s.id}
-                      className={s.pending ? "pending" : undefined}
+                      className={s.pending ? "pending" : flashTx === s.tx ? "landed" : undefined}
                       style={flashTx === s.tx ? { backgroundColor: "rgba(160,35,24,0.06)" } : undefined}
                     >
                       <td>
@@ -532,7 +534,7 @@ export default function FloorFeed({ initial, total, corpusDown }: { initial: Sal
 
           {!showAll && sales.length > INITIAL_ROWS && (
             <button type="button" className="showall" onClick={() => setShowAll(true)}>
-              view all {count + pending.length} sales ↓
+              view all {count + pending.length} entries ↓
             </button>
           )}
         </>

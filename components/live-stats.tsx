@@ -38,10 +38,14 @@ export default function LiveStats({ initialTotal, initialLast }: { initialTotal:
       if (d.tx) setLast({ query_hint: d.query ?? null, endpoint: "text", amount: d.amount ?? "100000", network: d.network ?? "stellar:testnet" });
       tick();
     };
+    // the count itself only moves when the row lands on the floor — the
+    // pending row is the immediate confirmation, the tick is the ceremony
     window.addEventListener("almoneda:sale", onSale);
+    window.addEventListener("almoneda:sale-shown", tick);
     const t = setInterval(tick, 30_000);
     return () => {
       window.removeEventListener("almoneda:sale", onSale);
+      window.removeEventListener("almoneda:sale-shown", tick);
       clearInterval(t);
     };
   }, []);
@@ -55,7 +59,7 @@ export default function LiveStats({ initialTotal, initialLast }: { initialTotal:
   return (
     <>
       <span>
-        <b>{total + pendingN}</b> lots sold
+        <b>{total}</b> {total === 1 ? "sale" : "sales"} settled{pendingN > 0 ? ` · ${pendingN} landing` : ""}
       </span>
       {last && (
         <span className="hammer">
