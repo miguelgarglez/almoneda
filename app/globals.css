@@ -66,7 +66,7 @@ img { display: block; max-width: 100%; }
 @media (max-width: 760px) {
   .statbar .hammer { display: none; }
   /* touch targets: chips, toggles, copy and strip items earn 44px */
-  .chips button { padding: 10px 14px; font-size: 12px; }
+  .chips button { padding: 10px 14px; font-size: 12px; min-height: 44px; }
   .hapt { padding: 8px 12px; font-size: 11px; }
   .copybtn { padding: 8px 12px; }
   .tick-item { padding: 10px 0; }
@@ -115,8 +115,6 @@ img { display: block; max-width: 100%; }
   .lastlot { flex-wrap: wrap; }
   .lastlot .ll-sold { flex-basis: 100%; margin-left: 0; text-align: left; padding-left: 78px; }
 }
-@media (min-width: 1281px) { .floor .lastlot .ll-sold { flex-basis: auto; margin-left: auto; text-align: right; padding-left: 0; } }
-
 /* pending rows: the wire reports settlement before the ledger's fetch
    returns — the row holds the table's shape until the real one replaces it */
 @keyframes rowArrive { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: none; } }
@@ -375,7 +373,7 @@ table.ledger .mono { font-variant-numeric: tabular-nums; }
 table.ledger tr.detail td { cursor: default; background: #fff; }
 table.ledger tr.detail td:hover { background: #fff; }
 table.ledger .lthumb { width: 34px; height: 34px; object-fit: cover; border: 1px solid var(--line-2); }
-.sale-detail { display: flex; gap: 24px; flex-wrap: wrap; padding: 6px 0 10px; font-size: 11.5px; }
+.sale-detail { display: flex; gap: 28px; flex-wrap: wrap; padding: 8px 0 12px; font-size: 12.5px; }
 .sale-detail .cell { display: grid; gap: 2px; }
 .sale-detail .lab { font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); }
 .sale-detail a { color: var(--usdc); }
@@ -431,7 +429,7 @@ table.ledger .lthumb { width: 34px; height: 34px; object-fit: cover; border: 1px
 
 /* receipt replay: the expanded ledger row re-runs its settlement from the
    recorded fields — a replay of what actually happened, labeled as such */
-.replay { border-top: 1px dashed var(--line-2); margin-bottom: 8px; padding: 8px 0 2px; font-size: 11.5px; }
+.replay { border-top: 1px dashed var(--line-2); margin-bottom: 8px; padding: 8px 0 2px; font-size: 12.5px; }
 .replay .rlab { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--gilt); margin-bottom: 4px; }
 .replay .rl { opacity: 0; transform: translateY(4px); animation: replayIn 0.35s var(--ease-out) forwards; color: var(--ink-2); }
 .replay .rl::before { content: "› "; color: var(--ink-3); }
@@ -537,8 +535,8 @@ footer.site .row { display: flex; justify-content: space-between; gap: 20px; fle
   }
   .floorgrid > * { min-height: 0; min-width: 0; }
   .floorgrid .console-col {
-    order: 0; display: flex; flex-direction: column;
-    min-height: 0; overflow-y: auto; padding-top: 13px;
+    order: 0; display: flex; flex-direction: column; justify-content: center;
+    min-height: 0; overflow-y: auto; padding: 13px 0;
   }
   /* the console is the one live instrument on the floor — the gilt rule and
      lifted edge mark it as the thing to touch first */
@@ -548,20 +546,20 @@ footer.site .row { display: flex; justify-content: space-between; gap: 20px; fle
   .floor h2 { font-size: 20px; }
   .floor .sub { font-size: 12px; margin-bottom: 10px; }
   .floor .lastlot { flex: none; }
-  /* the opening focal point: the newest lot reads at catalogue scale */
-  .floor .lastlot { align-items: stretch; padding: 12px; }
-  .floor .lastlot img { width: 228px; height: 168px; }
-  .floor .lastlot .ll-meta { align-self: center; }
-  .floor .lastlot .ll-t { font-size: 20px; white-space: normal; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
-  .floor .lastlot .ll-a { font-size: 13.5px; }
-  .floor .lastlot .ll-sold { align-self: center; }
-  /* 1024–1280: plate left, identity to its right, settlement under the
-     identity — the catalogue label composition, no dead space beside art */
+  /* the opening focal point: the newest lot reads as a catalogue label —
+     plate left at real scale, title set like a heading, settlement under
+     the identity — at every terminal width */
+  .floor .lastlot { display: grid; grid-template-columns: 300px 1fr; gap: 2px 18px; align-items: center; padding: 14px; }
+  .floor .lastlot img { width: 300px; height: 222px; grid-row: 1 / 3; }
+  .floor .lastlot .ll-meta { align-self: end; }
+  .floor .lastlot .ll-t { font-size: 23px; white-space: normal; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+  .floor .lastlot .ll-a { font-size: 14px; }
+  .floor .lastlot .ll-sold { grid-column: 2; flex-basis: auto; margin-left: 0; padding-left: 0; align-self: start; text-align: left; white-space: normal; }
+  /* 1024–1280: the same label composition with a tighter plate */
   @media (max-width: 1280px) {
-    .floor .lastlot { display: grid; grid-template-columns: 200px 1fr; gap: 2px 16px; align-items: center; }
-    .floor .lastlot img { width: 200px; height: 148px; grid-row: 1 / 3; }
-    .floor .lastlot .ll-meta { align-self: end; }
-    .floor .lastlot .ll-sold { grid-column: 2; flex-basis: auto; margin-left: 0; padding-left: 0; align-self: start; text-align: left; white-space: normal; }
+    .floor .lastlot { grid-template-columns: 200px 1fr; gap: 2px 16px; padding: 12px; }
+    .floor .lastlot img { width: 200px; height: 148px; }
+    .floor .lastlot .ll-t { font-size: 20px; }
   }
   .ledger-wrap { flex: 1; min-height: 0; overflow: auto; border: 1px solid var(--line-2); background: #fff; }
   /* the ledger keeps thumb · time · rail · looking-for · bid · settlement in
@@ -642,6 +640,10 @@ footer.site .row { display: flex; justify-content: space-between; gap: 20px; fle
 /* on phones the pitch line and optional stats yield their pixels to the
    console — the action must fit the first screen */
 @media (max-width: 700px) {
+  .mast { padding: 10px 0 8px; }
+  .mast .wordmark { font-size: 30px; }
+  .statbar .row { padding: 6px 0; }
+  .hero-lot { margin-bottom: 10px; }
   .mast .what { display: none; }
   .statbar .opt { display: none; }
 }

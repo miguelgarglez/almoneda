@@ -96,8 +96,8 @@ export default function LastLot({ sale, listen }: { sale: Lot | null; listen?: b
         {s.tx ? (
           <>
             {" "}·{" "}
-            <a href={explorer(s)} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
-              {short(s.tx)} ↗
+            <a href={explorer(s)} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} style={{ whiteSpace: "nowrap" }}>
+              {short(s.tx)}&nbsp;↗
             </a>
           </>
         ) : null}

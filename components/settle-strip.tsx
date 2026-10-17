@@ -48,10 +48,25 @@ export default function SettleStrip({ initial }: { initial: StripSale[] }) {
       if (resume) clearTimeout(resume);
       resume = setTimeout(() => setPaused(false), 5000);
     };
+    // the strip quiets for the whole settlement arc — from the bid going on
+    // the wire to a few beats after the receipt lands — so the strike owns
+    // the screen instead of sharing it with a moving ticker
+    const onSettling = () => {
+      setPaused(true);
+      if (resume) clearTimeout(resume);
+    };
+    const onSettlingEnd = () => {
+      if (resume) clearTimeout(resume);
+      resume = setTimeout(() => setPaused(false), 7000);
+    };
     window.addEventListener("almoneda:sale", onSale);
+    window.addEventListener("almoneda:settling", onSettling);
+    window.addEventListener("almoneda:settling-end", onSettlingEnd);
     const t = setInterval(tick, 15_000);
     return () => {
       window.removeEventListener("almoneda:sale", onSale);
+      window.removeEventListener("almoneda:settling", onSettling);
+      window.removeEventListener("almoneda:settling-end", onSettlingEnd);
       clearInterval(t);
       if (resume) clearTimeout(resume);
     };

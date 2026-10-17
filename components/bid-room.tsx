@@ -99,15 +99,28 @@ function GavelStrike({ onDone }: { onDone: () => void }) {
         transition={{ duration: 0.9, times: [0, 0.28, 0.52, 0.68, 1], ease: ["easeOut", "easeIn", "easeOut", "easeIn"] }}
         onAnimationComplete={onDone}
       >
-        {/* a clerk's desk gavel, drawn solid — the head is the mallet barrel
-            with two caps; the handle angles off down-right */}
+        {/* a clerk's desk gavel — turned walnut with brass bands, drawn with
+            the same restraint as the catalogue type around it */}
+        <defs>
+          <linearGradient id="gv-wood" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#4a4636" />
+            <stop offset="0.42" stopColor="#23241c" />
+            <stop offset="1" stopColor="#12140e" />
+          </linearGradient>
+          <linearGradient id="gv-band" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#d4b05c" />
+            <stop offset="0.5" stopColor="#9c7c33" />
+            <stop offset="1" stopColor="#63501f" />
+          </linearGradient>
+        </defs>
         <g transform="rotate(24 44 30)">
-          <rect x="14" y="14" width="60" height="22" rx="4" fill="var(--ink)" />
-          <rect x="10" y="11" width="12" height="28" rx="5" fill="var(--ink)" />
-          <rect x="66" y="11" width="12" height="28" rx="5" fill="var(--ink)" />
-          <rect x="22" y="14" width="6" height="22" fill="var(--sold)" />
-          <rect x="60" y="14" width="6" height="22" fill="var(--sold)" />
-          <rect x="38" y="34" width="12" height="56" rx="5" fill="var(--ink)" />
+          <rect x="14" y="14" width="60" height="22" rx="4" fill="url(#gv-wood)" />
+          <rect x="10" y="11" width="12" height="28" rx="5" fill="url(#gv-wood)" />
+          <rect x="66" y="11" width="12" height="28" rx="5" fill="url(#gv-wood)" />
+          <rect x="22" y="14" width="6" height="22" fill="url(#gv-band)" />
+          <rect x="60" y="14" width="6" height="22" fill="url(#gv-band)" />
+          <rect x="38" y="34" width="12" height="56" rx="5" fill="url(#gv-wood)" />
+          <rect x="38" y="34" width="3" height="56" rx="1.5" fill="#5a5644" opacity="0.55" />
         </g>
       </motion.svg>
     </motion.div>
@@ -292,9 +305,39 @@ export default function BidRoom() {
     else el?.scrollIntoView({ block: "nearest", behavior: "auto" });
   }, [steps, res, freeNote, freeLots, follow]);
 
+  // the strike carries the work into the ledger: once the hammer lands, a
+  // clone of the winning lot travels to the pending row's thumbnail — one
+  // directed motion instead of independent celebrations on two sides
+  const flyLot = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const from = document.querySelector<HTMLElement>(".results .lot:first-child img");
+    const to = document.querySelector<HTMLElement>(".ledger tbody tr.pending .lthumb");
+    if (!from || !to) return;
+    const a = from.getBoundingClientRect();
+    const b = to.getBoundingClientRect();
+    if (!a.width || !b.width) return;
+    const c = from.cloneNode() as HTMLElement;
+    Object.assign(c.style, {
+      position: "fixed", left: `${a.left}px`, top: `${a.top}px`,
+      width: `${a.width}px`, height: `${a.height}px`, objectFit: "cover",
+      zIndex: "90", margin: "0", pointerEvents: "none", transformOrigin: "0 0",
+      boxShadow: "0 8px 24px rgba(30,32,26,0.28)", border: "1px solid var(--line-2)",
+    });
+    document.body.appendChild(c);
+    const anim = c.animate(
+      [
+        { transform: "translate(0px, 0px) scale(1)", opacity: 1 },
+        { transform: `translate(${b.left - a.left}px, ${b.top - a.top}px) scale(${b.width / a.width}, ${b.height / a.height})`, opacity: 0.92 },
+      ],
+      { duration: 560, easing: "cubic-bezier(0.22, 0.9, 0.3, 1)", fill: "forwards" }
+    );
+    anim.onfinish = () => c.remove();
+  };
+
   const bid = async () => {
     buzz("medium");
     wakeAudio();
+    window.dispatchEvent(new CustomEvent("almoneda:settling"));
     setBusy("bid");
     setRes(null);
     setSteps([]);
@@ -324,28 +367,26 @@ export default function BidRoom() {
             else if (m.type === "result") {
               setRes(m);
               if (m.settlement?.transaction) {
-                // the gavel falls when the facilitator confirms — impact at
-                // ~470ms into the swing, then the floor learns the tx
+                // one settlement event, one consequence: the pin, the
+                // counters and the ledger's pending row all move on the same
+                // beat; the gavel lands at ~470ms and the work then travels
+                // to its public row
+                window.dispatchEvent(
+                  new CustomEvent("almoneda:sale", {
+                    detail: {
+                      tx: m.settlement.transaction,
+                      network: m.settlement.network,
+                      amount: m.amount ?? null,
+                      query: q.trim() || null,
+                      titles: (m.lots ?? []).map((l: Lot) => l.title),
+                      thumb: m.lots?.[0]?.image?.thumb ?? null,
+                    },
+                  })
+                );
                 setSlam((s) => s + 1);
                 setTimeout(() => { buzz("heavy"); knock(); }, 470);
+                setTimeout(() => flyLot(), 720);
                 setTimeout(() => buzz("success"), 900);
-                setTimeout(() => {
-                  // the floor inserts a pending row from this detail the
-                  // moment the hammer lands — then reconciles it against the
-                  // real ledger row when the fetch returns it
-                  window.dispatchEvent(
-                    new CustomEvent("almoneda:sale", {
-                      detail: {
-                        tx: m.settlement.transaction,
-                        network: m.settlement.network,
-                        amount: m.amount ?? null,
-                        query: q.trim() || null,
-                        titles: (m.lots ?? []).map((l: Lot) => l.title),
-                        thumb: m.lots?.[0]?.image?.thumb ?? null,
-                      },
-                    })
-                  );
-                }, 1600);
               }
             } else if (m.type === "error") {
               buzz("error");
@@ -376,6 +417,7 @@ export default function BidRoom() {
     } finally {
       setBusy(null);
       setLive(false);
+      window.dispatchEvent(new CustomEvent("almoneda:settling-end"));
     }
   };
 
@@ -429,7 +471,7 @@ export default function BidRoom() {
           value={q}
           onChange={(e) => setQ(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && !busy && bid()}
-          placeholder='describe the work — e.g. "a storm at sea"'
+          placeholder='e.g. "a storm at sea"'
           aria-label="search query"
         />
         <div className="chips" aria-label="example queries">
